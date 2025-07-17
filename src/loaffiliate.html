@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affiliates - Special Olympics Sarawak</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -248,7 +248,7 @@
             <!-- Placeholder card for adding affiliates -->
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/src/SO Bintulu chapter.png" alt="SO Bintulu Chapter" />
+                    <img src="/assets/images/SO_Bintulu_chapter.png" alt="SO Bintulu Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Bintulu Chapter</h3>
@@ -259,7 +259,7 @@
             
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/src/SO Kuching chapter.png" alt="SO Kuching Chapter" />
+                    <img src="/assets/images/SO_Kuching_chapter.png" alt="SO Kuching Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Kuching Chapter</h3>
@@ -270,7 +270,7 @@
             
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/src/SO Miri chapter.png" alt="SO Miri Chapter" />
+                    <img src="/assets/images/SO_Miri_chapter.png" alt="SO Miri Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Miri Chapter</h3>
@@ -290,7 +290,7 @@
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="script.js"></script>
+    <script src="/scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -301,14 +301,14 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', 'components/top-nav.html');
-      loadHTML('socmed-bar-container', 'components/socmed-bar.html');
-      loadHTML('bottom-nav-container', 'components/bottom-nav.html');
-      loadHTML('site-footer-container', 'components/site-footer.html');
-      loadHTML('chatbot-container', 'components/chatbot.html');
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('components/bottom-nav.html')
+      fetch('/src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;
