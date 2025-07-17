@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Special Olympics</title>
+    
+    <!--Local and Global CSS---->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #ca3441 0%, #db2727 100%);
+            color: white;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .athlete-card {
+            border-bottom: 5px solid #f59e0b;
+        }
+        
+        .coach-card {
+            border-bottom: 5px solid #10b981;
+        }
+        
+        .volunteer-card {
+            border-bottom: 5px solid #c41926;
+        }
+        
+        .btn-primary {
+            background-color: #c41926;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e94e1b;
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #c41926, #e94e1b, #f9a01b);
+            margin: 4rem 0;
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid #c41926;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-28 md:py-36" style="margin-top:48px;">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-['Poppins']">Join Special Olympics</h1>
+            <p class="text-xl max-w-2xl mx-auto">Be part of the movement that changes lives through the power of sports</p>
+        </div>
+    </section>
+
+    <!-- Join Cards Section -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">How You Can Get Involved</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Athlete Card -->
+                <div class="card athlete-card bg-white">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4f19fe55-0c37-47f1-9bb2-e0dbfb26024b.png" alt="Group of Special Olympics athletes celebrating together on a track field, wearing medals and smiling" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Become an Athlete</h3>
+                        <p class="mb-6 text-gray-600">Join our community of athletes and experience the joy of competing while making lifelong friends.</p>
+                        <a href="#" class="btn-primary text-white py-2 px-6 rounded-lg inline-block font-semibold">Join as Athlete</a>
+                    </div>
+                </div>
+                
+                <!-- Coach Card -->
+                <div class="card coach-card bg-white">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/53554ed9-ab68-4e3f-b2b0-862a9a500cf0.png" alt="Coach working with Special Olympics athlete on basketball skills in a gym" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Become a Coach</h3>
+                        <p class="mb-6 text-gray-600">Inspire athletes by sharing your sports knowledge and passion. Training and resources provided.</p>
+                        <a href="#" class="btn-primary text-white py-2 px-6 rounded-lg inline-block font-semibold">Join as Coach</a>
+                    </div>
+                </div>
+                
+                <!-- Volunteer Card -->
+                <div class="card volunteer-card bg-white">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/48041756-6cfa-47a5-9840-6b49d9675379.png" alt="Volunteers cheering at Special Olympics event, wearing matching shirts" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Become a Volunteer</h3>
+                        <p class="mb-6 text-gray-600">Make a difference by supporting our athletes, events, and programs. All skill levels welcome.</p>
+                        <a href="#" class="btn-primary text-white py-2 px-6 rounded-lg inline-block font-semibold">Join as Volunteer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Join Special Olympics?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Skill Development</h3>
+                    <p class="text-gray-600">Develop athletic skills, confidence, and independence through sports training and competition.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Community</h3>
+                    <p class="text-gray-600">Join a welcoming community of athletes, families, volunteers, and supporters.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Joy & Celebration</h3>
+                    <p class="text-gray-600">Experience the spirit of sportsmanship, achievement, and personal best.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Health Benefits</h3>
+                    <p class="text-gray-600">Improved physical fitness, emotional well-being, and quality of life.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Leadership</h3>
+                    <p class="text-gray-600">Opportunities to develop leadership skills and take on roles in athlete leadership programs.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Global Network</h3>
+                    <p class="text-gray-600">Be part of a worldwide movement in over 190 countries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', 'components/top-nav.html');
+      loadHTML('socmed-bar-container', 'components/socmed-bar.html');
+      loadHTML('bottom-nav-container', 'components/bottom-nav.html');
+      loadHTML('site-footer-container', 'components/site-footer.html');
+      loadHTML('chatbot-container', 'components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+</body>
+</html>

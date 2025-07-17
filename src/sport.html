@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Olympics Sports</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Space for existing header */
+        .header-space {
+            height: 80px;
+            background: transparent;
+        }
+
+        /* Space for existing footer */
+        .footer-space {
+            height: 100px;
+            background: transparent;
+        }
+
+        /* Main styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            overflow-y: auto;
+            min-height: 100vh;
+            /* Ensure scrolling is possible */
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://scontent.fkch1-2.fna.fbcdn.net/v/t39.30808-6/511988408_122222357150179846_149998355912681159_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=EctB2Tbo5c0Q7kNvwECHR8Q&_nc_oc=Adm6IipsUjzwct8lpjXFG4ncrzlVizOOGXUaGZ1rKkXbTpR_4nax2VJWnu1iKZVTZPZckRx_US8ueaAnI1EiioBu&_nc_zt=23&_nc_ht=scontent.fkch1-2.fna&_nc_gid=KzM3yLZ_-Zatz0IldHJ8tA&oh=00_AfRYbCBgJrr1V37-zmnZ2BcTgBwxUBqw8WeKcYOF2OGzsA&oe=687E30AB') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .about-section {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: #e63946;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .sports-container {
+            padding: 60px 20px;
+            background-color: #f1f1f1;
+        }
+
+        .sports-container h2 {
+            text-align: center;
+            color: #e63946;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sport-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(230, 57, 70, 0.2);
+        }
+
+        .card-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .sport-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            color: #e63946;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .sports-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .sports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <section class="hero">
+        <img src="/src/master logo front.png" alt="Special Olympics Logo - torch with flame inside circular logo with red and white colors" />
+        <h1>Special Olympics Sarawak Sports</h1>
+        <p>The most inclusive sports organization in the world, transforming lives through the power of sports</p>
+    </section>
+
+    <section class="about-section">
+        <h2>About Sport</h2>
+        <p>Special Olympics is a global movement that unleashes the human spirit through the transformative power and joy of sports every day around the world. Through programming in sports, health, education, and community building, Special Olympics is changing the lives of people with intellectual disabilities.</p>
+        <p>Athletes train year-round in Olympic-type sports to compete in local and international events, building confidence, improving physical fitness, and creating lifelong friendships.</p>
+    </section>
+
+    <section class="sports-container">
+        <h2>Our Sports</h2>
+        <div class="sports-grid">
+            <!-- Athletics -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://akm-img-a-in.tosshub.com/sites/media2/indiatoday/images/stories/2015July/special-olympic-5_072515021147.jpg" alt="Athletics track with runners competing at Special Olympics event" />
+                </div>
+                <div class="card-content">
+                    <h3>Athletics</h3>
+                    <p>Track and field events including sprints, relays, jumps and throws</p>
+                </div>
+            </div>
+
+            <!-- Badminton -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://www.businesstoday.com.my/wp-content/uploads/2025/05/badminton.png" alt="Special Olympics badminton player in mid-swing during competition" />
+                </div>
+                <div class="card-content">
+                    <h3>Badminton</h3>
+                    <p>Fast-paced racquet sport played individually or in doubles</p>
+                </div>
+            </div>
+
+            <!-- Basketball -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://media.buletintv3.my/2022/10/BUG-TV3-45.jpg" alt="Special Olympics basketball team celebrating after scoring a basket" />
+                </div>
+                <div class="card-content">
+                    <h3>Basketball</h3>
+                    <p>Team sport with dribbling, passing and shooting skills</p>
+                </div>
+            </div>
+
+            <!-- Bocce -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://www.weekly-echo.com/wp-content/uploads/2023/06/special-olympics-bocce-nurul-1.jpg" alt="Special Olympics athletes playing bocce on a court" />
+                </div>
+                <div class="card-content">
+                    <h3>Bocce</h3>
+                    <p>Traditional precision ball sport with strategy and skill</p>
+                </div>
+            </div>
+
+            <!-- Bowling -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://assets.berlin2023.org/dims4/default/4d31575/2147483647/strip/true/crop/2000x1125+0+104/resize/1067x600!/quality/90/?url=http%3A%2F%2Fberlin-2023-brightspot.s3.us-east-1.amazonaws.com%2F5a%2F05%2Fa2eb15dd4949aca3b9528a05bd1b%2Fbowling-session-02-18032019-sowg-photo-011-2.jpg" alt="Special Olympics bowler celebrating strike in bowling alley" />
+                </div>
+                <div class="card-content">
+                    <h3>Bowling</h3>
+                    <p>Popular sport combining fun and skill with lane strategy</p>
+                </div>
+            </div>
+
+            <!-- Floorball -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://www.specialolympicsmalaysia.org/images/FIH%20Hockey/FIH-SOM%20FIH%20ID-Hockey2.png" alt="Floorball player in Special Olympics competition mid-shot" />
+                </div>
+                <div class="card-content">
+                    <h3>Floorball</h3>
+                    <p>Fast indoor team sport similar to floor hockey</p>
+                </div>
+            </div>
+
+            <!-- Football -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://jpwpl.gov.my/sanasini/wp-content/uploads/2017/11/olympiad-smklajau-768x448.jpg" alt="Special Olympics football players during match action" />
+                </div>
+                <div class="card-content">
+                    <h3>Football</h3>
+                    <p>The world's most popular sport</p>
+                </div>
+            </div>
+
+            <!-- Judo -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://placehold.co/600x400" alt="Judo competitors in Special Olympics performing a throw" />
+                </div>
+                <div class="card-content">
+                    <h3>Judo</h3>
+                    <p>Martial art emphasizing throws and grappling</p>
+                </div>
+            </div>
+
+            <!-- Tennis -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://placehold.co/600x400" alt="Special Olympics tennis player serving during match" />
+                </div>
+                <div class="card-content">
+                    <h3>Tennis</h3>
+                    <p>Individual or doubles sport played with racquets</p>
+                </div>
+            </div>
+
+            <!-- Table Tennis -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://placehold.co/600x400" alt="Close-up of Special Olympics table tennis match" />
+                </div>
+                <div class="card-content">
+                    <h3>Table Tennis</h3>
+                    <p>Fast-paced paddle sport requiring quick reflexes</p>
+                </div>
+            </div>
+
+            <!-- Swimming -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://placehold.co/600x400" alt="Special Olympics swimmer diving into pool during competition" />
+                </div>
+                <div class="card-content">
+                    <h3>Swimming</h3>
+                    <p>Individual and relay events in various strokes</p>
+                </div>
+            </div>
+
+            <!-- Netball -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://placehold.co/600x400" alt="Special Olympics netball players during game action" />
+                </div>
+                <div class="card-content">
+                    <h3>Netball</h3>
+                    <p>Team sport similar to basketball with no dribbling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-space"></div>
+
+<div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', 'components/top-nav.html');
+      loadHTML('socmed-bar-container', 'components/socmed-bar.html');
+      loadHTML('bottom-nav-container', 'components/bottom-nav.html');
+      loadHTML('site-footer-container', 'components/site-footer.html');
+      loadHTML('chatbot-container', 'components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+
+    <script>
+        // Add hover effect class to all sport cards
+        const sportCards = document.querySelectorAll('.sport-card');
+        
+        sportCards.forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.boxShadow = '0 10px 20px rgba(230, 57, 70, 0.3)';
+            });
+            
+            card.addEventListener('mouseout', () => {
+                card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>
