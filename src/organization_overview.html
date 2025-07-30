@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be In Touch With Us - Special Olympics</title>
+    <style>
+        /* Space for existing header */
+        .header-space {
+            height: 100px; /* Adjust based on your header height */
+        }
+
+        /* Space for existing footer */
+        .footer-space {
+            height: 80px; /* Adjust based on your footer height */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #E31937; /* Special Olympics red */
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #E31937;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-affiliate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-affiliate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .main-affiliate:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #E31937;
+        }
+
+        .affiliate-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .main-affiliate:hover .affiliate-logo {
+            transform: scale(1.05);
+        }
+
+        .affiliate-name {
+            color: #E31937;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .contact-info {
+            text-align: center;
+            width: 100%;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .contact-item:hover {
+            background: rgba(227, 25, 55, 0.1);
+        }
+
+        .contact-item:active {
+            transform: scale(0.98);
+        }
+
+        .contact-item.copied:after {
+            content: 'Copied!';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #E31937;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            animation: fadeOut 1.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .contact-label {
+            font-weight: bold;
+            color: #E31937;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .sub-affiliates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .sub-affiliate {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sub-affiliate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .sub-affiliate:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #E31937;
+        }
+
+        .sub-affiliate-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin: 0 auto 15px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .sub-affiliate:hover .sub-affiliate-logo {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .sub-affiliate-name {
+            color: #E31937;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .sub-contact-info {
+            text-align: center;
+        }
+
+        .sub-contact-item {
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .sub-contact-item:hover {
+            background: rgba(227, 25, 55, 0.08);
+        }
+
+        .sub-contact-item:active {
+            transform: scale(0.97);
+        }
+
+        .sub-contact-item.copied:after {
+            content: 'Copied!';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #E31937;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            animation: fadeOut 1.5s forwards;
+        }
+
+        .sub-contact-label {
+            font-weight: bold;
+            color: #E31937;
+            margin-bottom: 3px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .sub-contact-value {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .sub-affiliates {
+                flex-direction: column;
+            }
+            
+            .sub-affiliate {
+                min-width: 100%;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <div class="contact-container">
+        <h1 class="page-title">Be In Touch With Us</h1>
+        
+        <!-- Main Affiliate -->
+        <div class="main-affiliate">
+            <img src="https://www.specialolympics.org/assets/logos/logo@2x.png" alt="Special Olympics International Logo" class="affiliate-logo">
+            <h2 class="affiliate-name">Special Olympics International</h2>
+            <div class="contact-info">
+                <div class="contact-item" onclick="copyToClipboard(this, '1133 19th Street NW, Washington, DC 20036')">
+                    <div class="contact-label">Address</div>
+                    <div class="contact-value">1133 19th Street NW, Washington, DC 20036</div>
+                </div>
+                <div class="contact-item" onclick="copyToClipboard(this, '+1 (202) 628-3630')">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">+1 (202) 628-3630</div>
+                </div>
+                <div class="contact-item" onclick="copyToClipboard(this, '+1 (202) 824-0200')">
+                    <div class="contact-label">Fax</div>
+                    <div class="contact-value">+1 (202) 824-0200</div>
+                </div>
+                <div class="contact-item" onclick="copyToClipboard(this, 'info@specialolympics.org')">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">info@specialolympics.org</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sub Affiliates -->
+        <div class="sub-affiliates">
+            <!-- Sub Affiliate 1 -->
+            <div class="sub-affiliate">
+                <img src="https://www.specialolympics.org/assets/logos/logo@2x.png" alt="Special Olympics North America Logo" class="sub-affiliate-logo">
+                <h3 class="sub-affiliate-name">Special Olympics North America</h3>
+                <div class="sub-contact-info">
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '1133 19th Street NW, Washington, DC 20036')">
+                        <div class="sub-contact-label">Address</div>
+                        <div class="sub-contact-value">1133 19th Street NW, Washington, DC 20036</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+1 (202) 628-3630')">
+                        <div class="sub-contact-label">Phone</div>
+                        <div class="sub-contact-value">+1 (202) 628-3630</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+1 (202) 824-0200')">
+                        <div class="sub-contact-label">Fax</div>
+                        <div class="sub-contact-value">+1 (202) 824-0200</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, 'northamerica@specialolympics.org')">
+                        <div class="sub-contact-label">Email</div>
+                        <div class="sub-contact-value">northamerica@specialolympics.org</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sub Affiliate 2 -->
+            <div class="sub-affiliate">
+                <img src="https://www.specialolympics.org/assets/logos/logo@2x.png" alt="Special Olympics Europe/Eurasia Logo" class="sub-affiliate-logo">
+                <h3 class="sub-affiliate-name">Special Olympics Europe/Eurasia</h3>
+                <div class="sub-contact-info">
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, 'Avenue des Arts 44, 1040 Brussels, Belgium')">
+                        <div class="sub-contact-label">Address</div>
+                        <div class="sub-contact-value">Avenue des Arts 44, 1040 Brussels, Belgium</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+32 2 502 47 00')">
+                        <div class="sub-contact-label">Phone</div>
+                        <div class="sub-contact-value">+32 2 502 47 00</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+32 2 502 47 01')">
+                        <div class="sub-contact-label">Fax</div>
+                        <div class="sub-contact-value">+32 2 502 47 01</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, 'europe@specialolympics.org')">
+                        <div class="sub-contact-label">Email</div>
+                        <div class="sub-contact-value">europe@specialolympics.org</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sub Affiliate 3 -->
+            <div class="sub-affiliate">
+                <img src="https://www.specialolympics.org/assets/logos/logo@2x.png" alt="Special Olympics Asia Pacific Logo" class="sub-affiliate-logo">
+                <h3 class="sub-affiliate-name">Special Olympics Asia Pacific</h3>
+                <div class="sub-contact-info">
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '3 Temasek Boulevard #11-01 Centennial Tower, Singapore 038983')">
+                        <div class="sub-contact-label">Address</div>
+                        <div class="sub-contact-value">3 Temasek Boulevard #11-01 Centennial Tower, Singapore 038983</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+65 6475 2070')">
+                        <div class="sub-contact-label">Phone</div>
+                        <div class="sub-contact-value">+65 6475 2070</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+65 6475 2071')">
+                        <div class="sub-contact-label">Fax</div>
+                        <div class="sub-contact-value">+65 6475 2071</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, 'asiapacific@specialolympics.org')">
+                        <div class="sub-contact-label">Email</div>
+                        <div class="sub-contact-value">asiapacific@specialolympics.org</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sub Affiliate 4 -->
+            <div class="sub-affiliate">
+                <img src="https://www.specialolympics.org/assets/logos/logo@2x.png" alt="Special Olympics Latin America Logo" class="sub-affiliate-logo">
+                <h3 class="sub-affiliate-name">Special Olympics Latin America</h3>
+                <div class="sub-contact-info">
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, 'Calle 72 #10-07 Piso 3, Bogotá, Colombia')">
+                        <div class="sub-contact-label">Address</div>
+                        <div class="sub-contact-value">Calle 72 #10-07 Piso 3, Bogotá, Colombia</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+57 1 743 7360')">
+                        <div class="sub-contact-label">Phone</div>
+                        <div class="sub-contact-value">+57 1 743 7360</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, '+57 1 743 7361')">
+                        <div class="sub-contact-label">Fax</div>
+                        <div class="sub-contact-value">+57 1 743 7361</div>
+                    </div>
+                    <div class="sub-contact-item" onclick="copyToClipboard(this, 'latinamerica@specialolympics.org')">
+                        <div class="sub-contact-label">Email</div>
+                        <div class="sub-contact-value">latinamerica@specialolympics.org</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Space for existing footer -->
+    <div class="footer-space"></div>
+
+    <script>
+        function copyToClipboard(element, text) {
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            
+            // Select and copy the text
+            textarea.select();
+            document.execCommand('copy');
+            
+            // Remove the temporary element
+            document.body.removeChild(textarea);
+            
+            // Add 'copied' class for visual feedback
+            element.classList.add('copied');
+            
+            // Remove the class after animation completes
+            setTimeout(() => {
+                element.classList.remove('copied');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

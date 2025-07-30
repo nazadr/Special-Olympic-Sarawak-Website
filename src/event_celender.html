@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Olympics Events</title>
+
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <style>
+        /* Space for existing header */
+        .header-space {
+            height: 100px;
+        }
+        
+        /* Space for existing footer */
+        .footer-space {
+            height: 80px;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-y: auto;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(200, 16, 46, 0.8), rgba(200, 16, 46, 0.6)), 
+                        url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(200, 16, 46, 0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .calendar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .month-section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .month-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .month-header {
+            background-color: #C8102E;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .event-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(200, 16, 46, 0.2);
+            border-color: #C8102E;
+        }
+        
+        .event-date {
+            background-color: #C8102E;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .event-content {
+            padding: 20px;
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #C8102E;
+        }
+        
+        .event-time {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .event-time i {
+            margin-right: 8px;
+            color: #C8102E;
+        }
+        
+        .event-location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .event-location i {
+            margin-right: 8px;
+            color: #C8102E;
+        }
+        
+        .event-description {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .register-btn {
+            display: inline-block;
+            background-color: #C8102E;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #C8102E;
+        }
+        
+        .register-btn:hover {
+            background-color: white;
+            color: #C8102E;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+
+
+    <div class="header-space"><!-- Space for your existing header --></div>
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Special Olympics Events</h1>
+            <p class="hero-subtitle">Join us for these exciting upcoming events celebrating ability, unity, and achievement</p>
+        </div>
+    </section>
+    
+    <div class="calendar-container">
+        <section class="month-section">
+            <div class="month-header">July 2023</div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">July 15-17</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Summer Games Tournament</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 9:00 AM - 5:00 PM Daily
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> National Sports Complex
+                        </div>
+                        <p class="event-description">
+                            Annual summer games featuring athletics, swimming, basketball and more. Opening ceremony on the 15th.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">July 22</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Unified Sports Day</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 10:00 AM - 3:00 PM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> City Park Fields
+                        </div>
+                        <p class="event-description">
+                            A day of inclusive sports where athletes with and without intellectual disabilities compete together.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">July 29</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Coaches Training Workshop</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 8:30 AM - 4:00 PM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Regional Training Center
+                        </div>
+                        <p class="event-description">
+                            Certification workshop for new coaches and volunteers. Lunch provided.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="month-section">
+            <div class="month-header">August 2023</div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">August 5</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Young Athletes Program</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 9:30 AM - 11:30 AM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Community Recreation Center
+                        </div>
+                        <p class="event-description">
+                            Motor skills development program for children ages 2-7 with intellectual disabilities.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">August 12-14</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Regional Swimming Championships</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 8:00 AM - 6:00 PM Daily
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Olympic Aquatic Center
+                        </div>
+                        <p class="event-description">
+                            Three days of competitive swimming events for all ability levels.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">August 19</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Family Fun Day</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 11:00 AM - 4:00 PM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Lakeside Pavilion
+                        </div>
+                        <p class="event-description">
+                            Carnival games, food trucks, and demonstrations celebrating our Special Olympics community.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="month-section">
+            <div class="month-header">September 2023</div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">September 9</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Bocce Ball Tournament</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 10:00 AM - 2:00 PM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Veterans Memorial Park
+                        </div>
+                        <p class="event-description">
+                            Singles and doubles bocce ball competition with divisions for all skill levels.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">September 16</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Healthy Athletes Screening</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 8:00 AM - 12:00 PM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Downtown Health Clinic
+                        </div>
+                        <p class="event-description">
+                            Free health screenings including vision, dental, podiatry, and physical therapy.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">September 30</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Unified Soccer Finals</h3>
+                        <div class="event-time">
+                            <i>🕒</i> 1:00 PM - 5:00 PM
+                        </div>
+                        <div class="event-location">
+                            <i>📍</i> Stadium Field
+                        </div>
+                        <p class="event-description">
+                            Championship matches for our unified soccer league. Trophy ceremony to follow.
+                        </p>
+                        <a href="#" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <div class="footer-space"><!-- Space for your existing footer --></div>
+
+ <!-- Section Divider -->
+    <div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="/scripts/script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('/src/components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+
+
+
+</body>
+</html>

@@ -584,7 +584,7 @@ body, html {
   right: 0;
   bottom: 0;
   width: 100vw;
-  background: #e53935;
+  background: #BA1D1D;
   color: #fff;
   z-index: 4;
   display: flex;
@@ -790,6 +790,7 @@ body, html {
 
 
 /* Fade-in and fade-out effects experimental */
+
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -798,3 +799,4 @@ body, html {
 .fade-in {
   opacity: 1;
 }
+/* --- End of Chatbot Styles --- */
