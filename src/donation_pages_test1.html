@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Special Olympics</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         /* Space for existing header/footer */
         .header-space {
@@ -21,6 +24,7 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+            overflow-y: auto;
         }
         
         .container {
@@ -306,6 +310,16 @@
     </style>
 </head>
 <body>
+
+<!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
     <div class="header-space"></div>
     
     <section class="hero">
@@ -320,30 +334,30 @@
         <div class="donation-options">
             <div class="donation-card">
                 <h3>Champion</h3>
-                <div class="amount">$50</div>
+                <div class="amount">Rm100.00</div>
                 <div class="impact">Provides sports equipment for one athlete for a season</div>
-                <a href="#" class="btn">Donate $50</a>
+                <a href="#" class="btn">Donate Rm100.00</a>
             </div>
             
             <div class="donation-card">
                 <h3>Advocate</h3>
-                <div class="amount">$100</div>
+                <div class="amount">Rm500.00</div>
                 <div class="impact">Covers the cost of training for two athletes</div>
-                <a href="#" class="btn">Donate $100</a>
+                <a href="#" class="btn">Donate Rm500.00</a>
             </div>
             
             <div class="donation-card">
                 <h3>Leader</h3>
-                <div class="amount">$250</div>
+                <div class="amount">Rm1000.00</div>
                 <div class="impact">Sponsors an athlete for an entire year</div>
-                <a href="#" class="btn">Donate Rm 70</a>
+                <a href="#" class="btn">Donate Rm1000.00</a>
             </div>
             
             <div class="donation-card">
                 <h3>Visionary</h3>
-                <div class="amount">$500</div>
+                <div class="amount">Rm5000.00</div>
                 <div class="impact">Supports an entire team's participation in local competitions</div>
-                <a href="#" class="btn">Donate $500</a>
+                <a href="#" class="btn">Donate Rm5000.00</a>
             </div>
         </div>
         
@@ -351,15 +365,15 @@
             <h2>Make a Custom Donation</h2>
             <form class="donation-form">
                 <div class="amount-selector">
-                    <button type="button" class="amount-btn">$25</button>
-                    <button type="button" class="amount-btn">$50</button>
-                    <button type="button" class="amount-btn active">$100</button>
-                    <button type="button" class="amount-btn">$250</button>
-                    <button type="button" class="amount-btn">$500</button>
+                    <button type="button" class="amount-btn">Rm 100</button>
+                    <button type="button" class="amount-btn">Rm 500</button>
+                    <button type="button" class="amount-btn active">Rm 1000</button>
+                    <button type="button" class="amount-btn">Rm 5000</button>
+            
                 </div>
                 
                 <div class="custom-amount">
-                    <span>$</span>
+                    <span>Rm</span>
                     <input type="number" placeholder="Other amount" min="1">
                 </div>
                 
@@ -409,5 +423,40 @@
     </section>
     
     <div class="footer-space"></div>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="/scripts/script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('/src/components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+
 </body>
 </html>
