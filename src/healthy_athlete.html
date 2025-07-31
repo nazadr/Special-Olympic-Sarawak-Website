@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Olympics Healthy Athletes Program</title>
+
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Space for your existing header */
+        .header-space {
+            height: 100px;
+        }
+        
+        /* Space for your existing footer */
+        .footer-space {
+            height: 80px;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            overflow-y: auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .sohap-banner {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://www.specialolympics.org/images/logo.png') center/cover no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid #E31937;
+            margin-bottom: 40px;
+        }
+        
+        .sohap-banner h1 {
+            color: #E31937;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .sohap-banner p {
+            color: #555;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .program-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(227, 25, 55, 0.2);
+        }
+        
+        .highlight-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .highlight-content {
+            padding: 20px;
+        }
+        
+        .highlight-content h3 {
+            color: #E31937;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .highlight-content p {
+            color: #666;
+        }
+        
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #E31937;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #A61229;
+            text-decoration: underline;
+        }
+        
+        .program-details {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        
+        .program-details h2 {
+            color: #E31937;
+            border-bottom: 2px solid #E31937;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .detail-item {
+            padding: 20px;
+            border-left: 4px solid #E31937;
+            background-color: #FFF5F7;
+            transition: all 0.3s;
+        }
+        
+        .detail-item:hover {
+            background-color: #FFE5EA;
+            transform: scale(1.02);
+        }
+        
+        .detail-item h3 {
+            color: #E31937;
+            margin-top: 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #E31937;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        
+        .cta-section h2 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #E31937;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .highlight-card {
+                width: 100%;
+            }
+            
+            .sohap-banner h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+    <div class="header-space"><!-- Space for your existing header --></div>
+    
+    <div class="container">
+        <section class="sohap-banner">
+            <h1>Healthy Athletes Program</h1>
+            <p>The Special Olympics Healthy Athletes program provides free health screenings and education to Special Olympics athletes in a welcoming, fun environment. Our goal is to improve athletes' ability to train and compete in Special Olympics.</p>
+        </section>
+        
+        <section class="program-highlights">
+            <div class="highlight-card">
+                <img src="https://www.specialolympicsmalaysia.org/HA-UKM2024/SOM-Healthy_Athletes-85.jpeg" alt="Healthy Athletes Screening">
+                <div class="highlight-content">
+                    <h3>Comprehensive Screenings</h3>
+                    <p>Our program offers health screenings in seven key areas to address the specific needs of our athletes.</p>
+                    <a href="#" class="read-more">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <img src="https://www.specialolympicsmalaysia.org/images/SOM_CT_HA_Melaka5.jpeg" alt="Trained Volunteers">
+                <div class="highlight-content">
+                    <h3>Trained Professionals</h3>
+                    <p>All screenings are conducted by licensed healthcare professionals who volunteer their time and expertise.</p>
+                    <a href="#" class="read-more">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <img src="https://scontent.fkch1-2.fna.fbcdn.net/v/t39.30808-6/522861028_1034210392071081_1512811348527890386_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=nDfAC4YavvwQ7kNvwEGeXti&_nc_oc=AdlFeQOzmxZoXB0A_SNRRha8ZnIHQvaj9FAt2N9wwK9LjW7KReb167Z6oHJgiG3_pfI&_nc_zt=23&_nc_ht=scontent.fkch1-2.fna&_nc_gid=EYDDIt8QskDVjD62zmG_Uw&oh=00_AfSUo6IeewEPZdmWshQ-0reXHtT08DBvdVXBgVjEWscIXw&oe=6890E5B6" alt="Happy Athletes">
+                <div class="highlight-content">
+                    <h3>Positive Impact</h3>
+                    <p>Over 2 million free health screenings have been conducted worldwide since the program began.</p>
+                    <a href="#" class="read-more">Learn More →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="program-details">
+            <h2>Our Health Disciplines</h2>
+            <p>The Healthy Athletes program offers health screenings in these key areas:</p>
+            
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>FunFitness</h3>
+                    <p>Physical therapy screenings assess flexibility, strength, balance, and aerobic fitness. Athletes receive exercise recommendations to improve their sports performance.</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>Healthy Hearing</h3>
+                    <p>Screenings identify possible hearing loss, ear wax buildup, or need for follow-up care. Many athletes receive hearing aids for the first time.</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>Special Smiles</h3>
+                    <p>Dental screenings check for gum disease, tooth decay, and other oral health problems. Athletes receive preventive education and care recommendations.</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>Opening Eyes</h3>
+                    <p>Vision screenings test visual acuity and check for eye diseases. Thousands of athletes receive free prescription eyewear each year.</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>Fit Feet</h3>
+                    <p>Podiatric screenings assess foot and ankle problems that may affect athletes' mobility and performance. Many receive orthotics or referrals for further care.</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h3>Health Promotion</h3>
+                    <p>Education on nutrition, sun safety, hydration, and healthy lifestyle choices to improve overall wellbeing.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Join Us in Making a Difference</h2>
+            <p>Whether you're a healthcare professional, volunteer, or supporter, you can help improve the health and lives of Special Olympics athletes worldwide.</p>
+            <a href="#" class="cta-button">Get Involved Today</a>
+        </section>
+    </div>
+    
+    <div class="footer-space"><!-- Space for your existing footer --></div>
+
+<!-- Section Divider -->
+    <div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="/scripts/script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('/src/components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+
+
+
+</body>
+</html>
