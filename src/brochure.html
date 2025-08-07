@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>Brochure Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            overflow-y: auto;
+        }
+        
+        /* Space for header */
+        .header-space {
+            height: 100px; /* Adjust based on your header height */
+            background-color: transparent;
+        }
+        
+        /* Space for footer */
+        .footer-space {
+            height: 150px; /* Adjust based on your footer height */
+            background-color: transparent;
+        }
+        
+        .brochure-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn.print {
+            background-color: #2196F3;
+        }
+        
+        .btn.print:hover {
+            background-color: #0b7dda;
+        }
+        
+        .btn.download {
+            background-color: #ff9800;
+        }
+        
+        .btn.download:hover {
+            background-color: #e68a00;
+        }
+        
+        #pdf-viewer {
+            width: 100%;
+            border: 1px solid #ddd;
+            min-height: 600px;
+        }
+        
+        @media print {
+            .controls {
+                display: none;
+            }
+            
+            .header-space, .footer-space {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+    <!-- Space for your existing header -->
+    <div class="header-space"></div>
+    
+    <div class="brochure-container">
+        <h1>Our Brochure</h1>
+        <div class="controls">
+            <button id="prev" class="btn">Previous</button>
+            <button id="next" class="btn">Next</button>
+            <span id="page-num">Page: 1</span>
+            <span id="page-count">of 1</span>
+            <button id="zoom-in" class="btn">Zoom In</button>
+            <button id="zoom-out" class="btn">Zoom Out</button>
+            <button id="download" class="btn download">Download PDF</button>
+            <button id="print" class="btn print">Print Brochure</button>
+        </div>
+        
+        <canvas id="pdf-viewer"></canvas>
+    </div>
+    
+    <!-- Space for your existing footer -->
+    <div class="footer-space"></div>
+    
+    <script>
+    // PDF.js configuration
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+    
+    // Get DOM elements
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const pageNum = document.getElementById('page-num');
+    const pageCount = document.getElementById('page-count');
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+    const downloadBtn = document.getElementById('download');
+    const printBtn = document.getElementById('print');
+    
+    let pdfDoc = null;
+    let pageNumCurrent = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    let scale = 2.0;
+    const scaleDelta = 0.25;
+    
+    // Update this to match your PDF filename
+    const pdfUrl = '/assets/pdf/Special Olympics - BROCHURE SOBC 2025.pdf'; // PDF path
+    
+    // Initialize PDF
+    function renderPage(num) {
+        pageRendering = true;
+        
+        pdfDoc.getPage(num).then(function(page) {
+            const viewport = page.getViewport({ scale: scale });
+            pdfViewer.height = viewport.height;
+            pdfViewer.width = viewport.width;
+            
+            const renderContext = {
+                canvasContext: pdfViewer.getContext('2d'),
+                viewport: viewport
+            };
+            
+            const renderTask = page.render(renderContext);
+            
+            renderTask.promise.then(function() {
+                pageRendering = false;
+                if (pageNumPending !== null) {
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+            });
+        });
+        
+        pageNum.textContent = num;
+    }
+    
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            pageNumPending = num;
+        } else {
+            renderPage(num);
+        }
+    }
+    
+    function onPrevPage() {
+        if (pageNumCurrent <= 1) {
+            return;
+        }
+        pageNumCurrent--;
+        queueRenderPage(pageNumCurrent);
+    }
+    
+    function onNextPage() {
+        if (pageNumCurrent >= pdfDoc.numPages) {
+            return;
+        }
+        pageNumCurrent++;
+        queueRenderPage(pageNumCurrent);
+    }
+    
+    function onZoomIn() {
+        scale += scaleDelta;
+        queueRenderPage(pageNumCurrent);
+    }
+    
+    function onZoomOut() {
+        if (scale > scaleDelta) {
+            scale -= scaleDelta;
+            queueRenderPage(pageNumCurrent);
+        }
+    }
+    
+    function onDownload() {
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = pdfUrl.split('/').pop() || 'brochure.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function onPrint() {
+        window.print();
+    }
+    
+    // Button event listeners
+    prevBtn.addEventListener('click', onPrevPage);
+    nextBtn.addEventListener('click', onNextPage);
+    zoomInBtn.addEventListener('click', onZoomIn);
+    zoomOutBtn.addEventListener('click', onZoomOut);
+    downloadBtn.addEventListener('click', onDownload);
+    printBtn.addEventListener('click', onPrint);
+    
+    // Load the PDF
+    pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        pageCount.textContent = pdfDoc.numPages;
+        
+        // Initial/first page rendering
+        renderPage(pageNumCurrent);
+    }).catch(function(error) {
+        // PDF loading error
+        console.error('Error loading PDF:', error);
+        pdfViewer.style.display = 'none';
+        pdfViewer.insertAdjacentHTML('afterend', 
+            '<div class="error"><h3>Error loading PDF</h3><p>Please ensure:</p><ol><li>The PDF is placed in a "brochures" folder</li><li>The filename matches exactly (case-sensitive)</li><li>The PDF is not password protected</li></ol></div>'
+        );
+    });
+</script>
+
+
+<!-- Section Divider -->
+    <div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="/scripts/script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('/src/components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+
+</body>
+</html>
+

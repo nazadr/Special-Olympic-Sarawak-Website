@@ -3,211 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Events</title>
 
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
+    <title>Special Olympics Events Calendar</title>
     <style>
-        /* Space for existing header */
-        .header-space {
-            height: 100px;
+        :root {
+            --special-red: #e51f3a;
+            --special-light-red: #ff6b7f;
+            --special-dark-red: #c0102a;
+            --special-white: #ffffff;
+            --special-gray: #f5f5f5;
+            --special-dark: #333333;
+            --special-accent: #0091d1;
         }
-        
-        /* Space for existing footer */
-        .footer-space {
-            height: 80px;
-        }
-        
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             margin: 0;
-            padding: 0;
-            color: #333;
+            padding: 20px 0;
+            background-color: var(--special-gray);
+            color: var(--special-dark);
             overflow-y: auto;
         }
-        
-        .hero-section {
-            background: linear-gradient(rgba(200, 16, 46, 0.8), rgba(200, 16, 46, 0.6)), 
-                        url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
+        .calendar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .calendar-title {
             text-align: center;
+            color: var(--special-red);
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+
+        .month-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: var(--special-white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .month-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--special-red);
+            margin: 0;
+        }
+
+        .nav-button {
+            background-color: var(--special-red);
             color: white;
-            margin-bottom: 40px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: var(--special-dark-red);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .day-header {
+            font-weight: 700;
+            text-align: center;
+            padding: 10px;
+            color: var(--special-red);
+            background-color: var(--special-white);
+            border-radius: 5px;
+        }
+
+        .calendar-day {
+            background-color: var(--special-white);
+            border-radius: 5px;
+            min-height: 100px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: relative;
-            overflow: hidden;
+        }
+
+        .day-number {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--special-red);
+        }
+
+        .event {
+            background-color: var(--special-accent);
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        .hero-section::before {
-            content: '';
+        .event-tooltip {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--special-dark);
+            color: var(--special-white);
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
             position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .event:hover .event-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .event:hover {
+            background-color: #0077b3;
+        }
+
+        .event.special {
+            background-color: var(--special-red);
+        }
+
+        .event.training {
+            background-color: #4caf50;
+        }
+
+        .event-fundraiser {
+            background-color: #9c27b0;
+        }
+        .event.social {
+            background-color: #ff9800;
+        }
+        .event.ceremony {
+            background-color: #607d8b;
+        }
+        .event.meeting {
+            background-color: #795548;
+        }
+
+        .empty-day {
+            background-color: #f9f9f9;
+        }
+
+        .today {
+            border: 2px solid var(--special-red);
+        }
+
+        .event-modal {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(200, 16, 46, 0.3);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .calendar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .month-section {
-            margin-bottom: 40px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .month-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .month-header {
-            background-color: #C8102E;
-            color: white;
-            padding: 15px 25px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        
-        .event-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(200, 16, 46, 0.2);
-            border-color: #C8102E;
-        }
-        
-        .event-date {
-            background-color: #C8102E;
-            color: white;
-            padding: 10px 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .event-content {
-            padding: 20px;
-        }
-        
-        .event-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #C8102E;
-        }
-        
-        .event-time {
-            display: flex;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
-            color: #666;
         }
-        
-        .event-time i {
-            margin-right: 8px;
-            color: #C8102E;
-        }
-        
-        .event-location {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: #666;
-        }
-        
-        .event-location i {
-            margin-right: 8px;
-            color: #C8102E;
-        }
-        
-        .event-description {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .register-btn {
-            display: inline-block;
-            background-color: #C8102E;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid #C8102E;
-        }
-        
-        .register-btn:hover {
+
+        .modal-content {
             background-color: white;
-            color: #C8102E;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
         }
-        
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--special-dark);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            color: var(--special-red);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-icon {
+            margin-right: 10px;
+            color: var(--special-red);
+        }
+
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.2rem;
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .hero-subtitle {
-                font-size: 1.2rem;
+            .month-title {
+                font-size: 1.4rem;
             }
-            
-            .events-grid {
+
+            .calendar-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .month-nav {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -224,189 +278,329 @@
     <div id="chatbot-container"></div>
 
 
-
-    <div class="header-space"><!-- Space for your existing header --></div>
-    
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Special Olympics Events</h1>
-            <p class="hero-subtitle">Join us for these exciting upcoming events celebrating ability, unity, and achievement</p>
-        </div>
-    </section>
+    <div class="header-spacer"></div>
+    <div class="footer-spacer"></div>
     
     <div class="calendar-container">
-        <section class="month-section">
-            <div class="month-header">July 2023</div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">July 15-17</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Summer Games Tournament</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 9:00 AM - 5:00 PM Daily
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> National Sports Complex
-                        </div>
-                        <p class="event-description">
-                            Annual summer games featuring athletics, swimming, basketball and more. Opening ceremony on the 15th.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">July 22</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Unified Sports Day</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 10:00 AM - 3:00 PM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> City Park Fields
-                        </div>
-                        <p class="event-description">
-                            A day of inclusive sports where athletes with and without intellectual disabilities compete together.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">July 29</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Coaches Training Workshop</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 8:30 AM - 4:00 PM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Regional Training Center
-                        </div>
-                        <p class="event-description">
-                            Certification workshop for new coaches and volunteers. Lunch provided.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h1 class="calendar-title">Special Olympics Events Calendar</h1>
         
-        <section class="month-section">
-            <div class="month-header">August 2023</div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">August 5</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Young Athletes Program</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 9:30 AM - 11:30 AM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Community Recreation Center
-                        </div>
-                        <p class="event-description">
-                            Motor skills development program for children ages 2-7 with intellectual disabilities.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">August 12-14</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Regional Swimming Championships</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 8:00 AM - 6:00 PM Daily
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Olympic Aquatic Center
-                        </div>
-                        <p class="event-description">
-                            Three days of competitive swimming events for all ability levels.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">August 19</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Family Fun Day</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 11:00 AM - 4:00 PM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Lakeside Pavilion
-                        </div>
-                        <p class="event-description">
-                            Carnival games, food trucks, and demonstrations celebrating our Special Olympics community.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="month-nav">
+            <button class="nav-button" id="prev-month">Previous</button>
+            <h2 class="month-title" id="current-month">Month Year</h2>
+            <button class="nav-button" id="next-month">Next</button>
+        </div>
         
-        <section class="month-section">
-            <div class="month-header">September 2023</div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">September 9</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Bocce Ball Tournament</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 10:00 AM - 2:00 PM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Veterans Memorial Park
-                        </div>
-                        <p class="event-description">
-                            Singles and doubles bocce ball competition with divisions for all skill levels.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
+        <div class="calendar-grid" id="calendar-grid">
+            <!-- Days of week headers -->
+            <div class="day-header">Sunday</div>
+            <div class="day-header">Monday</div>
+            <div class="day-header">Tuesday</div>
+            <div class="day-header">Wednesday</div>
+            <div class="day-header">Thursday</div>
+            <div class="day-header">Friday</div>
+            <div class="day-header">Saturday</div>
+            
+            <!-- Calendar days will be inserted here by JavaScript -->
+        </div>
+
+        <div class="upcoming-events">
+            <h2 class="highlighted-title">Highlighted Events</h2>
+            <div id="highlighted-events-container" class="highlighted-events-grid">
+                <!-- Highlighted events will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-spacer-large"></div>
+    <style>
+        .header-spacer {
+            height: 70px;
+        }
+        .footer-spacer {
+            height: 20px;
+        }
+        .footer-spacer-large {
+            height: 150px;
+        }
+        .upcoming-events {
+            margin-top: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .highlighted-title {
+            color: var(--special-red);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--special-red);
+            padding-bottom: 10px;
+        }
+        .highlighted-events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .highlighted-event-card {
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    
+    <div class="event-modal" id="event-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fda553f6-b090-496c-9670-08e7fcc0bd24.png" alt="Group of Special Olympics athletes smiling and celebrating after a competition" class="modal-image" id="modal-image">
+            <h3 class="modal-title" id="modal-title">Event Title</h3>
+            <p class="modal-description" id="modal-description">Event description will appear here with all the details about the competition, venue, and participants.</p>
+            <div class="modal-details">
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <span id="modal-date">Date: Loading...</span>
                 </div>
-                
-                <div class="event-card">
-                    <div class="event-date">September 16</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Healthy Athletes Screening</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 8:00 AM - 12:00 PM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Downtown Health Clinic
-                        </div>
-                        <p class="event-description">
-                            Free health screenings including vision, dental, podiatry, and physical therapy.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
+                <div class="detail-item">
+                    <span class="detail-icon">📍</span>
+                    <span id="modal-location">Location: Loading...</span>
                 </div>
-                
-                <div class="event-card">
-                    <div class="event-date">September 30</div>
-                    <div class="event-content">
-                        <h3 class="event-title">Unified Soccer Finals</h3>
-                        <div class="event-time">
-                            <i>🕒</i> 1:00 PM - 5:00 PM
-                        </div>
-                        <div class="event-location">
-                            <i>📍</i> Stadium Field
-                        </div>
-                        <p class="event-description">
-                            Championship matches for our unified soccer league. Trophy ceremony to follow.
-                        </p>
-                        <a href="#" class="register-btn">Register Now</a>
-                    </div>
+                <div class="detail-item">
+                    <span class="detail-icon">⏰</span>
+                    <span id="modal-time">Time: Loading...</span>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
     
-    <div class="footer-space"><!-- Space for your existing footer --></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarGrid = document.getElementById('calendar-grid');
+            const currentMonthElement = document.getElementById('current-month');
+            const prevMonthButton = document.getElementById('prev-month');
+            const nextMonthButton = document.getElementById('next-month');
+            const eventModal = document.getElementById('event-modal');
+            const modalClose = document.getElementById('modal-close');
+            
+            let currentDate = new Date();
+            
+            // Sample events data (would normally come from an API) just add anything here but make sure id is acending order and the image is non api function please create or link it manually or create a database to fech the image somewhere else. take note
+            const events = [
+                {
+                    id: 1,
+                    title: "Opening Ceremony",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+                    description: "Kickoff event with parade of athletes, speeches, and light show to begin the season's competitions.",
+                    location: "City Convention Center",
+                    time: "6:00 PM - 8:00 PM",
+                    type: "special",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/97e27517-2381-4076-baeb-25eccadc0710.png"
+                },
+                {
+                    id: 2,
+                    title: "Track & Field Trials",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 7),
+                    description: "Qualification events for 100m dash, long jump, and shot put. Bring your A-game!",
+                    location: "State University Track",
+                    time: "8:00 AM - 2:00 PM",
+                    type: "special",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7283ae52-8a9c-4af9-96f6-3cb574727461.png"
+                },
+                {
+                    id: 3,
+                    title: "Volleyball Training",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 8),
+                    description: "Beginner-friendly session focusing on serving and passing techniques. All equipment provided.",
+                    location: "Community Gymnasium",
+                    time: "4:00 PM - 6:00 PM",
+                    type: "training",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/34df8f0a-38e1-4f28-a087-bfb8241473e3.png"
+                },
+                {
+                    id: 4,
+                    title: "Golf Tournament",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 15),
+                    description: "Annual golf championship with individual and team categories. Individual coaching available.",
+                    location: "Pine Valley Golf Club",
+                    time: "7:30 AM - 5:00 PM",
+                    type: "special",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/32bcb1f4-0f90-43eb-9a79-e212500d44d9.png"
+                },
+                {
+                    id: 5,
+                    title: "Bowling League",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 21),
+                    description: "First match of the season. Teams will compete in a fun, supportive environment.",
+                    location: "Lucky Strike Lanes",
+                    time: "1:00 PM - 4:00 PM",
+                    type: "training",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8482dd9e-28ef-4222-885a-de933fe31b6c.png"
+                },
+                {
+                    id: 6,
+                    title: "Scholarship Dinner",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 28),
+                    description: "Honoring athlete achievements and awarding academic scholarships.",
+                    location: "Riverside Banquet Hall",
+                    time: "7:00 PM - 10:00 PM",
+                    type: "fundraiser",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c61d9ab9-8dbd-4569-8378-ed02c348e951.png"
+                },
+                {
+                    id: 7,
+                    title: "Healthy Athletes Program",
+                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 9),
+                    description: "Honoring athlete achievements and awarding academic scholarships.",
+                    location: "SJK (C) Chung Hua",
+                    time: "7:00 PM - 10:00 PM",
+                    type: "fundraiser",
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c61d9ab9-8dbd-4569-8378-ed02c348e951.png"
+                },
+            ];
+            
+            function renderCalendar() {
+                // Set the month and year title
+                currentMonthElement.textContent = 
+                    currentDate.toLocaleString('default', { month: 'long' }) + ' ' + currentDate.getFullYear();
+                
+                // Clear the calendar (except for headers)
+                while (calendarGrid.children.length > 7) {
+                    calendarGrid.removeChild(calendarGrid.lastChild);
+                }
+                
+                const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+                const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+                
+                // Add empty cells for days of previous month
+                const firstDayOfWeek = firstDayOfMonth.getDay();
+                for (let i = 0; i < firstDayOfWeek; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'calendar-day empty-day';
+                    calendarGrid.appendChild(emptyDay);
+                }
+                
+                // Add cells for current month
+                const today = new Date();
+                for (let day = 1; day <= lastDayOfMonth.getDate(); day++) {
+                    const dayElement = document.createElement('div');
+                    const dayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+                    
+                    dayElement.className = 'calendar-day';
+                    if (dayDate.getDate() === today.getDate() && 
+                        dayDate.getMonth() === today.getMonth() && 
+                        dayDate.getFullYear() === today.getFullYear()) {
+                        dayElement.classList.add('today');
+                    }
+                    
+                    const dayNumber = document.createElement('div');
+                    dayNumber.className = 'day-number';
+                    dayNumber.textContent = day;
+                    dayElement.appendChild(dayNumber);
+                    
+                    // Add events for this day
+                    events.forEach(event => {
+                        if (event.date.getDate() === day && 
+                            event.date.getMonth() === currentDate.getMonth() && 
+                            event.date.getFullYear() === currentDate.getFullYear()) {
+                            const eventElement = document.createElement('div');
+                            eventElement.className = 'event ' + event.type;
+                            eventElement.innerHTML = `
+                                ${event.title}
+                                <div class="event-tooltip">
+                                    <strong>${event.title}</strong><br>
+                                    Date: ${event.date.toLocaleDateString()}<br>
+                                    Time: ${event.time}<br>
+                                    Location: ${event.location}
+                                </div>
+                            `;
+                            eventElement.addEventListener('click', () => openEventModal(event));
+                            dayElement.appendChild(eventElement);
+                        }
+                    });
+                    
+                    calendarGrid.appendChild(dayElement);
+                }
+            }
+            
+            function openEventModal(event) {
+                document.getElementById('modal-title').textContent = event.title;
+                document.getElementById('modal-description').textContent = event.description;
+                const modalImage = document.getElementById('modal-image');
+                modalImage.src = event.image || "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af9758c7-3554-4b27-b555-9af3834ecb92.png";
+                modalImage.alt = `${event.title}: ${event.description.substring(0, 100)}`;
+                document.getElementById('modal-date').textContent = 'Date: ' + event.date.toLocaleDateString('en-US', { 
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+                });
+                document.getElementById('modal-location').textContent = 'Location: ' + event.location;
+                document.getElementById('modal-time').textContent = 'Time: ' + event.time;
+                eventModal.style.display = 'flex';
+            }
+            
+            prevMonthButton.addEventListener('click', function() {
+                currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+                renderCalendar();
+            });
+            
+            nextMonthButton.addEventListener('click', function() {
+                currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+                renderCalendar();
+            });
+            
+            modalClose.addEventListener('click', function() {
+                eventModal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === eventModal) {
+                    eventModal.style.display = 'none';
+                }
+            });
+            
+            // Initialize the calendar
+            renderCalendar();
+            renderHighlightedEvents();
 
- <!-- Section Divider -->
+            function addNewEvent(newEvent) {
+                events.push(newEvent);
+                renderCalendar();
+                renderHighlightedEvents();
+            }
+
+            function renderHighlightedEvents() {
+                const container = document.getElementById('highlighted-events-container');
+                events.forEach(event => {
+                    const eventElement = document.createElement('div');
+                    eventElement.className = 'highlighted-event-card';
+                    eventElement.style.backgroundColor = getEventColor(event.type);
+                    eventElement.innerHTML = `
+                        <h3 style="margin-top: 0;">${event.title}</h3>
+                        <p><strong>Date:</strong> ${event.date.toLocaleDateString()}</p>
+                        <p><strong>Time:</strong> ${event.time}</p>
+                        <p><strong>Location:</strong> ${event.location}</p>
+                    `;
+                    eventElement.addEventListener('click', () => openEventModal(event));
+                    container.appendChild(eventElement);
+                });
+            }
+
+            function getEventColor(type) {
+                const colors = {
+                    'special': 'var(--special-red)',
+                    'training': '#4caf50',
+                    'fundraiser': '#9c27b0',
+                    'social': '#ff9800',
+                    'ceremony': '#607d8b'
+                };
+                return colors[type] || 'var(--special-accent)';
+            }
+
+            // Clear and re-render highlighted events
+            function rerenderHighlightedEvents() {
+                const container = document.getElementById('highlighted-events-container');
+                container.innerHTML = '';
+                renderHighlightedEvents();
+            }
+        });
+    </script>
+
+  <!-- Section Divider -->
     <div class="section-divider"></div>
      <!-- Bottom Nav (Loaded via JS) -->
     <div id="bottom-nav-container"></div>
@@ -439,8 +633,6 @@
           }
         });
     </script>
-
-
 
 </body>
 </html>
