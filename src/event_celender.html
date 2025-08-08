@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Special Olympics Events Calendar</title>
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <title>Special Olympics Events Calendar</title>
+
     <style>
         :root {
             --special-red: #e51f3a;
@@ -278,8 +278,11 @@
     <div id="chatbot-container"></div>
 
 
-    <div class="header-spacer"></div>
-    <div class="footer-spacer"></div>
+    <!-- Space for your existing header -->
+    <div style="height: 80px;"></div>
+
+    <!-- Space for your existing footer -->
+    <div style="height: 80px;"></div>
     
     <div class="calendar-container">
         <h1 class="calendar-title">Special Olympics Events Calendar</h1>
@@ -303,49 +306,46 @@
             <!-- Calendar days will be inserted here by JavaScript -->
         </div>
 
-        <div class="upcoming-events">
-            <h2 class="highlighted-title">Highlighted Events</h2>
-            <div id="highlighted-events-container" class="highlighted-events-grid">
+        <div class="event-legend" style="margin: 30px auto; max-width: 800px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <h2 style="color: var(--special-red); text-align: center; margin-top: 0; margin-bottom: 20px; font-size: 1.8rem;">Event Type Legend</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center;">
+                <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="width: 20px; height: 20px; background: var(--special-red); border-radius: 50%; margin-right: 12px;"></div>
+                    <span style="font-weight: 600;">Special Event</span>
+                </div>
+                <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="width: 20px; height: 20px; background: #4caf50; border-radius: 50%; margin-right: 12px;"></div>
+                    <span style="font-weight: 600;">Training</span>
+                </div>
+                <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="width: 20px; height: 20px; background: #9c27b0; border-radius: 50%; margin-right: 12px;"></div>
+                    <span style="font-weight: 600;">Fundraiser</span>
+                </div>
+                <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="width: 20px; height: 20px; background: #ff9800; border-radius: 50%; margin-right: 12px;"></div>
+                    <span style="font-weight: 600;">Social</span>
+                </div>
+                <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="width: 20px; height: 20px; background: #607d8b; border-radius: 50%; margin-right: 12px;"></div>
+                    <span style="font-weight: 600;">Ceremony</span>
+                </div>
+                <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
+                    <div style="width: 20px; height: 20px; background: #795548; border-radius: 50%; margin-right: 12px;"></div>
+                    <span style="font-weight: 600;">Meeting</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="upcoming-events" style="margin-top: 40px; background: white; padding: 20px; border-radius: 8px;">
+            <h2 style="color: var(--special-red); margin-bottom: 20px; border-bottom: 2px solid var(--special-red); padding-bottom: 10px;">Highlighted Events</h2>
+            <div id="highlighted-events-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
                 <!-- Highlighted events will be inserted here by JavaScript -->
             </div>
         </div>
     </div>
 
-    <div class="footer-spacer-large"></div>
-    <style>
-        .header-spacer {
-            height: 70px;
-        }
-        .footer-spacer {
-            height: 20px;
-        }
-        .footer-spacer-large {
-            height: 150px;
-        }
-        .upcoming-events {
-            margin-top: 40px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .highlighted-title {
-            color: var(--special-red);
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--special-red);
-            padding-bottom: 10px;
-        }
-        .highlighted-events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .highlighted-event-card {
-            padding: 15px;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    <!-- Space for your existing footer -->
+    <div style="height: 150px;"></div>
     
     <div class="event-modal" id="event-modal">
         <div class="modal-content">
@@ -381,7 +381,7 @@
             
             let currentDate = new Date();
             
-            // Sample events data (would normally come from an API) just add anything here but make sure id is acending order and the image is non api function please create or link it manually or create a database to fech the image somewhere else. take note
+            // Sample events data (would normally come from an API)
             const events = [
                 {
                     id: 1,
@@ -442,18 +442,7 @@
                     time: "7:00 PM - 10:00 PM",
                     type: "fundraiser",
                     image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c61d9ab9-8dbd-4569-8378-ed02c348e951.png"
-                },
-                {
-                    id: 7,
-                    title: "Healthy Athletes Program",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 9),
-                    description: "Honoring athlete achievements and awarding academic scholarships.",
-                    location: "SJK (C) Chung Hua",
-                    time: "7:00 PM - 10:00 PM",
-                    type: "fundraiser",
-                    image: "/assets/images/facebook_event_sohap_8august.jpg"
-                },
-            
+                }
             ];
             
             function renderCalendar() {
@@ -557,7 +546,7 @@
             // Initialize the calendar
             renderCalendar();
             renderHighlightedEvents();
-
+            
             function addNewEvent(newEvent) {
                 events.push(newEvent);
                 renderCalendar();
@@ -568,14 +557,19 @@
                 const container = document.getElementById('highlighted-events-container');
                 events.forEach(event => {
                     const eventElement = document.createElement('div');
-                    eventElement.className = 'highlighted-event-card';
+                    eventElement.style.padding = '15px';
+                    eventElement.style.borderRadius = '5px';
                     eventElement.style.backgroundColor = getEventColor(event.type);
+                    eventElement.style.color = 'white';
+                    eventElement.style.cursor = 'pointer';
+                    
                     eventElement.innerHTML = `
                         <h3 style="margin-top: 0;">${event.title}</h3>
                         <p><strong>Date:</strong> ${event.date.toLocaleDateString()}</p>
                         <p><strong>Time:</strong> ${event.time}</p>
                         <p><strong>Location:</strong> ${event.location}</p>
                     `;
+                    
                     eventElement.addEventListener('click', () => openEventModal(event));
                     container.appendChild(eventElement);
                 });
@@ -598,10 +592,26 @@
                 container.innerHTML = '';
                 renderHighlightedEvents();
             }
+
+            function addNextMonthEvent(title, day, type) {
+                const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, day);
+                events.push({
+                    id: events.length + 1,
+                    title: title,
+                    date: nextMonth,
+                    description: "Description for " + title,
+                    location: "Venue to be announced",
+                    time: "10:00 AM",
+                    type: type,
+                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3196c597-cabd-4933-9067-edab4bec5a6e.png" + encodeURIComponent(title)
+                });
+                renderCalendar();
+                renderHighlightedEvents();
+            }
         });
     </script>
 
-  <!-- Section Divider -->
+<!-- Section Divider -->
     <div class="section-divider"></div>
      <!-- Bottom Nav (Loaded via JS) -->
     <div id="bottom-nav-container"></div>
@@ -637,3 +647,4 @@
 
 </body>
 </html>
+
