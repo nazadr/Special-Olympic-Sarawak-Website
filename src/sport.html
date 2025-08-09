@@ -37,7 +37,7 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://scontent.fkch1-2.fna.fbcdn.net/v/t39.30808-6/511988408_122222357150179846_149998355912681159_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=EctB2Tbo5c0Q7kNvwECHR8Q&_nc_oc=Adm6IipsUjzwct8lpjXFG4ncrzlVizOOGXUaGZ1rKkXbTpR_4nax2VJWnu1iKZVTZPZckRx_US8ueaAnI1EiioBu&_nc_zt=23&_nc_ht=scontent.fkch1-2.fna&_nc_gid=KzM3yLZ_-Zatz0IldHJ8tA&oh=00_AfRYbCBgJrr1V37-zmnZ2BcTgBwxUBqw8WeKcYOF2OGzsA&oe=687E30AB') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/sport_1.jpg') center/cover no-repeat;
             height: 60vh;
             display: flex;
             flex-direction: column;
@@ -230,10 +230,10 @@
             <!-- Basketball -->
             <div class="sport-card">
                 <div class="card-image">
-                    <img src="https://media.buletintv3.my/2022/10/BUG-TV3-45.jpg" alt="Special Olympics basketball team celebrating after scoring a basket" />
+                    <img src="/assets/images/Aquatics_sport.jpg" alt="Special Olympics basketball team celebrating after scoring a basket" />
                 </div>
                 <div class="card-content">
-                    <h3>Basketball</h3>
+                    <h3>Aquatics</h3>
                     <p>Team sport with dribbling, passing and shooting skills</p>
                 </div>
             </div>
@@ -282,71 +282,19 @@
                 </div>
             </div>
 
-            <!-- Judo -->
-            <div class="sport-card">
-                <div class="card-image">
-                    <img src="https://dotorg.brightspotcdn.com/dims4/default/dae544f/2147483647/strip/true/crop/5729x3223+0+298/resize/800x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F6a%2Fb7%2Fc4c534c44e3e9b93cf8e3df13334%2Ftwi-judo-20230622-052-1.jpg" alt="Judo competitors in Special Olympics performing a throw" />
-                </div>
-                <div class="card-content">
-                    <h3>Judo</h3>
-                    <p>Martial art emphasizing throws and grappling</p>
-                </div>
-            </div>
-
-            <!-- Tennis -->
-            <div class="sport-card">
-                <div class="card-image">
-                    <img src="https://dotorg.brightspotcdn.com/c9/aa/e6a0a35a460f92c2bb5db33e0f28/1300x680-tennis.jpg" alt="Special Olympics tennis player serving during match" />
-                </div>
-                <div class="card-content">
-                    <h3>Tennis</h3>
-                    <p>Individual or doubles sport played with racquets</p>
-                </div>
-            </div>
-
-            <!-- Table Tennis -->
-            <div class="sport-card">
-                <div class="card-image">
-                    <img src="https://www.specialolympics.ie/sites/default/files/styles/widescreen_television/public/2019-12/table-tennis-2.jpg?h=801703e5&itok=fb5gpReC" alt="Close-up of Special Olympics table tennis match" />
-                </div>
-                <div class="card-content">
-                    <h3>Table Tennis</h3>
-                    <p>Fast-paced paddle sport requiring quick reflexes</p>
-                </div>
-            </div>
-
-            <!-- Swimming -->
-            <div class="sport-card">
-                <div class="card-image">
-                    <img src="https://scontent.fkch1-2.fna.fbcdn.net/v/t39.30808-6/495672180_122213333264179846_1630510118262149246_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=CLLwbpRJiiEQ7kNvwFr1SA4&_nc_oc=AdnXc6K2x4aa0OtSAY_GgUL_g8TJ_6I1OxvSqN5gnw24ieBuuBQ_jasVGyBqvDE5E9LiJ3q1VOl_FBuhQ80DnlfY&_nc_zt=23&_nc_ht=scontent.fkch1-2.fna&_nc_gid=lhWzOqkPobviz_E2elDYQA&oh=00_AfRuN6U8eOyGz-NBJQjGC-ryPRU0MQBvYRbX8GDC7kxiKA&oe=68857CEB" alt="Special Olympics swimmer diving into pool during competition" />
-                </div>
-                <div class="card-content">
-                    <h3>Swimming</h3>
-                    <p>Individual and relay events in various strokes</p>
-                </div>
-            </div>
-
-            <!-- Netball -->
-            <div class="sport-card">
-                <div class="card-image">
-                    <img src="https://www.goodthingsguy.com/wp-content/uploads/2022/11/so-13-extra-large.jpg" alt="Special Olympics netball players during game action" />
-                </div>
-                <div class="card-content">
-                    <h3>Netball</h3>
-                    <p>Team sport similar to basketball with no dribbling</p>
-                </div>
-            </div>
+            
         </div>
     </section>
 
     <div class="footer-space"></div>
 
-<div class="section-divider"></div>
+<!-- Section Divider -->
+    <div class="section-divider"></div>
      <!-- Bottom Nav (Loaded via JS) -->
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="script.js"></script>
+    <script src="/scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -357,14 +305,14 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', 'components/top-nav.html');
-      loadHTML('socmed-bar-container', 'components/socmed-bar.html');
-      loadHTML('bottom-nav-container', 'components/bottom-nav.html');
-      loadHTML('site-footer-container', 'components/site-footer.html');
-      loadHTML('chatbot-container', 'components/chatbot.html');
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('components/bottom-nav.html')
+      fetch('/src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;

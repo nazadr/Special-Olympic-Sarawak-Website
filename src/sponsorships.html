@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sponsors | Special Olympics Sarawak</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <style>
+        /* Space for existing header */
+        .header-space {
+            height: 100px;
+            background: transparent;
+        }
+
+        /* Space for existing footer */
+        .footer-space {
+            height: 100px;
+            background: transparent;
+        }
+
+        /* Main content styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            overflow-y: auto;
+        }
+
+        /* Hero section with animated background */
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #cc0000; /* Special Olympics red */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f3bbac00-7a8a-4674-bf8c-7f162e9d6f28.png');
+            background-size: cover;
+            background-position: center;
+            animation: zoomAnimation 15s infinite alternate;
+            opacity: 0.3;
+        }
+
+        @keyframes zoomAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.9);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sponsors section */
+        .sponsors-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .sponsors-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #cc0000;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .sponsors-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #cc0000;
+            margin: 15px auto;
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+            padding: 20px 0;
+        }
+
+        .sponsor-item {
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .sponsor-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Empty state when no logos are added yet */
+        .empty-state {
+            text-align: center;
+            padding: 50px;
+            color: #777;
+            font-style: italic;
+            grid-column: 1 / -1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .sponsors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .sponsor-item {
+                width: 200px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 200px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <!-- Hero section with animated background -->
+    <section class="hero">
+        <div class="hero-bg" alt="Panoramic view of athletes competing in Special Olympics events with vibrant colors representing the spirit of competition and inclusion"></div>
+        <div class="hero-content">
+            <h1>Our Valued Sponsors</h1>
+            <p>Our partners play a major role in providing funding in support of our movement and allowing us to reach out to more families and people with intellectual disabilities.</p>
+        </div>
+    </section>
+
+    <!-- Sponsors showcase -->
+    <div class="sponsors-container">
+        <h2 class="sponsors-title">Supporting Special Olympics Sarawak</h2>
+        
+        <div class="sponsors-grid">
+            <!-- This is where sponsorship logos will be added -->
+            <!-- When you add logos, they will automatically appear here in the grid -->
+
+<div class="sponsor-item">
+                <img src="/assets/images/yayasan_bintulu_port_logo.png" alt="ABC Corporation">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/pressmetal_logo.png" alt="XYZ Foundation">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/remixtechnology_logo.png" alt="123 Enterprises">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/harbourberhad_logo.png" alt="123 Enterprises">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/bhenmayer_logo.png" alt="123 Enterprises">
+            </div>
+             <div class="sponsor-item">
+                <img src="/assets/images/sunmow_logo.png" alt="123 Enterprises">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/pertama_ferroalloys_logo.png" alt="123 Enterprises">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/mtt_shipping_logo.png" alt="123 Enterprises">
+            </div>
+            <div class="sponsor-item">
+                <img src="/assets/images/lion_international_logo.png" alt="123 Enterprises">
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Space for existing footer -->
+    <div class="footer-space"></div>
+
+    <script>
+        // Simple script to handle logo addition in the future
+        document.addEventListener('DOMContentLoaded', function() {
+            // This function can be used to add logos programmatically later
+            function addSponsorLogo(imageUrl, altText) {
+                const grid = document.querySelector('.sponsors-grid');
+                const emptyState = document.querySelector('.empty-state');
+                
+                // Remove empty state if it exists
+                if (emptyState) {
+                    grid.removeChild(emptyState);
+                }
+                
+                // Create new sponsor item
+                const sponsorItem = document.createElement('div');
+                sponsorItem.className = 'sponsor-item';
+                
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = altText;
+                
+                sponsorItem.appendChild(img);
+                grid.appendChild(sponsorItem);
+            }
+            
+            // Make the function available globally so it can be called later
+            window.addSponsorLogo = addSponsorLogo;
+        });
+    </script>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+     <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="/scripts/script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', '/src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('chatbot-container', '/src/components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('/src/components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+</body>
+</html>
+

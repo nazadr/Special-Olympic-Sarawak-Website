@@ -220,8 +220,8 @@
             }
         }
 
-         /* Map Section */ 
-        .map-section {
+        /* Map Section */
+                .map-section {
             text-align: center;
             padding: 50px 20px;
             background-color: #f9f9f9;
@@ -237,7 +237,7 @@
             display: inline-block;
         }
 
-        .map-section h2::after {
+        .map-section h2:after {
             content: '';
             position: absolute;
             width: 60px;
@@ -250,10 +250,10 @@
 
         .map-container {
             position: relative;
-            max-width: 1000px; 
+            max-width: 1000px; /* Adjust as needed */
             margin: 0 auto;
             border: 1px solid #ddd;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             overflow: hidden; /* Ensure pinpoints don't overflow */
         }
 
@@ -263,89 +263,121 @@
             display: block;
         }
 
-        #pinpoint-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Allow clicks to pass through to pinpoints */
-        }
-
         .pinpoint {
             position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: #e30613;
+            width: 30px;
+            height: 30px;
+            background-color: #0c08ea;
             border-radius: 50%;
             cursor: pointer;
-            border: 3px solid white;
-            box-shadow: 0 0 8px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 0 0 5px rgba(227, 6, 19, 0.3);
             transition: all 0.2s ease-in-out;
-            z-index: 10;
-            pointer-events: auto; /* Make pinpoints clickable/hoverable */
-            transform: translate(-50%, -50%); /* Center the pinpoint on its coordinates */
+            z-index: 2; /* Ensure pinpoints are above the map */
         }
 
         .pinpoint:hover {
-            background-color: #c00511;
-            transform: translate(-50%, -50%) scale(1.2);
-            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 8px rgba(227, 6, 19, 0.5);
         }
 
         .pinpoint-info {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: white;
             border: 1px solid #ddd;
-            padding: 15px;
             border-radius: 8px;
+            /* Reduced padding */
+            padding: 10px; /* Was 15px */
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            min-width: 250px;
-            max-width: 350px;
-            z-index: 100;
-            display: none; /* Hidden by default */
-            pointer-events: none; /* Do not block mouse events on the map */
-            transform: translate(-50%, -20%); /* Position above the pinpoint */
-            left: 50%; /* Center relative to pinpoint */
-            bottom: 100%; /* Position above the pinpoint */
+            z-index: 20;
+            /* Reduced min-width */
+            min-width: 200px; /* Was 250px */
+            /* Optional: Add max-width if you want to cap its size */
+            max-width: 220px; /* New: Added max-width */
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+
+        .pinpoint:hover .pinpoint-info {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto; /* Enable clicks when visible */
         }
 
         .pinpoint-info h4 {
-            color: #e30613;
+            color: #e34806;
             margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            /* Reduced margin-bottom */
+            margin-bottom: 8px; /* Was 10px */
+            /* Reduced font-size */
+            font-size: 1.1rem; /* Was 1.2rem */
         }
-
+        .pinpoint-info img {
+            /* Reduced max-width */
+            max-width: 80px; /* Was 80px */
+            height: auto;
+            /* Reduced margin-bottom */
+            margin-bottom: 8px; /* Was 10px */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .pinpoint-info p {
             color: #555;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            /* Reduced font-size */
+            font-size: 0.85rem; /* Was 0.9rem */
+            line-height: 1.4; /* Slightly reduced line-height for compactness */
             margin-bottom: 0;
         }
 
-        .pinpoint:hover .pinpoint-info {
-            display: block; /* Show on hover */
+        /* Positioning for pinpoint info box (adjust as needed) 
+        .pinpoint-info.top {
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        /* Responsive adjustments for map section */
-        @media (max-width: 768px) {
-            .map-section h2 {
-                font-size: 2rem;
-            }
-            .pinpoint {
-                width: 20px;
-                height: 20px;
-            }
-            .pinpoint-info {
-                min-width: 200px;
-                max-width: 90%;
-                left: 50%;
-                transform: translate(-50%, -110%);
-            }
+        .pinpoint-info.bottom {
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-/* ending of map selection style*/
+        .pinpoint-info.left {
+            right: calc(100% + 10px);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .pinpoint-info.right {
+            left: calc(100% + 10px);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+*/
+
+        /* Draggable pinpoint styles */
+        .pinpoint.draggable {
+            cursor: grab;
+        }
+
+        .pinpoint.draggable:active {
+            cursor: grabbing;
+        }
+/*end of map selection style*/
+
+
 
 
 
@@ -433,21 +465,171 @@
             </div>
 
 
+
         </div>
     </div>
 
-
-         <div class="map-section">
+    <div class="map-section">
         <h2>Our Chapters Across Sarawak</h2>
         <div class="map-container">
-            <img src="/assets/images/sarawak_map_undefined.png" alt="Map of Sarawak" class="sarawak-map">
+            <img src="/assets/images/sarawak_map_undefined3.png" alt="Sarawak Map" class="sarawak-map">
             <!-- Pinpoints will be added here by JavaScript -->
-            <div id="pinpoint-container"></div>
         </div>
     </div>
     
     <!-- Space for existing footer -->
     <div class="footer-space"></div>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapContainer = document.querySelector('.map-container');
+            const sarawakMap = document.querySelector('.sarawak-map');
+
+            // Pinpoint data with initial positions (adjust these values)
+            const pinpointsData = [
+                {
+                    id: 'miri',
+                    name: 'SO Miri Chapter',
+                    logo: '/assets/images/SO_Miri_chapter.png',
+                    description: 'Newest chapter; growing fast and set to host the next state games in 2027.',
+                    top: '37%', // Initial top position (relative to map container)
+                    left: '67%'  // Initial left position (relative to map container)
+                },
+                {
+                    id: 'bintulu',
+                    name: 'SO Bintulu Chapter',
+                    logo: '/assets/images/SO_Bintulu_chapter.png',
+                    description: 'Main chapter and 2025 state games champion; very active with many athletes and programs.',
+                    top: '55%',
+                    left: '56%'
+                },
+                {
+                    id: 'sarawak-sibu',
+                    name: 'SO Sarawak/Sibu Chapter',
+                    logo: '/assets/images/SO_Sibu_Chapter.png', // Using Sibu logo as an example
+                    description: 'One of the earliest chapters; strong participation and hosts regular activities.',
+                    top: '68%',
+                    left: '39%'
+                },
+                {
+                    id: 'kuching',
+                    name: 'SO Kuching Chapter',
+                    logo: '/assets/images/SO_Kuching_chapter.png',
+                    description: 'One of the earliest chapters; strong participation and hosts regular activities.',
+                    top: '81%',
+                    left: '19%'
+                },
+                {
+                    id: 'samarahan',
+                    name: 'SO Samarahan Chapter (Upcoming)',
+                    logo: '/assets/images/SO_Sarawak.png', // Placeholder logo
+                    description: 'An upcoming chapter, poised to expand our reach and impact in the Samarahan region.',
+                    top: '85%',
+                    left: '22%'
+                }
+            ];
+
+            function createPinpoint(data) {
+                const pinpoint = document.createElement('div');
+                pinpoint.classList.add('pinpoint');
+                pinpoint.classList.add('draggable'); // Make it draggable
+                pinpoint.id = `pinpoint-${data.id}`;
+                pinpoint.style.top = data.top;
+                pinpoint.style.left = data.left;
+
+                const infoBox = document.createElement('div');
+                infoBox.classList.add('pinpoint-info');
+                infoBox.classList.add('bottom'); // Default position, can be adjusted dynamically
+
+                infoBox.innerHTML = `
+                    <h4>${data.name}</h4>
+                    <img src="${data.logo}" alt="${data.name} Logo">
+                    <p>${data.description}</p>
+                `;
+
+                pinpoint.appendChild(infoBox);
+                mapContainer.appendChild(pinpoint);
+
+                // Make pinpoints draggable
+                let isDragging = false;
+                let offsetX, offsetY;
+
+                pinpoint.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    pinpoint.style.zIndex = 21; // Bring to front when dragging
+                    offsetX = e.clientX - pinpoint.getBoundingClientRect().left;
+                    offsetY = e.clientY - pinpoint.getBoundingClientRect().top;
+                    pinpoint.style.cursor = 'grabbing';
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+
+                    const mapRect = mapContainer.getBoundingClientRect();
+                    let newLeft = e.clientX - mapRect.left - offsetX;
+                    let newTop = e.clientY - mapRect.top - offsetY;
+
+                    // Constrain movement within map container
+                    newLeft = Math.max(0, Math.min(newLeft, mapRect.width - pinpoint.offsetWidth));
+                    newTop = Math.max(0, Math.min(newTop, mapRect.height - pinpoint.offsetHeight));
+
+                    pinpoint.style.left = `${(newLeft / mapRect.width) * 100}%`;
+                    pinpoint.style.top = `${(newTop / mapRect.height) * 100}%`;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                        pinpoint.style.zIndex = 10; // Reset z-index
+                        pinpoint.style.cursor = 'grab';
+                        // Log new position for saving (optional)
+                        console.log(`${data.name} new position: top: ${pinpoint.style.top}, left: ${pinpoint.style.left}`);
+                    }
+                });
+            }
+
+            // Create all pinpoints
+            pinpointsData.forEach(data => createPinpoint(data));
+
+        /*
+            // Adjust info box position if it goes off-screen (optional, more complex)
+            // This is a basic example and might need more sophisticated logic for all edge cases
+            mapContainer.addEventListener('mouseover', (e) => {
+                if (e.target.classList.contains('pinpoint')) {
+                    const infoBox = e.target.querySelector('.pinpoint-info');
+                    const pinpointRect = e.target.getBoundingClientRect();
+                    const infoBoxRect = infoBox.getBoundingClientRect();
+                    const mapRect = mapContainer.getBoundingClientRect();
+
+                    // Check if info box overflows top
+                    if (pinpointRect.top - infoBoxRect.height < mapRect.top) {
+                        infoBox.classList.remove('top');
+                        infoBox.classList.add('bottom');
+                    }
+                    // Check if info box overflows bottom
+                    else if (pinpointRect.bottom + infoBoxRect.height > mapRect.bottom) {
+                        infoBox.classList.remove('bottom');
+                        infoBox.classList.add('top');
+                    }
+                    // Check if info box overflows left
+                    else if (pinpointRect.left - infoBoxRect.width < mapRect.left) {
+                        infoBox.classList.remove('left');
+                        infoBox.classList.add('right');
+                    }
+                    // Check if info box overflows right
+                    else if (pinpointRect.right + infoBoxRect.width > mapRect.right) {
+                        infoBox.classList.remove('right');
+                        infoBox.classList.add('left');
+                    }
+                }
+            }, true); // Use capture phase to catch events on child elements
+*/
+
+        });
+    </script>
 
  <!-- Section Divider -->
     <div class="section-divider"></div>
@@ -482,196 +664,6 @@
           }
         });
     </script>
-
-    <script>
-        // Function to load HTML into a container (existing)
-        function loadHTML(containerId, filePath) {
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(containerId).innerHTML = data;
-                });
-        }
-
-        // Load shared components (existing)
-        loadHTML('top-nav-container', '/src/components/top-nav.html');
-        loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
-        loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
-        loadHTML('site-footer-container', '/src/components/site-footer.html');
-        loadHTML('chatbot-container', '/src/components/chatbot.html');
-
-        // Re-attach dropup menu listeners after bottom nav loads (existing)
-        fetch('/src/components/bottom-nav.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('bottom-nav-container').innerHTML = data;
-                if (typeof attachDropupMenuListeners === 'function') {
-                    attachDropupMenuListeners();
-                }
-            });
-
-        // New JavaScript for Pinpoints
-        document.addEventListener('DOMContentLoaded', function() {
-            const pinpointContainer = document.getElementById('pinpoint-container');
-            const sarawakMap = document.querySelector('.sarawak-map');
-
-            // Define your pinpoints with their initial positions (percentages)
-            // You will adjust these 'left' and 'top' values to place them correctly on the map.
-            const pinpointsData = [
-                {
-                    id: 'miri',
-                    name: 'Special Olympic Miri Chapter',
-                    description: 'Newest chapter; growing fast and set to host the next state games in 2027.',
-                    left: '75%', // Adjust this value
-                    top: '20%',  // Adjust this value
-                    infoDirection: 'down' // Optional: direction for info box
-                },
-                {
-                    id: 'bintulu',
-                    name: 'Special Olympic Bintulu Chapter',
-                    description: 'Main chapter and 2025 state games champion; very active with many athletes and programs.',
-                    left: '60%', // Adjust this value
-                    top: '35%',  // Adjust this value
-                    infoDirection: 'down' // Optional: direction for info box
-                },
-                {
-                    id: 'sarawak-sibu',
-                    name: 'Special Olympic Sarawak/Sibu Chapter',
-                    description: 'One of the earliest chapters; strong participation and hosts regular activities.',
-                    left: '45%', // Adjust this value
-                    top: '45%'  // Adjust this value
-                },
-                {
-                    id: 'kuching',
-                    name: 'Special Olympic Kuching Chapter',
-                    description: 'One of the earliest chapters; strong participation and hosts regular activities.',
-                    left: '20%', // Adjust this value
-                    top: '70%'  // Adjust this value
-                },
-                {
-                    id: 'samarahan',
-                    name: 'Upcoming Special Olympic Samarahan Chapter',
-                    description: 'Future chapter, expanding our reach to new communities.',
-                    left: '25%', // Adjust this value
-                    top: '75%'  // Adjust this value
-                }
-            ];
-
-                       function createPinpoints() {
-                pinpointContainer.innerHTML = '';
-                pinpointsData.forEach(data => {
-                    const pinpoint = document.createElement('div');
-                    pinpoint.className = 'pinpoint';
-                    pinpoint.style.left = data.left;
-                    pinpoint.style.top = data.top;
-                    pinpoint.setAttribute('data-id', data.id);
-
-                    const infoBox = document.createElement('div');
-                    infoBox.className = 'pinpoint-info';
-
-                    // Add class based on infoDirection
-                    if (data.infoDirection === 'down') {
-                        infoBox.classList.add('pinpoint-info-down');
-                    } else {
-                        // Default to 'up' if not specified or not 'down'
-                        infoBox.classList.add('pinpoint-info-up');
-                    }
-
-                    const title = document.createElement('h4');
-                    title.textContent = data.name;
-                    infoBox.appendChild(title);
-
-                    const description = document.createElement('p');
-                    description.textContent = data.description;
-                    infoBox.appendChild(description);
-
-                    pinpoint.appendChild(infoBox);
-                    pinpointContainer.appendChild(pinpoint);
-                });
-            }
-
-
-            // Initial creation of pinpoints
-            createPinpoints();
-
-            // Optional: Add an event listener to allow dragging pinpoints for adjustment
-            // This is for development/adjustment purposes. Remove or comment out in production.
-            let activePinpoint = null;
-            let offsetX, offsetY;
-
-            pinpointContainer.addEventListener('mousedown', (e) => {
-                if (e.target.classList.contains('pinpoint')) {
-                    activePinpoint = e.target;
-                    const rect = activePinpoint.getBoundingClientRect();
-                    const containerRect = pinpointContainer.getBoundingClientRect();
-
-                    // Calculate offset relative to the pinpoint's top-left corner
-                    offsetX = e.clientX - rect.left;
-                    offsetY = e.clientY - rect.top;
-
-                    activePinpoint.style.cursor = 'grabbing';
-                    e.preventDefault(); // Prevent default drag behavior
-                }
-            });
-
-            pinpointContainer.addEventListener('mousemove', (e) => {
-                if (activePinpoint) {
-                    const containerRect = pinpointContainer.getBoundingClientRect();
-
-                    // Calculate new position relative to the container
-                    let newLeftPx = e.clientX - containerRect.left - offsetX;
-                    let newTopPx = e.clientY - containerRect.top - offsetY;
-
-                    // Convert to percentage
-                    let newLeftPercent = (newLeftPx / containerRect.width) * 100;
-                    let newTopPercent = (newTopPx / containerRect.height) * 100;
-
-                    // Clamp values to stay within bounds (0% to 100%)
-                    newLeftPercent = Math.max(0, Math.min(100, newLeftPercent));
-                    newTopPercent = Math.max(0, Math.min(100, newTopPercent));
-
-                    activePinpoint.style.left = `${newLeftPercent}%`;
-                    activePinpoint.style.top = `${newTopPercent}%`;
-
-                    // Update the data for persistence (optional, but good for saving positions)
-                    const pinpointId = activePinpoint.getAttribute('data-id');
-                    const index = pinpointsData.findIndex(p => p.id === pinpointId);
-                    if (index !== -1) {
-                        pinpointsData[index].left = `${newLeftPercent}%`;
-                        pinpointsData[index].top = `${newTopPercent}%`;
-                    }
-                }
-            });
-
-            pinpointContainer.addEventListener('mouseup', () => {
-                if (activePinpoint) {
-                    activePinpoint.style.cursor = 'pointer';
-                    console.log('Updated Pinpoint Positions:');
-                    pinpointsData.forEach(p => {
-                        console.log(`${p.name}: left: '${p.left}', top: '${p.top}'`);
-                    });
-                }
-                activePinpoint = null;
-            });
-
-            // Handle mouse leave to stop dragging if mouse leaves the container
-            pinpointContainer.addEventListener('mouseleave', () => {
-                if (activePinpoint) {
-                    activePinpoint.style.cursor = 'pointer';
-                    activePinpoint = null;
-                }
-            });
-
-            // Adjust pinpoint positions if the map image resizes (e.g., on window resize)
-            // This ensures pinpoints stay relative to the map.
-            window.addEventListener('resize', createPinpoints);
-        });
-    </script>
-
-
-
-
-
 
 </body>
 </html>
