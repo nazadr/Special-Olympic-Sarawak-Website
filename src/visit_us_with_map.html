@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Us - Sarawak Special Olympic</title>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="../src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
@@ -279,7 +279,7 @@
                 </div>
                 <div class="branch-content">
                     <div class="branch-info-container">
-                        <div class="branch-logo"><img src="/assets/images/SO_Sarawak.png" alt="Kuching Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="branch-logo"><img src="../assets/images/SO_Sarawak.png" alt="Kuching Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
                         <div class="branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> C/O 23-27 Jalan Bengkel, P O Box 370, 96007, Sibu</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 84-332332</p>
@@ -301,7 +301,7 @@
                 </div>
                 <div class="branch-content">
                     <div class="branch-info-container">
-                        <div class="branch-logo"><img src="/assets/images/SO_Kuching_chapter.png" alt="Kuching Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="branch-logo"><img src="../assets/images/SO_Kuching_chapter.png" alt="Kuching Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
                         <div class="branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> FL.1, P2-1-5(D), Jln Tabuan, Chonglin Park <br> 93100 Kuching, Sarawak</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 85-567 890</p>
@@ -322,7 +322,7 @@
                 <div class="branch-content">
                     <div class="branch-info-container">
                         <div class="branch-logo">
-                             <img src="/assets/images/SO_Sibu_Chapter.png" alt="Sibu Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                             <img src="../assets/images/SO_Sibu_Chapter.png" alt="Sibu Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
                         <div class="branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> C/O 23-27 Jalan Bengkel, P O Box 370, 96007, Sibu</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 84-332332</p>
@@ -343,7 +343,7 @@
                 </div>
                 <div class="branch-content">
                     <div class="branch-info-container">
-                        <div class="branch-logo"><img src="/assets/images/SO_Bintulu_chapter.png" alt="Bintulu Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="branch-logo"><img src="../assets/images/SO_Bintulu_chapter.png" alt="Bintulu Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
                         <div class="branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> C/O F-2-1 Bintulu Paragon, Old Airport Place <br> 97000 Bintulu, Sarawak</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 019-5302305</p>
@@ -364,7 +364,7 @@
                 </div>
                 <div class="branch-content">
                     <div class="branch-info-container">
-                        <div class="branch-logo"><img src="/assets/images/SO_Miri_chapter.png" alt="Miri Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="branch-logo"><img src="../assets/images/SO_Miri_chapter.png" alt="Miri Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
                         <div class="branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> C/O Lot 312, Jalan Bulan Sabit, Krokop, P O Box 370, <br> 98000 Miri</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 85-420722</p>
@@ -392,7 +392,7 @@
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="/scripts/script.js"></script>
+    <script src="../scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -403,14 +403,14 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', '/src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '/src/components/site-footer.html');
-      loadHTML('chatbot-container', '/src/components/chatbot.html');
+      loadHTML('top-nav-container', '../src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '../src/components/site-footer.html');
+      loadHTML('chatbot-container', '../src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('/src/components/bottom-nav.html')
+      fetch('../src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;

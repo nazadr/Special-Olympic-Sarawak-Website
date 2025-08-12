@@ -325,10 +325,10 @@
       loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
       loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
       loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '/src/components/chatbot.html');
+      loadHTML('chatbot-container', '../src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('/src/components/bottom-nav.html')
+      fetch('../src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;
