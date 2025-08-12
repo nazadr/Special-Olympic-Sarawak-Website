@@ -1,0 +1,867 @@
+/* --- Latest News Page Styles --- */
+.news-main {
+  max-width: 1100px;
+  margin: 120px auto 60px auto;
+  padding: 0 20px;
+}
+.news-title {
+  font-size: 2.5rem;
+  color: #e53935;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.news-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+.news-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(229,57,53,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.news-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(229,57,53,0.18), 0 2px 12px 0 rgba(0,0,0,0.10);
+}
+.news-image {
+  width: 100%;
+  height: 180px;
+  background: #eee center/cover no-repeat;
+  border-bottom: 1px solid #f5f5f5;
+}
+.news-content {
+  padding: 22px 24px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.news-headline {
+  font-size: 1.25rem;
+  color: #e53935;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+.news-date {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+.news-desc {
+  font-size: 1.05rem;
+  color: #222;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .news-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .news-card {
+    width: 95%;
+    max-width: 420px;
+  }
+}
+/* --- End Latest News Page Styles --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  z-index: 1;
+  text-shadow: 2px 2px 8px #000;
+}
+
+.overlay h1 {
+  font-size: 60px;
+}
+
+.overlay .tagline {
+  font-family: 'Cursive', sans-serif;
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+.video-background {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  background: #fff;
+}
+.video-background video {
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* --- testing searchbar mockup only (non functional searchbar --- */
+
+.search-container {
+  flex: 1;
+  width: 150px;
+  margin-left: 10px;
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  padding-right: 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-input:focus {
+  border-color: #e53935;
+  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  color: #e53935;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  color: #c62828;
+  background: rgba(229, 57, 53, 0.1);
+  transform: 
+    scale(1.1) 
+    rotate(8deg);
+  
+  /* Pulsing glow effect */
+  box-shadow: 
+    0 0 0 4px rgba(229, 57, 53, 0.3),
+    0 0 12px rgba(229, 57, 53, 0.4);
+}
+
+/* --- End of Searchbar Styles --- */
+
+/*-- ajusted top nav remove if remove searchbar --- */
+.logo, .nav-right {
+  flex: 0 0 auto;
+}
+ /*ending adjusted top nav */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid #e53935;
+  z-index: 1000;
+  height: 70px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu > li {
+  position: relative;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  padding: 20px 10px;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+  perspective: 800px; /* adds depth */
+}
+
+.nav-menu a:hover {
+  color: #e53935;
+  transform: translateY(-2px) rotateX(5deg) rotateY(2deg);
+  text-shadow:
+    1px 1px 0 #ccc,
+    2px 2px 1px rgba(0, 0, 0, 0.2),
+    4px 4px 4px rgba(0, 0, 0, 0.3),
+    6px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Dropdown --- */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 10px 0;
+  border-radius: 12px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.1),
+    0 0 8px rgba(255, 255, 255, 0.3) inset;
+  opacity: 0;
+  transform: translateY(-15px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 180px;
+  z-index: 999;
+  list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown-menu a {
+  padding: 12px 20px;
+  color: #333;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.dropdown-menu a:hover {
+  background: #ffe6e6;
+  color: #e53935;
+  transform: translateX(4px);
+}
+
+/* Optional bounce effect */
+@keyframes bounceIn {
+  0% { transform: translateY(-10px) scale(0.95); opacity: 0; }
+  60% { transform: translateY(4px) scale(1.03); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.dropdown:hover .dropdown-menu {
+  animation: bounceIn 0.5s ease forwards;
+}
+
+
+/* --- end of Dropdown Menu Enhancements and from Top nav --- */
+
+
+/* --- Donation Button Styles --- */
+.donation-button-container {
+    padding-left: 20px;
+}
+
+.donate-btn {
+    background-color: #e53935;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+}
+
+.donate-btn:hover {
+    background-color: #c62828;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.donate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: all 0.7s ease;
+    z-index: 1;
+}
+
+.donate-btn:hover::before {
+    left: 100%;
+}
+
+.donate-btn span {
+    position: relative;
+    z-index: 2;
+}
+/* --- end of Donation Button Styles --- */
+
+/* --- Social Media Bar Styles --- */
+.socmed-bar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+}
+
+.socmed-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  color: #e53935;
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.8),
+    0 4px 6px rgba(0, 0, 0, 0.15),
+    0 8px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Keep icon size stable */
+.socmed-icon i {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+/* Color fill effect from left to right */
+.socmed-icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  z-index: 1;
+  transition: width 0.4s ease;
+}
+
+/* Hover: smooth scale + deeper shadow + fill */
+.socmed-icon:hover {
+  transform: scale(1.2);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 6px 12px rgba(0, 0, 0, 0.25),
+    0 10px 16px rgba(0, 0, 0, 0.1);
+}
+
+.socmed-icon:hover::before {
+  width: 100%;
+}
+
+.socmed-icon:hover i {
+  color: white;
+}
+
+/* Platform-specific background colors */
+.soc-facebook::before { background-color: #1877F2; }
+.soc-x::before { background-color: #000000; }
+.soc-linkedin::before { background-color: #0A66C2; }
+.soc-tiktok::before { background-color: #010101; }
+.soc-instagram::before {
+  background: radial-gradient(circle at 30% 107%,
+    #fdf497 0%, #fdf497 5%,
+    #fd5949 45%, #d6249f 60%,
+    #285AEB 90%);
+}
+/* --- end of Social Media Icon Styles --- */
+
+/* --- Bottom Navigation Styles --- */
+.bottom-nav {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: transparent;
+}
+
+.bottom-nav ul {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* --- Button Item Container --- */
+.nav-item {
+  position: relative;
+}
+
+.nav-btn {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 0;
+  width: 200px;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  background: linear-gradient(to top, #ffffff, #ffe6e6);
+  color: #e53935;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(229, 57, 53, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7); /* inner bevel effect */
+  z-index: 1;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(229, 57, 53, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.nav-btn span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #e53935;
+  z-index: 1;
+  transition: left 0.6s ease;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 0;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease 0.3s;
+  pointer-events: none;
+}
+
+/* --- Tsunami Trigger Based on JS --- */
+.nav-item.open .nav-btn::before {
+  left: 0;
+}
+.nav-item.open .nav-btn::after {
+  transform: translateX(0%);
+  transition-delay: 0s;
+}
+.nav-item.open .nav-btn span {
+  color: white;
+}
+
+/* --- Drop-Up Menu --- */
+/* Drop-up menu container */
+.dropup-menu {
+  position: absolute;
+  bottom: calc(100% + 10px); /* Move 10px away from button */
+  left: 50%;
+  transform: translateX(-50%) perspective(1000px) rotateX(-90deg);
+  transform-origin: bottom center;
+  width: 200px;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  border-radius: 8px;
+  box-shadow: 
+    0 10px 25px rgba(0,0,0,0.2),
+    0 5px 10px rgba(0,0,0,0.1) inset,
+    0 -5px 10px rgba(255,255,255,0.8) inset;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Open state with 3D bounce animation */
+.nav-item.open .dropup-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) perspective(1000px) rotateX(0);
+  animation: dropup3D 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes dropup3D {
+  0% {
+    transform: translateX(-50%) perspective(1000px) rotateX(-90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) perspective(1000px) rotateX(15deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) perspective(1000px) rotateX(-5deg);
+  }
+  100% {
+    transform: translateX(-50%) perspective(1000px) rotateX(0);
+    opacity: 1;
+  }
+}
+
+/* Menu items with intense 3D hover effects */
+.dropup-menu a {
+  display: block;
+  position: relative;
+  padding: 14px 20px;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: 
+    all 0.3s ease,
+    transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.dropup-menu a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.dropup-menu a:hover {
+  color: #b71c1c;
+  transform: translateY(-3px) translateZ(20px);
+  box-shadow: 
+    0 5px 15px rgba(0,0,0,0.1),
+    0 2px 5px rgba(0,0,0,0.1) inset;
+}
+
+.dropup-menu a:hover:before {
+  opacity: 1;
+}
+
+.dropup-menu a:last-child {
+  border-bottom: none;
+}
+
+/* --- End of Drop-Up Menu Styles --- */
+
+
+.site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  background: #BA1D1D;
+  color: #fff;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  box-shadow: 0 -2px 12px rgba(229,57,53,0.12);
+}
+.footer-links {
+  display: flex;
+  gap: 32px;
+}
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 12px;
+  transition: background 0.2s, color 0.2s;
+}
+.footer-link:hover {
+  background: #fff;
+  color: #e53935;
+}
+
+
+/* --- News Card --- */
+.special-cards-container {
+  position: absolute;
+  top: 140px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 360px;
+  z-index: 10;
+}
+
+.special-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(229,57,53,0.2);
+}
+
+.special-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 16px 20px;
+}
+
+.card-body h3 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: #111;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card-button {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  border: 2px solid #e53935;
+  border-radius: 8px;
+  color: #e53935;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card-button:hover {
+  background: #e53935;
+  color: white;
+}
+
+/*-- chatbot testing --*/
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.chatbot-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e53935;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.chatbot-toggle:hover {
+  background-color: #c62828;
+  transform: scale(1.05);
+}
+
+.chatbot-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 330px;
+  height: 420px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(60px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  z-index: 9999;
+}
+
+.chatbot-window.open {
+  transform: translateY(0px);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.chatbot-header {
+  background: linear-gradient(to right, #e53935, #f44336);
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  font-size: 14px;
+}
+
+.chatbot-input {
+  border: none;
+  border-top: 1px solid #ddd;
+  padding: 14px;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+}
+
+.user-msg, .bot-msg {
+  margin: 10px 0;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 75%;
+  display: inline-block;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.user-msg {
+  background-color: #e53935;
+  color: white;
+  margin-left: auto;
+  animation: fadeInRight 0.3s ease;
+}
+
+.bot-msg {
+  background-color: #eeeeee;
+  color: #333;
+  animation: fadeInLeft 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+
+/* Fade-in and fade-out effects experimental */
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
+  opacity: 1;
+}
+/* --- End of Chatbot Styles --- */
