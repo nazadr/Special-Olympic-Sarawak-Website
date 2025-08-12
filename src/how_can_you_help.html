@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How You Can Help | Supporting Intellectual Disabilities</title>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="../src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
@@ -310,7 +310,7 @@
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="/scripts/script.js"></script>
+    <script src="../scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -321,10 +321,10 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', '/src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '/src/components/site-footer.html');
+      loadHTML('top-nav-container', '../src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '../src/components/site-footer.html');
       loadHTML('chatbot-container', '/src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads

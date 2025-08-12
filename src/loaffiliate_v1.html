@@ -411,7 +411,7 @@
             <!-- Placeholder card for adding affiliates -->
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/assets/images/SO_Miri_chapter.png" alt="SO Miri Chapter" />
+                    <img src="../assets/images/SO_Miri_chapter.png" alt="SO Miri Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Miri Chapter</h3>
@@ -422,7 +422,7 @@
             
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/assets/images/SO_Bintulu_chapter.png" alt="SO Bintulu Chapter" />
+                    <img src="../assets/images/SO_Bintulu_chapter.png" alt="SO Bintulu Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Bintulu Chapter</h3>
@@ -433,7 +433,7 @@
             
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/assets/images/SO_Sarawak.png" alt="SO Sarawak" />
+                    <img src="../assets/images/SO_Sarawak.png" alt="SO Sarawak" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Sarawak</h3>
@@ -444,7 +444,7 @@
 
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/assets/images/SO_Sibu_Chapter.png" alt="SO Sibu Chapter" />
+                    <img src="../assets/images/SO_Sibu_Chapter.png" alt="SO Sibu Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Sibu Chapter</h3>
@@ -455,7 +455,7 @@
 
              <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="/assets/images/SO_Kuching_chapter.png" alt="SO Kuching Chapter" />
+                    <img src="../assets/images/SO_Kuching_chapter.png" alt="SO Kuching Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Kuching Chapter</h3>
@@ -472,7 +472,7 @@
     <div class="map-section">
         <h2>Our Chapters Across Sarawak</h2>
         <div class="map-container">
-            <img src="/assets/images/sarawak_map_undefined2.png" alt="Sarawak Map" class="sarawak-map">
+            <img src="../assets/images/sarawak_map_undefined2.png" alt="Sarawak Map" class="sarawak-map">
             <!-- Pinpoints will be added here by JavaScript -->
         </div>
     </div>
@@ -493,7 +493,7 @@
                 {
                     id: 'miri',
                     name: 'SO Miri Chapter',
-                    logo: '/assets/images/SO_Miri_chapter.png',
+                    logo: '../assets/images/SO_Miri_chapter.png',
                     description: 'Newest chapter; growing fast and set to host the next state games in 2027.',
                     top: '37%', // Initial top position (relative to map container)
                     left: '67%'  // Initial left position (relative to map container)
@@ -501,7 +501,7 @@
                 {
                     id: 'bintulu',
                     name: 'SO Bintulu Chapter',
-                    logo: '/assets/images/SO_Bintulu_chapter.png',
+                    logo: '../assets/images/SO_Bintulu_chapter.png',
                     description: 'Main chapter and 2025 state games champion; very active with many athletes and programs.',
                     top: '55%',
                     left: '56%'
@@ -509,7 +509,7 @@
                 {
                     id: 'sarawak-sibu',
                     name: 'SO Sarawak/Sibu Chapter',
-                    logo: '/assets/images/SO_Sibu_Chapter.png', // Using Sibu logo as an example
+                    logo: '../assets/images/SO_Sibu_Chapter.png', // Using Sibu logo as an example
                     description: 'One of the earliest chapters; strong participation and hosts regular activities.',
                     top: '68%',
                     left: '39%'
@@ -517,7 +517,7 @@
                 {
                     id: 'kuching',
                     name: 'SO Kuching Chapter',
-                    logo: '/assets/images/SO_Kuching_chapter.png',
+                    logo: '../assets/images/SO_Kuching_chapter.png',
                     description: 'One of the earliest chapters; strong participation and hosts regular activities.',
                     top: '80%',
                     left: '20%'
@@ -525,7 +525,7 @@
                 {
                     id: 'samarahan',
                     name: 'SO Samarahan Chapter (Upcoming)',
-                    logo: '/assets/images/SO_Sarawak.png', // Placeholder logo
+                    logo: '../assets/images/SO_Sarawak.png', // Placeholder logo
                     description: 'An upcoming chapter, poised to expand our reach and impact in the Samarahan region.',
                     top: '81%',
                     left: '24%'
@@ -637,7 +637,7 @@
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="/scripts/script.js"></script>
+    <script src="../scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -648,14 +648,14 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', '/src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '/src/components/site-footer.html');
-      loadHTML('chatbot-container', '/src/components/chatbot.html');
+      loadHTML('top-nav-container', '../src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '../src/components/site-footer.html');
+      loadHTML('chatbot-container', '../src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('/src/components/bottom-nav.html')
+      fetch('../src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;

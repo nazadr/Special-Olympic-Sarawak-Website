@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Olympics Sarawak</title>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="../src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
@@ -358,7 +358,7 @@
     
     <!-- Hero section with animated background -->
     <section class="hero">
-        <img src="/assets/images/sarawak_group_photo.jpeg" alt="Group of Special Olympics athletes celebrating together with raised arms in a stadium" class="hero-background">
+        <img src="../assets/images/sarawak_group_photo.jpeg" alt="Group of Special Olympics athletes celebrating together with raised arms in a stadium" class="hero-background">
         <div class="hero-content">
             <h1 class="hero-title">Special Olympics Sarawak</h1>
             <p class="hero-subtitle">Empowering athletes with intellectual disabilities through sports</p>
@@ -376,7 +376,7 @@
                     <p>Our mission is to provide year-round sports training and athletic competition in a variety of Olympic-type sports for children and adults with intellectual disabilities, giving them continuing opportunities to develop physical fitness, demonstrate courage, experience joy and participate in a sharing of gifts, skills and friendship.</p>
                 </div>
                 <div class="about-image">
-                    <img src="/assets/images/yb_hfatimah_along.gif" alt="Group of Special Olympics athletes participating in various sports activities with coaches and volunteers">
+                    <img src="../assets/images/yb_hfatimah_along.gif" alt="Group of Special Olympics athletes participating in various sports activities with coaches and volunteers">
                 </div>
             </div>
         </div>
@@ -426,7 +426,7 @@
             <div class="programs-grid">
                 <div class="program-card">
                     <div class="program-image">
-                        <img src="/assets/images/healthy_program_1.jpg" alt="Medical professionals conducting health screenings for Special Olympics athletes">
+                        <img src="../assets/images/healthy_program_1.jpg" alt="Medical professionals conducting health screenings for Special Olympics athletes">
                     </div>
                     <div class="program-content">
                         <h3 class="program-title"><span class="program-number">1</span>Special Olympics Healthy Athletes Program (SOHAP)</h3>
@@ -435,7 +435,7 @@
                 </div>
                 <div class="program-card">
                     <div class="program-image">
-                        <img src="/assets/images/leadership_1.jpg" alt="Special Olympics athletes participating in leadership training sessions">
+                        <img src="../assets/images/leadership_1.jpg" alt="Special Olympics athletes participating in leadership training sessions">
                     </div>
                     <div class="program-content">
                         <h3 class="program-title"><span class="program-number">2</span>Special Olympics Athlete Leadership Program (ALPs)</h3>
@@ -444,7 +444,7 @@
                 </div>
                 <div class="program-card">
                     <div class="program-image">
-                        <img src="/assets/images/young_athelte_1.jpg" alt="Young children with intellectual disabilities playing sports games with coaches">
+                        <img src="../assets/images/young_athelte_1.jpg" alt="Young children with intellectual disabilities playing sports games with coaches">
                     </div>
                     <div class="program-content">
                         <h3 class="program-title"><span class="program-number">3</span> Young Athletes Program (YAP)</h3>
@@ -495,7 +495,7 @@
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="/scripts/script.js"></script>
+    <script src="../scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -506,14 +506,14 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', '/src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '/src/components/site-footer.html');
-      loadHTML('chatbot-container', '/src/components/chatbot.html');
+      loadHTML('top-nav-container', '../src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '../src/components/site-footer.html');
+      loadHTML('chatbot-container', '../src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('/src/components/bottom-nav.html')
+      fetch('../src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;

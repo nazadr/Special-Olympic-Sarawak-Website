@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest News | Special Olympics Sarawak</title>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="../src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
       <div class="news-list">
         <!-- News Card Example: Add your image URL in the style below -->
         <article class="news-card">
-          <div class="news-image" style="background:#eee url('/assets/images/bintulu_marathon_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-image" style="background:#eee url('../assets/images/bintulu_marathon_news.jpg') center/cover no-repeat;"></div>
           <div class="news-content">
             <h2 class="news-headline">Participating in Bintulu Marathon 2025. Congratulations!</h2>
             <p class="news-date">3 August, 2025</p>
@@ -32,7 +32,7 @@
           </div>
         </article>
         <article class="news-card">
-          <div class="news-image" style="background:#eee url('/assets/images/child_family_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-image" style="background:#eee url('../assets/images/child_family_news.jpg') center/cover no-repeat;"></div>
           <div class="news-content">
             <h2 class="news-headline">Funding on Young Athletes Program and Famliy Health project</h2>
             <p class="news-date">23 July, 2025</p>
@@ -40,7 +40,7 @@
           </div>
         </article>
         <article class="news-card">
-          <div class="news-image" style="background:#eee url('/assets/images/bocce_friendly_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-image" style="background:#eee url('../assets/images/bocce_friendly_news.jpg') center/cover no-repeat;"></div>
           <div class="news-content">
             <h2 class="news-headline">Unified Bocce Friendly Match</h2>
             <p class="news-date">3 June 2025</p>
@@ -48,7 +48,7 @@
           </div>
         </article>
          <article class="news-card">
-          <div class="news-image" style="background:#eee url('/assets/images/another_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-image" style="background:#eee url('../assets/images/another_news.jpg') center/cover no-repeat;"></div>
           <div class="news-content">
             <h2 class="news-headline">7th Special Olympics Sarawak  State Game 2nd-5th May 2025</h2>
             <p class="news-date">9 May, 2025</p>
@@ -56,7 +56,7 @@
           </div>
         </article>
         <article class="news-card">
-          <div class="news-image" style="background:#eee url('/assets/images/7state_game2_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-image" style="background:#eee url('../assets/images/7state_game2_news.jpg') center/cover no-repeat;"></div>
           <div class="news-content">
             <h2 class="news-headline">Special Olympics Malaysia, Sarawak 7th State Games</h2>
             <p class="news-date">6 may, 2025</p>
@@ -64,7 +64,7 @@
           </div>
         </article>
         <article class="news-card">
-          <div class="news-image" style="background:#eee url('/assets/images/national_basketball_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-image" style="background:#eee url('../assets/images/national_basketball_news.jpg') center/cover no-repeat;"></div>
           <div class="news-content">
             <h2 class="news-headline">National basketball coaching course was held in Sibu, Malaysia, for coaches from East Malaysia.</h2>
             <p class="news-date">13 januari, 2025</p>
@@ -90,7 +90,7 @@
     <div id="bottom-nav-container"></div>
     <!-- Site Footer (Loaded via JS) -->
     <div id="site-footer-container"></div>
-    <script src="/scripts/script.js"></script>
+    <script src="../scripts/script.js"></script>
     <script>
       // Function to load HTML into a container
       function loadHTML(containerId, filePath) {
@@ -101,14 +101,14 @@
           });
       }
       // Load shared components
-      loadHTML('top-nav-container', '/src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '/src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '/src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '/src/components/site-footer.html');
-      loadHTML('chatbot-container', '/src/components/chatbot.html');
+      loadHTML('top-nav-container', '../src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '../src/components/site-footer.html');
+      loadHTML('chatbot-container', '../src/components/chatbot.html');
 
       // Re-attach dropup menu listeners after bottom nav loads
-      fetch('/src/components/bottom-nav.html')
+      fetch('../src/components/bottom-nav.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('bottom-nav-container').innerHTML = data;
