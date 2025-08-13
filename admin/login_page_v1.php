@@ -1,3 +1,37 @@
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $conn = new mysqli("localhost", "root", "", "special_olympics_site");
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    if ($row = $res->fetch_assoc()) {
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user'] = $row['fullname'];
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $error = "Invalid password.";
+        }
+    } else {
+        $error = "No account found with that email.";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,37 +223,35 @@
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    
+     <div class="particles" id="particles"></div>
     <div class="login-container">
         <div class="logo">
-            <img src="../assets/images/master_logo_front.png" alt="Special Olympics Sarawak logo featuring a torch and athlete in motion with red and white color scheme" />
+            <img src="../assets/images/master_logo_front.png" alt="Special Olympics Sarawak logo" />
             <h2>Welcome Back</h2>
+            <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+            <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success') echo "<p style='color:green;'>Signup successful! Please log in.</p>"; ?>
         </div>
-        
-        <form>
+        <form method="POST" action="">
             <div class="input-group">
-                <input type="text" required>
-                <label>Username</label>
+                <input type="text" name="email" required>
+                <label>Email</label>
             </div>
-            
             <div class="input-group">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <label>Password</label>
             </div>
-            
             <div class="forgot-pass">
                 <a href="#">Forgot Password?</a>
             </div>
-            
             <button type="submit">Login</button>
-            
             <div class="signup-link">
-                Not a member? <a href="../admin/signup_page_v1.html">Sign up now</a>
+                Not a member? <a href="../admin/signup_page_v1.php">Sign up now</a>
             </div>
         </form>
     </div>
 
+
+    <!---
     <script>
         // Create floating particles
         document.addEventListener('DOMContentLoaded', function() {
@@ -271,7 +303,8 @@
                 }
             });
         });
-    </script>
+</script>
+--->
 </body>
 </html>
 

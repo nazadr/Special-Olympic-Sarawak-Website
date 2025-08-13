@@ -1,9 +1,32 @@
+<?php
+session_start();
+
+// Simple hardcoded login credentials (change these!)
+$valid_username = "admin";
+$valid_password = "12345";
+
+$error = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+
+    if ($username === $valid_username && $password === $valid_password) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        header("Location: admin.php");
+        exit;
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Sarawak - Sign Up</title>
+    <title>Special Olympics Sarawak - Login</title>
     <style>
         * {
             margin: 0;
@@ -188,40 +211,35 @@
         }
     </style>
 </head>
-<body>
+\1
+<?php if(!empty($error)) { echo '<p style=\"color:red;text-align:center;\">'.htmlspecialchars($error).'</p>'; } ?>
     <div class="particles" id="particles"></div>
     
     <div class="login-container">
         <div class="logo">
             <img src="../assets/images/master_logo_front.png" alt="Special Olympics Sarawak logo featuring a torch and athlete in motion with red and white color scheme" />
-            <h2>Create Your Account</h2>
+            <h2>Welcome Back</h2>
         </div>
         
-        <form>
+        <form method="POST" action="">
             <div class="input-group">
-                <input type="text" required>
-                <label>Full Name</label>
+                <input type="text" name="username" required>
+                <label>Username</label>
             </div>
             
             <div class="input-group">
-                <input type="email" required>
-                <label>Email</label>
-            </div>
-
-            <div class="input-group">
-                <input type="password" required>
-                <label>Create Password</label>
+                <input type="password" name="password" required>
+                <label>Password</label>
             </div>
             
-            <div class="input-group">
-                <input type="password" required>
-                <label>Confirm Password</label>
+            <div class="forgot-pass">
+                <a href="#">Forgot Password?</a>
             </div>
             
-            <button type="submit">Sign Up</button>
+            <button type="submit">Login</button>
             
             <div class="signup-link">
-                Already have an account? <a href="../admin/admin_page_v1.html">Log in</a>
+                Not a member? <a href="../admin/signup_page_v1.html">Sign up now</a>
             </div>
         </form>
     </div>
