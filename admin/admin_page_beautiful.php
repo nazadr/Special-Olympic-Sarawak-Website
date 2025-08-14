@@ -340,6 +340,159 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
+
+        /* News Management Specific Styles */
+        .news-management-container {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .news-form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .news-form-group input[type="text"],
+        .news-form-group input[type="date"],
+        .news-form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #1e293b;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-form-group input[type="text"]:focus,
+        .news-form-group input[type="date"]:focus,
+        .news-form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .news-form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .news-form-group input[type="file"] {
+            padding: 8px 0;
+        }
+
+        .news-submit-btn {
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .news-submit-btn:hover {
+            background-color: #2563eb;
+        }
+
+        .news-list-admin {
+            margin-top: 40px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 30px;
+        }
+
+        .news-item-admin {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .news-item-admin:last-child {
+            border-bottom: none;
+        }
+
+        .news-item-admin-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .news-item-admin-content {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .news-item-admin-headline {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .news-item-admin-date {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .news-item-admin-desc {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-item-admin-actions {
+            flex-shrink: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .news-item-admin-actions button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .news-item-admin-actions .edit-btn {
+            background-color: #fbbf24;
+            color: #1e293b;
+        }
+
+        .news-item-admin-actions .edit-btn:hover {
+            background-color: #f59e0b;
+        }
+
+        .news-item-admin-actions .delete-btn {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .news-item-admin-actions .delete-btn:hover {
+            background-color: #dc2626;
+        }
     </style>
 </head>
 <body>
@@ -549,10 +702,35 @@
                     <p class="section-subtitle">Create and manage news articles</p>
                 </div>
                 
-                <div class="content-placeholder">
-                    <i class="fas fa-newspaper"></i>
-                    <h3>News Content</h3>
-                    <p>Add your news management interface here</p>
+                <div class="news-management-container">
+                    <h3>Add New News Article</h3>
+                    <form id="addNewsForm" action="../admin/admin_news_handler.php" method="POST" enctype="multipart/form-data">
+                        <div class="news-form-group">
+                            <label for="newsImage">Upload Image:</label>
+                            <input type="file" id="newsImage" name="newsImage" accept="image/*" required>
+                        </div>
+                        <div class="news-form-group">
+                            <label for="newsHeadline">Headline:</label>
+                            <input type="text" id="newsHeadline" name="newsHeadline" placeholder="Enter news headline" required>
+                        </div>
+                        <div class="news-form-group">
+                            <label for="newsDate">Date:</label>
+                            <input type="date" id="newsDate" name="newsDate" required>
+                        </div>
+                        <div class="news-form-group">
+                            <label for="newsDescription">Description:</label>
+                            <textarea id="newsDescription" name="newsDescription" placeholder="Enter news description" required></textarea>
+                        </div>
+                        <button type="submit" class="news-submit-btn">Add News</button>
+                    </form>
+
+                    <div class="news-list-admin">
+                        <h3>Existing News Articles</h3>
+                        <div id="existingNewsArticles">
+                            <!-- News articles will be loaded here via AJAX -->
+                            <p style="text-align: center; color: #64748b;">Loading news articles...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -620,6 +798,77 @@
             const navItems = document.querySelectorAll('.nav-item');
             const contentSections = document.querySelectorAll('.content-section');
             const pageTitle = document.querySelector('.page-title');
+            const existingNewsArticlesContainer = document.getElementById('existingNewsArticles');
+
+            function loadNewsArticles() {
+                fetch('admin_news_handler.php?action=fetch')
+                    .then(response => response.json())
+                    .then(news => {
+                        existingNewsArticlesContainer.innerHTML = ''; // Clear previous content
+                        if (news.length > 0) {
+                            news.forEach(article => {
+                                const newsItem = document.createElement('div');
+                                newsItem.classList.add('news-item-admin');
+                                newsItem.innerHTML = `
+                                    <img src="${article.image_path}" alt="${article.headline}" class="news-item-admin-image">
+                                    <div class="news-item-admin-content">
+                                        <h4 class="news-item-admin-headline">${article.headline}</h4>
+                                        <p class="news-item-admin-date">${article.news_date}</p>
+                                        <p class="news-item-admin-desc">${article.description}</p>
+                                    </div>
+                                    <div class="news-item-admin-actions">
+                                        <button class="edit-btn" data-id="${article.id}">Edit</button>
+                                        <button class="delete-btn" data-id="${article.id}">Delete</button>
+                                    </div>
+                                `;
+                                existingNewsArticlesContainer.appendChild(newsItem);
+                            });
+
+                            // Attach event listeners for edit and delete buttons
+                            document.querySelectorAll('.edit-btn').forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const newsId = this.getAttribute('data-id');
+                                    // Implement edit functionality (e.g., populate form or open modal)
+                                    alert('Edit news item with ID: ' + newsId);
+                                    // For a full implementation, you'd fetch the news item data
+                                    // and populate the form for editing.
+                                });
+                            });
+
+                            document.querySelectorAll('.delete-btn').forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const newsId = this.getAttribute('data-id');
+                                    if (confirm('Are you sure you want to delete this news article?')) {
+                                        fetch('admin_news_handler.php', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded',
+                                            },
+                                            body: `action=delete&id=${newsId}`
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                alert('News article deleted successfully!');
+                                                loadNewsArticles(); // Reload the list
+                                            } else {
+                                                alert('Error deleting news article: ' + data.message);
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                    }
+                                });
+                            });
+
+                        } else {
+                            existingNewsArticlesContainer.innerHTML = '<p style="text-align: center; color: #64748b;">No news articles found.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading news articles:', error);
+                        existingNewsArticlesContainer.innerHTML = '<p style="text-align: center; color: #ef4444;">Failed to load news articles.</p>';
+                    });
+            }
 
             navItems.forEach(item => {
                 item.addEventListener('click', function(e) {
@@ -643,8 +892,39 @@
                     
                     // Show selected section
                     document.getElementById(sectionId).classList.add('active');
+
+                    // If the news section is active, load news articles
+                    if (sectionId === 'news') {
+                        loadNewsArticles();
+                    }
                 });
             });
+
+            // Handle form submission for adding news
+            const addNewsForm = document.getElementById('addNewsForm');
+            if (addNewsForm) {
+                addNewsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    formData.append('action', 'add'); // Add action for the handler
+
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('News article added successfully!');
+                            addNewsForm.reset(); // Clear the form
+                            loadNewsArticles(); // Reload the list
+                        } else {
+                            alert('Error adding news article: ' + data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            }
 
             // Search functionality (placeholder)
             const searchInput = document.querySelector('.search-input');
@@ -652,6 +932,11 @@
                 console.log('Searching for:', e.target.value);
                 // Implement search functionality here
             });
+
+            // Initial load of news articles if the news section is the default active one
+            if (document.getElementById('news').classList.contains('active')) {
+                loadNewsArticles();
+            }
         });
     </script>
 </body>
