@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $conn = new mysqli("localhost", "root", "", "special_olympics_site");
+    $conn = new mysqli("localhost", "root", "", "special_olympics_data");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($row = $res->fetch_assoc()) {
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $row['fullname'];
-            header("Location: dashboard.php");
+            header("Location:../admin/admin_page_beautiful.php");
             exit();
         } else {
             $error = "Invalid password.";

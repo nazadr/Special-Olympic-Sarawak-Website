@@ -211,7 +211,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
-\1
 <?php if(!empty($error)) { echo '<p style=\"color:red;text-align:center;\">'.htmlspecialchars($error).'</p>'; } ?>
     <div class="particles" id="particles"></div>
     
@@ -239,7 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Login</button>
             
             <div class="signup-link">
-                Not a member? <a href="../admin/signup_page_v1.html">Sign up now</a>
+                Not a member? <a href="../admin/signup_page_v1.php">Sign up now</a>
             </div>
         </form>
     </div>

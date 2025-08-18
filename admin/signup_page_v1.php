@@ -1,7 +1,7 @@
 <?php
 // Process form if submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $conn = new mysqli("localhost", "root", "", "special_olympics_site");
+    $conn = new mysqli("localhost", "root", "", "special_olympics_data");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
