@@ -337,7 +337,7 @@
         </div>
 
         <div class="upcoming-events" style="margin-top: 40px; background: white; padding: 20px; border-radius: 8px;">
-            <h2 style="color: var(--special-red); margin-bottom: 20px; border-bottom: 2px solid var(--special-red); padding-bottom: 10px;">Highlighted Events</h2>
+            <h2 style="color: var(--special-red); margin-bottom: 20px; border-bottom: 2px solid var(--special-red); padding-bottom: 10px;">Upcoming Events</h2>
             <div id="highlighted-events-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
                 <!-- Highlighted events will be inserted here by JavaScript -->
             </div>
