@@ -251,7 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
 
-    <!---
+    
     <script>
         // Create floating particles
         document.addEventListener('DOMContentLoaded', function() {
@@ -304,7 +304,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             });
         });
 </script>
---->
+
 </body>
 </html>
 
