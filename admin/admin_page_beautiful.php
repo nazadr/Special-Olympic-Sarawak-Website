@@ -341,20 +341,20 @@
             background: #94a3b8;
         }
 
-        /* News Management Specific Styles */
-        .news-management-container {
+         /* News Management Specific Styles */
+        .news-management-container, .event-management-container {
             background: white;
             border-radius: 12px;
             padding: 32px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        .news-form-group {
+        .news-form-group, .event-form-group {
             margin-bottom: 20px;
             text-align: left;
         }
 
-        .news-form-group label {
+        .news-form-group label, .event-form-group label {
             display: block;
             font-size: 14px;
             font-weight: 600;
@@ -364,7 +364,12 @@
 
         .news-form-group input[type="text"],
         .news-form-group input[type="date"],
-        .news-form-group textarea {
+        .news-form-group textarea,
+        .event-form-group input[type="text"],
+        .event-form-group input[type="date"],
+        .event-form-group input[type="time"],
+        .event-form-group textarea,
+        .event-form-group select {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid #e2e8f0;
@@ -376,22 +381,27 @@
 
         .news-form-group input[type="text"]:focus,
         .news-form-group input[type="date"]:focus,
-        .news-form-group textarea:focus {
+        .news-form-group textarea:focus,
+        .event-form-group input[type="text"]:focus,
+        .event-form-group input[type="date"]:focus,
+        .event-form-group input[type="time"]:focus,
+        .event-form-group textarea:focus,
+        .event-form-group select:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .news-form-group textarea {
+        .news-form-group textarea, .event-form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
 
-        .news-form-group input[type="file"] {
+        .news-form-group input[type="file"], .event-form-group input[type="file"] {
             padding: 8px 0;
         }
 
-        .news-submit-btn {
+        .news-submit-btn, .event-submit-btn {
             background-color: #3b82f6;
             color: white;
             padding: 10px 20px;
@@ -403,17 +413,17 @@
             transition: background-color 0.3s ease;
         }
 
-        .news-submit-btn:hover {
+        .news-submit-btn:hover, .event-submit-btn:hover {
             background-color: #2563eb;
         }
 
-        .news-list-admin {
+        .news-list-admin, .event-list-admin {
             margin-top: 40px;
             border-top: 1px solid #e2e8f0;
             padding-top: 30px;
         }
 
-        .news-item-admin {
+        .news-item-admin, .event-item-admin {
             display: flex;
             align-items: center;
             gap: 20px;
@@ -421,11 +431,11 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
-        .news-item-admin:last-child {
+        .news-item-admin:last-child, .event-item-admin:last-child {
             border-bottom: none;
         }
 
-        .news-item-admin-image {
+        .news-item-admin-image, .event-item-admin-image {
             width: 80px;
             height: 80px;
             border-radius: 8px;
@@ -433,25 +443,25 @@
             flex-shrink: 0;
         }
 
-        .news-item-admin-content {
+        .news-item-admin-content, .event-item-admin-content {
             flex-grow: 1;
             text-align: left;
         }
 
-        .news-item-admin-headline {
+        .news-item-admin-headline, .event-item-admin-title {
             font-size: 16px;
             font-weight: 600;
             color: #1e293b;
             margin-bottom: 4px;
         }
 
-        .news-item-admin-date {
+        .news-item-admin-date, .event-item-admin-details {
             font-size: 12px;
             color: #64748b;
             margin-bottom: 8px;
         }
 
-        .news-item-admin-desc {
+        .news-item-admin-desc, .event-item-admin-desc {
             font-size: 14px;
             color: #475569;
             line-height: 1.5;
@@ -461,13 +471,13 @@
             overflow: hidden;
         }
 
-        .news-item-admin-actions {
+        .news-item-admin-actions, .event-item-admin-actions {
             flex-shrink: 0;
             display: flex;
             gap: 10px;
         }
 
-        .news-item-admin-actions button {
+        .news-item-admin-actions button, .event-item-admin-actions button {
             padding: 8px 12px;
             border: none;
             border-radius: 6px;
@@ -476,21 +486,21 @@
             transition: background-color 0.3s ease;
         }
 
-        .news-item-admin-actions .edit-btn {
+        .news-item-admin-actions .edit-btn, .event-item-admin-actions .edit-btn {
             background-color: #fbbf24;
             color: #1e293b;
         }
 
-        .news-item-admin-actions .edit-btn:hover {
+        .news-item-admin-actions .edit-btn:hover, .event-item-admin-actions .edit-btn:hover {
             background-color: #f59e0b;
         }
 
-        .news-item-admin-actions .delete-btn {
+        .news-item-admin-actions .delete-btn, .event-item-admin-actions .delete-btn {
             background-color: #ef4444;
             color: white;
         }
 
-        .news-item-admin-actions .delete-btn:hover {
+        .news-item-admin-actions .delete-btn:hover, .event-item-admin-actions .delete-btn:hover {
             background-color: #dc2626;
         }
     </style>
@@ -660,10 +670,59 @@
                     <p class="section-subtitle">Create and manage events</p>
                 </div>
                 
-                <div class="content-placeholder">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Events Content</h3>
-                    <p>Add your event management interface here</p>
+                <div class="event-management-container">
+                    <h3>Add/Edit Event</h3>
+                    <form id="eventForm" action="../admin/admin_event_handler.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" id="eventId" name="id">
+                        <input type="hidden" id="currentEventImage" name="currentImage">
+                        <div class="event-form-group">
+                            <label for="eventImage">Upload Image:</label>
+                            <input type="file" id="eventImage" name="eventImage" accept="image/*">
+                            <img id="eventImagePreview" src="" alt="Event Image Preview" style="max-width: 100px; max-height: 100px; margin-top: 10px; display: none;">
+                        </div>
+                        <div class="event-form-group">
+                            <label for="eventTitle">Title:</label>
+                            <input type="text" id="eventTitle" name="eventTitle" placeholder="Enter event title" required>
+                        </div>
+                        <div class="event-form-group">
+                            <label for="eventDescription">Description:</label>
+                            <textarea id="eventDescription" name="eventDescription" placeholder="Enter event description" required></textarea>
+                        </div>
+                        <div class="event-form-group">
+                            <label for="eventLocation">Location:</label>
+                            <input type="text" id="eventLocation" name="eventLocation" placeholder="Enter event location" required>
+                        </div>
+                        <div class="event-form-group">
+                            <label for="eventDate">Date:</label>
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </div>
+                        <div class="event-form-group">
+                            <label for="eventTime">Time:</label>
+                            <input type="text" id="eventTime" name="eventTime" placeholder="e.g., 10:00 AM - 12:00 PM" required>
+                        </div>
+                        <div class="event-form-group">
+                            <label for="eventType">Type:</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">Select Event Type</option>
+                                <option value="special">Special Event</option>
+                                <option value="training">Training</option>
+                                <option value="fundraiser">Fundraiser</option>
+                                <option value="social">Social</option>
+                                <option value="ceremony">Ceremony</option>
+                                <option value="meeting">Meeting</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="event-submit-btn" id="submitEventBtn">Add Event</button>
+                        <button type="button" class="event-submit-btn" id="cancelEditBtn" style="display:none; background-color: #6c757d;">Cancel Edit</button>
+                    </form>
+
+                    <div class="event-list-admin">
+                        <h3>Existing Events</h3>
+                        <div id="existingEvents">
+                            <!-- Events will be loaded here via AJAX -->
+                            <p style="text-align: center; color: #64748b;">Loading events...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -799,7 +858,9 @@
             const contentSections = document.querySelectorAll('.content-section');
             const pageTitle = document.querySelector('.page-title');
             const existingNewsArticlesContainer = document.getElementById('existingNewsArticles');
+            const existingEventsContainer = document.getElementById('existingEvents');
 
+            // News Management Functions
             function loadNewsArticles() {
                 fetch('admin_news_handler.php?action=fetch')
                     .then(response => response.json())
@@ -825,7 +886,7 @@
                             });
 
                             // Attach event listeners for edit and delete buttons
-                            document.querySelectorAll('.edit-btn').forEach(button => {
+                            document.querySelectorAll('#existingNewsArticles .edit-btn').forEach(button => {
                                 button.addEventListener('click', function() {
                                     const newsId = this.getAttribute('data-id');
                                     // Implement edit functionality (e.g., populate form or open modal)
@@ -835,7 +896,7 @@
                                 });
                             });
 
-                            document.querySelectorAll('.delete-btn').forEach(button => {
+                            document.querySelectorAll('#existingNewsArticles .delete-btn').forEach(button => {
                                 button.addEventListener('click', function() {
                                     const newsId = this.getAttribute('data-id');
                                     if (confirm('Are you sure you want to delete this news article?')) {
@@ -870,6 +931,196 @@
                     });
             }
 
+            // Event Management Functions
+            const eventForm = document.getElementById('eventForm');
+            const eventIdInput = document.getElementById('eventId');
+            const eventTitleInput = document.getElementById('eventTitle');
+            const eventDescriptionInput = document.getElementById('eventDescription');
+            const eventLocationInput = document.getElementById('eventLocation');
+            const eventDateInput = document.getElementById('eventDate');
+            const eventTimeInput = document.getElementById('eventTime');
+            const eventTypeSelect = document.getElementById('eventType');
+            const eventImageInput = document.getElementById('eventImage');
+            const eventImagePreview = document.getElementById('eventImagePreview');
+            const currentEventImageInput = document.getElementById('currentEventImage');
+            const submitEventBtn = document.getElementById('submitEventBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+
+            function loadEvents() {
+                fetch('admin_event_handler.php?action=fetch')
+                    .then(response => response.json())
+                    .then(data => {
+                        existingEventsContainer.innerHTML = ''; // Clear previous content
+                        if (data.success && data.events.length > 0) {
+                            data.events.forEach(event => {
+                                const eventItem = document.createElement('div');
+                                eventItem.classList.add('event-item-admin');
+                                eventItem.innerHTML = `
+                                    <img src="${event.image_path || 'https://via.placeholder.com/80'}" alt="${event.title}" class="event-item-admin-image">
+                                    <div class="event-item-admin-content">
+                                        <h4 class="event-item-admin-title">${event.title}</h4>
+                                        <p class="event-item-admin-details">${event.event_date} at ${event.event_time} (${event.location})</p>
+                                        <p class="event-item-admin-desc">${event.description}</p>
+                                    </div>
+                                    <div class="event-item-admin-actions">
+                                        <button class="edit-btn" data-id="${event.id}">Edit</button>
+                                        <button class="delete-btn" data-id="${event.id}">Delete</button>
+                                    </div>
+                                `;
+                                existingEventsContainer.appendChild(eventItem);
+                            });
+
+                            document.querySelectorAll('#existingEvents .edit-btn').forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const eventId = this.getAttribute('data-id');
+                                    editEvent(eventId);
+                                });
+                            });
+
+                            document.querySelectorAll('#existingEvents .delete-btn').forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const eventId = this.getAttribute('data-id');
+                                    if (confirm('Are you sure you want to delete this event?')) {
+                                        deleteEvent(eventId);
+                                    }
+                                });
+                            });
+
+                        } else {
+                            existingEventsContainer.innerHTML = '<p style="text-align: center; color: #64748b;">No events found.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading events:', error);
+                        existingEventsContainer.innerHTML = '<p style="text-align: center; color: #ef4444;">Failed to load events.</p>';
+                    });
+            }
+
+            function editEvent(id) {
+                fetch(`admin_event_handler.php?action=fetch_single&id=${id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const event = data.event;
+                            eventIdInput.value = event.id;
+                            eventTitleInput.value = event.title;
+                            eventDescriptionInput.value = event.description;
+                            eventLocationInput.value = event.location;
+                            eventDateInput.value = event.event_date;
+                            eventTimeInput.value = event.event_time;
+                            eventTypeSelect.value = event.type;
+                            currentEventImageInput.value = event.image_path; // Store current image path
+                            
+                            if (event.image_path) {
+                                eventImagePreview.src = event.image_path;
+                                eventImagePreview.style.display = 'block';
+                            } else {
+                                eventImagePreview.style.display = 'none';
+                            }
+
+                            submitEventBtn.textContent = 'Update Event';
+                            submitEventBtn.name = 'action'; // Set name for form submission
+                            submitEventBtn.value = 'edit'; // Set value for form submission
+                            cancelEditBtn.style.display = 'inline-block';
+                            eventForm.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            alert('Error fetching event for edit: ' + data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            function deleteEvent(id) {
+                fetch('admin_event_handler.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `action=delete&id=${id}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Event deleted successfully!');
+                        loadEvents(); // Reload the list
+                    } else {
+                        alert('Error deleting event: ' + data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+
+            // Event form submission
+            if (eventForm) {
+                eventForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    
+                    // Determine action based on whether eventId is set
+                    if (eventIdInput.value) {
+                        formData.append('action', 'edit');
+                    } else {
+                        formData.append('action', 'add');
+                    }
+
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Event ' + (eventIdInput.value ? 'updated' : 'added') + ' successfully!');
+                            eventForm.reset(); // Clear the form
+                            eventIdInput.value = ''; // Clear hidden ID
+                            currentEventImageInput.value = ''; // Clear current image path
+                            eventImagePreview.style.display = 'none'; // Hide preview
+                            submitEventBtn.textContent = 'Add Event';
+                            submitEventBtn.name = ''; // Reset name
+                            submitEventBtn.value = ''; // Reset value
+                            cancelEditBtn.style.display = 'none';
+                            loadEvents(); // Reload the list
+                        } else {
+                            alert('Error ' + (eventIdInput.value ? 'updating' : 'adding') + ' event: ' + data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            }
+
+            // Cancel Edit button functionality
+            if (cancelEditBtn) {
+                cancelEditBtn.addEventListener('click', function() {
+                    eventForm.reset();
+                    eventIdInput.value = '';
+                    currentEventImageInput.value = '';
+                    eventImagePreview.style.display = 'none';
+                    submitEventBtn.textContent = 'Add Event';
+                    submitEventBtn.name = '';
+                    submitEventBtn.value = '';
+                    cancelEditBtn.style.display = 'none';
+                });
+            }
+
+            // Image preview for event form
+            if (eventImageInput) {
+                eventImageInput.addEventListener('change', function() {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            eventImagePreview.src = e.target.result;
+                            eventImagePreview.style.display = 'block';
+                        };
+                        reader.readAsDataURL(this.files[0]);
+                    } else {
+                        eventImagePreview.src = '';
+                        eventImagePreview.style.display = 'none';
+                    }
+                });
+            }
+
+
+            // General Navigation Logic
             navItems.forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -897,10 +1148,14 @@
                     if (sectionId === 'news') {
                         loadNewsArticles();
                     }
+                    // If the events section is active, load events
+                    if (sectionId === 'events') {
+                        loadEvents(); // <--- THIS IS THE CRUCIAL ADDITION
+                    }
                 });
             });
 
-            // Handle form submission for adding news
+            // Handle form submission for adding news (existing code)
             const addNewsForm = document.getElementById('addNewsForm');
             if (addNewsForm) {
                 addNewsForm.addEventListener('submit', function(e) {
@@ -933,9 +1188,16 @@
                 // Implement search functionality here
             });
 
-            // Initial load of news articles if the news section is the default active one
-            if (document.getElementById('news').classList.contains('active')) {
-                loadNewsArticles();
+            // Initial load of content based on default active section
+            // Check which section is initially active and load its data
+            const initialActiveSection = document.querySelector('.content-section.active');
+            if (initialActiveSection) {
+                const sectionId = initialActiveSection.id;
+                if (sectionId === 'news') {
+                    loadNewsArticles();
+                } else if (sectionId === 'events') {
+                    loadEvents(); // <--- Also call on initial load if events is default
+                }
             }
         });
     </script>

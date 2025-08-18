@@ -3,7 +3,7 @@
 $servername = "localhost"; // Your database host
 $username = "root"; // Your database username
 $password = ""; // Your database password
-$dbname = "special_olympics_site"; // The database name you will create
+$dbname = "special_olympics_data"; // The database name you will create
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

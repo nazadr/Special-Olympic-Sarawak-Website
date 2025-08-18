@@ -152,7 +152,7 @@
             background-color: #4caf50;
         }
 
-        .event-fundraiser {
+        .event.fundraiser { /* Corrected class name */
             background-color: #9c27b0;
         }
         .event.social {
@@ -378,82 +378,33 @@
             const nextMonthButton = document.getElementById('next-month');
             const eventModal = document.getElementById('event-modal');
             const modalClose = document.getElementById('modal-close');
+            const highlightedEventsContainer = document.getElementById('highlighted-events-container');
             
             let currentDate = new Date();
-            
-            // Sample events data (would normally come from an API)
-            const events = [
-                {
-                    id: 1,
-                    title: "Bintulu Marathon 2025",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 3),
-                    description: "Kickoff event with parade of athletes, speeches, and light show to begin the season's competitions.",
-                    location: "Bintulu Old Airport",
-                    time: "1:00 AM - 8:00 AM",
-                    type: "special",
-                    image: "../assets/images/bintulu_marathon_2025.jpg"
-                },
-                {
-                    id: 2,
-                    title: "Track & Field Trials",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 7),
-                    description: "Qualification events for 100m dash, long jump, and shot put. Bring your A-game!",
-                    location: "State University Track",
-                    time: "8:00 AM - 2:00 PM",
-                    type: "special",
-                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7283ae52-8a9c-4af9-96f6-3cb574727461.png"
-                },
-                {
-                    id: 3,
-                    title: "Volleyball Training",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 8),
-                    description: "Beginner-friendly session focusing on serving and passing techniques. All equipment provided.",
-                    location: "Community Gymnasium",
-                    time: "4:00 PM - 6:00 PM",
-                    type: "training",
-                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/34df8f0a-38e1-4f28-a087-bfb8241473e3.png"
-                },
-                {
-                    id: 4,
-                    title: "Golf Tournament",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 15),
-                    description: "Annual golf championship with individual and team categories. Individual coaching available.",
-                    location: "Pine Valley Golf Club",
-                    time: "7:30 AM - 5:00 PM",
-                    type: "special",
-                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/32bcb1f4-0f90-43eb-9a79-e212500d44d9.png"
-                },
-                {
-                    id: 5,
-                    title: "Bowling League",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 21),
-                    description: "First match of the season. Teams will compete in a fun, supportive environment.",
-                    location: "Lucky Strike Lanes",
-                    time: "1:00 PM - 4:00 PM",
-                    type: "training",
-                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8482dd9e-28ef-4222-885a-de933fe31b6c.png"
-                },
-                {
-                    id: 6,
-                    title: "Healthy Atheles Program",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth(), 9),
-                    description: "Special Olympics Bintulu Chapter BRINGS to you 1st Healthy Athletes Program(HAP) for Our SPECIAL NEEDS STUDENT & INDIVIDUALS.",
-                    location: "SJK (c) Chung Hua, Bintulu",
-                    time: "7:00 AM - 5:00 PM",
-                    type: "fundraiser",
-                    image: "../assets/images/facebook_event_sohap_8august.jpg"
-                },
-                    {
-                    id: 7,
-                    title: "Healthy Atheles Program",
-                    date: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 4),
-                    description: "Special Olympics Bintulu Chapter BRINGS to you 1st Healthy Athletes Program(HAP) for Our SPECIAL NEEDS STUDENT & INDIVIDUALS.",
-                    location: "SJK (c) Chung Hua, Bintulu",
-                    time: "7:00 AM - 5:00 PM",
-                    type: "fundraiser",
-                    image: "../assets/images/facebook_event_sohap_8august.jpg"
-                },
-            ];
+            let allEvents = []; // Store all fetched events
+
+            // Function to fetch events from the database
+            async function fetchEvents() {
+                try {
+                    const response = await fetch('../admin/admin_event_handler.php?action=fetch');
+                    const data = await response.json();
+                    if (data.success) {
+                        // Convert event_date strings to Date objects
+                        allEvents = data.events.map(event => ({
+                            ...event,
+                            date: new Date(event.event_date + 'T00:00:00') // Ensure date is parsed correctly
+                        }));
+                        renderCalendar();
+                        renderHighlightedEvents();
+                    } else {
+                        console.error('Failed to fetch events:', data.message);
+                        allEvents = [];
+                    }
+                } catch (error) {
+                    console.error('Error fetching events:', error);
+                    allEvents = [];
+                }
+            }
             
             function renderCalendar() {
                 // Set the month and year title
@@ -495,7 +446,7 @@
                     dayElement.appendChild(dayNumber);
                     
                     // Add events for this day
-                    events.forEach(event => {
+                    allEvents.forEach(event => {
                         if (event.date.getDate() === day && 
                             event.date.getMonth() === currentDate.getMonth() && 
                             event.date.getFullYear() === currentDate.getFullYear()) {
@@ -506,7 +457,7 @@
                                 <div class="event-tooltip">
                                     <strong>${event.title}</strong><br>
                                     Date: ${event.date.toLocaleDateString()}<br>
-                                    Time: ${event.time}<br>
+                                    Time: ${event.event_time}<br>
                                     Location: ${event.location}
                                 </div>
                             `;
@@ -523,13 +474,13 @@
                 document.getElementById('modal-title').textContent = event.title;
                 document.getElementById('modal-description').textContent = event.description;
                 const modalImage = document.getElementById('modal-image');
-                modalImage.src = event.image || "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af9758c7-3554-4b27-b555-9af3834ecb92.png";
+                modalImage.src = event.image_path || "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af9758c7-3554-4b27-b555-9af3834ecb92.png";
                 modalImage.alt = `${event.title}: ${event.description.substring(0, 100)}`;
                 document.getElementById('modal-date').textContent = 'Date: ' + event.date.toLocaleDateString('en-US', { 
                     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
                 });
                 document.getElementById('modal-location').textContent = 'Location: ' + event.location;
-                document.getElementById('modal-time').textContent = 'Time: ' + event.time;
+                document.getElementById('modal-time').textContent = 'Time: ' + event.event_time;
                 eventModal.style.display = 'flex';
             }
             
@@ -553,36 +504,38 @@
                 }
             });
             
-            // Initialize the calendar
-            renderCalendar();
-            renderHighlightedEvents();
-            
-            function addNewEvent(newEvent) {
-                events.push(newEvent);
-                renderCalendar();
-                renderHighlightedEvents();
-            }
-
             function renderHighlightedEvents() {
-                const container = document.getElementById('highlighted-events-container');
-                events.forEach(event => {
-                    const eventElement = document.createElement('div');
-                    eventElement.style.padding = '15px';
-                    eventElement.style.borderRadius = '5px';
-                    eventElement.style.backgroundColor = getEventColor(event.type);
-                    eventElement.style.color = 'white';
-                    eventElement.style.cursor = 'pointer';
-                    
-                    eventElement.innerHTML = `
-                        <h3 style="margin-top: 0;">${event.title}</h3>
-                        <p><strong>Date:</strong> ${event.date.toLocaleDateString()}</p>
-                        <p><strong>Time:</strong> ${event.time}</p>
-                        <p><strong>Location:</strong> ${event.location}</p>
-                    `;
-                    
-                    eventElement.addEventListener('click', () => openEventModal(event));
-                    container.appendChild(eventElement);
-                });
+                highlightedEventsContainer.innerHTML = ''; // Clear previous content
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); // Normalize today's date
+
+                // Filter for upcoming events (today or in the future)
+                const upcomingEvents = allEvents.filter(event => event.date >= today)
+                                                .sort((a, b) => a.date - b.date) // Sort by date
+                                                .slice(0, 5); // Show top 5 upcoming events
+
+                if (upcomingEvents.length > 0) {
+                    upcomingEvents.forEach(event => {
+                        const eventElement = document.createElement('div');
+                        eventElement.style.padding = '15px';
+                        eventElement.style.borderRadius = '5px';
+                        eventElement.style.backgroundColor = getEventColor(event.type);
+                        eventElement.style.color = 'white';
+                        eventElement.style.cursor = 'pointer';
+                        
+                        eventElement.innerHTML = `
+                            <h3 style="margin-top: 0;">${event.title}</h3>
+                            <p><strong>Date:</strong> ${event.date.toLocaleDateString()}</p>
+                            <p><strong>Time:</strong> ${event.event_time}</p>
+                            <p><strong>Location:</strong> ${event.location}</p>
+                        `;
+                        
+                        eventElement.addEventListener('click', () => openEventModal(event));
+                        highlightedEventsContainer.appendChild(eventElement);
+                    });
+                } else {
+                    highlightedEventsContainer.innerHTML = '<p style="text-align: center; color: #64748b;">No upcoming events.</p>';
+                }
             }
 
             function getEventColor(type) {
@@ -591,33 +544,14 @@
                     'training': '#4caf50',
                     'fundraiser': '#9c27b0',
                     'social': '#ff9800',
-                    'ceremony': '#607d8b'
+                    'ceremony': '#607d8b',
+                    'meeting': '#795548'
                 };
                 return colors[type] || 'var(--special-accent)';
             }
 
-            // Clear and re-render highlighted events
-            function rerenderHighlightedEvents() {
-                const container = document.getElementById('highlighted-events-container');
-                container.innerHTML = '';
-                renderHighlightedEvents();
-            }
-
-            function addNextMonthEvent(title, day, type) {
-                const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, day);
-                events.push({
-                    id: events.length + 1,
-                    title: title,
-                    date: nextMonth,
-                    description: "Description for " + title,
-                    location: "Venue to be announced",
-                    time: "10:00 AM",
-                    type: type,
-                    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3196c597-cabd-4933-9067-edab4bec5a6e.png" + encodeURIComponent(title)
-                });
-                renderCalendar();
-                renderHighlightedEvents();
-            }
+            // Initial load of events
+            fetchEvents();
         });
     </script>
 
@@ -657,4 +591,3 @@
 
 </body>
 </html>
-
