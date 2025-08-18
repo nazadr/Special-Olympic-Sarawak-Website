@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News | Special Olympics Sarawak</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar (Loaded via JS) -->
+    <div id="top-nav-container"></div>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <div id="socmed-bar-container"></div>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <div id="chatbot-container"></div>
+
+    <!-- Latest News Section -->
+    <main class="news-main">
+      <h1 class="news-title">Latest News</h1>
+      <div class="news-list">
+        <!-- News Card Example: Add your image URL in the style below -->
+        <article class="news-card">
+          <div class="news-image" style="background:#eee url('../assets/images/bintulu_marathon_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-content">
+            <h2 class="news-headline">Participating in Bintulu Marathon 2025. Congratulations!</h2>
+            <p class="news-date">3 August, 2025</p>
+            <p class="news-desc">Bintulu Marathon 2025 RUN With SPECIAL OLYMPICS BINTULU(SOBC)..More avtivities & games for Our OKUs Special Needs Kids..SPECIAL Olympics Bintulu is for SPECIAL YOU</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-image" style="background:#eee url('../assets/images/child_family_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-content">
+            <h2 class="news-headline">Funding on Young Athletes Program and Famliy Health project</h2>
+            <p class="news-date">23 July, 2025</p>
+            <p class="news-desc">Special Olympics Asia Pacific, (with the support of Special Olympics Malaysia), provided us with a funding on Young Athletes Program and Famliy Health project. We decided to outreach to SibuJaya community.</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-image" style="background:#eee url('../assets/images/bocce_friendly_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-content">
+            <h2 class="news-headline">Unified Bocce Friendly Match</h2>
+            <p class="news-date">3 June 2025</p>
+            <p class="news-desc">On 3rd June 2025, a friendly Unified Bocce match was successfully held at SMK Lanang, Sibu. The event was organized by Special Olympics (SO) Sibu Chapter, bringing together athletes and partners in a spirit of inclusivity, teamwork, and fun.</p>
+          </div>
+        </article>
+         <article class="news-card">
+          <div class="news-image" style="background:#eee url('../assets/images/another_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-content">
+            <h2 class="news-headline">7th Special Olympics Sarawak  State Game 2nd-5th May 2025</h2>
+            <p class="news-date">9 May, 2025</p>
+            <p class="news-desc">Swimming Competition Venue : Pandelela Aquatic Centre</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-image" style="background:#eee url('../assets/images/7state_game2_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-content">
+            <h2 class="news-headline">Special Olympics Malaysia, Sarawak 7th State Games</h2>
+            <p class="news-date">6 may, 2025</p>
+            <p class="news-desc">Sarawak Special Olympic  7th State Games (2-5/5/25) had ended with great success and on high note.  Congratulation to the SO KCH Chapter as the host led by Datin Dyg Mariani supported by JKM. Tq to 18 sub committe members, volunteers, sponsors, parents n not forgetting our 358 special athletes .</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-image" style="background:#eee url('../assets/images/national_basketball_news.jpg') center/cover no-repeat;"></div>
+          <div class="news-content">
+            <h2 class="news-headline">National basketball coaching course was held in Sibu, Malaysia, for coaches from East Malaysia.</h2>
+            <p class="news-date">13 januari, 2025</p>
+            <p class="news-desc">A total of 20 participants from Sabah and Sarawak attended the course. We extend our sincere gratitude to Special Olympics Malaysia and the Lions Clubs International Foundation for their support and making this possible</p>
+          </div>
+        </article>
+      </div>
+<style>
+  /* Fixed header, footer, and social bar for consistent layout */
+  .top-nav, .bottom-nav, .site-footer, .socmed-bar {
+    position: fixed;
+  }
+  .top-nav { top: 0; left: 0; right: 0; z-index: 1000; }
+  .bottom-nav { bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 999; }
+  .site-footer { left: 0; right: 0; bottom: 0; z-index: 1001; }
+  .socmed-bar { top: 50%; right: 0; transform: translateY(-50%); z-index: 10; }
+  .news-main { margin-top: 110px; margin-bottom: 120px; }
+  html, body { height: auto !important; min-height: 100%; overflow-y: auto !important; overflow-x: hidden; }
+</style>
+    </main>
+
+    <!-- Bottom Nav (Loaded via JS) -->
+    <div id="bottom-nav-container"></div>
+    <!-- Site Footer (Loaded via JS) -->
+    <div id="site-footer-container"></div>
+    <script src="../scripts/script.js"></script>
+    <script>
+      // Function to load HTML into a container
+      function loadHTML(containerId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          });
+      }
+      // Load shared components
+      loadHTML('top-nav-container', '../src/components/top-nav.html');
+      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
+      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
+      loadHTML('site-footer-container', '../src/components/site-footer.html');
+      loadHTML('chatbot-container', '../src/components/chatbot.html');
+
+      // Re-attach dropup menu listeners after bottom nav loads
+      fetch('../src/components/bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+          if (typeof attachDropupMenuListeners === 'function') {
+            attachDropupMenuListeners();
+          }
+        });
+    </script>
+</body>
+</html>
