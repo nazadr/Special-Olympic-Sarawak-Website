@@ -27,4 +27,4 @@ CREATE TABLE `events` (
   `type` VARCHAR(50) NOT NULL,
   `image_path` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
