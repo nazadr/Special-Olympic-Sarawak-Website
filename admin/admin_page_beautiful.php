@@ -613,6 +613,8 @@
 
         <!-- Content Area -->
         <main class="content-area">
+
+
             <!-- Dashboard Section -->
             <div class="content-section active" id="dashboard">
                 <div class="section-header">
@@ -851,6 +853,7 @@
         </main>
     </div>
 
+<!-- JavaScript Admin Panel Functionality -->
     <script>
         // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1200,6 +1203,7 @@
                 }
             }
         });
+
     </script>
 </body>
 </html>

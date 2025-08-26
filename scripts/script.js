@@ -52,7 +52,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Send message on Enter
+// Send message on Enter of chat bot (experimental)
 input.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') {
     const text = this.value.trim();

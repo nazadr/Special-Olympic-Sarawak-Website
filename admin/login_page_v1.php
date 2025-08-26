@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($row = $res->fetch_assoc()) {
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $row['fullname'];
-            header("Location:../admin/admin_page_beautiful.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             $error = "Invalid password.";
