@@ -373,7 +373,7 @@ body, html {
 
 /* --- Social Media Bar Styles --- */
 .socmed-bar {
-  position: fixed;
+  position: fixed;  
   top: 50%;
   right: 0;
   transform: translateY(-50%);
