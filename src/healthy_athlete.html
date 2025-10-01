@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Healthy Athletes Program</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Healthy Athletes Program | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -20,7 +20,6 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
             margin: 0;
@@ -200,15 +199,16 @@
 <body>
 
     <!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
-
-    <div class="header-space"><!-- Space for your existing header --></div>
+    <!-- <div id="chatbot-container"></div> -->
+    
+    <!-- Header Space -->
+    <div class="header-space"></div>
     
     <div class="container">
         <section class="sohap-banner">
@@ -236,7 +236,7 @@
             </div>
             
             <div class="highlight-card">
-                <img src="https://scontent.fkch1-2.fna.fbcdn.net/v/t39.30808-6/522861028_1034210392071081_1512811348527890386_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=nDfAC4YavvwQ7kNvwEGeXti&_nc_oc=AdlFeQOzmxZoXB0A_SNRRha8ZnIHQvaj9FAt2N9wwK9LjW7KReb167Z6oHJgiG3_pfI&_nc_zt=23&_nc_ht=scontent.fkch1-2.fna&_nc_gid=EYDDIt8QskDVjD62zmG_Uw&oh=00_AfSUo6IeewEPZdmWshQ-0reXHtT08DBvdVXBgVjEWscIXw&oe=6890E5B6" alt="Happy Athletes">
+                <img src="https://resources.specialolympicsgb.org.uk/photo-resources/2022/02/10/242c048d-103b-49ca-886b-28ed3054434e/4451.JPG?width=700&height=700" alt="Happy Athletes">
                 <div class="highlight-content">
                     <h3>Positive Impact</h3>
                     <p>Over 2 million free health screenings have been conducted worldwide since the program began.</p>
@@ -289,43 +289,15 @@
         </section>
     </div>
     
-    <div class="footer-space"><!-- Space for your existing footer --></div>
-
-<!-- Section Divider -->
+    <!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
-    <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
+    
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
 
-
-
+    <script src="../scripts/script-prerelease.js"></script>
 </body>
 </html>

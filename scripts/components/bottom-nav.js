@@ -1,4 +1,9 @@
-<footer class="bottom-nav">
+// Reusable HTML Element written in JavaScript.
+// Default: Only for "position: fixed" without scroll limit
+// Created on 8 Sep 2025
+
+document.writeln(`
+    <footer class="bottom-nav-legacy desktop-only">
   <ul>
     <li class="nav-item">
       <button class="nav-btn"><span>What We Do?</span></button>
@@ -17,11 +22,11 @@
     <li class="nav-item">
       <button class="nav-btn"><span>Events</span></button>
       <div class="dropup-menu">
-        <a href="#videos">Healthy Athletes Program (SOHAP)</a>
-        <a href="#videos">Athletes Leadership Program (ALPs)</a>
-        <a href="#videos">Young Athletes Program (YAP)</a>
-        <a href="#videos">States Games</a>
-        <a href="../src/event_celender.php">Event's Calenders</a>
+        <a href="#photos">Healthy Athletes Program (SOHAP)</a>
+        <a href="#photos">Athletes Leadership Program (ALPs)</a>
+        <a href="#photos">Young Athletes Program (YAP)</a>
+        <a href="../src/state-games.html">State Games</a>
+        <a href="../src/event_calendar.php">Events Calendar</a>
       </div>
     </li>
     <li class="nav-item">
@@ -31,7 +36,6 @@
         <a href="#videos">Videos</a>
       </div>
     </li>
-  
     <li class="nav-item">
       <button class="nav-btn"><span>Join Us</span></button>
       <div class="dropup-menu">
@@ -47,3 +51,4 @@
     </li>
   </ul>
 </footer>
+`)

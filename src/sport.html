@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Sports</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Sports | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         /* Space for existing header */
         .header-space {
-            height: 80px;
+            height: 70px;
             background: transparent;
         }
 
@@ -21,14 +21,6 @@
             background: transparent;
         }
 
-        /* Main styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
             background-color: #f9f9f9;
             overflow-y: auto;
@@ -36,7 +28,7 @@
             /* Ensure scrolling is possible */
         }
 
-        .hero {
+        .sport-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/sport_1.jpg') center/cover no-repeat;
             height: 60vh;
             display: flex;
@@ -48,18 +40,18 @@
             position: relative;
         }
 
-        .hero img {
+        .sport-hero img {
             width: 150px;
             margin-bottom: 20px;
         }
 
-        .hero h1 {
+        .sport-hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero p {
+        .sport-hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 30px;
@@ -88,9 +80,11 @@
         .sports-container {
             padding: 60px 20px;
             background-color: #f1f1f1;
+            margin: 0 0 80px 0;
         }
 
         .sports-container h2 {
+            width: 1200px;
             text-align: center;
             color: #e63946;
             font-size: 2.5rem;
@@ -152,22 +146,32 @@
         }
 
         /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
+        @media (max-width: 1250px) {
             .sports-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
+                max-width: 900px;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
+        @media (max-width: 950px) {
+            .sports-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sport-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .sport-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .sport-hero h1 {
                 font-size: 2rem;
             }
             
@@ -179,18 +183,18 @@
 </head>
 <body>
     <!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
+    <!-- <div id="chatbot-container"></div> -->
 
     <!-- Space for existing header -->
     <div class="header-space"></div>
 
-    <section class="hero">
+    <section class="sport-hero">
         <img src="../assets/images/master_logo_front.png" alt="Special Olympics Logo - torch with flame inside circular logo with red and white colors" />
         <h1>Special Olympics Sarawak Sports</h1>
         <p>The most inclusive sports organization in the world, transforming lives through the power of sports</p>
@@ -216,6 +220,17 @@
                 </div>
             </div>
 
+            <!-- Aquatics -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="../assets/images/Aquatics_sport.jpg" alt="Special Olympics basketball team celebrating after scoring a basket" />
+                </div>
+                <div class="card-content">
+                    <h3>Aquatics</h3>
+                    <p>Team sport with dribbling, passing and shooting skills</p>
+                </div>
+            </div>
+
             <!-- Badminton -->
             <div class="sport-card">
                 <div class="card-image">
@@ -230,10 +245,10 @@
             <!-- Basketball -->
             <div class="sport-card">
                 <div class="card-image">
-                    <img src="../assets/images/Aquatics_sport.jpg" alt="Special Olympics basketball team celebrating after scoring a basket" />
+                    <img src="https://dotorg.brightspotcdn.com/dims4/default/ee9e8a5/2147483647/strip/true/crop/800x450+0+42/resize/800x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F79%2F2c%2Fdff376344b05bacc6cc4a6108434%2Fandrew-marquise.JPG" alt="Special Olympics basketball team celebrating after scoring a basket" />
                 </div>
                 <div class="card-content">
-                    <h3>Aquatics</h3>
+                    <h3>Basketball</h3>
                     <p>Team sport with dribbling, passing and shooting skills</p>
                 </div>
             </div>
@@ -282,59 +297,73 @@
                 </div>
             </div>
 
-            
+            <!-- Judo -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://assets.berlin2023.org/dims4/default/11d70b8/2147483647/strip/true/crop/2000x1125+0+0/resize/1067x600!/quality/90/?url=http%3A%2F%2Fberlin-2023-brightspot.s3.us-east-1.amazonaws.com%2F0c%2F9b%2F820fe4114a17b7b27b8281085f19%2Fnec-judo-16032019-229-2.jpg" alt="Special Olympics judo athletes in action during competition" />
+                        alt="Special Olympics judo athletes in action during competition" />
+                </div>
+                <div class="card-content">
+                    <h3>Judo</h3>
+                    <p>Martial art focusing on throws and grappling techniques</p>
+                </div>
+            </div>
+
+            <!-- Netball -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://www.thestatesman.com/wp-content/uploads/2018/08/net-ball.jpg" alt="Special Olympics netball players competing in match" />
+                </div>
+                <div class="card-content">
+                    <h3>Netball</h3>
+                    <p>Fast-paced team sport similar to basketball</p>
+                </div>
+            </div>
+
+            <!-- Swimming -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://dotorg.brightspotcdn.com/ac/e1/a4297c14411e803691dafbd93b26/1300x680-aquatics.jpg" alt="Special Olympics swimmer" />
+                </div>
+                <div class="card-content">
+                    <h3>Swimming</h3>
+                    <p>Individual and team aquatic sport with various strokes and distances</p>
+                </div>
+            </div>
+
+            <!-- Tennis -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://dotorg.brightspotcdn.com/dims4/default/ec7247e/2147483647/strip/true/crop/800x450+0+0/resize/800x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2Fa6%2Fd5%2F0ac07e8446759aa4b8a5902bac57%2F800x450-so-wti-tennis-competition-3808.jpg" alt="Special Olympics tennis player mid-serve during match" />
+                </div>
+                <div class="card-content">
+                    <h3>Tennis</h3>
+                    <p>Racquet sport played individually or in doubles on a court</p>
+                </div>
+            </div>
+
+            <!-- Table Tennis -->
+            <div class="sport-card">
+                <div class="card-image">
+                    <img src="https://dotorg.brightspotcdn.com/dims4/default/612aa0c/2147483647/strip/true/crop/2160x1440+0+0/resize/800x533!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F0a%2F60%2F7dad13d84fb9bcb4fa8eac7baaae%2Fsbr0078.jpg" alt="Special Olympics table tennis players competing in match" />
+                </div>
+                <div class="card-content">
+                    <h3>Table Tennis</h3>
+                    <p>Fast-paced indoor racquet sport played on a table</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="footer-space"></div>
-
-<!-- Section Divider -->
+    <!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
-    <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
+    
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
 
-    <script>
-        // Add hover effect class to all sport cards
-        const sportCards = document.querySelectorAll('.sport-card');
-        
-        sportCards.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                card.style.boxShadow = '0 10px 20px rgba(230, 57, 70, 0.3)';
-            });
-            
-            card.addEventListener('mouseout', () => {
-                card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-            });
-        });
-    </script>
+    <script src="../scripts/script-prerelease.js"></script>
 </body>
 </html>

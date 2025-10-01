@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Sponsors | Special Olympics Sarawak</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 
     <style>
         /* Space for existing header */
         .header-space {
-            height: 100px;
+            height: 72px;
             background: transparent;
         }
 
@@ -23,7 +23,6 @@
 
         /* Main content styles */
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #ffffff;
@@ -176,15 +175,14 @@
 </head>
 <body>
 
-<!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
-
+    <!-- <div id="chatbot-container"></div> -->
 
     <!-- Space for existing header -->
     <div class="header-space"></div>
@@ -206,7 +204,7 @@
             <!-- This is where sponsorship logos will be added -->
             <!-- When you add logos, they will automatically appear here in the grid -->
 
-<div class="sponsor-item">
+    <div class="sponsor-item">
                 <img src="../assets/images/yayasan_bintulu_port_logo.png" alt="ABC Corporation">
             </div>
             <div class="sponsor-item">
@@ -237,9 +235,6 @@
 
         </div>
     </div>
-
-    <!-- Space for existing footer -->
-    <div class="footer-space"></div>
 
     <script>
         // Simple script to handle logo addition in the future
@@ -273,37 +268,14 @@
 
     <!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
-    <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
+    
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script-prerelease.js"></script>
 </body>
 </html>
 

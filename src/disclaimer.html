@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics - Disclaimer</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Disclaimer | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -20,7 +20,6 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
@@ -31,46 +30,18 @@
         
         .disclaimer-container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 80px auto;
             padding: 30px;
             background-color: white;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        
-        .so-logo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .so-logo .circle {
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            background-color: #e21b23; /* Special Olympics red */
-            border-radius: 50%;
-            position: relative;
-            margin-bottom: 15px;
-        }
-        
-        .so-logo .circle:before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            border: 3px solid white;
-            border-radius: 50%;
-        }
-        
-        .so-logo h1 {
-            color: #e21b23;
-            margin: 0;
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+
+        .disclaimer-container img {
+            display: block;
+            margin: auto;
+            width: auto;
+            height: 200px;
         }
         
         h2 {
@@ -115,22 +86,19 @@
 <body>
 
     <!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
+    <!-- <div id="chatbot-container"></div> -->
     
-    <!-- Space for your existing header -->
+    <!-- Header Space -->
     <div class="header-space"></div>
     
     <div class="disclaimer-container">
-        <div class="so-logo">
-            <div class="circle"></div>
-            <h1>Special Olympics</h1>
-        </div>
+        <img class="so-image" src="../assets/images/main_title.png" alt="Special Olympics Sarawak logo">
         
         <h2>Website Disclaimer</h2>
         
@@ -160,43 +128,16 @@
             <p>Last updated: <strong>January 2024</strong></p>
         </div>
     </div>
-    
-    <!-- Space for your existing footer -->
-    <div class="footer-space"></div>
 
-<!-- Section Divider -->
+    <!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
-    <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
+    
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
 
+    <script src="../scripts/script-prerelease.js"></script>
 </body>
 </html>

@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Sarawak</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Getting Started | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
+    <!-- Local HTML Style -->
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Reset and base styles */     
         body {
             background-color: #f9f9f9;
             color: #333;
@@ -24,337 +18,18 @@
             overflow-x: hidden;
             overflow-y: auto;
         }
-        
-        /* Placeholder for existing header */
-        .existing-header {
-            height: 80px; /* Adjust this based on your actual header height */
-            background-color: #fff;
-            position: relative;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .header-placeholder {
-            color: #cc0000;
-            font-weight: bold;
-        }
-        
-        /* Hero section with zooming background */
-        .hero {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-        
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            animation: zoomAnimation 20s infinite alternate;
-        }
-        
-        @keyframes zoomAnimation {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.2);
-            }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            color: white;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #cc0000;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-        }
-        
-        .cta-button:hover {
-            background-color: #a30000;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Main content sections */
-        .section {
-            padding: 80px 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: #cc0000;
-            font-size: 2.5rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background-color: #cc0000;
-            margin: 15px auto;
-        }
-        
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-        }
-        
-         /*----*/
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Programs section */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .program-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .program-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .program-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .program-card:hover .program-image img {
-            transform: scale(1.1);
-        }
-        
-        .program-content {
-            padding: 20px;
-        }
-        
-        .program-title {
-            color: #cc0000;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .program-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-color: #cc0000;
-            color: white;
-            text-align: center;
-            line-height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        /* Sports section */
-        .sports-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-        }
-        
-        .sport-item {
-            flex: 1;
-            min-width: 150px;
-            max-width: 200px;
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .sport-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .sport-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px;
-            background-color: #cc0000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        /* Regions section */
-        .regions-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 50px;
-        }
-        
-        .region-card {
-            background-color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            font-weight: bold;
-            color: #333;
-            border: 2px solid #cc0000;
-            transition: all 0.3s ease;
-        }
-        
-        .region-card:hover {
-            background-color: #cc0000;
-            color: white;
-        }
-        
-        /* Footer placeholder */
-        .existing-footer {
-            height: 100px; /* Adjust this based on your actual footer height */
-            background-color: #fcfcfc;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-        }
-        
-        .footer-placeholder {
-            color: #fff;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
-
-
-
-    <!-- Placeholder for existing header - you'll replace this with your actual header -->
-    <div class="existing-header">
-        <div class="header-placeholder"></div>
-    </div>
+    <!-- <div id="chatbot-container"></div> -->
     
     <!-- Hero section with animated background -->
     <section class="hero">
@@ -382,8 +57,44 @@
         </div>
     </section>
     
-    <!-- Sports section -->
+    <!-- Programs section -->
     <section class="section" style="background-color: #f0f0f0;">
+        <div class="container">
+            <h2 class="section-title">Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="../assets/images/healthy_program_1.jpg" alt="Medical professionals conducting health screenings for Special Olympics athletes">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title"><span class="program-number">1</span>Special Olympics Healthy Athletes Program (SOHAP)</h3>
+                        <p>The Special Olympics Healthy Athletes program offers health services and education to Special Olympics athletes and focuses on removing the barriers to care that people with intellectual disabilities face.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="../assets/images/leadership_1.jpg" alt="Special Olympics athletes participating in leadership training sessions">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title"><span class="program-number">2</span>Special Olympics Athlete Leadership Program (ALPs)</h3>
+                        <p>This program provides athletes with opportunities to take on leadership roles in the Special Olympics movement beyond the playing field. Athletes serve as coaches, officials, spokespeople, and board members.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="../assets/images/young_athelte_1.jpg" alt="Young children with intellectual disabilities playing sports games with coaches">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title"><span class="program-number">3</span> Young Athletes Program (YAP)</h3>
+                        <p>An innovative sports play program for children with intellectual disabilities ages 2-7 years old. The program introduces basic sports skills through fun activities that support developmental milestones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports section -->
+    <section class="section">
         <div class="container">
             <h2 class="section-title">Our Sports</h2>
             <div class="sports-container">
@@ -419,42 +130,6 @@
         </div>
     </section>
     
-    <!-- Programs section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Programs</h2>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="../assets/images/healthy_program_1.jpg" alt="Medical professionals conducting health screenings for Special Olympics athletes">
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-title"><span class="program-number">1</span>Special Olympics Healthy Athletes Program (SOHAP)</h3>
-                        <p>The Special Olympics Healthy Athletes program offers health services and education to Special Olympics athletes and focuses on removing the barriers to care that people with intellectual disabilities face.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="../assets/images/leadership_1.jpg" alt="Special Olympics athletes participating in leadership training sessions">
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-title"><span class="program-number">2</span>Special Olympics Athlete Leadership Program (ALPs)</h3>
-                        <p>This program provides athletes with opportunities to take on leadership roles in the Special Olympics movement beyond the playing field. Athletes serve as coaches, officials, spokespeople, and board members.</p>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="../assets/images/young_athelte_1.jpg" alt="Young children with intellectual disabilities playing sports games with coaches">
-                    </div>
-                    <div class="program-content">
-                        <h3 class="program-title"><span class="program-number">3</span> Young Athletes Program (YAP)</h3>
-                        <p>An innovative sports play program for children with intellectual disabilities ages 2-7 years old. The program introduces basic sports skills through fun activities that support developmental milestones.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Regions section -->
     <section class="section" style="background-color: #f0f0f0;">
         <div class="container">
@@ -468,63 +143,15 @@
             <p style="text-align: center; margin-top: 30px; font-weight: bold;">With plans to expand to all regions of Sarawak</p>
         </div>
     </section>
-    
-    <!-- Placeholder for existing footer - you'll replace this with your actual footer -->
-    <div class="existing-footer">
-        <div class="footer-placeholder"></div>
-    </div>
 
-
-
-    <script>
-        // Simple JavaScript for the zoom animation (already implemented via CSS)
-        // Additional interactive elements can be added here if needed
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-
-<!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
-    <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
 
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
 
+    <script src="../scripts/script-prerelease.js"></script>
 </body>
 </html>

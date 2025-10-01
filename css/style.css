@@ -1,200 +1,19 @@
-/* --- Latest News Page Styles --- */
-.news-main {
-  max-width: 1100px;
-  margin: 120px auto 60px auto;
-  padding: 0 20px;
-}
-.news-title {
-  font-size: 2.5rem;
-  color: #e53935;
-  margin-bottom: 40px;
-  text-align: center;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-.news-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-}
-.news-card {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(229,57,53,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.08);
-  overflow: hidden;
-  width: 340px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.news-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 32px rgba(229,57,53,0.18), 0 2px 12px 0 rgba(0,0,0,0.10);
-}
-.news-image {
-  width: 100%;
-  height: 180px;
-  background: #eee center/cover no-repeat;
-  border-bottom: 1px solid #f5f5f5;
-}
-.news-content {
-  padding: 22px 24px 18px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.news-headline {
-  font-size: 1.25rem;
-  color: #e53935;
-  margin: 0 0 6px 0;
-  font-weight: 700;
-}
-.news-date {
-  font-size: 0.95rem;
-  color: #888;
-  margin-bottom: 6px;
-}
-.news-desc {
-  font-size: 1.05rem;
-  color: #222;
-  line-height: 1.6;
-}
-@media (max-width: 900px) {
-  .news-list {
-    flex-direction: column;
-    align-items: center;
-  }
-  .news-card {
-    width: 95%;
-    max-width: 420px;
-  }
-}
-/* --- End Latest News Page Styles --- */
+/* Apply Segoe UI font */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-.video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
+/* ---------- DESKTOP STYLES ---------- */
 
-#bg-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -30%);
-  z-index: 1;
-  text-shadow: 2px 2px 8px #000;
-}
-
-.overlay h1 {
-  font-size: 60px;
-}
-
-.overlay .tagline {
-  font-family: 'Cursive', sans-serif;
-  font-size: 28px;
-  margin-top: 15px;
-}
-
-.video-background {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  z-index: 0;
-  overflow: hidden;
-  background: #fff;
-}
-.video-background video {
-  min-width: 100vw;
-  min-height: 100vh;
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* --- testing searchbar mockup only (non functional searchbar --- */
-
-.search-container {
-  flex: 1;
-  width: 150px;
-  margin-left: 10px;
-}
-
-.search-form {
-  display: flex;
-  width: 100%;
-  position: relative;
-}
-
-.search-input {
-  width: 100%;
-  padding: 8px 12px;
-  padding-right: 40px;
-  border: 2px solid #e0e0e0;
-  border-radius: 25px;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.search-input:focus {
-  border-color: #e53935;
-  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.2);
-}
-
-.search-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 40px;
-  background: transparent;
-  border: none;
-  border-radius: 0 25px 25px 0;
-  cursor: pointer;
-  color: #e53935;
-  transition: all 0.3s ease;
-}
-
-.search-button:hover {
-  color: #c62828;
-  background: rgba(229, 57, 53, 0.1);
-  transform: 
-    scale(1.1) 
-    rotate(8deg);
-  
-  /* Pulsing glow effect */
-  box-shadow: 
-    0 0 0 4px rgba(229, 57, 53, 0.3),
-    0 0 12px rgba(229, 57, 53, 0.4);
-}
-
-/* --- End of Searchbar Styles --- */
-
-/*-- ajusted top nav remove if remove searchbar --- */
+/* ----- Top nav ----- */
 .logo, .nav-right {
   flex: 0 0 auto;
 }
- /*ending adjusted top nav */
-
+/*ending adjusted top nav */
 .top-nav {
   position: fixed;
   top: 0;
@@ -210,26 +29,29 @@ body, html {
   height: 70px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
-
 .nav-right {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-
 .logo {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
-
 .logo-img {
-  height: 50px;
+  height: 56px;
   width: auto;
   object-fit: contain;
 }
-
-
+.sarawak-flag-header {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background: none;
+  box-shadow: none;
+}
 .nav-menu {
   display: flex;
   align-items: center;
@@ -238,11 +60,9 @@ body, html {
   margin: 0;
   padding: 0;
 }
-
 .nav-menu > li {
   position: relative;
 }
-
 .nav-menu a {
   text-decoration: none;
   color: #333;
@@ -262,6 +82,10 @@ body, html {
     2px 2px 1px rgba(0, 0, 0, 0.2),
     4px 4px 4px rgba(0, 0, 0, 0.3),
     6px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown i, .dropdown.mobile-only i {
+    display: none;
 }
 
 /* --- Dropdown --- */
@@ -291,48 +115,43 @@ body, html {
   pointer-events: auto;
   transform: translateY(0) scale(1);
 }
-
 .dropdown-menu a {
   padding: 12px 20px;
   color: #333;
   transition: all 0.3s ease;
   white-space: nowrap; /* Prevent text wrapping */
 }
-
 .dropdown-menu a:hover {
   background: #ffe6e6;
   color: #e53935;
   transform: translateX(4px);
 }
-
 /* Optional bounce effect */
 @keyframes bounceIn {
   0% { transform: translateY(-10px) scale(0.95); opacity: 0; }
   60% { transform: translateY(4px) scale(1.03); opacity: 1; }
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
-
 .dropdown:hover .dropdown-menu {
   animation: bounceIn 0.5s ease forwards;
 }
 
-
-/* --- end of Dropdown Menu Enhancements and from Top nav --- */
-
-
 /* --- Donation Button Styles --- */
 .donation-button-container {
     padding-left: 20px;
+    width: 108px; /* Manually fixed to match with the original/unmodified */
+    margin-top: -2px;
 }
 
 .donate-btn {
     background-color: #e53935;
-    color: white;
+    color: white !important; /* Ensure text color is white */
     padding: 12px 25px;
     border: none;
     border-radius: 25px;
     font-size: 1.1em;
-    font-weight: 600;
+    font-weight: 600; /* Make font bold */
+    text-align: center;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -341,6 +160,7 @@ body, html {
     display: inline-block;
     text-decoration: none;
     outline: none;
+    line-height: 0.3;
 }
 
 .donate-btn:hover {
@@ -369,19 +189,176 @@ body, html {
     position: relative;
     z-index: 2;
 }
-/* --- end of Donation Button Styles --- */
 
-/* --- Social Media Bar Styles --- */
+/* Searchbar mockup only (non functional) */
+.search-container {
+  flex: 1;
+  width: 150px; /* Desktop searchbar width */
+  margin-left: 0px; /* Originally 20px */
+  margin-right: -10px; /* To match with the original/unmodified */
+}
+.search-form {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  padding-right: 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.search-input:focus {
+  border-color: #e53935;
+  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.2);
+}
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  color: #e53935;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  color: #c62828;
+  background: rgba(229, 57, 53, 0.1);
+  transform:
+    scale(1.1)
+    rotate(8deg);
+  /* Pulsing glow effect */
+  box-shadow:
+    0 0 0 4px rgba(229, 57, 53, 0.3),
+    0 0 12px rgba(229, 57, 53, 0.4);
+}
+
+/* ----- Main Content (Welcome Section) ----- */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+#bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  z-index: 1;
+  text-shadow: 2px 2px 8px #000;
+}
+.overlay h1 {
+  font-size: 60px;
+}
+.overlay .tagline {
+  font-family: 'Cursive', sans-serif;
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+.video-background {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  background: #fff;
+}
+.video-background video {
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.welcome-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.welcome-section img {
+  max-width: 320px;
+  width: 32vw;
+  height: auto;
+  margin-bottom: 2rem;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.welcome-section h1 {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 1rem 1rem 1rem;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-shadow: 0 4px 16px #2575fc, 0 2px 0 #1a3a6b, 0 8px 24px #0008, 0 0 2px #fff, 0 1px 0 #2575fc;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  opacity: 0.98;
+}
+
+.welcome-section p {
+  font-size: 1.35rem;
+  color: #fff;
+  max-width: 650px;
+  text-align: center;
+  opacity: 0.97;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  margin: 0.5rem 1rem 0 1rem;
+  box-shadow: none;
+  text-shadow: 0 2px 8px #2575fc, 0 1px 0 #1a3a6b, 0 4px 12px #0008, 0 0 2px #fff;
+}
+
+/* ----- Social media Bar Style ----- */
 .socmed-bar {
-  position: fixed;  
+  position: fixed;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
   z-index: 10;
-  display: flex;
+  display: flex !important; /* This could be the issue of being line crossed on the browser inspector. Used !important to force the rule as a temporal fix */
   flex-direction: column;
   gap: 16px;
   padding: 10px;
+}
+
+.mobile-only-flex {
+  display: none !important;
 }
 
 .socmed-icon {
@@ -403,7 +380,6 @@ body, html {
     0 4px 6px rgba(0, 0, 0, 0.15),
     0 8px 12px rgba(0, 0, 0, 0.08);
 }
-
 /* Keep icon size stable */
 .socmed-icon i {
   position: relative;
@@ -422,7 +398,6 @@ body, html {
   z-index: 1;
   transition: width 0.4s ease;
 }
-
 /* Hover: smooth scale + deeper shadow + fill */
 .socmed-icon:hover {
   transform: scale(1.2);
@@ -451,18 +426,16 @@ body, html {
     #fd5949 45%, #d6249f 60%,
     #285AEB 90%);
 }
-/* --- end of Social Media Icon Styles --- */
 
-/* --- Bottom Navigation Styles --- */
+/* ----- Bottom navigation ----- */
 .bottom-nav {
   position: fixed;
-  bottom: 60px;
+  bottom: 60px; /* Adjusted to be above footer. Previously 60px */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 99;
   background: transparent;
 }
-
 .bottom-nav ul {
   display: flex;
   gap: 16px;
@@ -475,7 +448,6 @@ body, html {
 .nav-item {
   position: relative;
 }
-
 .nav-btn {
   position: relative;
   overflow: hidden;
@@ -496,7 +468,6 @@ body, html {
     inset 0 1px 0 rgba(255, 255, 255, 0.7); /* inner bevel effect */
   z-index: 1;
 }
-
 .nav-btn:hover {
   transform: translateY(-3px);
   box-shadow:
@@ -510,7 +481,6 @@ body, html {
   z-index: 2;
   transition: color 0.3s ease;
 }
-
 .nav-btn::before {
   content: "";
   position: absolute;
@@ -522,7 +492,6 @@ body, html {
   z-index: 1;
   transition: left 0.6s ease;
 }
-
 .nav-btn::after {
   content: "";
   position: absolute;
@@ -548,7 +517,6 @@ body, html {
 .nav-item.open .nav-btn span {
   color: white;
 }
-
 /* --- Drop-Up Menu --- */
 /* Drop-up menu container */
 .dropup-menu {
@@ -578,25 +546,6 @@ body, html {
   animation: dropup3D 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-@keyframes dropup3D {
-  0% {
-    transform: translateX(-50%) perspective(1000px) rotateX(-90deg);
-    opacity: 0;
-  }
-  60% {
-    transform: translateX(-50%) perspective(1000px) rotateX(15deg);
-    opacity: 1;
-  }
-  80% {
-    transform: translateX(-50%) perspective(1000px) rotateX(-5deg);
-  }
-  100% {
-    transform: translateX(-50%) perspective(1000px) rotateX(0);
-    opacity: 1;
-  }
-}
-
-/* Menu items with intense 3D hover effects */
 .dropup-menu a {
   display: block;
   position: relative;
@@ -640,206 +589,30 @@ body, html {
   border-bottom: none;
 }
 
-/* --- End of Drop-Up Menu Styles --- */
-
-
-.site-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  background: #BA1D1D;
-  color: #fff;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 48px;
-  box-shadow: 0 -2px 12px rgba(229,57,53,0.12);
-}
-.footer-links {
-  display: flex;
-  gap: 32px;
-}
-.footer-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1em;
-  font-weight: 500;
-  padding: 8px 18px;
-  border-radius: 12px;
-  transition: background 0.2s, color 0.2s;
-}
-.footer-link:hover {
-  background: #fff;
-  color: #e53935;
-}
-
-
-/* --- News Card --- */
-.special-cards-container {
-  position: absolute;
-  top: 140px;
-  left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 360px;
-  z-index: 10;
-}
-
-.special-card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.special-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(229,57,53,0.2);
-}
-
-.special-card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 16px 20px;
-}
-
-.card-body h3 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
-  color: #111;
-}
-
-.card-body p {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.card-button {
-  display: inline-block;
-  text-align: center;
-  padding: 10px 20px;
-  border: 2px solid #e53935;
-  border-radius: 8px;
-  color: #e53935;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.card-button:hover {
-  background: #e53935;
-  color: white;
-}
-
-/*-- chatbot testing --*/
-.chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-}
-
-.chatbot-toggle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background-color: #e53935;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  transition: transform 0.3s, background-color 0.3s;
-}
-.chatbot-toggle:hover {
-  background-color: #c62828;
-  transform: scale(1.05);
-}
-
-.chatbot-window {
-  position: absolute;
-  bottom: 80px;
-  right: 0;
-  width: 330px;
-  height: 420px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transform: translateY(60px);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  z-index: 9999;
-}
-
-.chatbot-window.open {
-  transform: translateY(0px);
+/* Open state with 3D bounce animation */
+.nav-item.open .dropup-menu {
   opacity: 1;
   pointer-events: auto;
+  transform: translateX(-50%) perspective(1000px) rotateX(0);
+  animation: dropup3D 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-
-.chatbot-header {
-  background: linear-gradient(to right, #e53935, #f44336);
-  color: #fff;
-  padding: 14px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.chatbot-messages {
-  flex: 1;
-  padding: 14px;
-  overflow-y: auto;
-  background: #f9f9f9;
-  font-size: 14px;
-}
-
-.chatbot-input {
-  border: none;
-  border-top: 1px solid #ddd;
-  padding: 14px;
-  font-size: 14px;
-  width: 100%;
-  outline: none;
-}
-
-.user-msg, .bot-msg {
-  margin: 10px 0;
-  padding: 10px 14px;
-  border-radius: 16px;
-  max-width: 75%;
-  display: inline-block;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-.user-msg {
-  background-color: #e53935;
-  color: white;
-  margin-left: auto;
-  animation: fadeInRight 0.3s ease;
-}
-
-.bot-msg {
-  background-color: #eeeeee;
-  color: #333;
-  animation: fadeInLeft 0.3s ease;
+@keyframes dropup3D {
+  0% {
+    transform: translateX(-50%) perspective(1000px) rotateX(-90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) perspective(1000px) rotateX(15deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) perspective(1000px) rotateX(-5deg);
+  }
+  100% {
+    transform: translateX(-50%) perspective(1000px) rotateX(0);
+    opacity: 1;
+  }
 }
 
 /* Animations */
@@ -853,9 +626,7 @@ body, html {
   to { opacity: 1; transform: translateX(0); }
 }
 
-
 /* Fade-in and fade-out effects experimental */
-
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -864,4 +635,566 @@ body, html {
 .fade-in {
   opacity: 1;
 }
-/* --- End of Chatbot Styles --- */
+
+/* ----- Site footer ----- */
+.site-footer {
+    background-color: #BA1D1D;
+    color: #fff;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: fixed; /* For positioning credit */
+    z-index: 100; /* Ensure it's above other content */
+    left: 0; /* Full width */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+    box-shadow: 0 -2px 12px rgba(229, 57, 53, 0.12); /* Subtle shadow on top */
+    display: flex; /* Flexbox for layout */
+    min-height: 30px; /* Minimum height for better appearance */
+    align-items: center; /* Center items vertically */
+}
+
+.site-footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.copyright-text {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 12px;
+    transition: background 0.2s ease, color 0.2s;
+}
+
+.footer-link:hover {
+  background: #fff;  
+  color: #e53935;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social-icons .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons .icon:hover {
+    background: #e53935;
+    transform: translateY(-3px);
+}
+
+.footer-social-icons .icon a {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none;
+    display: flex; /* To center the icon */
+    align-items: center;
+    justify-content: center;
+}
+
+.developer-credit {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 15px;
+    text-align: right; /* Align to the right */
+    width: 100%; /* Take full width to allow right alignment */
+}
+
+.developer-credit a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.developer-credit a:hover {
+    text-decoration: none;
+}
+
+
+
+
+
+/* ---------- MEDIA QUERY / MOBILE RESPONSIVE ---------- */
+@media only screen and (max-width: 540px) {
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-img {
+        height: 56px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .sarawak-flag-header {
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        background: none;
+        box-shadow: none;
+        margin-left: -10px;
+    }
+}
+
+@media only screen and (max-width: 1019px) {
+  .top-nav {
+    padding: 0 20px; /* Adjust padding for smaller screens */
+    height: 70px; /* Adjust height for smaller screens */
+  }
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    padding: 20px 20px;
+    gap: 0px;
+  }
+  .nav-menu > li {
+    width: 100%;
+    text-align: left;
+  }
+  .nav-menu a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-right {
+    position: fixed; /* [!] Change this element could break the menu */
+    top: 70px; /* Below the top nav */
+    right: -110%; /* Start off-screen */
+    width: 100vw;
+    max-width: none;
+    height: calc(100% - 70px); /* Full height minus top nav */
+    background: rgba(255, 255, 255, 1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto; /* Enable scrolling for long menus */
+    z-index: 999; /* Ensure it's above other content */
+    padding-bottom: 60px; /* Space for site-footer */
+    display: flex; /* Ensure flexbox for ordering */
+  }
+  .nav-right.open {
+    right: 0; /* Slide in */
+  }
+  .nav-menu .dropdown-menu {
+    position: static; /* Make dropdowns expand inline */
+    box-shadow: none;
+    border-radius: 0;
+    background: #ffffff; /* Slightly different background for sub-menus */
+    padding: 0;
+    width: 100%;
+    opacity: 1; /* Always visible when parent is open */
+    transform: none; /* No 3D transform */
+    pointer-events: auto;
+    animation: none; /* Disable bounce animation */
+    max-height: 0; /* Start collapse */
+    overflow: hidden;
+    transition: max-height 0.3 ease;
+  }
+
+  .nav-menu .dropdown.open .dropdown-menu {
+    max-height: 500px; /* Adjustment is needed to fix all items */
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown {
+    background: #ffffff;
+  }
+
+  .dropdown a {
+    font-size: 1.5rem;
+  }
+
+  .dropdown-menu a {
+    padding: 12px 10px;
+  }
+
+  .nav-menu .dropdown-menu a {
+    font-size: 1.2rem;
+    color: #555;
+    background: #ffffff;
+  }
+
+  /* Dropdown icon for mobile */
+  .dropdown i, .dropdown.mobile-only i {
+    display: block;
+    font-size: 30px; /* Icon size */
+  }
+
+  .dropdown a, .dropdown.mobile-only a {
+    font-weight: 600; /* Semi-bold text */
+  }
+  
+  .nav-menu .dropdown > a {
+    display: flex; /* Use text to align text and icon */
+    justify-content: space-between; /* Space between text and icon */
+    align-items: center;
+  }
+
+  .nav-menu .dropdown > a i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-menu .dropdown.open > a i {
+    transform: rotate(-180deg);
+  }
+
+  /* Hide desktop-only elements */
+  .desktop-only {
+    display: none;
+  }
+  /* Show mobile-only elements */
+  .mobile-only {
+    display: block; /* Or flex/block depending on desired layout */
+    width: 100%;
+  }
+  /* Specific display for mobile-only-block elements */
+  .mobile-only-block {
+      display: block;
+      order: -1; /* Move searchbar to the top */
+  }
+  .socmed-bar {
+      position: static; /* Remove fixed positioning */
+      transform: none; /* Remove transform */
+      flex-direction: row; /* Display horizontally */
+      justify-content: center; /* Center the icons */
+      margin-top: 20px; /* Add some space below the description */
+      padding: 0 10px; /* Adjust padding */
+      width: 100%; /* Take full width */
+      gap: 10px; /* Adjust gap between icons */
+      z-index: 2; /* Ensure it's above the video */
+  }
+  /* Hide the desktop-only socmed-bar if it's still present outside welcome-section */
+  .desktop-only.socmed-bar {
+      display: none;
+  }
+  /* Ensure the new mobile-only-flex class is displayed */
+  .mobile-only-flex {
+      display: flex !important; /* Force display for mobile */
+  }
+
+  /* Hamburger Icon */
+  .hamburger {
+    display: flex; /* Show hamburger icon on screens <= 900px */
+    flex-direction: column;
+    justify-content: space-around; /* Distributes the bars vertically */
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above the sliding nav-right menu */
+    margin-left: auto; /* Pushes it to the right if needed */
+  }
+  .hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #e53935; /* Red color for the bars */
+    transition: all 0.3s ease; /* Smooth transition for animation */
+  }
+  /* Hamburger animation for 'open' state (when menu is active) */
+  .hamburger.open .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* Top bar rotates and moves down */
+  }
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0; /* Middle bar fades out */
+  }
+  .hamburger.open .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg); /* Bottom bar rotates and moves up */
+  }
+
+  /* Adjust search and donate button for mobile menu */
+  .search-item {
+    width: 100%;
+    order: -1; /* Move searchbar to the top */
+    padding: 10px 10px;
+    box-sizing: border-box;
+  }
+  .donation-item {
+    width: 100%;
+    order: 999; /* Move donate button to the bottom */
+    padding: 10px 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 50px; /* Space in the sidebar */
+  }
+  .donation-button-container {
+    width: auto; /* Wider donate button for mobile sidebar */
+    padding-left: 0px;
+    margin-top: 0px;
+  }
+  .search-container {
+    margin-left: center;
+    width: auto !important; /* Wider search bar for mobile sidebar */
+  }
+  .donate-btn {
+    width: 100%;
+    text-align: center;
+    font-weight: 600; /* Ensure bold for mobile sidebar */
+    border-radius: 50px;
+    font-size: 1.5em !important; /* Slightly larger font for mobile sidebar */
+    padding: 25px 0px !important;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-right {
+        position: static; /* Reset position for desktop */
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        flex-direction: row;
+        overflow-y: visible;
+        padding-bottom: 0;
+        display: flex; /* Ensure flexbox for desktop */
+    }
+
+    .mobile-only {
+        display: none; /* Hide mobile-only elements on desktop */
+    }
+
+    .mobile-only-block {
+        display: none; /* Hide these elements on desktop */
+    }
+
+    .desktop-only {
+        display: block; /* Ensure desktop-only elements are visible */
+    }
+}
+
+@media (min-width: 1020px) {
+    .site-footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start; /* Align items to the start for better layout */
+        text-align: left;
+    }
+
+    .footer-top {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        width: auto;
+    }
+
+    .copyright-text {
+        order: 1; /* Place copyright first */
+    }
+
+    .footer-links {
+        order: 2; /* Place links second */
+        justify-content: flex-start;
+    }
+
+    .footer-social-icons {
+        margin-top: 0;
+        order: 3; /* Place social icons third */
+        bottom: 80px; /* Align to the bottom */
+        right: center; /* Center horizontally */
+    }
+
+    .developer-credit {
+        position: absolute; /* Position absolutely within the footer */
+        bottom: 5px; /* Adjust as needed */
+        right: 120px; /* Align to the right */
+        width: auto; /* Allow content to define width */
+        text-align: right;
+    }
+}
+
+@media (max-width: 1019px) {
+    .site-footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .copyright-text {
+        margin-top: 4px;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+    }
+
+    .developer-credit {
+        /* text-align: center;
+        margin-top: 15px; */
+        display: none; /* Hide on smaller screens to save space */
+    }
+
+    .footer-social-icons {
+        display: none; /* Hide social icons on smaller screens */
+    }
+}
+
+
+
+
+
+/* ---------- MEDIA QUERY / DESKTOP RESPONSIVE (SCREEN HEIGHT) ---------- */
+@media screen and (max-height: 820px) {
+  .welcome-section img {
+    max-width: 260px;
+    width: 28vw;
+    height: auto;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .welcome-section h1 {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-shadow: 0 4px 16px #2575fc, 0 2px 0 #1a3a6b, 0 8px 24px #0008, 0 0 2px #fff, 0 1px 0 #2575fc;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    opacity: 0.98;
+  }
+  .welcome-section p {
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 600px;
+    text-align: center;
+    opacity: 0.97;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0.3rem;
+    box-shadow: none;
+    text-shadow: 0 2px 8px #2575fc, 0 1px 0 #1a3a6b, 0 4px 12px #0008, 0 0 2px #fff;
+  }
+}
+
+@media screen and (max-height: 730px) {
+  .welcome-section img {
+    max-width: 220px;
+    width: 24vw;
+    height: auto;
+    margin-bottom: 1.2rem;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .welcome-section h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-shadow: 0 4px 16px #2575fc, 0 2px 0 #1a3a6b, 0 8px 24px #0008, 0 0 2px #fff, 0 1px 0 #2575fc;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    opacity: 0.98;
+  }
+  .welcome-section p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 500px;
+    text-align: center;
+    opacity: 0.97;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0.2rem;
+    box-shadow: none;
+    text-shadow: 0 2px 8px #2575fc, 0 1px 0 #1a3a6b, 0 4px 12px #0008, 0 0 2px #fff;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  .welcome-section img {
+    max-width: 180px;
+    width: 20vw;
+    height: auto;
+    margin-bottom: 1rem;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .welcome-section h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-shadow: 0 4px 16px #2575fc, 0 2px 0 #1a3a6b, 0 8px 24px #0008, 0 0 2px #fff, 0 1px 0 #2575fc;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    opacity: 0.98;
+  }
+  .welcome-section p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 480px;
+    text-align: center;
+    opacity: 0.97;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0.1rem;
+    box-shadow: none;
+    text-shadow: 0 2px 8px #2575fc, 0 1px 0 #1a3a6b, 0 4px 12px #0008, 0 0 2px #fff;
+  }
+}

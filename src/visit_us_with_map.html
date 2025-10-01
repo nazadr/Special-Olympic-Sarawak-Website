@@ -3,424 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visit Us - Sarawak Special Olympic</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Visit Us | Special Olympic Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
+    <!-- Local HTML Style -->
     <style>
         /* Space for existing header */
         .header-space {
-            height: 100px;
-        }
-
-        /* Space for existing footer */
-        .footer-space {
-            height: 80px;
+            height: 70px;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
             overflow: auto
         }
-
-        .main-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Compact title background */
-        .title-background {
-            width: 100vw;
-            height: 40vh; /* Reduced from 60vh */
-            min-height: 300px; /* Reduced from 400px */
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            background-image: url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px; /* Reduced from 40px */
-        }
-
-        .title-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(114, 114, 114, 0.7); /* Slightly more transparent */
-        }
-
-        .page-title {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-            padding: 20px;
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        .page-title h1 {
-            font-size: 2.5rem; /* Reduced from 3rem */
-            margin-bottom: 10px; /* Reduced from 15px */
-            text-transform: uppercase;
-        }
-
-        .page-title p {
-            font-size: 1.2rem; /* Reduced from 1.5rem */
-            margin-bottom: 15px; /* Reduced from 20px */
-        }
-
-        .page-title::after {
-            content: '';
-            display: block;
-            width: 80px; /* Reduced from 100px */
-            height: 3px; /* Reduced from 4px */
-            background: white;
-            margin: 15px auto; /* Reduced from 20px */
-        }
-
-        /* Rest of the CSS remains the same */
-        .branches-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .branch-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 800px;
-            transition: transform 0.3s ease;
-        }
-
-        .branch-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .branch-header {
-            background: #E31937;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-        }
-
-        .branch-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .branch-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .branch-info-container {
-            display: flex;
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .branch-logo {
-            width: 100px;
-            height: 100px;
-            background: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            border: 3px solid white;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .branch-info {
-            flex-grow: 1;
-        }
-
-        .branch-info p {
-            margin: 12px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .branch-info i {
-            margin-right: 10px;
-            color: #E31937;
-            min-width: 20px;
-            text-align: center;
-        }
-
-        .map-container {
-            width: 100%;
-            max-width: 600px;
-            position: relative;
-            overflow: hidden;
-            padding-top: 56.25%;
-            border: 2px solid #E31937;
-            border-radius: 5px;
-        }
-
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .red-stripe {
-            height: 8px;
-            background: #E31937;
-            margin: 30px auto;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        @media (max-width: 768px) {
-            .title-background {
-                height: 35vh; /* Adjusted from 50vh */
-                min-height: 250px; /* Reduced from 300px */
-            }
-            
-            .page-title h1 {
-                font-size: 2rem; /* Reduced from 2.2rem */
-            }
-            
-            .page-title p {
-                font-size: 1.1rem; /* Reduced from 1.2rem */
-            }
-            
-            .branch-info-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .branch-info p {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title-background {
-                height: 30vh; /* Adjusted from 40vh */
-                min-height: 200px; /* Reduced from 250px */
-            }
-            
-            .page-title h1 {
-                font-size: 1.6rem; /* Reduced from 1.8rem */
-            }
-            
-            .page-title p {
-                font-size: 1rem;
-            }
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
+    <!-- <div id="chatbot-container"></div> -->
 
     <!-- Space for your existing header -->
     <div class="header-space"></div>
 
     <!-- Compact title background -->
-    <div class="title-background">
-        <div class="title-overlay"></div>
-        <div class="page-title">
+    <div class="vu-title-background">
+        <div class="vu-title-overlay"></div>
+        <div class="vu-page-title">
             <h1>Visit Our Chapters</h1>
             <p>Find your nearest Sarawak Special Olympics centre</p>
         </div>
     </div>
-
-    <div class="main-container">
-        <div class="red-stripe"></div>
-
-        <div class="branches-container">
+    
+    <div class="vu-main-container">
+        <div class="vu-red-stripe"></div>
+    
+        <div class="vu-branches-container">
             <!-- Main Branch -->
-            <div class="branch-card">
-                <div class="branch-header">
+            <div class="vu-branch-card">
+                <div class="vu-branch-header">
                     <h2>Special Olympics Sarawak</h2>
                 </div>
-                <div class="branch-content">
-                    <div class="branch-info-container">
-                        <div class="branch-logo"><img src="../assets/images/SO_Sarawak.png" alt="Kuching Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
-                        <div class="branch-info">
+                <div class="vu-branch-content">
+                    <div class="vu-branch-info-container">
+                        <div class="vu-branch-logo"><img src="../assets/images/SO_Sarawak.png" alt="Kuching Branch Logo"
+                                style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="vu-branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> C/O 23-27 Jalan Bengkel, P O Box 370, 96007, Sibu</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 84-332332</p>
                             <p><i class="fas fa-phone"></i> (Fax) +60 84-331212</p>
                             <p><i class="fas fa-envelope"></i> specialolympicssarawak@gmail.com</p>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.16486232711657!2d111.82903697475012!3d2.2879113999999983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31f77f1df2ec040f%3A0x76910f15099a0990!2sPansar%20JCB%20Sibu%20(Head%20Office)!5e0!3m2!1sen!2smy!4v1754440838137!5m2!1sen!2smy"></iframe>
+                    <div class="vu-map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.16486232711657!2d111.82903697475012!3d2.2879113999999983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31f77f1df2ec040f%3A0x76910f15099a0990!2sPansar%20JCB%20Sibu%20(Head%20Office)!5e0!3m2!1sen!2smy!4v1754440838137!5m2!1sen!2smy"></iframe>
                     </div>
                 </div>
             </div>
-
-
-  <!-- Kuching Branch -->
-            <div class="branch-card">
-                <div class="branch-header">
+    
+    
+            <!-- Kuching Branch -->
+            <div class="vu-branch-card">
+                <div class="vu-branch-header">
                     <h2>Special Olympics Kuching Chapter</h2>
                 </div>
-                <div class="branch-content">
-                    <div class="branch-info-container">
-                        <div class="branch-logo"><img src="../assets/images/SO_Kuching_chapter.png" alt="Kuching Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
-                        <div class="branch-info">
-                            <p><i class="fas fa-map-marker-alt"></i> FL.1, P2-1-5(D), Jln Tabuan, Chonglin Park <br> 93100 Kuching, Sarawak</p>
+                <div class="vu-branch-content">
+                    <div class="vu-branch-info-container">
+                        <div class="vu-branch-logo"><img src="../assets/images/SO_Kuching_chapter.png"
+                                alt="Kuching Branch Logo"
+                                style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="vu-branch-info">
+                            <p><i class="fas fa-map-marker-alt"></i> FL.1, P2-1-5(D), Jln Tabuan, Chonglin Park <br> 93100
+                                Kuching, Sarawak</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 85-567 890</p>
                             <p><i class="fas fa-phone"></i> (Mobile) +60 85-567 890</p>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15953.440483792147!2d110.3340623524376!3d1.5491117749822103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba7430dae6211%3A0x895f7c556829fc37!2sChonglin%20Park!5e0!3m2!1sen!2smy!4v1754696907772!5m2!1sen!2smy"></iframe>
+                    <div class="vu-map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15953.440483792147!2d110.3340623524376!3d1.5491117749822103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba7430dae6211%3A0x895f7c556829fc37!2sChonglin%20Park!5e0!3m2!1sen!2smy!4v1754696907772!5m2!1sen!2smy"></iframe>
                     </div>
                 </div>
             </div>
-
+    
             <!-- Sibu Branch  -->
-            <div class="branch-card">
-                <div class="branch-header">
+            <div class="vu-branch-card">
+                <div class="vu-branch-header">
                     <h2>Special Olympics Sibu Chapter</h2>
                 </div>
-                <div class="branch-content">
-                    <div class="branch-info-container">
-                        <div class="branch-logo">
-                             <img src="../assets/images/SO_Sibu_Chapter.png" alt="Sibu Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
-                        <div class="branch-info">
+                <div class="vu-branch-content">
+                    <div class="vu-branch-info-container">
+                        <div class="vu-branch-logo">
+                            <img src="../assets/images/SO_Sibu_Chapter.png" alt="Sibu Branch Logo"
+                                style="width:100%; height:100%; object-fit:contain; border-radius:50%;">
+                        </div>
+                        <div class="vu-branch-info">
                             <p><i class="fas fa-map-marker-alt"></i> C/O 23-27 Jalan Bengkel, P O Box 370, 96007, Sibu</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 84-332332</p>
                             <p><i class="fas fa-phone"></i> (Fax) +60 84-331212</p>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.16486232711657!2d111.82903697475012!3d2.2879113999999983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31f77f1df2ec040f%3A0x76910f15099a0990!2sPansar%20JCB%20Sibu%20(Head%20Office)!5e0!3m2!1sen!2smy!4v1754440838137!5m2!1sen!2smy"></iframe>
+                    <div class="vu-map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.16486232711657!2d111.82903697475012!3d2.2879113999999983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31f77f1df2ec040f%3A0x76910f15099a0990!2sPansar%20JCB%20Sibu%20(Head%20Office)!5e0!3m2!1sen!2smy!4v1754440838137!5m2!1sen!2smy"></iframe>
                     </div>
                 </div>
             </div>
-
-
-             <!-- Bintulu Branch -->
-            <div class="branch-card">
-                <div class="branch-header">
+    
+    
+            <!-- Bintulu Branch -->
+            <div class="vu-branch-card">
+                <div class="vu-branch-header">
                     <h2>Special Olympics Bintulu Chapter</h2>
                 </div>
-                <div class="branch-content">
-                    <div class="branch-info-container">
-                        <div class="branch-logo"><img src="../assets/images/SO_Bintulu_chapter.png" alt="Bintulu Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
-                        <div class="branch-info">
-                            <p><i class="fas fa-map-marker-alt"></i> C/O F-2-1 Bintulu Paragon, Old Airport Place <br> 97000 Bintulu, Sarawak</p>
+                <div class="vu-branch-content">
+                    <div class="vu-branch-info-container">
+                        <div class="vu-branch-logo"><img src="../assets/images/SO_Bintulu_chapter.png"
+                                alt="Bintulu Branch Logo"
+                                style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="vu-branch-info">
+                            <p><i class="fas fa-map-marker-alt"></i> C/O F-2-1 Bintulu Paragon, Old Airport Place <br> 97000
+                                Bintulu, Sarawak</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 019-5302305</p>
                             <p><i class="fas fa-envelope"></i> specialolympicsbintulu@gmail.com</p>
-                            
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127475.67641752314!2d112.9790582607248!3d3.195459960810533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc0f5a5a79eb7%3A0x112adf7298d5795b!2sNAIM%20Street%20Mall!5e0!3m2!1sen!2smy!4v1754697059310!5m2!1sen!2smy"></iframe>
+                    <div class="vu-map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127475.67641752314!2d112.9790582607248!3d3.195459960810533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc0f5a5a79eb7%3A0x112adf7298d5795b!2sNAIM%20Street%20Mall!5e0!3m2!1sen!2smy!4v1754697059310!5m2!1sen!2smy"></iframe>
                     </div>
                 </div>
             </div>
-
+    
             <!-- Miri Branch -->
-            <div class="branch-card">
-                <div class="branch-header">
+            <div class="vu-branch-card">
+                <div class="vu-branch-header">
                     <h2>Special Olympics Miri Chapter</h2>
                 </div>
-                <div class="branch-content">
-                    <div class="branch-info-container">
-                        <div class="branch-logo"><img src="../assets/images/SO_Miri_chapter.png" alt="Miri Branch Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
-                        <div class="branch-info">
-                            <p><i class="fas fa-map-marker-alt"></i> C/O Lot 312, Jalan Bulan Sabit, Krokop, P O Box 370, <br> 98000 Miri</p>
+                <div class="vu-branch-content">
+                    <div class="vu-branch-info-container">
+                        <div class="vu-branch-logo"><img src="../assets/images/SO_Miri_chapter.png" alt="Miri Branch Logo"
+                                style="width:100%; height:100%; object-fit:contain; border-radius:50%;"></div>
+                        <div class="vu-branch-info">
+                            <p><i class="fas fa-map-marker-alt"></i> C/O Lot 312, Jalan Bulan Sabit, Krokop, P O Box 370,
+                                <br> 98000 Miri</p>
                             <p><i class="fas fa-phone"></i> (Tel) +60 85-420722</p>
                             <p><i class="fas fa-phone"></i> (Fax) +60 85-425421</p>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15912.063422711386!2d113.97958978715818!3d4.408131500000022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321f363031dd1aa9%3A0x1b35fea9682f02b4!2sMalaysian%20Red%20Crescent%20Miri!5e0!3m2!1sen!2smy!4v1754697130858!5m2!1sen!2smy"></iframe>
+                    <div class="vu-map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15912.063422711386!2d113.97958978715818!3d4.408131500000022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321f363031dd1aa9%3A0x1b35fea9682f02b4!2sMalaysian%20Red%20Crescent%20Miri!5e0!3m2!1sen!2smy!4v1754697130858!5m2!1sen!2smy"></iframe>
                     </div>
                 </div>
             </div>
-
-           
-
-          
         </div>
-
-        <div class="red-stripe"></div>
+        <div class="vu-red-stripe"></div>
     </div>
 
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
-     <!-- Section Divider -->
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
-    <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
-
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
-
-    <!-- Space for your existing footer -->
-    <div class="footer-space"></div>
+    <script src="../scripts/script-prerelease.js"></script>
 </body>
 </html>
