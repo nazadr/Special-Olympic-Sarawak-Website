@@ -1,5 +1,4 @@
 // Reusable HTML Element written in JavaScript.
-// Default: Only for "position: fixed" without scroll limit
 // Created on 8 Sep 2025
 
 document.writeln(`

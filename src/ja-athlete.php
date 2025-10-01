@@ -436,6 +436,6 @@
             }
         }
     </script>
-    <script src="../scripts/script-prerelease.js"></script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>

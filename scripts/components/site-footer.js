@@ -83,9 +83,9 @@ document.writeln(`
                     <p class="follow-label">Follow</p>
                     <div class="social-buttons">
                         <a href="https://www.facebook.com/SpecialOlympicsSarawak" aria-label="Facebook" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/SpecialOlySarawak" aria-label="X" class="social-btn x"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://www.tiktok.com/@specialolympicssarawak" aria-label="TikTok" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/specialolympicssarawak/" aria-label="Instagram" class="social-btn ig"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="X" class="social-btn x"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="TikTok" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram" class="social-btn ig"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="reach-out-container">

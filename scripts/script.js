@@ -57,13 +57,27 @@ navRightMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Close menu if screen resized from mobile to desktop
+// Close menu if screen resized from mobile to desktop 
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) {
+  if (window.innerWidth > 1299) {
     hamburgerIcon.classList.remove('open');
     navRightMenu.classList.remove('open');
   }
 });
+
+// Mobile dropdown hamburger menu
+const mobileDropdownParents = document.querySelectorAll('.mobile-dropdown-parent');
+mobileDropdownParents.forEach(parentItem => {
+  const dropdownToggleLink = parentItem.querySelector('a');
+  const dropdownSubMenu = parentItem.querySelector('.mobile-dropdown-submenu');
+  if (dropdownToggleLink && dropdownSubMenu) {
+    dropdownToggleLink.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      parentItem.classList.toggle('open'); // Toggle the 'open' class on the parent li
+    });
+  }
+});
+
 // Chatbot toggle functionality (existing code)
 const toggleBtn = document.querySelector('.chatbot-toggle');
 const chatWindow = document.getElementById('chatbot-window');
@@ -116,5 +130,53 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 500);
       });
     }
+  });
+});
+
+// Footer Dropdown for Mobile Navigation (optional, not implemented yet)
+const footerNavigation = document.querySelector(".footer-navigation"); // actionBtn
+const navGroup = document.querySelector(".nav-group"); // dropdown
+
+actionBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  navGroup.classList.toggle("hide");
+});
+
+window.addEventListener("click", () => {
+  navGroup.classList.add("hide");
+});
+
+/* Initial Search function implementation (not working yet) */
+/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("top-right-menu", "dropup-menu").classList.toggle("show");
+}
+
+function filterFunction() {
+  const input = document.getElementById("search-input");
+  const filter = input.value.toUpperCase();
+  const div = document.getElementById("myDropdown");
+  const a = div.getElementsByTagName("a");
+  for (let i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+// ----- GETTING STARTED -----
+// Simple JavaScript for the zoom animation (already implemented via CSS)
+// Additional interactive elements can be added here if needed
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
   });
 });
