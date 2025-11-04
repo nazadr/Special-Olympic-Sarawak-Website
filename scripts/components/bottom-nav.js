@@ -1,5 +1,5 @@
 // Reusable HTML Element written in JavaScript.
-// Created on 8 Sep 2025
+// Last updated on 23 Oct 2025
 
 document.writeln(`
     <footer class="bottom-nav-legacy desktop-only">
@@ -8,24 +8,29 @@ document.writeln(`
       <button class="nav-btn"><span>What We Do?</span></button>
       <div class="dropup-menu">
         <a href="../src/getting_started.html">Getting Started</a>
-        <a href="../src/sport.html">Our Sports</a>
+        <a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a>
+        <a href="../src/alp.html">Athlete Leadership Program (ALP)</a>
+        <a href="../src/yap.html">Young Athletes Program (YAP)</a>
       </div>
     </li>
     <li class="nav-item">
-      <button class="nav-btn"><span>Affiliate</span></button>
+      <button class="nav-btn"><span>Sports</span></button>
       <div class="dropup-menu">
-        <a href="../src/loaffiliate_v1.html">Sarawak Chapters</a>
-        <a href="../src/sponsorships.html">Sponsorships</a>
+        <a href="../src/sport.html">Our Sports</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Events</span></button>
       <div class="dropup-menu">
-        <a href="#photos">Healthy Athletes Program (SOHAP)</a>
-        <a href="#photos">Athletes Leadership Program (ALPs)</a>
-        <a href="#photos">Young Athletes Program (YAP)</a>
         <a href="../src/state-games.html">State Games</a>
         <a href="../src/event_calendar.php">Events Calendar</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <button class="nav-btn"><span>Affiliate</span></button>
+      <div class="dropup-menu">
+        <a href="../src/sarawak-chapters.php">Sarawak Chapters</a>
+        <a href="../src/sponsorships.html">Sponsorships</a>
       </div>
     </li>
     <li class="nav-item">

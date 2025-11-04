@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root"; // Your MySQL username
 $password = "";     // Your MySQL password
-$dbname = "special_olympics_data"; // Your database name
+$dbname = "so_sarawak_db"; // Database name on local phpMyAdmin
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,6 +22,7 @@ switch ($action) {
         $title = $_POST['eventTitle'] ?? '';
         $description = $_POST['eventDescription'] ?? '';
         $location = $_POST['eventLocation'] ?? '';
+        $city = $_POST['eventCity'] ?? ''; // Recently added for city icon
         $event_date = $_POST['eventDate'] ?? '';
         $event_time = $_POST['eventTime'] ?? '';
         $type = $_POST['eventType'] ?? '';
@@ -44,9 +45,9 @@ switch ($action) {
             }
         }
 
-        if ($title && $description && $location && $event_date && $event_time && $type) {
-            $stmt = $conn->prepare("INSERT INTO events (title, description, location, event_date, event_time, type, image_path) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssss", $title, $description, $location, $event_date, $event_time, $type, $image_path);
+        if ($title && $description && $location && $city && $event_date && $event_time && $type) {
+            $stmt = $conn->prepare("INSERT INTO events (title, description, location, city, event_date, event_time, type, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssss", $title, $description, $location, $city, $event_date, $event_time, $type, $image_path);
 
             if ($stmt->execute()) {
                 $response = ['success' => true, 'message' => 'Event added successfully!'];
@@ -60,7 +61,7 @@ switch ($action) {
         break;
 
     case 'fetch':
-        $sql = "SELECT id, title, description, location, event_date, event_time, type, image_path FROM events ORDER BY event_date ASC, event_time ASC";
+        $sql = "SELECT id, title, description, location, city, event_date, event_time, type, image_path FROM events ORDER BY event_date ASC, event_time ASC";
         $result = $conn->query($sql);
 
         $events = [];
@@ -109,6 +110,7 @@ switch ($action) {
         $title = $_POST['eventTitle'] ?? '';
         $description = $_POST['eventDescription'] ?? '';
         $location = $_POST['eventLocation'] ?? '';
+        $city = $_POST['eventCity'] ?? '';
         $event_date = $_POST['eventDate'] ?? '';
         $event_time = $_POST['eventTime'] ?? '';
         $type = $_POST['eventType'] ?? '';
@@ -137,9 +139,9 @@ switch ($action) {
             }
         }
 
-        if ($id && $title && $description && $location && $event_date && $event_time && $type) {
-            $stmt = $conn->prepare("UPDATE events SET title = ?, description = ?, location = ?, event_date = ?, event_time = ?, type = ?, image_path = ? WHERE id = ?");
-            $stmt->bind_param("sssssssi", $title, $description, $location, $event_date, $event_time, $type, $image_path, $id);
+        if ($id && $title && $description && $location && $city && $event_date && $event_time && $type) {
+            $stmt = $conn->prepare("UPDATE events SET title = ?, description = ?, location = ?, city = ?, event_date = ?, event_time = ?, type = ?, image_path = ? WHERE id = ?");
+            $stmt->bind_param("ssssssssi", $title, $description, $location, $city, $event_date, $event_time, $type, $image_path, $id);
 
             if ($stmt->execute()) {
                 $response = ['success' => true, 'message' => 'Event updated successfully!'];
@@ -155,7 +157,7 @@ switch ($action) {
     case 'fetch_single':
         $id = $_GET['id'] ?? '';
         if ($id) {
-            $stmt = $conn->prepare("SELECT id, title, description, location, event_date, event_time, type, image_path FROM events WHERE id = ?");
+            $stmt = $conn->prepare("SELECT id, title, description, location, city, event_date, event_time, type, image_path FROM events WHERE id = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();

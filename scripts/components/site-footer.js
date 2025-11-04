@@ -8,7 +8,7 @@ document.writeln(`
             </div>
             <div class="footer-buttons">
                 <a href="../src/join_us.html" class="btn join-us">Join Us</a>
-                <a href="../src/donation_pages_test1.html" class="btn donate">Donate</a>
+                <a href="../src/donation_page.html" class="btn donate">Donate</a>
             </div>
         </div>
         <div class="footer-middle-content">
@@ -18,6 +18,9 @@ document.writeln(`
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/getting_started.html">Getting Started</a></li>
                         <li><a href="../src/sport.html">Our Sports</a></li>
+                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
+                        <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -39,25 +42,23 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>Our Chapter <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="#">Kuching</a></li>
-                        <li><a href="#">Sibu</a></li>
-                        <li><a href="#">Bintulu</a></li>
-                        <li><a href="#">Miri</a></li>
+                        <li><a href="../src/ch_kuching.html">Kuching</a></li>
+                        <li><a href="../src/ch_samarahan.html">Samarahan</a></li>
+                        <li><a href="../src/ch_sibu.html">Sibu</a></li>
+                        <li><a href="../src/ch_bintulu.html">Bintulu</a></li>
+                        <li><a href="../src/ch_miri.html">Miri</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
                     <h3>Affiliate <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="../src/loaffiliate_v1.html">Sarawak Chapters</a></li>
+                        <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
                         <li><a href="../src/sponsorships.html">Sponsorships</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
                     <h3>Events <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="#">Healthy Athletes Program (SOHAP)</a></li>
-                        <li><a href="#">Athletes Leadership Program (ALPs)</a></li>
-                        <li><a href="#">Young Athletes Program (YAP)</a></li>
                         <li><a href="../src/state-games.html">State Games</a></li>
                         <li><a href="../src/event_calendar.php">Events Calendar</a></li>
                     </ul>
@@ -82,7 +83,7 @@ document.writeln(`
                 <div class="follow-container">
                     <p class="follow-label">Follow</p>
                     <div class="social-buttons">
-                        <a href="https://www.facebook.com/SpecialOlympicsSarawak" aria-label="Facebook" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/SpecialOlympicsSarawak/" aria-label="Facebook" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="X" class="social-btn x"><i class="fab fa-x-twitter"></i></a>
                         <a href="#" aria-label="TikTok" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
                         <a href="#" aria-label="Instagram" class="social-btn ig"><i class="fab fa-instagram"></i></a>

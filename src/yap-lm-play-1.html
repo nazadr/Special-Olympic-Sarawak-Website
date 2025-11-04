@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Play Together with Young Athletes | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .body {
+            background-color: white;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+        .yap-lm-play {
+            width: 100%;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .yap-lm-video {
+            width: 100%;
+            max-width: 1065px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+        }
+        .yap-lm-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .yap-lm-videsc {
+            width: 1200px;
+            margin: 40px auto 80px auto;
+        }
+        .yap-lm-videsc h1 {
+            color: #c4161c;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            padding: 0 12px;
+        }
+        .yap-lm-videsc h2 {
+            color: #333;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 16px;
+            padding: 0 12px;
+        }
+        .yap-lm-videsc p {
+            color: #333;
+            font-size: 1.1rem;
+            padding: 0 12px;
+        }
+        @media (max-width: 768px) {
+            .yap-lm-play {
+                max-width: 100vw;
+                padding: 0;
+            }
+            .yap-lm-video {
+                aspect-ratio: 16 / 9;
+                width: 100vw;
+                min-width: 0;
+            }
+            .yap-lm-videsc {
+                width: 100%;
+                margin: 24px auto 40px auto;
+            }
+            .yap-lm-videsc h1 {
+                font-size: 0.9rem;
+            }
+            .yap-lm-videsc h2 {
+                font-size: 1.8rem;
+            }
+            .yap-lm-videsc p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <div class="yap-lm-play">
+        <div class="yap-lm-video">
+            <video controls>
+                <!-- Placeholder video -->
+                <source src="../assets/videos/yap-lm-v1-fhd.webm">
+            </video>
+        </div>
+    </div>
+    <div class="yap-lm-videsc">
+        <h1>SPECIAL OLYMPICS SARAWAK VIDEO GALLERY - YOUNG ATHLETES PROGRAM (YAP)</h1>
+        <h2>Let's Play Together with Young Athletes</h2>
+        <p>Promotional video introducing Young Athletes Program (YAP)</p>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

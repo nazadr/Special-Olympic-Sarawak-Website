@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === $valid_username && $password === $valid_password) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        header("Location: admin.php");
+        header("Location: admin_panel_soswk.php");
         exit;
     } else {
         $error = "Invalid username or password.";
@@ -274,7 +274,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Form validation
             const form = document.querySelector('form');
             form.addEventListener('submit', function(e) {
-                e.preventDefault();
                 const inputs = document.querySelectorAll('.input-group input');
                 let isValid = true;
                 

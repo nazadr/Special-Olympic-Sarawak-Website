@@ -1,0 +1,285 @@
+<!-- Young Athletes Program (YAP) -->
+<!-- First created on 2 Oct 2025 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young Athletes Program (YAP) | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Local style within this HTML */
+        .header-space {
+            height: 70px;
+            background: transparent;
+        }
+
+        .body {
+            background-color: white;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .yap-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/yap-hero.jpg') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .yap-hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .yap-desc-section {
+            background-color: white;
+            padding: 60px 20px 0 20px;
+            text-align: left;
+        }
+
+        .yap-desc-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .yap-desc-section ul {
+            max-width: 1160px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .yap-desc-section li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        /* Message in squared red card */
+        .yap-section {
+            max-width: 1200px;
+            margin: 0 auto 0 auto;
+            padding: 0 20px 0 20px;
+        }
+
+        .yap-message {
+            display: flex;
+            flex-direction: column; /* Stack children vertically (h3 above p) */
+            align-items: center; /* Center children horizontally */
+            justify-content: center; /* Center the entire stack vertically in the container */
+            text-align: center; /* Ensure text inside h3 and p is centered */
+            width: 100%;
+            max-width: 1200px;
+            min-height: 300px;
+            background-color: #c4161c;
+            margin: 80px auto 80px auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+        }
+
+        .yap-message-contents{
+            padding: 0 40px;
+        }
+
+        .yap-message h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin: 40px;
+            font-weight: normal;
+            max-width: 100%; /* Prevent overflow on smaller screens */
+            width: 100%;
+        }
+        .yap-message p {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            max-width: 100%; /* Prevent overflow on smaller screens */
+            width: 100%;
+        }
+
+        .yap-more-section {
+            display: flex;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0) 60%), url('../assets/images/yap-lm-hero-hf.jpg') center/cover no-repeat;
+            height: 40vh;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            color: white;
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        .yap-more-section h1 {
+            font-size: 2.8rem;
+            margin: auto auto 10px 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .yap-more-section p {
+            font-size: 1.1rem;
+            max-width: 400px;
+            margin: 10px auto 20px 80px;
+        }
+
+        .yap-more-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 200px;
+            height: 60px;
+            background-color: #c41926;
+            border: none;
+            margin: 20px auto auto 80px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .yap-more-button:hover {
+            background-color: #e94e1b;
+        }
+
+        @media (max-width: 1299px) {
+            .yap-more-section {
+                margin-bottom: 0px;
+            }
+
+            .site-footer {
+                margin-top: 0px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .yap-section h2 {
+                font-size: 1.6rem;
+                margin: 40px 0 20px 0;
+            }
+
+            .yap-section-afterline {
+                margin-bottom: 40px;
+            }
+
+            .yap-section p {
+                font-size: 1rem;
+            }
+
+            .yap-message {
+                height: auto; /* Reduce height on mobile if needed */
+                margin: 20px auto 40px auto;
+                padding: 0 40px;
+            }
+            
+            .yap-message h3 {
+                font-size: 1.2rem;
+                margin: 20px
+            }
+            .yap-message p {
+                font-size: 0.7rem;
+                margin: 20px;
+            }
+
+            .yap-more-section {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url('../assets/images/yap-lm-hero-hf.jpg') center/cover no-repeat;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .yap-more-section h1 {
+                font-size: 2rem;
+                margin: auto auto 40px auto;
+            }
+
+            .yap-more-section p {
+                display: none;
+            }
+
+            .yap-more-button {
+                margin: 0 auto auto auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <!-- New -->
+    <section class="yap-hero">
+        <h1>Young Athletes Program (YAP)</h1>
+    </section>
+
+    <section class="yap-desc-section">
+        <p>Special Olympics Young Athletes is an early childhood play program for children with and without intellectual disabilities, ages 2 to 7 years old. Young Athletes introduces basic sport skills, like running, kicking and throwing. Young Athletes offers families, teachers, caregivers and people from the community the chance to share the joy of sports with all children.</p>
+        <p>Young Athletes provides children of all abilities the same opportunities to advance in core developmental milestones. Children learn how to play with others and develop important skills for learning. Children also learn to share, take turns and follow directions. These skills help children in family, community and school activities.</p>
+        <p>Young Athletes is a fun way for children to stay active and establish healthy habits for the future. It is important to teach children healthy habits while they are young. This can set the stage for a life of physical activity, friendships and learning. Young Athletes is easy to do and fun for all. It can be done at home, in schools or in the community using the Young Athletes Activity Guide and basic equipment. Through Young Athletes, all children, their families and people in the community can be a part of an inclusive team.</p>
+        <p>Young Athletes welcomes children and their families into the Special Olympics Sarawak.</p>
+        <ul>
+            <li><strong>Motor Skills:</strong> Children with intellectual disabilities who took part in Young Athletes developed motor skills more than twice as fast as others who did not take part.</li>
+            <li><strong>Social, Emotional and Learning Skills:</strong> Parents and teachers of children who took part in the Young Athletes curriculum said the children learned skills that they will use in pre-primary school.</li>
+            <li><strong>Expectations:</strong> Family members say that Young Athletes raised their hopes for their child’s future.</li>
+            <li><strong>Sport Readiness:</strong> Young Athletes helps children get ready to take part in sports when they are older.</li>
+            <li><strong>Acceptance:</strong> Inclusive play helps children without a disability to better understand and accept others.</li>
+        </ul>
+        <p>For more information about Young Athletes, <a href="../src/yap-lm.html" style="color: #e63946; text-decoration: none;">visit our Young Athletes Program (YAP) Resources page.</a></p>
+        <p>Studies show that after two months of participation in Young Athletes, children with intellectual disabilities experienced a seven month gain in motor skills, representing an improvement at twice the rate of children with intellectual disabilities who have not participated in the program.</p>
+        <p>Children with intellectual disabilities participating in Young Athletes exhibited greater increases in communication, social, and daily living skills, compared to children with ID not participating in Young Athletes.</p>
+        <p>Children and families participating in a comprehensive Child and Family Health program, inclusive of Young Athletes, Family Health Forum, and Healthy Young Athletes Pediatric Screening, experienced improvements across the whole family, positively impacting child development and efficacy and empowerment for parents and caregivers.</p>
+    </section>
+
+    <div class="yap-section">
+        <div class="yap-message">
+            <h3>“When my baby was born and I learned he had an intellectual disability, I felt lost, unsure of what the future would hold. But at Young Athletes Program, I see him so full of joy — running, laughing, and connecting with others. It's such a beautiful sight to witness, and it fills me with hope, reminding me that one day, he might just be able to stand on his own, stronger than I could have ever imagined.”</h3>
+            <p>— SARAH, MOTHER OF A YOUNG ATHLETES IN KUCHING</p>
+        </div>
+    </div>
+
+    <section class="yap-more-section">
+        <h1>Resources for YAP</h1>
+        <p>We provides an introductory information of this program and resources to run Young Athletes Program in schools, communities and homes.</p>
+        <a href="../src/yap-lm.html" class="yap-more-button">LEARN MORE</a>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
+
+<!-- Placeholder image for yap-more-sections -->
+<!-- https://dotorg.brightspotcdn.com/dims4/default/54ded92/2147483647/strip/true/crop/2048x640+0+71/resize/1440x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F29%2Fc4%2F147fc3b0469d8d8322ffcf10ba28%2Fcambodia-crs9.jpg -->
+<!-- https://www.specialolympicsmalaysia.org/SOYA-2.jpg -->

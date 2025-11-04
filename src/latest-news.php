@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest News | Special Olympics Sarawak</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      .news-main {
+        height: 75vh;
+      }
+    </style>
 </head>
 <body>
-
     <!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
 
     <!-- Latest News Section -->
     <main class="news-main">
@@ -25,51 +33,17 @@
         <!-- News articles will be dynamically loaded here -->
         <p style="text-align: center; color: #64748b;">Loading latest news...</p>
       </div>
-<style>
-  /* Fixed header, footer, and social bar for consistent layout */
-  .top-nav, .bottom-nav, .site-footer, .socmed-bar {
-    position: fixed;
-  }
-  .top-nav { top: 0; left: 0; right: 0; z-index: 1000; }
-  .bottom-nav { bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 999; }
-  .site-footer { left: 0; right: 0; bottom: 0; z-index: 1001; }
-  .socmed-bar { top: 50%; right: 0; transform: translateY(-50%); z-index: 10; }
-  .news-main { margin-top: 110px; margin-bottom: 120px; }
-  html, body { height: auto !important; min-height: 100%; overflow-y: auto !important; overflow-x: hidden; }
-</style>
     </main>
 
-    <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
     <script src="../scripts/script.js"></script>
+    
     <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
-
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-
         // Function to load news articles from the database
         function loadLatestNews() {
             fetch('../admin/admin_news_handler.php?action=fetch') // Use the same handler to fetch news
@@ -80,13 +54,20 @@
 
                     if (news.length > 0) {
                         news.forEach(article => {
+                            // Format date to dd/mm/yyyy
+                            const dateObj = new Date(article.news_date);
+                            const day = String(dateObj.getDate()).padStart(2, '0');
+                            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+                            const year = dateObj.getFullYear();
+                            const formattedDate = `${day}/${month}/${year}`;
+                            
                             const newsCard = document.createElement('article');
                             newsCard.classList.add('news-card');
                             newsCard.innerHTML = `
                                 <div class="news-image" style="background:#eee url('${article.image_path}') center/cover no-repeat;"></div>
                                 <div class="news-content">
                                     <h2 class="news-headline">${article.headline}</h2>
-                                    <p class="news-date">${article.news_date}</p>
+                                    <p class="news-date">${formattedDate}</p>
                                     <p class="news-desc">${article.description}</p>
                                 </div>
                             `;

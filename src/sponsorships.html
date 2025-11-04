@@ -142,6 +142,101 @@
             grid-column: 1 / -1;
         }
 
+        /* NEW: Chapters Column */
+        .chapter-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Chapter grid - 5 rows */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        /* Chapter logo container */
+        .chapter-logo-container {
+            max-width: 224px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Chapter logo card */
+        .chapter-logo {
+            background: #fff;
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 214px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .chapter-logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .chapter-logo img {
+            max-width: 100%;
+            max-height: 214px;
+            object-fit: contain;
+        }
+
+        /* Sponsor item column card */
+        .sponsor-item-col {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-item-col:hover {
+            transform: translateY(-5px);
+        }
+
+        .sponsor-item-col img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .chapter-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .chapter-logo-container {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .chapter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .chapter-logo-container {
+                margin-bottom: 80px;
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero h1 {
@@ -156,6 +251,8 @@
                 width: 200px;
                 height: 120px;
             }
+
+            
         }
 
         @media (max-width: 480px) {
@@ -204,7 +301,7 @@
             <!-- This is where sponsorship logos will be added -->
             <!-- When you add logos, they will automatically appear here in the grid -->
 
-    <div class="sponsor-item">
+            <div class="sponsor-item">
                 <img src="../assets/images/yayasan_bintulu_port_logo.png" alt="ABC Corporation">
             </div>
             <div class="sponsor-item">
@@ -231,9 +328,99 @@
             <div class="sponsor-item">
                 <img src="../assets/images/lion_international_logo.png" alt="123 Enterprises">
             </div>
-
-
         </div>
+    </div>
+
+    <!-- Add this after your sponsors section -->
+
+    <!-- Chapters Section -->
+    <div class="chapter-container">
+        <h2 class="sponsors-title">Special Olympics Sarawak Chapters</h2>
+        <div class="chapter-grid">
+            <!-- Bintulu Chapter -->
+            <div class="chapter-logo-container">
+                <div class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png" alt="Bintulu Chapter">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/yayasan_bintulu_port_logo.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/pressmetal_logo.png" alt="Sponsor 2">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/remixtechnology_logo.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/harbourberhad_logo.png" alt="Sponsor 2">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/pertama_ferroalloys_logo.png" alt="Sponsor 1">
+                </div>
+            </div>
+
+            <!-- Kuching Chapter -->
+            <div class="chapter-logo-container">
+                <div class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png" alt="Kuching Chapter">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lorem-ipsum.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lorem-ipsum.png" alt="Sponsor 2">
+                </div>
+            </div>
+
+            <!-- Miri Chapter -->
+            <div class="chapter-logo-container">
+                <div class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png" alt="Miri Chapter">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/bhenmayer_logo.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/sunmow_logo.png" alt="Sponsor 2">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lorem-ipsum.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lorem-ipsum.png" alt="Sponsor 1">
+                </div>
+            </div>
+
+            <!-- Samarahan Chapter -->
+            <div class="chapter-logo-container">
+                <div class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png" alt="Samarahan Chapter">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/mtt_shipping_logo.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lion_international_logo.png" alt="Sponsor 2">
+                </div>
+            </div>
+
+            <!-- Sibu Chapter -->
+            <div class="chapter-logo-container">
+                <div class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png" alt="Sibu Chapter">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lorem-ipsum.png" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/sunmow_logo.png" alt="Sponsor 2">
+                </div>
+                <div class="sponsor-item-col">
+                    <img src="../assets/images/lorem-ipsum.png" alt="Sponsor 1">
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 24px;">*This area of content for SO Chapters are mockup only. Currently developing for the Admin Panel.</p>
     </div>
 
     <script>
@@ -278,4 +465,3 @@
     <script src="../scripts/script.js"></script>
 </body>
 </html>
-

@@ -1,3 +1,9 @@
+<!-- Things needed to be done
+    1. Mobile: City Legend icons placed below the day-number text, event title is hidden.
+    2. Redesign the Upcoming Events card to look more appealing and modern.
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,14 +76,17 @@
         }
 
         .nav-button {
+            width: 44px;
+            height: 44px;
             background-color: var(--special-red);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 10px 15px; /* Default: 10px 25px*/
+            border-radius: 50%; /* Default: 5px */
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 1.2rem; /* Delete this if remove icon and use text instead */
         }
 
         .nav-button:hover {
@@ -266,7 +275,7 @@
             padding: 30px;
             border-radius: 8px;
             max-width: 500px;
-            width: 90%;
+            width: 80%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             position: relative;
         }
@@ -399,17 +408,24 @@
             }
         }
 
+        @media (max-width: 579px) {
+            .event-legend-grid-mobile, .city-legend-grid-mobile {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+                column-gap: 25px !important;
+                row-gap: 15px !important;
+            }
+        }
+
         @media (max-width: 480px) {
             .calendar-grid {
                 grid-template-columns: repeat(7, 1fr); /* Still 7 columns, but narrower */
             }
 
             .month-nav {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 15px;
             }
             .nav-button {
-                width: 100%;
                 padding: 10px 0;
             }
             .month-title {
@@ -426,7 +442,7 @@
     <!-- Navigation Bar -->
     <script src="../scripts/components/header.js"></script>
 
-    <!-- Social Media Bar (Loaded via JS) -->
+    <!-- Social Media Bar -->
     <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Space for your existing header -->
@@ -436,9 +452,9 @@
         <h1 class="calendar-title">Special Olympics Events Calendar</h1>
         
         <div class="month-nav">
-            <button class="nav-button" id="prev-month">Previous</button>
+            <button class="nav-button" id="prev-month"><i class="fa-solid fa-angle-left"></i></button> <!-- Previous -->
             <h2 class="month-title" id="current-month">Month Year</h2>
-            <button class="nav-button" id="next-month">Next</button>
+            <button class="nav-button" id="next-month"><i class="fa-solid fa-angle-right"></i></button> <!-- Next -->
         </div>
         
         <div class="calendar-grid" id="calendar-grid">
@@ -456,7 +472,7 @@
 
         <div class="event-legend" style="margin: 30px auto; max-width: 800px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
             <h2 style="color: var(--special-red); text-align: center; margin-top: 0; margin-bottom: 20px; font-size: 1.8rem;">Event Type Legend</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center;">
+            <div class="event-legend-grid-mobile" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center;">
                 <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
                     <div style="width: 20px; height: 20px; background: var(--special-red); border-radius: 50%; margin-right: 12px;"></div>
                     <span style="font-weight: 600;">Special Event</span>
@@ -483,7 +499,7 @@
                 </div>
             </div>
             <h2 style="color: var(--special-red); text-align: center; margin-top: 20px; margin-bottom: 20px; font-size: 1.8rem;">City Legend</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center;">
+            <div class="city-legend-grid-mobile" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center;">
                 <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
                     <img src="../assets/icons/kuching-cat.png" alt="Kuching Cat Icon" class="city-icon">
                     <span style="font-weight: 600;">Kuching</span>
@@ -560,10 +576,10 @@
             const placeholderEvents = [
                 {
                     id: 'ph1',
-                    image: 'https://www.theborneopost.com/newsimages/2025/05/kch-030525-dd-fatimah-702x336.jpg',
+                    image_path: 'https://www.theborneopost.com/newsimages/2025/05/kch-030525-dd-fatimah-702x336.jpg',
                     title: 'Special Olympics Sibu Opening Ceremony',
                     description: 'Grand opening ceremony for the Special Olympics in Sibu, featuring athletes, officials, and local dignitaries.',
-                    event_date: '2025-10-11',
+                    event_date: '2025-10-31',
                     event_time: '09:00 AM',
                     location: 'Sibu Stadium',
                     type: 'ceremony',
@@ -571,7 +587,7 @@
                 },
                 {
                     id: 'ph2',
-                    image: 'https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/1116d1f4-7d86-4173-9c6e-d168403fbe05/Soccer.png',
+                    image_path: 'https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/1116d1f4-7d86-4173-9c6e-d168403fbe05/Soccer.png',
                     title: 'Football Training',
                     description: 'Regular football training session for athletes in Kuching.',
                     event_date: '2025-11-28',
@@ -745,21 +761,33 @@
                                         Location: ${event.location}
                                     </div>
                                 `;
-                        eventElement.addEventListener('click', () => openEventModal(event));
+                        // eventElement.addEventListener('click', () => openEventModal(event));
                         dayElement.appendChild(eventElement);
                     });
+
+                    // New: Add click handler to the whole calendar-day if there are events
+                    if (eventsOnThisDay.length > 0) {
+                        dayElement.style.cursor = 'pointer';
+                        dayElement.addEventListener('click', function (e) {
+                            // Prevent click if user is selecting text or clicking a tooltip
+                            if (e.target.closest('.event-tooltip')) return;
+                            // Open modal for the first event (or show a list if we want)
+                            openEventModal(eventsOnThisDay[0])
+                        });
+                    }
 
                     calendarGrid.appendChild(dayElement);
                 }
             }
 
             // When a user clicks on an event in the calendar, open the modal with details
+            // Replaced 'event' with 'bg-...'
             function openEventModal(event) {
                 document.getElementById('modal-title').textContent = event.title;
                 document.getElementById('modal-description').textContent = event.description;
                 const modalImage = document.getElementById('modal-image');
                 //              Custom image || Placeholder image if none provided
-                modalImage.src = event.image || "../assets/images/SOS_modalimage-default.png";
+                modalImage.src = event.image_path || "../assets/images/SOS_modalimage-default.png";
                 modalImage.alt = `${event.title}: ${event.description.substring(0, 100)}`;
                 document.getElementById('modal-date').textContent = 'Date: ' + event.date.toLocaleDateString('ms-MY', {
                     // weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
@@ -826,7 +854,7 @@
                         highlightedEventsContainer.appendChild(eventElement);
                     });
                 } else {
-                    highlightedEventsContainer.innerHTML = '<p style="text-align: center; color: #64748b;">No upcoming events.</p>';
+                    highlightedEventsContainer.innerHTML = '<p style="text-align: center; color: black;">No upcoming events.</p>';
                 }
             }
 

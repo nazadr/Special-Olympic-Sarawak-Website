@@ -39,10 +39,11 @@ document.writeln(`
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/visit_us_with_map.html">Visit Us</a></li>
                         <li><a href="#">Email Us</a></li>
+                        <li><a href="../admin/login_page_v1.php">Admin Page</a></li>
                     </ul>
                 </li>
                 <!-- Searchbar moved to the very top of the sidebar for mobile -->
-                <li class="search-item">
+                <!-- <li class="search-item">
                     <div class="search-container">
                         <form class="search-form">
                             <input type="text" placeholder="Search..." class="search-input">
@@ -51,11 +52,11 @@ document.writeln(`
                             </button>
                         </form>
                     </div>
-                </li>
+                </li> -->
                 <!-- Donation button moved to the very bottom of the sidebar for mobile -->
                 <li class="donation-item">
                     <div class="donation-button-container">
-                        <a href="../src/donation_pages_test1.html" class="donate-btn">Donate</a>
+                        <a href="../src/donation_page.html" class="donate-btn">Donate</a>
                     </div>
                 </li>
                 <!-- Bottom Navigation items integrated here for mobile -->
@@ -63,22 +64,27 @@ document.writeln(`
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/getting_started.html">Getting Started</a></li>
+                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
+                        <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mobile-only mobile-dropdown-parent">
+                    <a href="#">Sports <i class="fa-solid fa-angle-down"></i></a>
+                    <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/sport.html">Our Sports</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Affiliate <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/loaffiliate_v1.html">Sarawak Chapters</a></li>
+                        <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
                         <li><a href="../src/sponsorships.html">Sponsorships</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="#photos">Healthy Athletes Program (SOHAP)</a></li>
-                        <li><a href="#photos">Athletes Leadership Program (ALPs)</a></li>
-                        <li><a href="#photos">Young Athletes Program (YAP)</a></li>
                         <li><a href="../src/state-games.html">State Games</a></li>
                         <li><a href="../src/event_calendar.php">Event Calendar</a></li>
                     </ul>

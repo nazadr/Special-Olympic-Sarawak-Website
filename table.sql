@@ -26,5 +26,6 @@ CREATE TABLE `events` (
   `event_time` VARCHAR(50) NOT NULL,
   `type` VARCHAR(50) NOT NULL,
   `image_path` VARCHAR(255) DEFAULT NULL,
+  `city` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 );

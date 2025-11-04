@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure - Young Athletes | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Local style within this HTML */
+        .header-space {
+            height: 70px;
+            background: transparent;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ----- Hero ----- */
+        .yap-brochure-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/yap-hero.jpg') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .yap-brochure-hero h2 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ----- Reusable Sections ----- */
+        .yap-brochure-s1, .yap-brochure-s2, .yap-brochure-s3 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .yap-brochure-s1 .yap-brochure-container, .yap-brochure-s2 .yap-brochure-container, .yap-brochure-s3 .yap-brochure-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .yap-brochure-s1 h2, .yap-brochure-s3 h2 {
+            color: #e63946;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .yap-brochure-s1 p, .yap-brochure-s2 p, .yap-brochure-s3 p {
+            color: #333;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 80px;
+            line-height: 1.6;
+        }
+
+        .yap-brochure-s1 .yap-brochure-grid, .yap-brochure-s2 .yap-brochure-grid, .yap-brochure-s3 .yap-brochure-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 column on mobile (stacked) */
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .yap-brochure-s1 .yap-brochure-grid, .yap-brochure-s2 .yap-brochure-grid, .yap-brochure-s3 .yap-brochure-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .yap-brochure-s1 .yap-brochure-grid, .yap-brochure-s2 .yap-brochure-grid, .yap-brochure-s3 .yap-brochure-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .yap-brochure-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .yap-brochure-card .preview-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .yap-brochure-card .preview-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .yap-brochure-card .yap-brochure-desc {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .yap-brochure-desc h3 {
+            color: #e63946;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .yap-brochure-desc p {
+            color: #333;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        /* ----- Section 1 ----- */
+        
+        /* ----- Section 2 ----- */
+        .yap-brochure-s2 h2 {
+            color: #e63946;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .yap-section {
+            max-width: 1200px;
+            margin: 0 auto 0 auto;
+            padding: 0 20px 0 20px;
+        }
+
+        .yap-message {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 300px;
+            background-color: #c4161c;
+            margin: 0 auto 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+        }
+
+        .yap-message-contents{
+            padding: 0 40px;
+        }
+
+        .yap-message h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin: 40px;
+            font-weight: normal;
+            max-width: 100%;
+            width: 100%;
+        }
+        .yap-message p {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        /* ----- Section 3 ----- */
+        .yap-brochure-container ul {
+            max-width: 1160px;
+            margin: 0 auto 80px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .yap-brochure-container li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .yap-brochure-grid-sr {
+            display: grid;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .yap-brochure-our-mission {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            width: auto;
+            min-height: clamp(300px, 30vh, 400px);
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .yap-brochure-our-mission .preview-image {
+            flex-shrink: 0;
+            aspect-ratio: 4 / 3;
+            position: relative;
+            overflow: hidden;
+            min-width: 250px;
+            max-width: 400px;
+            width: 50%;
+        }
+
+        .yap-brochure-our-mission .preview-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .yap-brochure-our-mission .yap-bom-desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1 1 auto;
+            padding: 1.5rem;
+            gap: 20px;
+            max-width: 50%;
+        }
+
+        .yap-brochure-our-mission h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e63946;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .yap-brochure-our-mission p {
+            font-size: 1rem;
+            text-align: left;
+            color: #333;
+            margin: 0;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .yap-brochure-hero {
+                height: 40vh;
+            }
+            .yap-brochure-hero h2 {
+                font-size: 1.6rem;
+                padding: 0 16px 0 16px;
+            }
+            .yap-brochure-s1 {
+                padding-bottom: 0;
+            }
+            .yap-brochure-s1 p, .yap-brochure-s2 p, .yap-brochure-s3 p {
+                font-size: 1rem;
+            }
+            .yap-message {
+                height: auto; /* Reduce height on mobile if needed */
+                margin: 20px auto 40px auto;
+                padding: 0 40px;
+            }
+            .yap-message h3 {
+                font-size: 1.2rem;
+                margin: 20px
+            }
+            .yap-message p {
+                font-size: 0.7rem;
+                margin: 20px;
+            }
+            .yap-brochure-s3 {
+                padding-top: 1rem;
+            }
+            .yap-brochure-our-mission {
+                flex-direction: column;
+                gap: 1rem;
+                min-height: clamp(350px, 50vh, 450px);
+                width: 100%;
+            }
+            .yap-brochure-our-mission .preview-image {
+                width: 100%;
+                max-width: none;
+                aspect-ratio: 4 / 3;
+                flex: none;
+            }
+            .yap-brochure-our-mission .yap-bom-desc {
+                max-width: none;
+                gap: 1rem;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #f9f9f9;">
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <div class="yap-brochure-hero">
+        <h2>Young Athletes Program (YAP) Brochure</h2>
+    </div>
+
+    <section class="yap-brochure-s1">
+        <div class="yap-brochure-container">
+            <h2>Special Olympics Sarawak Young Athletes Program</h2>
+            <div class="so-afterline-60w-mb40"></div>
+            <p>Young Athletes Program (YAP) is a sport and play program for children with and without intellectual disabilities (ID), ages 2 to 7 years old. YAP introduces basic sport skills, like running, kicking and throwing. This program also offers families, teachers, caregivers and people from the community the chance to share the joy of sports with all children. Children of all abilities take part, and they all benefit.</p>
+            <div class="yap-brochure-grid">
+                <!-- 1. Children learn how to play with others and develop important skills for learning. -->
+                <div class="card yap-brochure-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-brochure-1.jpg">
+                    </div>
+                    <div class="yap-brochure-desc">
+                        <h3>Children learn how to play with others and develop important skills for learning.</h3>
+                        <p>Children also learn to share, take turns and follow directions. These skills help children in family, community and school activities.</p>
+                    </div>
+                </div>
+                <!-- 2. Young Athletes is a fun way for children to get fit. -->
+                <div class="card yap-brochure-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-brochure-2.jpg">
+                    </div>
+                    <div class="yap-brochure-desc">
+                        <h3>Young Athletes is a fun way for children to get fit.</h3>
+                        <p>It is important to teach children healthy habits while they are young. This can set the stage for a life of physical activity, friendships and learning.</p>
+                    </div>
+                </div>
+                <!-- 3. Young Athletes is easy to do and fun for all. -->
+                <div class="card yap-brochure-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-brochure-3.jpg">
+                    </div>
+                    <div class="yap-brochure-desc">
+                        <h3>Young Athletes is easy to do and fun for all.</h3>
+                        <p>It can be done at home, in schools or in the community using the Young Athletes Activity Guide and basic equipment.</p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 80px; margin-bottom: 0;">Through Young Athletes Program (YAP), all children, their families and people in the community can be part of an inclusive team.</p>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="yap-brochure-s2">
+        <div class="yap-brochure-container">
+            <h2>Young Athletes Program welcomes children and their families into the world Special Olympics</h2>
+            <p>Activities are designed to support children of all ability levels and can be run inclusive of children with and without intellectual disabilities. Young Athletes Program (YAP) is run one of three different settings — schools, communities and homes.</p>
+            <div class="yap-brochure-grid">
+                <!-- 1. YAP in School -->
+                <div class="card yap-brochure-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-brochure-4.jpg">
+                    </div>
+                    <div class="yap-brochure-desc">
+                        <h3>YAP in School</h3>
+                        <p>Teachers and therapists can use YAP in the classroom to support children in developing important motor, communication and learning skills.</p>
+                    </div>
+                </div>
+                <!-- 2. YAP in the Community-->
+                <div class="card yap-brochure-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-brochure-desc">
+                        <h3>YAP in the Community</h3>
+                        <p>YAP provides an opportunity for children with and without intellectual disabilities to come together with a coach for organized play. In community programs, family members can share in the fun with their child.</p>
+                    </div>
+                </div>
+                <!-- 3. YAP at Home-->
+                <div class="card yap-brochure-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-brochure-desc">
+                        <h3>YAP at Home</h3>
+                        <p>Parents, grandparents, siblings and friends play together at home with children using YAP for activities and ideas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="yap-section">
+        <div class="yap-message">
+            <h3>“When my baby was born and I learned he had an intellectual disability, I felt lost, unsure of what the future would hold. But at Young Athletes Program, I see him so full of joy — running, laughing, and connecting with others. It's such a beautiful sight to witness, and it fills me with hope, reminding me that one day, he might just be able to stand on his own, stronger than I could have ever imagined.”</h3>
+            <p>— SARAH, MOTHER OF A YOUNG ATHLETES IN KUCHING</p>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <section class="yap-brochure-s3">
+        <div class="yap-brochure-container">
+            <h2 style="margin-bottom: 80px;">Everyone benefits from Young Athletes Program</h2>
+            <div class="so-afterline-60w-bm40"></div>
+            <ul>
+                <li><strong>Motor Skills:</strong> Children with intellectual disabilities (ID) who took part in an eight-week Young Athletes curriculum saw seven month’s development in motor skills. This is compared to a three month gain in motor skills for children who did not participate.</li>
+                <li><strong>Social, Emotional and Learning Skills:</strong> Parents and teachers of children who took part in the Young Athletes curriculum said the children learned skills that they will use in pre-primary school. The children were more enthusiastic, confident and played better with others.</li>
+                <li><strong>Expectations:</strong> Family members say that Young Athletes raised their hopes for their child’s future.</li>
+                <li><strong>Sport Readiness:</strong> Young Athletes helps all children to develop important movement and sport skills. These skills get them ready to take part in sports and recreational activities when they are older.</li>
+                <li><strong>Acceptance:</strong> Inclusive play has a benefit for children without ID as well. It helps them to better understand and accept others.</li>
+            </ul>
+            <div class="yap-brochure-grid-sr">
+                <div class="card yap-brochure-our-mission">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-bom-desc">
+                        <h3>Our Mission</h3>
+                        <p>Special Olympics Sarawak provides year-round sports training and athletic competition in a variety of Olympic-type sports for children and adults with intellectual disabilities, giving them continuing opportunities to develop physical fitness, demonstrate courage, experience joy and participate in a sharing of gifts, skills and friendship with their families, other Special Olympics athletes and the community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

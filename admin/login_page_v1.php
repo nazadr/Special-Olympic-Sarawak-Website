@@ -1,8 +1,10 @@
+<!-- Open via localhost -->
+
 <?php
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $conn = new mysqli("localhost", "root", "", "special_olympics_data");
+    $conn = new mysqli("localhost", "root", "", "so_sarawak_db");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -18,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($row = $res->fetch_assoc()) {
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $row['fullname'];
-            header("Location: dashboard.php");
+            header("Location: admin_panel_soswk.php");
             exit();
         } else {
             $error = "Invalid password.";
@@ -38,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Olympics Sarawak - Login</title>
+    <!-- White color logo of SO represents an admin -->
+    <link rel="shortcut icon" href="../assets/images/master-logo-front-white.png">
     <style>
         * {
             margin: 0;
@@ -227,7 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="login-container">
         <div class="logo">
             <img src="../assets/images/master_logo_front.png" alt="Special Olympics Sarawak logo" />
-            <h2>Welcome Back</h2>
+            <h2>Special Olympics Sarawak Admin Panel</h2>
             <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
             <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success') echo "<p style='color:green;'>Signup successful! Please log in.</p>"; ?>
         </div>
@@ -244,9 +248,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <a href="#">Forgot Password?</a>
             </div>
             <button type="submit">Login</button>
-            <div class="signup-link">
-                Not a member? <a href="../admin/signup_page_v1.php">Sign up now</a>
-            </div>
         </form>
     </div>
 
@@ -283,7 +284,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Form validation
             const form = document.querySelector('form');
             form.addEventListener('submit', function(e) {
-                e.preventDefault();
                 const inputs = document.querySelectorAll('.input-group input');
                 let isValid = true;
                 
@@ -296,11 +296,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                 });
                 
-                if (isValid) {
-                    // Login logic would go here
-                    alert('Login successful!');
-                    form.reset();
+                if (!isValid) {
+                    // Only prevent submission if invalid
+                    e.preventDefault();
                 }
+
+                // If valid, let the form submit to PHP
             });
         });
 </script>

@@ -114,25 +114,6 @@ input.addEventListener('keydown', function (e) {
   }
 });
 
-// fade-in and fade-out transitions for page navigation experimental
-window.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('fade-in');
-  const links = document.querySelectorAll('a');
-  links.forEach(link => {
-    if (link.hostname === location.hostname && !link.href.includes('#')) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        document.body.classList.remove('fade-in');
-        document.body.classList.add('fade-out');
-        setTimeout(() => {
-          window.location.href = href;
-        }, 500);
-      });
-    }
-  });
-});
-
 // Footer Dropdown for Mobile Navigation (optional, not implemented yet)
 const footerNavigation = document.querySelector(".footer-navigation"); // actionBtn
 const navGroup = document.querySelector(".nav-group"); // dropdown

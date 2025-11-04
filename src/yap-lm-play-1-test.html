@@ -1,0 +1,247 @@
+<!-- Optional: Allow users to choose preferred video quality -->
+
+<!-- (Recommended) -->
+<!-- Visual Studio Code: Right-click and click on Open with Live Server to apply Plyr and Hls instead of default web player -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimental Video Quality Control Playback</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- For video player styling only -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+
+    <style>
+        /* Plyr custom style */
+        :root {
+            --plyr-color-main: #e53935;
+        }
+        .plyr--video {
+            width: 100%;
+        }
+        [id$="-speed"] {
+            min-width: 140px;
+        }
+        @media (max-width: 768px) {
+            .plyr--video .plyr__controls {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .plyr__menu__container {
+                max-height: 140px;
+            }
+            [id$="-quality"], [id$="-speed"], [id$="-captions"] {
+                max-height: 140px;
+                overflow-y: auto;
+                font-size: 0.85rem;
+                min-width: 156px;
+                max-width: 95vw;
+            }
+        }
+
+        /* Local HTML Styles */
+        .body {
+            background-color: white;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+        .yap-lm-play {
+            width: 100%;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .yap-lm-video {
+            width: 100%;
+            max-width: 1065px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+        }
+        .yap-lm-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .yap-lm-videsc {
+            width: 1200px;
+            margin: 40px auto 80px auto;
+        }
+        .yap-lm-videsc h1 {
+            color: #c4161c;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            padding: 0 12px;
+        }
+        .yap-lm-videsc h2 {
+            color: #333;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 16px;
+            padding: 0 12px;
+        }
+        .yap-lm-videsc p {
+            color: #333;
+            font-size: 1.1rem;
+            padding: 0 12px;
+        }
+        @media (max-width: 768px) {
+            .yap-lm-play {
+                max-width: 100vw;
+                padding: 0;
+            }
+            .yap-lm-video {
+                aspect-ratio: 16 / 9;
+                width: 100vw;
+                min-width: 0;
+            }
+            .yap-lm-videsc {
+                width: 100%;
+                margin: 24px auto 40px auto;
+            }
+            .yap-lm-videsc h1 {
+                font-size: 0.9rem;
+            }
+            .yap-lm-videsc h2 {
+                font-size: 1.8rem;
+            }
+            .yap-lm-videsc p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <div class="yap-lm-play">
+        <div class="yap-lm-video">
+            <video id="player" controls preload="metadata">
+                <source src="../assets/videos/Plyr/yap-lm-video-sample/main.m3u8" type="application/x-mpegURL">
+                <source src="../assets/videos/yap-lm-video-sample-hd.mp4">
+                <!-- Example source: ../assets/videos/Plyr/yap-lm-video-sample/subtitles-en.vtt -->
+                <track kind="captions" label="English" srclang="en" src="../assets/videos/Plyr/yap-lm-video-sample/yap-lm-video-sample-en.vtt" default>
+                <track kind="captions" label="Malay" srclang="my" src="../assets/videos/Plyr/yap-lm-video-sample/yap-lm-video-sample-my.vtt">
+            </video>
+        </div>
+    </div>
+    <div class="yap-lm-videsc">
+        <h1>SPECIAL OLYMPICS SARAWAK VIDEO GALLERY - YOUNG ATHLETES PROGRAM (YAP)</h1>
+        <h2>Let's Play Together with Young Athletes</h2>
+        <p>Promotional video introducing Young Athletes Program (YAP)</p>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/hls.js@1"></script>
+    <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var video = document.getElementById('player');
+            var hslSource = null;
+            var sources = video.querySelectorAll('source'), i;
+            for (i = 0; i < sources.length; ++i) {
+                if(sources[i].src.indexOf('.m3u8') > -1){
+                    hslSource = sources[i].src;
+                }
+            }
+
+            var defaultOptions = {
+                controls: [
+                    'play-large', // The large play button in the center
+                    // 'restart', // Restart playback
+                    // 'rewind', // Rewind by the seek time (default 10 seconds)
+                    'play', // Play/pause playback
+                    // 'fast-forward', // Fast forward by the seek time (default 10 seconds)
+                    'progress', // The progress bar and scrubber for playback and buffering
+                    'current-time', // The current time of playback
+                    'duration', // The full duration of the media
+                    'mute', // Toggle mute
+                    'volume', // Volume control
+                    'captions', // Toggle captions
+                    'settings', // Settings menu
+                    'pip', // Picture-in-picture (currently Safari only)
+                    'airplay', // Airplay (currently Safari only)
+                    // 'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+                    'fullscreen', // Toggle fullscreen
+                ],
+                speed: {
+                    selected: 1,
+                    options: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
+                }
+            };
+            var qualityLabels = {};
+            var qualityBadges = {};
+
+            if (hslSource !== null && Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(hslSource);
+                hls.attachMedia(video);
+                window.hls = hls;
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    var availableQualities = hls.levels.map(function(l) { return l.height; }).filter(function(v, i, a) { return a.indexOf(v) === i; }).sort(function(a, b) { return b - a; });
+                    defaultOptions.quality = {
+                        default: availableQualities[0],
+                        options: availableQualities,
+                        forced: true,
+                        onChange: function(newQuality) {
+                            hls.levels.forEach(function(level, levelIndex) {
+                                if (level.height === newQuality) {
+                                    hls.currentLevel = levelIndex;
+                                }
+                            });
+                        },
+                        labels: qualityLabels,   // Custom quality names
+                        badges: qualityBadges    // Custom badges (if supported)
+                    };
+                    new Plyr(video, defaultOptions);
+                });
+            } else {
+                // Fallback for browsers with native HLS support
+                new Plyr(video, defaultOptions);
+            }
+
+            // Optional: Rename Plyr badges after menu is rendered (not officially supported)
+            setTimeout(function() {
+                document.querySelectorAll('.plyr__menu__container [data-plyr="quality"]').forEach(function(btn) {
+                    var value = btn.getAttribute('value');
+                    var badge = btn.querySelector('.plyr__badge');
+                    if (!badge) return;
+                    if (value === '1080') badge.textContent = 'Full HD';
+                    else if (value === '720') badge.textContent = 'HD';
+                    else if (value === '480') badge.textContent = 'SD';
+                    else badge.textContent = '';
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

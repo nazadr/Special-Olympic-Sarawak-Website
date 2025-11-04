@@ -3,284 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Special Olympics</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Donate | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <!-- Local HTML style -->
     <style>
-        /* Space for existing header */
+        /* Space for existing header/footer */
         .header-space {
-            height: 80px;
+            height: 70px;
         }
         
-        /* Space for existing footer */
-        .footer-space {
-            height: 60px;
-        }
-        
+        /* Main Styles */
         body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
             line-height: 1.6;
             overflow-y: auto;
-        }
-        
-        .donation-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .donation-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            margin: 30px 0;
-        }
-        
-        .donation-header {
-            background: #E51937; /* Special Olympics red */
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .donation-header h1 {
-            margin: 0;
-            font-weight: 700;
-            font-size: 28px;
-        }
-        
-        .donation-header p {
-            margin: 10px 0 0;
-            opacity: 0.9;
-        }
-        
-        .donation-body {
-            padding: 30px;
-        }
-        
-        .donation-amounts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-        
-        .amount-option {
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 15px 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            background: white;
-        }
-        
-        .amount-option:hover {
-            border-color: #E51937;
-        }
-        
-        .amount-option.selected {
-            border-color: #E51937;
-            background: #fce8eb;
-        }
-        
-        .custom-amount {
-            margin-top: 20px;
-        }
-        
-        .custom-amount input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-        
-        .custom-amount input:focus {
-            outline: none;
-            border-color: #E51937;
-        }
-        
-        .donation-details {
-            margin-top: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 15px;
-        }
-        
-        .donate-button {
-            background: #E51937;
-            color: white;
-            border: none;
-            padding: 16px 30px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .donate-button:hover {
-            background: #c2162f;
-        }
-        
-        .impact-statement {
-            background: #f8f8f8;
-            border-left: 4px solid #E51937;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 0 6px 6px 0;
-        }
-        
-        .impact-statement h3 {
-            margin-top: 0;
-            color: #E51937;
-        }
-        
-        @media (max-width: 600px) {
-            .donation-amounts {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .donation-header h1 {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar (Loaded via JS) -->
-    <div id="top-nav-container"></div>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
 
     <!-- Social Media Bar (Loaded via JS) -->
-    <div id="socmed-bar-container"></div>
+    <script src="../scripts/components/socmed-bar.js"></script>
 
     <!-- Chatbot (Loaded via JS) -->
-    <div id="chatbot-container"></div>
-
-
-
+    <!-- <div id="chatbot-container"></div> -->
+    
+    <!-- Header Space -->
     <div class="header-space"></div>
     
-    <div class="donation-container">
-        <div class="donation-card">
-            <div class="donation-header">
-                <h1>Support Special Olympics</h1>
-                <p>Your donation helps athletes with intellectual disabilities achieve their dreams</p>
+    <section class="donate-page">
+        <div class="donate-container">
+            <h1>Empower Athletes with Intellectual Disabilities</h1>
+            <p>Your donation to Special Olympics helps provide year-round sports training and athletic competition in a variety of Olympic-type sports for children and adults with intellectual disabilities.</p>
+        </div>
+    </section>
+    
+    <div class="donate-container">
+        <h2>Donate via QR Code</h2>
+        <!-- Both QR codes is just a sample, not an actual SO Sarawak QR -->
+        <div class="donation-options">
+            <div class="donation-card-qr">
+                <img src="../assets/images/donate-qr-1.png" alt="SO Sarawak DuitNow QR">
+            </div>
+            <div class="donation-card-qr">
+                <img src="../assets/images/donate-qr-2.png" alt="SO Sarawak Touch 'n Go QR">
+            </div>
+        </div>
+        <h2>Donate via FPX</h2>
+        <div class="donation-options">
+            <div class="donation-card">
+                <h3>Champion</h3>
+                <div class="donate-amount">RM 100.00</div>
+                <div class="donate-impact">Provides sports equipment for one athlete for a season</div>
+                <a href="#" class="donate-btn-page">Donate RM 100.00</a>
             </div>
             
-            <div class="donation-body">
-                <div class="impact-statement">
-                    <h3>Your Impact</h3>
-                    <p>Every $50 provides an athlete with training and competition opportunities for one month. Together, we can create inclusive communities through the power of sport.</p>
-                </div>
-                
-                <h2>Select Donation Amount</h2>
-                <div class="donation-amounts">
-                    <div class="amount-option">RM.25</div>
-                    <div class="amount-option selected">RM.50</div>
-                    <div class="amount-option">RM.100</div>
-                    <div class="amount-option">RM.250</div>
-                    <div class="amount-option">RM.500</div>
-                </div>
-                
-                <div class="custom-amount">
-                    <input type="text" placeholder="Or enter custom amount">
-                </div>
-                
-                <div class="donation-details">
-                    <h2>Donation Information</h2>
-                    
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" placeholder="Assicoc Prof. Dr. TS. Mohd. Amirul Fahmi Bin Abdullah Assicoc Prof. Dr. Ts Mohd. Razlan Amaruddin">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="you@example.com">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="payment">Payment Method</label>
-                        <select id="payment">
-                            <option>Credit Card</option>
-                            <option>Debit Card</option>
-                            <option>PayPal</option>
-                        </select>
-                    </div>
-                    
-                    <button class="donate-button">Donate Now</button>
-                </div>
+            <div class="donation-card">
+                <h3>Advocate</h3>
+                <div class="donate-amount">RM 500.00</div>
+                <div class="donate-impact">Covers the cost of training for two athletes</div>
+                <a href="#" class="donate-btn-page">Donate RM 500.00</a>
             </div>
+            
+            <div class="donation-card">
+                <h3>Leader</h3>
+                <div class="donate-amount">RM 1,000.00</div>
+                <div class="donate-impact">Sponsors an athlete for an entire year</div>
+                <a href="#" class="donate-btn-page">Donate RM 1,000.00</a>
+            </div>
+            
+            <div class="donation-card">
+                <h3>Visionary</h3>
+                <div class="donate-amount">RM 5,000.00</div>
+                <div class="donate-impact">Supports an entire team's participation in local competitions</div>
+                <a href="#" class="donate-btn-page">Donate RM 5,000.00</a>
+            </div>
+        </div>
+        
+        <div id="donate" class="custom-donation">
+            <h2>Make a Custom Donation</h2>
+            <form class="donation-form">        
+                <div class="donate-custom-amount">
+                    <span>RM</span>
+                    <input type="number" placeholder="Other amount" min="1">
+                </div>
+                <button type="submit" class="donate-btn-page-2">Pay via FPX</button>
+            </form>
         </div>
     </div>
     
-    <div class="footer-space"></div>
+    <section class="donate-impact-section">
+        <h2>Your Impact</h2>
+        <div class="donate-impact-grid">
+            <div class="donate-impact-item">
+                <h3>5.7M+</h3>
+                <p>Athletes empowered worldwide through Special Olympics programs</p>
+            </div>
+            <div class="donate-impact-item">
+                <h3>100+</h3>
+                <p>Countries with active Special Olympics programs</p>
+            </div>
+            <div class="donate-impact-item">
+                <h3>30+</h3>
+                <p>Olympic-type sports offered to athletes</p>
+            </div>
+            <div class="donate-impact-item">
+                <h3>1M+</h3>
+                <p>Coaches and volunteers trained annually</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="donate-testimonials">
+        <h2>Why Donors Support Special Olympics</h2>
+        <div class="donate-testimonial-grid">
+            <div class="donate-testimonial-card">
+                <p>"Seeing the joy and confidence these athletes gain through sports is priceless. My donation is an investment in human potential."</p>
+                <div class="author">- Michael T., Monthly Donor</div>
+            </div>
+            <div class="donate-testimonial-card">
+                <p>"Our company proudly supports Special Olympics because we believe in inclusion and the transformative power of sports."</p>
+                <div class="author">- Sarah K., Corporate Partner</div>
+            </div>
+            <div class="donate-testimonial-card">
+                <p>"As a parent of an athlete, I've witnessed firsthand how Special Olympics changes lives. I give so others can experience this too."</p>
+                <div class="author">- David R., Legacy Donor</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
 
- <!-- Section Divider -->
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <!-- Section Divider -->
     <div class="section-divider"></div>
-     <!-- Bottom Nav (Loaded via JS) -->
-    <div id="bottom-nav-container"></div>
-    <!-- Site Footer (Loaded via JS) -->
-    <div id="site-footer-container"></div>
     <script src="../scripts/script.js"></script>
-    <script>
-      // Function to load HTML into a container
-      function loadHTML(containerId, filePath) {
-        fetch(filePath)
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById(containerId).innerHTML = data;
-          });
-      }
-      // Load shared components
-      loadHTML('top-nav-container', '../src/components/top-nav.html');
-      loadHTML('socmed-bar-container', '../src/components/socmed-bar.html');
-      loadHTML('bottom-nav-container', '../src/components/bottom-nav.html');
-      loadHTML('site-footer-container', '../src/components/site-footer.html');
-      loadHTML('chatbot-container', '../src/components/chatbot.html');
-
-      // Re-attach dropup menu listeners after bottom nav loads
-      fetch('../src/components/bottom-nav.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('bottom-nav-container').innerHTML = data;
-          if (typeof attachDropupMenuListeners === 'function') {
-            attachDropupMenuListeners();
-          }
-        });
-    </script>
-
-
 </body>
 </html>

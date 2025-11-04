@@ -1,0 +1,590 @@
+<!-- Created on 3 Oct 2025 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Leadership Program (ALP) | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .header-space {
+            height: 70px;
+            background: transparent;
+        }
+
+        .body {
+            background-color: #f9f9f9;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .alp-afterline {
+            width: 60px;
+            height: 3px;
+            background-color: #e30613;
+            margin: 0 auto 80px auto;
+            display: block;
+        }
+
+        .alp-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dotorg.brightspotcdn.com/dims4/default/286fec3/2147483647/strip/true/crop/800x450+0+0/resize/800x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F2e%2Ff9%2Ffc810d11426b84bfac12fb8b674b%2F800x600-leading-photo-dustin-plunkett.jpg') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .alp-hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .alp-desc-section {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: left;
+        }
+
+        .alp-desc-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .alp-desc-section ul {
+            max-width: 1160px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .alp-desc-section li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        /* Three Guiding Principle */
+        .alp-gp-section {
+            background-color: #f1f1f1;
+            padding: 60px 20px;
+            text-align: left;
+        }
+
+        .alp-gp-section h2 {
+            color: #e63946;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .alp-gp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .alp-border-bottom {
+            border-bottom: 5px solid #e63946;
+        }
+
+        .alp-gp-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .alp-gp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(230, 57, 70, 0.2);
+        }
+
+        .alp-gp-content {
+            padding: 20px 28px;
+            text-align: left;
+        }
+
+        .alp-gp-content h3 {
+            color: black;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .alp-gp-content p {
+            color: black;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .alp-gp-content a {
+            text-decoration: none;
+            color: #e63946;
+            font-size: 1rem;
+        }
+
+        /* Downloadable PDF Resource */
+        .alp-res-bord-btm1 {
+            border-bottom: 5px solid #2379b4;
+        }
+
+        .alp-res-bord-btm2 {
+            border-bottom: 5px solid #10b981;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #c41926;
+            transition: all 0.3s ease;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #e94e1b;
+        }
+
+        /* ALP Resources Section */
+        .alp-resources-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alp-resources-section .container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alp-resources-section h2 {
+            color: #e63946;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .alp-resources-section .grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 column on mobile (stacked) */
+            gap: 2rem; /* Consistent spacing between cards */
+        }
+
+        @media (min-width: 768px) {
+            .alp-resources-section .grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens and up */
+            }
+        }
+
+        .alp-resources-card .resources-card-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+        }
+        .alp-resources-card .resources-card-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crops image to fill 4:3 without stretching/distortion */
+            display: block;
+        }
+
+        .alp-resources-card .p-6 {
+            padding: 1.5rem;
+        }
+
+        .alp-resources-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .alp-resources-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Listen from our Athlete Leaders */
+        .alp-comments-section {
+            background-color: #f1f1f1;
+            padding: 60px 20px 80px 20px;
+            text-align: center;
+        }
+        
+        .alp-comments-section h2 {
+            color: #e63946;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .alp-comments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .alp-comments-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .alp-comments-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(230, 57, 70, 0.2);
+        }
+
+        .alp-comments-content {
+            padding: 20px 28px;
+        }
+
+        .alp-comments-content-top {
+            display: flex;
+            height: 200px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .alp-comments-content-top p {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .alp-comments-divider {
+            background-color: #333;
+            opacity: 20%;
+            height: 2px;
+        }
+
+        .alp-comments-content-bottom {
+            display: flex;
+            align-items: center;
+            min-height: 64px;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .alp-comments-content-bottom img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .alp-comments-content-bottom a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        /* Meet our Athlete Leaders */
+        .alp-meet-section {
+            display: flex;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0) 60%), url('../assets/images/pexels-franco-monsalvo-252430633-32101179.jpg') center/cover no-repeat;
+            height: 50vh;
+            max-height: 100%;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            color: white;
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        .alp-meet-section h1 {
+            font-size: 2.8rem;
+            margin: auto auto 10px 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .alp-meet-section p {
+            font-size: 1.1rem;
+            max-width: 400px;
+            margin: 10px auto 20px 80px;
+        }
+
+        .alp-meet-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 200px;
+            height: 60px;
+            background-color: #c41926;
+            border: none;
+            margin: 20px auto auto 80px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .alp-meet-button:hover {
+            background-color: #e94e1b;
+        }
+
+        @media (max-width: 1299px) {
+            .alp-meet-section {
+                margin-bottom: 0px;
+            }
+
+            .site-footer {
+                margin-top: 0px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .alp-hero {
+                height: 40vh;
+            }
+            
+            .alp-hero h1 {
+                font-size: 1.6rem;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            
+            .alp-desc-section p, .alp-desc-section ul {
+                font-size: 1rem;
+            }
+
+            .alp-desc-section li {
+                margin-bottom: 16px;
+            }
+            
+            .alp-meet-section {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url('../assets/images/pexels-franco-monsalvo-252430633-32101179.jpg') center/cover no-repeat;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .alp-meet-section h1 {
+                font-size: 2rem;
+                margin: auto auto 40px auto;
+            }
+
+            .alp-meet-section p {
+                display: none;
+            }
+
+            .alp-meet-button {
+                margin: 0 auto auto auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <section class="alp-hero">
+        <h1>Athlete Leadership Program (ALP)</h1>
+    </section>
+
+    <section class="alp-desc-section">
+        <p>The Athlete Leadership Program (ALP) at Special Olympics Sarawak is designed to empower athletes to become leaders both on and off the field. This program aims to cultivate leadership skills, foster self-confidence, and create opportunities for athletes to take on roles of responsibility within the organization. Through a combination of training, mentorship, and hands-on experience, athletes are given the tools to advocate for themselves and their peers, contribute to the growth of the Special Olympics movement, and become influential role models in their communities. The key features of this program are:</p>
+        <ul>
+            <li><strong>Leadership Development:</strong> Athletes will learn core leadership skills, including effective communication, team-building, public speaking, and decision-making.</li>
+            <li><strong>Empowerment Through Roles:</strong> The program offers various leadership roles within the Special Olympics Sarawak community, allowing athletes to represent their peers, organize events, and advocate for inclusion.</li>
+            <li><strong>Mentorship Opportunities:</strong> Athletes are paired with experienced leaders and mentors who provide guidance, support, and advice throughout their leadership journey.</li>
+            <li><strong>Advocacy and Awareness:</strong> Participants have the chance to speak out on issues that matter to them, raising awareness and promoting inclusion for people with intellectual disabilities.</li>
+            <li><strong>Community Engagement:</strong> The program encourages athletes to engage with local communities, spreading the message of empowerment, acceptance, and unity in both sporting and non-sporting environments.</li>
+            <li><strong>Training and Workshops:</strong> A series of workshops and training sessions are offered to equip athletes with the skills they need to succeed in leadership positions, including conflict resolution, organizational skills, and goal setting.</li>
+            <li><strong>Personal Growth:</strong> The Athlete Leadership Program fosters personal development by helping athletes build confidence, resilience, and self-awareness.</li>
+        </ul>
+        <p>The program is open to all athletes involved in Special Olympics Sarawak, with different levels of participation based on experience and interests. Whether athletes want to take on a leadership role within their sport or in the broader community, the program offers structured opportunities to develop and practice these skills.</p>
+        <p>Through active participation in the Athlete Leadership Program, athletes not only enhance their personal development but also contribute to creating a more inclusive, diverse, and empowered community.</p>
+    </section>
+
+    <section class="alp-gp-section">
+        <h2>Three Guiding Principles</h2>
+        <div class="alp-afterline"></div>
+        <div class="alp-gp-grid">
+            <div class="alp-gp-card alp-border-bottom">
+                <div class="alp-gp-content">
+                    <h3>Principle 1</h3>
+                    <p>The first principle is Education and Awareness Building utilizing the Unified Leadership approach to developing leaders. Building from sport, Unified Leadership teaches leaders (both those with AND without ID) that we all have a responsibility to develop diverse leaders.</p>
+                    <a href="#">Learn more about Unified Leadership</a>
+                </div>
+            </div>
+            <div class="alp-gp-card alp-border-bottom">
+                <div class="alp-gp-content">
+                    <h3>Principle 2</h3>
+                    <p>It is important that all non-Special Olympics athletes acknowledge that athletes have a choice in how and where they lead in Special Olympics. This is their program, and staff and volunteers are here to support them. But for them to succeed, they need to be trained in the areas that they choose to pursue.</p>
+                    <a href="#">Learn more about Leadership & Skills Curriculum</a>
+                </div>
+            </div>
+            <div class="alp-gp-card alp-border-bottom">
+                <div class="alp-gp-content">
+                    <h3>Principle 3</h3>
+                    <p>Special Olympics athletes hold the power to change the world through sport; that is the organization’s founding principle. Athlete Leadership teaches our athletes to gain the knowledge and confidence to lead programmatic work. This is their organization — we are here to support them.</p>
+                    <a href="#">Meet our Athlete Leaders</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alp-resources-section">
+        <div class="container">
+            <h2>Downloadable Resources</h2>
+            <div class="alp-afterline"></div>
+            <div class="grid">
+                <!-- First Card: Athlete Leadership Overview -->
+                <div class="card alp-resources-card alp-res-bord-btm1">
+                    <div class="resources-card-image">
+                        <img src="../assets/images/alp-res-1.png" alt="Athlete Leadership Overview document cover">
+                    </div>
+                    <div class="p-6">
+                        <h3>Athlete Leadership Overview</h3>
+                        <p>The Athlete Leadership Overview introduces athletes to the concept of leadership within Special Olympics Sarawak, highlighting the importance of athletes taking on leadership roles, making decisions, and representing their peers. It focuses on empowering athletes to inspire others, build self-confidence, and become active voices in the organization.</p>
+                        <a href="#" class="btn-primary">Download PDF</a> <!-- Replace # with actual PDF path -->
+                    </div>
+                </div>
+                
+                <!-- Second Card: Leadership and Skill Curriculum -->
+                <div class="card alp-resources-card alp-res-bord-btm2">
+                    <div class="resources-card-image">
+                        <img src="../assets/images/alp-res-2.png" alt="Leadership and Skill Curriculum document cover">
+                    </div>
+                    <div class="p-6">
+                        <h3>Leadership and Skill Curriculum</h3>
+                        <p>The Leadership and Skill Curriculum provides athletes with the tools and skills they need to succeed in leadership positions. It covers essential areas such as communication, teamwork, conflict resolution, and goal setting, offering practical exercises and real-world scenarios to help athletes develop their leadership abilities both on and off the field.</p>
+                        <a href="#" class="btn-primary">Download PDF</a> <!-- Replace # with actual PDF path -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Listen from our Athlete Leaders" (placeholder) -->
+    <!-- Consider replaced the International Athlete Leaders with the Sarawakian Athletes Leaders, if any -->
+    <section class="alp-comments-section">
+        <h2>Listen from our Athlete Leaders</h2>
+        <div class="alp-afterline"></div>
+        <div class="alp-comments-grid">
+            <!-- Person 1-->
+            <div class="alp-comments-card">
+                <div class="alp-comments-content">
+                    <div class="alp-comments-content-top">
+                        <p>"Athlete Leadership is life changing, it can change the way you see things and how you communicate with others, to have the courage to stand for others and be on the front lines. It creates leaders."</p>
+                    </div>
+                    <div class="alp-comments-divider"></div>
+                    <div class="alp-comments-content-bottom">
+                        <img src="../assets/images/alp-comments-1.jpeg">
+                        <a>Nyasha Derera - Chair, Global Athlete Contress</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Person 2 -->
+            <div class="alp-comments-card">
+                <div class="alp-comments-content">
+                    <div class="alp-comments-content-top">
+                        <p>"We are not so different, you and I. We all have hopes, fears, and dreams. We are all human beings."</p>
+                    </div>
+                    <div class="alp-comments-divider"></div>
+                    <div class="alp-comments-content-bottom">
+                        <img src="../assets/images/alp-comments-2.jpeg">
+                        <a>Hanako Sawayama - Athlete Leaders, Special Olympics Singapore</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Person 3 -->
+            <div class="alp-comments-card">
+                <div class="alp-comments-content">
+                    <div class="alp-comments-content-top">
+                        <p>"The acceptance I feel in the Special Olympics community inspired me to become my best self."</p>
+                    </div>
+                    <div class="alp-comments-divider"></div>
+                    <div class="alp-comments-content-bottom">
+                        <img src="../assets/images/alp-comments-3.jpeg">
+                        <a>Hanna Joy Atkinson - Sargent Shriver International Global Messenger</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- "Meet Our Athlete Leader" -->
+    <section class="alp-meet-section">
+        <h1>Meet our Athlete Leaders</h1>
+        <p>We empower athletes to share their abilities and experiences, ensuring they play a leading role in shaping our movement and strengthening our programs.</p>
+        <a href="#" class="alp-meet-button">LEARN MORE</a>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
