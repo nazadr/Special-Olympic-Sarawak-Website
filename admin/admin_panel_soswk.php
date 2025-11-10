@@ -589,7 +589,7 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo">
-                <img src="../assets/images/so-sarawak-footer-2.png" style="width: auto; height: 60px;">
+                <img src="../assets/images/Remake/SO Sarawak (site footer) BG.png" style="width: auto; height: 60px;">
                 <!-- <i class="fas fa-medal"></i> -->
                 <!-- <span>Special Olympics</span> -->
             </div>
@@ -687,10 +687,6 @@
                     <i class="fa-solid fa-hand-holding-heart"></i>
                     <span>Sponsorships</span>
                 </a>
-                <a href="#" class="nav-item" data-section="program-partners">
-                    <i class="fa-solid fa-handshake"></i>
-                    <span>Program Partners</span>
-                </a>
                 <a href="#" class="nav-item" data-section="other-special-olympics">
                     <i class="fa-solid fa-globe"></i>
                     <span>Other Special Olympics</span>
@@ -749,7 +745,7 @@
             <div class="content-section active" id="dashboard">
                 <div class="section-header">
                     <h2 class="section-title">Dashboard Overview</h2>
-                    <p class="section-subtitle">Welcome to Special Olympics Admin Panel</p>
+                    <p class="section-subtitle">Welcome to Special Olympics Sarawak Admin Webmaster</p>
                 </div>
                 
                 <div class="content-placeholder">
@@ -983,7 +979,7 @@
                 <div class="content-placeholder">
                     <i class="fas fa-newspaper"></i>
                     <h3>Athlete Leaderships Program</h3>
-                    <p>Add your Athlete Leaaderships management interface here</p>
+                    <p>Add your Athlete Leaderships management interface here</p>
                 </div>
             </div>
 
@@ -1113,20 +1109,6 @@
                             <p style="text-align: center; color: #64748b;">Loading sponsorship...</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Program Partners -->
-            <div class="content-section" id="program-partners">
-                <div class="section-header">
-                    <h2 class="section-title">Program Partners Management</h2>
-                    <p class="section-subtitle">Manage Special Olympics Sarawak program partners.</p>
-                </div>
-                
-                <div class="content-placeholder">
-                    <i class="fa-solid fa-handshake"></i>
-                    <h3>Program Partners</h3>
-                    <p>Add your program pertners management interface here</p>
                 </div>
             </div>
 

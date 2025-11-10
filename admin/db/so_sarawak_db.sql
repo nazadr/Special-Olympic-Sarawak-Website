@@ -44,10 +44,9 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `description`, `location`, `city`, `event_date`, `event_time`, `type`, `image_path`) VALUES
-(1, '', '', '', '', '0000-00-00', '', 'Special Olympics Sarawak', '../assets/images/yayasan_bintulu_port_logo.png'),
-(6, 'Bintulu Marathon Rerun 2025', 'Lorem ipsum dolor sit amet.', 'Stadium Bintulu', 'Bintulu', '2025-12-03', '9:00 AM - 3:00 PM', 'training', '../assets/images/events/68a2eb4b8975d_child_family_news.jpg'),
-(9, 'Check City', 'abcdefg', 'Boulevard Mall', 'Miri', '2025-10-23', '9:00 AM - 3:00 PM', 'meeting', '../assets/images/events/68ef10b2d0f4e_another_news.jpg'),
-(10, 'Bintulu Marathon', 'lorem ipsum', 'Stadium Bintulu', 'Bintulu', '2025-10-20', '9:00 AM - 3:00 PM', 'social', '../assets/images/events/68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg');
+(1, 'Bintulu Marathon Rerun 2025', 'Lorem ipsum dolor sit amet.', 'Stadium Bintulu', 'Bintulu', '2025-12-03', '9:00 AM - 3:00 PM', 'training', '../assets/images/events/68a2eb4b8975d_child_family_news.jpg'),
+(2, 'Check City', 'abcdefg', 'Boulevard Mall', 'Miri', '2025-10-23', '9:00 AM - 3:00 PM', 'meeting', '../assets/images/events/68ef10b2d0f4e_another_news.jpg'),
+(3, 'Bintulu Marathon', 'lorem ipsum', 'Stadium Bintulu', 'Bintulu', '2025-10-20', '9:00 AM - 3:00 PM', 'social', '../assets/images/events/68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg');
 
 -- --------------------------------------------------------
 
@@ -69,8 +68,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `image_path`, `headline`, `news_date`, `description`, `created_at`) VALUES
-(6, '../assets/images/news_uploads/88931f16a199bd5a5fb88839668568e2.jpg', 'Bintulu Marathon 2025', '2025-08-03', 'Bintulu Maratthn 2025', '2025-08-26 02:35:45'),
-(7, '../assets/images/news_uploads/505cbb515bcaa601fe6878531516ab21.jpg', 'Bintulu Port', '2025-10-30', 'Lorem ipsum dolor sit amet consectetuer adipiscing elit.', '2025-10-30 06:33:55');
+(1, '../assets/images/news_uploads/88931f16a199bd5a5fb88839668568e2.jpg', 'Bintulu Marathon 2025', '2025-08-03', 'Bintulu Maratthn 2025', '2025-08-26 02:35:45'),
+(2, '../assets/images/news_uploads/505cbb515bcaa601fe6878531516ab21.jpg', 'Bintulu Port', '2025-10-30', 'Lorem ipsum dolor sit amet consectetuer adipiscing elit.', '2025-10-30 06:33:55');
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,262 @@
+<!-- Created on 4 Nov 2025 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Sports | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .header-space {
+            height: 70px;
+            background: transparent;
+        }
+
+        .body {
+            background-color: #f9f9f9;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .usport-afterline {
+            width: 60px;
+            height: 3px;
+            background-color: #e30613;
+            margin: 0 auto 80px auto;
+            display: block;
+        }
+
+        .usport-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/unified_basketball_friendly.jpg') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .usport-hero h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .usport-desc-section {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: left;
+        }
+
+        .usport-desc-section h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+        }
+
+        .usport-desc-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .usport-desc-section ul {
+            max-width: 1160px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .usport-desc-section li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #c41926;
+            transition: all 0.3s ease;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #e94e1b;
+        }
+
+        /* Join Unified Sports */
+        .usport-join-section {
+            display: flex;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0) 60%), url('../assets/images/pexels-franco-monsalvo-252430633-32101179.jpg') center/cover no-repeat;
+            height: 50vh;
+            max-height: 100%;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            color: white;
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        .usport-join-section h1 {
+            font-size: 2.8rem;
+            margin: auto auto 10px 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .usport-join-section p {
+            font-size: 1.1rem;
+            max-width: 400px;
+            margin: 10px auto 20px 80px;
+        }
+
+        .usport-join-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 200px;
+            height: 60px;
+            background-color: #c41926;
+            border: none;
+            margin: 20px auto auto 80px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .usport-join-button:hover {
+            background-color: #e94e1b;
+        }
+
+        @media (max-width: 1299px) {
+            .usport-join-section {
+                margin-bottom: 0px;
+            }
+
+            .site-footer {
+                margin-top: 0px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .usport-hero {
+                height: 40vh;
+            }
+            
+            .usport-hero h1 {
+                font-size: 1.6rem;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .usport-desc-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .usport-desc-section p, .usport-desc-section ul {
+                font-size: 1rem;
+            }
+
+            .usport-desc-section li {
+                margin-bottom: 16px;
+            }
+            
+            .usport-join-section {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url('../assets/images/pexels-franco-monsalvo-252430633-32101179.jpg') center/cover no-repeat;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .usport-join-section h1 {
+                font-size: 2rem;
+                margin: auto auto 40px auto;
+            }
+
+            .usport-join-section p {
+                display: none;
+            }
+
+            .usport-join-button {
+                margin: 0 auto auto auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <section class="usport-hero">
+        <h1>Unified Sports</h1>
+    </section>
+
+    <section class="usport-desc-section">
+        <h3>Uniting Through the Power of Sport</h3>
+        <p style="margin-bottom: 16px;">Special Olympics Sarawak Unified Sports brings together athletes with and without intellectual disabilities on the same team — proving that when we play together, we grow together. This program is part of the global Unified Sports movement that connects over a million participants worldwide, breaking down barriers and building lasting friendships through the joy of sports.</p>
+        <p>In Sarawak, where diversity is celebrated and community spirit runs deep, Unified Sports is more than a game — it’s a movement toward inclusion, respect, and understanding across all abilities and backgrounds.</p>
+
+        <h3>Promoting Inclusion Across Sarawak</h3>
+        <p style="margin-bottom: 16px;">Unified Sports in Sarawak promotes social inclusion by providing shared training and competition experiences. Athletes with and without intellectual disabilities train, compete, and celebrate victories together — creating friendships and mutual respect both on and off the field.</p>
+        <p>Teams are formed based on age and ability, ensuring fair play and exciting competition for everyone. Through sports, participants discover what unites them rather than what sets them apart — sweeping away misconceptions and building inclusive communities from Kuching to Samarahan, Sibu, Bintulu to Miri.</p>
+
+        <h3>Empowering Youth and Schools</h3>
+        <p style="margin-bottom: 16px;">Special Olympics Sarawak is working to expand Unified Sports into schools and universities across the state through the Unified Champion Schools® approach. This initiative empowers students, teachers, and youth leaders to promote inclusion through Unified Sports, inclusive student clubs, and youth leadership activities.</p>
+        <p>By involving both students with and without intellectual disabilities, we are nurturing a new generation of Sarawakian youth who champion acceptance, friendship, and teamwork in all areas of life.</p>
+
+        <h3>A Community Movement</h3>
+        <p>Unified Sports in Sarawak thrives on community partnerships — with local sports councils, schools, universities, and volunteer groups coming together to support inclusion through sport. Our athletes and partners embody the spirit of “Play Unified. Live Unified.” — showing that everyone deserves a place on the team.</p>
+
+        <h3>Mission: Inclusion</h3>
+        <p style="margin-bottom: 16px;">Through Unified Sports, Special Olympics Sarawak champions the mission of inclusion across the state’s vibrant multicultural landscape. Together with global partners like the Lions Clubs International and local community organizations, we are building opportunities for all people — regardless of ability — to experience the joy of sport, teamwork, and belonging.</p>
+        <p>Whether on the football pitch, basketball court, or athletics track, Unified Sports reminds us that in unity, there is strength. In inclusion, there is victory.</p>
+    </section>
+
+    <!-- Join Unified Sports -->
+    <!-- <section class="usport-join-section">
+        <h1>Join the Unified Sports</h1>
+        <p>We empower individuals of all abilities to come together as teammates, building friendships and understanding through the power of sport. Join us to experience inclusion in action and help create communities where everyone belongs.</p>
+        <a href="../src/join_us.html" class="usport-join-button">JOIN NOW</a>
+    </section> -->
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

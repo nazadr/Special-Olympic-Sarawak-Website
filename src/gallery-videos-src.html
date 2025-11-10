@@ -1,0 +1,120 @@
+<!-- This is a video playback page to fetch each of the selected video src from the selected -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Replaced "Video Title" with the fetched title, but kept the "| Special Olympics Sarawak" by default -->
+    <title>Video Title | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .body {
+            background-color: white;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+        .gallery-vid-play {
+            width: 100%;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .galler-vid-video {
+            width: 100%;
+            max-width: 1065px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+        }
+        .gallery-vid-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .gallery-vid-videsc {
+            width: 1200px;
+            margin: 40px auto 80px auto;
+        }
+        .gallery-vid-videsc h1 {
+            color: #c4161c;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            padding: 0 12px;
+        }
+        .gallery-vid-videsc h2 {
+            color: #333;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 16px;
+            padding: 0 12px;
+        }
+        .gallery-vid-videsc p {
+            color: #333;
+            font-size: 1.1rem;
+            padding: 0 12px;
+        }
+        @media (max-width: 768px) {
+            .gallery-vid-play {
+                max-width: 100vw;
+                padding: 0;
+            }
+            .gallery-vid-video {
+                aspect-ratio: 16 / 9;
+                width: 100vw;
+                min-width: 0;
+            }
+            .gallery-vid-videsc {
+                width: 100%;
+                margin: 24px auto 40px auto;
+            }
+            .gallery-vid-videsc h1 {
+                font-size: 0.9rem;
+            }
+            .gallery-vid-videsc h2 {
+                font-size: 1.8rem;
+            }
+            .gallery-vid-videsc p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="../scripts/components/header.js"></script>
+    <script src="../scripts/components/socmed-bar.js"></script>
+    <div class="header-space"></div>
+
+    <div class="gallery-vid-play">
+        <div class="galler-vid-video">
+            <video controls>
+                <!-- Fetch video src from the selected -->
+                <source src="#">
+            </video>
+        </div>
+    </div>
+    <div class="gallery-vid-videsc">
+        <!-- Replaced the "CATEGORY/EVENT NAME" with the fetched name from the database -->
+        <h1>SPECIAL OLYMPICS SARAWAK VIDEO GALLERY - CATEGORY/EVENT NAME</h1>
+        <h2>Fetch Video Title from the Selected</h2>
+        <p>Fetch video description from the selected.</p>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

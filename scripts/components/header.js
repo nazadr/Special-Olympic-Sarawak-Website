@@ -4,7 +4,7 @@
 document.writeln(`
     <nav class="top-nav">
         <div class="logo">
-            <img src="../assets/images/Special_olympic_sarawak_Logo_new.png" alt="Logo" class="logo-img">
+            <a href="../index.html"><img src="../assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img" style="margin-top: 4px;"></a>
             <img src="../assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
         </div>
 
@@ -22,7 +22,7 @@ document.writeln(`
                     <a href="#about">About Us <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/introduction.html">Introduction</a></li>
-                        <li><a href="../src/organization_overview.html">Organization Overview</a></li>
+                        <li><a href="../src/dev.html">Organization Overview</a></li>
                         <li><a href="../src/brochure.html">SO Brochure</a></li>
                         <li><a href="../src/how_can_you_help.html">How can you help?</a></li>
                     </ul>
@@ -30,16 +30,14 @@ document.writeln(`
                 <li class="dropdown mobile-dropdown-parent">
                     <a href="#news">News <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/latest-news.php">Latest News</a></li>
-                        <li><a href="#">Archived News</a></li>
+                        <li><a href="../src/latest-news.php">In the News</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-dropdown-parent">
                     <a href="#contact">Contact Us <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/visit_us_with_map.html">Visit Us</a></li>
-                        <li><a href="#">Email Us</a></li>
-                        <li><a href="../admin/login_page_v1.php">Admin Page</a></li>
+                        <li><a href="../src/email-us.html">Email Us</a></li>
                     </ul>
                 </li>
                 <!-- Searchbar moved to the very top of the sidebar for mobile -->
@@ -64,9 +62,14 @@ document.writeln(`
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/getting_started.html">Getting Started</a></li>
-                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
                         <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
                         <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mobile-only mobile-dropdown-parent">
+                    <a href="#">Core Program <i class="fa-solid fa-angle-down"></i></a>
+                    <ul class="dropdown-menu mobile-dropdown-submenu">
+                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
@@ -80,6 +83,7 @@ document.writeln(`
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
                         <li><a href="../src/sponsorships.html">Sponsorships</a></li>
+                        <li><a href="../src/other-so.html">Other Special Olympics</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
@@ -92,21 +96,14 @@ document.writeln(`
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Gallery <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="#photos">Photos</a></li>
-                        <li><a href="#videos">Videos</a></li>
+                        <li><a href="../src/dev.html">Photos</a></li>
+                        <li><a href="../src/dev.html">Videos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Join Us <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/join_us.html">Join Us</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Community <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="#join">Program Partners</a></li>
-                        <li><a href="#details">Other Special Olympics</a></li>
                     </ul>
                 </li>
             </ul>

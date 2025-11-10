@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Sarawak - Login</title>
+    <title>Special Olympics Sarawak Admin Webmaster - Login</title>
     <!-- White color logo of SO represents an admin -->
     <link rel="shortcut icon" href="../assets/images/master-logo-front-white.png">
     <style>
@@ -231,7 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="login-container">
         <div class="logo">
             <img src="../assets/images/master_logo_front.png" alt="Special Olympics Sarawak logo" />
-            <h2>Special Olympics Sarawak Admin Panel</h2>
+            <h2>Special Olympics Sarawak Admin Webmaster</h2>
             <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
             <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success') echo "<p style='color:green;'>Signup successful! Please log in.</p>"; ?>
         </div>

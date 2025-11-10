@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young Athletes Program (YAP) Resources | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .body {
+            background-color: white;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Section 1: Title and description */
+        .yap-lm-s1 {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/yap-lm-hero.jpg') center/cover no-repeat; /* Free-to-use image as placeholder */
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .yap-lm-s1 h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .yap-lm-s1 p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Section 2: Introduction to Young Athlete  */
+        .yap-lm-s2, .yap-lm-s3, .yap-lm-s4 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .yap-lm-s2 .yap-lm-container, .yap-lm-s3 .yap-lm-container, .yap-lm-s4 .yap-lm-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .yap-lm-s2 h2, .yap-lm-s3 h2, .yap-lm-s4 h2 {
+            color: #e63946;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .yap-lm-s2 h3 {
+            color: #e63946;
+            font-size: 1.8rem;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .yap-lm-sh h3 {
+            color: #e63946;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .yap-lm-sh p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .yap-lm-s2 p {
+            color: #333;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .yap-lm-s2 p.tl, .yap-lm-s3 p.tl, .yap-lm-s4 p.tl {
+            text-align: left; /* tl = text left */
+            margin-bottom: 40px;
+        }
+
+        .yap-lm-s2 .yap-lm-grid-duo, .yap-lm-s2 .yap-lm-grid, .yap-lm-s3 .yap-lm-grid, .yap-lm-s4 .yap-lm-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 column on mobile (stacked) */
+            gap: 2rem; /* Consistent spacing between cards */
+        }
+
+        @media (min-width: 768px) {
+            .yap-lm-s2 .yap-lm-grid-duo, .yap-lm-s2 .yap-lm-grid, .yap-lm-s3 .yap-lm-grid, .yap-lm-s4 .yap-lm-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .yap-lm-s2 .yap-lm-grid, .yap-lm-s3 .yap-lm-grid, .yap-lm-s4 .yap-lm-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Intended for 2 cards */
+        .yap-lm-card-duo .preview-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+        .yap-lm-card-duo .preview-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .yap-lm-card-duo .yap-lm-desc-duo {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .yap-lm-card-duo h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+        .yap-lm-card-duo p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* 3 or more cards */
+        .yap-lm-card, .yap-lm-card-duo {
+            display: flex;
+            flex-direction: column;
+            /* Optional: Minimum height for consistent card sizing across varying content */
+        }
+
+        .yap-lm-card .preview-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .yap-lm-card .preview-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crops image to fill 4:3 without stretching/distortion */
+            display: block;
+        }
+
+        .yap-lm-card .yap-lm-desc {
+            padding: 1.5rem;
+            /* below is newly added */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .yap-lm-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .yap-lm-card p {
+            /* margin-bottom: 1.5rem; */
+            font-size: 1rem;
+            color: #333;
+            flex-shrink: 0; /* Newly added */
+        }
+
+        .yap-lm-button {
+            margin-top: auto;
+            background-color: #c41926;
+            transition: all 0.3s ease;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            align-self: flex-start; /* Ensures no horizontal stretch; stays left-aligned */
+            flex-shrink: 0; /* Prevents vertical shrinking */
+        }
+
+        .yap-lm-button:hover {
+            background-color: #e94e1b;
+        }
+
+        .yap-lm-desc a i, .yap-lm-desc-duo a i {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 8px;
+        }
+
+        /* Section 3: Enchancing Program Quality */
+        .yap-lm-s3 p.tc {
+            text-align: center; /* tc = text center */
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        .yap-lm-grid-sr {
+            /* sr = single row */
+            display: grid;
+            justify-content: center; /* Centers the card horizontally */
+            width: 100;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .yap-lm-card-sr {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            width: auto;
+            min-height: clamp(300px, 30vh, 400px);
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .yap-lm-card-sr .preview-image {
+            flex-shrink: 0;
+            aspect-ratio: 4 / 3; /* 4:3 landscape ratio */
+            position: relative;
+            overflow: hidden;
+            /* Newly added */
+            min-width: 250px;
+            max-width: 400px;
+            width: 50%;
+        }
+
+        .yap-lm-card-sr .preview-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .yap-lm-card-sr .yap-lm-desc-sr {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distributes space; pushes button down if content is short */
+            flex: 1 1 auto;
+            padding: 1.5rem;
+            gap: 20px;
+            /* Newly added */
+            max-width: 50%;
+        }
+
+        .yap-lm-card-sr h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .yap-lm-card-sr p {
+            font-size: 1rem;
+            color: #333;
+            margin: 0;
+            line-height: 1.5;
+            flex: 1; /* Allows p to expand if text is long */
+        }
+
+        .yap-lm-card-sr .yap-lm-button {
+            align-self:  flex-start;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 767px) {
+            .yap-lm-card-sr {
+                flex-direction: column; /* Image above content */
+                gap: 1rem; /* Smaller vertical gap */
+                min-height: clamp(350px, 50vw, 450px); /* Increases height more on mobile for better touch targets */
+                width: 100%; /* Full width on mobile */
+            }
+            
+            .yap-lm-card-sr .preview-image {
+                width: 100%; /* Full width image on mobile */
+                aspect-ratio: 16 / 9; /* Wider aspect for mobile (optional; adjust to 4/3 if preferred) */
+            }
+            
+            .yap-lm-card-sr .yap-lm-desc-sr {
+                gap: 15px; /* Slightly smaller gap on mobile */
+                padding: 1rem; /* Reduced padding */
+            }
+            
+            .yap-lm-card-sr h3 {
+                font-size: 1.3rem; /* Smaller title on mobile */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .yap-lm-card-sr .preview-image {
+                width: 400px;
+                flex: 0 0 auto;
+            }
+
+            .yap-lm-card-sr .yap-lm-desc-sr {
+                max-width: calc(100% - 400px - 1rem); /* Adapts to fixed image + gap */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .yap-lm-card-sr .preview-image {
+                flex: 0 0 auto;
+                min-width: auto;
+            }
+
+            .yap-lm-card-sr .yap-lm-desc-sr {
+                max-width: calc(100% - var(--image-width, 400px) - 1 rem);
+            }
+
+            .yap-lm-card-sr {
+                min-height: calc(320px, 28vw, 380px);
+            }
+        }
+
+        /* Mobile responsive for card-sr */
+        @media (max-width: 767px) {
+            .yap-lm-card-sr {
+                flex-direction: column;
+                gap: 1rem;
+                min-height: clamp(350px, 50vh, 450px);
+                width: 100%;
+            }
+
+            .yap-lm-card-sr .preview-image {
+                width: 100%;
+                max-width: none;
+                aspect-ratio: 4 / 3;
+                flex: none;
+            }
+
+            .yap-lm-card-sr .yap-lm-desc-sr {
+                max-width: none;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .yap-lm-grid-sr {
+                max-width: none;
+            }
+        }
+
+        /* Section 4: Resources to Support Implementation */
+        .yap-lm-s4 p.tc {
+            text-align: center; /* tc = text center */
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Loaded via JS) -->
+    <script src="../scripts/components/header.js"></script>
+
+    <!-- Social Media Bar (Loaded via JS) -->
+    <script src="../scripts/components/socmed-bar.js"></script>
+
+    <!-- Chatbot (Loaded via JS) -->
+    <!-- <div id="chatbot-container"></div> -->
+
+    <!-- Space for existing header -->
+    <div class="header-space"></div>
+
+    <div class="yap-lm-s1">
+        <h2>Young Athletes Program (YAP) Resources</h2>
+        <p>A sport and play program for children with and without intellectual disabilities (ID), ages 2 to 7 years old.</p>
+    </div>
+
+    <section class="yap-lm-s2">
+        <div class="yap-lm-container">
+            <h2>Introduction to Young Athletes Program (YAP)</h2>
+            <div class="so-afterline-60w-mb40"></div>
+            <p>Young Athletes Program (YAP) welcomes children and their families in the Special Olympics Sarawak by showing how all children can be valued for their talents and abilities. This page contains introductory information of this program and activity guide which provides activities to run Young Athletes Program in schools, communities and homes.</p>
+            <div class="yap-lm-sh"><h3>Introductory Information</h3></div>
+            <div class="yap-lm-grid-duo">
+                <!-- 1. YAP Brochure -->
+                <div class="card yap-lm-card-duo">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Brochure 16-9.png">
+                    </div>
+                    <div class="yap-lm-desc-duo">
+                        <h3>YAP Brochure</h3>
+                        <p class="tl">A brochure that introduces the Young Athletes Program (YAP), its purpose, key activities, and how it supports children with intellectual disabilities.</p>
+                        <a href="../src/yap-lm-brochure.html" class="yap-lm-button">Learn More</a>
+                    </div>
+                </div>
+                <!-- 2. Let's Play Together YAP -->
+                <div class="card yap-lm-card-duo">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm-001.jpg">
+                    </div>
+                    <div class="yap-lm-desc-duo">
+                        <h3>Let's Play Together with Young Athletes</h3>
+                        <p class="tl">Promotional video introducing Young Athletes Program (YAP)</p>
+                        <a href="../src/yap-lm-play-1.html" class="yap-lm-button"><i class="fa-solid fa-play"></i>Watch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="yap-lm-sh"><h3 style="margin-top: 80px;">Activity Guide and Curriculum</h3></div>
+            <div class="yap-lm-grid">
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Activity Guide</h3>
+                        <p class="tl">A slides containing the instructions for running the games and activities in Young Athletes Program (YAP).</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Curriculum</h3>
+                        <p class="tl">Lesson Summary Cards are provided as prompts for teachers and coaches to use while teaching. They also serve as a resource for families to learn about their child’s experience in the program.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="yap-lm-s3">
+        <div class="yap-lm-container">
+            <h2>Enhancing Program Quality</h2>
+            <div class="so-afterline-60w-mb40"></div>
+            <p class="tc">Quality Young Athletes activities begin with well-trained coaches, supported family members and individuals engaged in supporting children through Young Athletes and as they transition to competitive Special Olympics sports opportunities. </p>
+            <div class="yap-lm-sh"><h3 style="margin-top: 80px;">Training Young Athletes Coaches</h3></div>
+            <div class="yap-lm-grid">
+                <!-- 1. YAP Coaches Training -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Coaches Training</h3>
+                        <p class="tl">This is a standard resource for Special Olympics Sarawak program to guide and train new Young Athletes coaches.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 2. YAP Coaches Training Facilitators Guide -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Coaches Training Facilitators Guide</h3>
+                        <p class="tl">This document contains the Facilitators Guide on how to implement the Young Athletes coach training.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 3. YAP in School -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP at School</h3>
+                        <p class="tl">A single page of content to support coaches training and implementing Young Athletes Programs (YAP) at schools.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 4. YAP in Community -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP at Community</h3>
+                        <p class="tl">A single page of content to support coaches training and implementing Young Athletes Program (YAP) at communities.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 5. YAP in Home -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP at Home</h3>
+                        <p class="tl">A single page of content to support coaches training and implementing Young Athletes Program (YAP) at home.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div class="yap-lm-sh"><h3 style="margin-top: 80px;">Junior Athletes</h3></div>
+            <div class="yap-lm-grid-sr">
+                <div class="card yap-lm-card-sr">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-lm-desc-sr">
+                        <h3>Junior Athletes</h3>
+                        <p>Junior Athletes is a non-competitive, multi-sport play program for children with and without intellectual and developmental disabilities from ages 6 to 12.</p>
+                        <a href="#" class="yap-lm-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="yap-lm-sh"><h3 style="margin-top: 80px;">Resources for Family</h3></div>
+            <div class="yap-lm-grid">
+                <!-- 1. YAP Quick Tips -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Quick Tips for YAP at Home</h3>
+                        <p class="tl">A single page quick tips to run YAP at home.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 2. Guide for New Parents of Children with ID -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Guide for New Parents of Children with ID</h3>
+                        <p class="tl">This is a resource guide to support parents and families of children newly diagnosed with intellectual disabilities.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 3. YA Family Flashcards -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Young Athletes Family Flashcards</h3>
+                        <p class="tl">This resource provides a fun and engaging flashcard for families and caregivers to run YAP at home — similarly being done at schools and communities.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 4. YA at Home Guidances -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Young Athletes Home Guidances</h3>
+                        <p class="tl">This resource provides a home guidances for families and caregivers to run YAP at home — similarly being done at schools and communities.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 5. Special Olympics Sarawak Coloring Book -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Special Olympics Sarawak Colouring Book</h3>
+                        <p class="tl">This book features a hand-crafted drawings and designs by Special Olympics Sarawak, offering children a creative space to colour using a variety of tools such as pencil colours, crayons, and watercolours.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 6. Training with SO Athlete Leaders -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP at Home: Training with SO Sarawak Athlete Leaders</h3>
+                        <p class="tl">Special Olympics Sarawak Athlete Leaders have come together to showcase activities that Young Athletes can do at home.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-play"></i>Watch on YouTube</a>
+                    </div>
+                </div>
+                <!-- 7. Overview and Equipment Recommendations -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Overview and Equipment Recommendations</h3>
+                        <p class="tl">A single page content to support families implementing Young Athletes Program (YAP) activities at home.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="yap-lm-s4">
+        <div class="yap-lm-container">
+            <h2>Resources to Support YAP Implementation</h2>
+            <div class="so-afterline-60w-mb40"></div>
+            <p class="tc">Additional tools and resources for coaches, teachers, families and Special Olympics Sarawak Programs supporting Young Athletes Program (YAP).</p>
+            <div class="yap-lm-sh"><h3 style="margin-top: 80px;">Resources for School and Community Programs</h3></div>
+            <div class="yap-lm-grid">
+                <!-- 1. YAP in Unified Champion School -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP in Unified Champion School</h3>
+                        <p class="tl">An overview of Young Athletes Program (YAP) in Unified Champion Schools by using the YAP Activity Guide for Sarawak programs.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 2. YAP Educator Flashcards -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Educator Flashcards (for Schools)</h3>
+                        <p class="tl">Flashcards for teachers to use in the classroom to support Young Athletes Program (YAP) activities in building social emotional learning (SEL) skills.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 3. YAP Inclusive Adaptation Cards -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Inclusive Adaptation Flashcards</h3>
+                        <p class="tl">These flashcards feature activities from the original Young Athletes Program (YAP), with added recommendations for adapting them to include children with various challenges, such as limited mobility, assistive devices, hearing or visual impairments, non-verbal communication, and sensory processing disorders.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 4. YAP Motor Assessment -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Motor Assessment</h3>
+                        <p class="tl">A tool designed for teachers, parents, caregivers and coaches who are interested in having an objective measure of motor performance for children participating in Young Athletes Program (YAP).</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 5. SO Sarawak Elementary School Playbook -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>SO Sarawak Elementary School Playbook</h3>
+                        <p class="tl">A practical guide filled with activities and strategies for engaging elementary students in inclusive sports and play. Tailored for educators and coaches in Sarawak, this playbook promotes physical activity and teamwork for all children.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 6. Unified Young Readers Club Guide -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Unified Young Readers Club Guide</h3>
+                        <p class="tl">A comprehensive guide for organizing and running the Unified Young Readers Club. It provides step-by-step instructions on how to foster inclusive reading activities that unite children of all abilities through storytelling and discussion.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 7. YAP Lesson Plan Template -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Lesson Plan Template</h3>
+                        <p class="tl">A structured template designed to help educators plan and deliver inclusive lessons. This customizable tool ensures that activities are accessible to all students, with clear objectives, adaptations, and strategies for engagement.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 8. YAP Lesson Plan -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Lesson Plan</h3>
+                        <p class="tl">A visual template for creating a lesson plan.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download PDF</a>
+                    </div>
+                </div>
+                <!-- 9. YAP in Libraries -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP in Libraries</h3>
+                        <p class="tl">Learn about how to conduct Young Athletes in library settings.</p>
+                        <a href="#" class="yap-lm-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="yap-lm-sh"><h3 style="margin-top: 80px;">Young Athletes Program (YAP) Design Materials and Brand Guidelines</h3></div>
+            <div class="yap-lm-grid">
+                <!-- 1. YAP Design Materials -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>YAP Design Materials (Resource Bundle)</h3>
+                        <p class="tl">This resource bundle in ZIP file contains a lock-ups (an official YAP lock-up) and design standards for branding information for YAP.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download ZIP</a>
+                    </div>
+                </div>
+                <!-- 2. Early Childhood Development (ECD) Brand Guidelines -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>Early Childhood Development (ECD) Brand Guidelines</h3>
+                        <p class="tl">This resource bundle in ZIP file contains an official ECD program lock-ups, branding information for ECD.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download ZIP</a>
+                    </div>
+                </div>
+                <!-- 3. All Design Materials (this is a comment) -->
+                <div class="card yap-lm-card">
+                    <div class="preview-image">
+                        <img src="../assets/images/yap-lm/YAP Placeholder Image Preview.png">
+                    </div>
+                    <div class="yap-lm-desc">
+                        <h3>All Design Materials</h3>
+                        <p class="tl">This resource bundle in ZIP file contains a full design materials by Special Olympics Sarawak.</p>
+                        <a href="#" class="yap-lm-button"><i class="fa-solid fa-download"></i>Download ZIP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <script src="../scripts/components/bottom-nav.js"></script>
+
+    <!-- Site footer -->
+    <script src="../scripts/components/site-footer.js"></script>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

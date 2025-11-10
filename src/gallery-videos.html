@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Gallery | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
+    <link rel="stylesheet" href="../css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Local HTML Styles */
+        .header-space {
+            height: 70px;
+            background: transparent;
+        }
+        
+        .footer-space {
+            height: 100px;
+            background: transparent;
+        }
+
+        .body {
+            background-color: #f9f9f9;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script src="../scripts/components/header.js"></script>
+    <script src="../scripts/components/socmed-bar.js"></script>
+    <div class="header-space"></div>
+    
+    <section class="gallery-hero videos">
+        <h1>Videos</h1>
+        <p>Watch uplifting stories and exciting event highlights showcasing the spirit of Special Olympics Sarawak.</p>
+    </section>
+
+    <!-- If an admin selects Latest Videos which the videos are added by recently (cards ordered by recent) -->
+    <section class="latest-gallery">
+        <div class="lg-desc">
+            <h2>Latest Videos</h2>
+            <p>Watch our newest videos capturing the spirit, energy, and inclusiveness of the Special Olympics Sarawak community.</p>
+        </div>
+        <!-- The grid is row, include left-right arrow navigation -->
+        <div class="lg-grid">
+            <button class="gallery-arrow left" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="gallery-arrow right" aria-label="Next"><i class="fa-solid fa-angle-right"></i></button>
+            <div class="gallery-track">
+                <!-- Fetch videos from the database -->
+                <!-- Only shows the first 4 video card -->
+                <!-- Video card 1 -->
+                <div class="lp-card videos">
+                    <a href="#"><img src="../assets/images/GalleryImg/latest-gal-1.jpg" alt=""></a>
+                    <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                </div>
+                <!-- Video card 2 -->
+                <div class="lp-card videos">
+                    <a href="#"><img src="../assets/images/GalleryImg/latest-gal-2.jpg" alt=""></a>
+                    <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                </div>
+                <!-- Video card 3 -->
+                <div class="lp-card videos">
+                    <a href="#"><img src="../assets/images/GalleryImg/latest-gal-3.jpg" alt=""></a>
+                    <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                </div>
+                <!-- Video card 4 -->
+                <div class="lp-card videos">
+                    <a href="#"><img src="../assets/images/GalleryImg/latest-gal-4.jpg" alt=""></a>
+                    <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                </div>
+                <!-- Video card 5 -->
+                <div class="lp-card videos">
+                    <a href="#"><img src="../assets/images/GalleryImg/latest-gal-5.jpg" alt=""></a>
+                    <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                </div>
+                <!-- Video card 6 -->
+                <div class="lp-card videos">
+                    <a href="#"><img src="../assets/images/GalleryImg/latest-gal-6.jpg" alt=""></a>
+                    <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="category-gallery">
+        <!-- An admin can create an event category (each per container) -->
+        <div class="cg-container" id="">
+            <h2>Healthy Athletes Program</h2>
+            <p>Description of the event.</p>
+            <!-- The grid is row, include left-right arrow navigation -->
+            <div class="cg-grid">
+                <button class="gallery-arrow left" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></button>
+                <button class="gallery-arrow right" aria-label="Next"><i class="fa-solid fa-angle-right"></i></button>
+                <div class="gallery-track">
+                    <!-- Only shows the first 4 video cards -->
+                    <!-- Video card 1 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-1.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 2 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-2.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 3 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-3.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 4 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-4.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 5 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-5.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 6 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-6.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 7 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/sohap-gal-7.jpg" alt=""></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- The event category can be ordered manually from the Admin Panel -->
+        <div class="cg-container" id="">
+            <h2>Young Athletes</h2>
+            <p>Description of the event.</p>
+            <div class="cg-grid">
+                <button class="gallery-arrow left" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></button>
+                <button class="gallery-arrow right" aria-label="Next"><i class="fa-solid fa-angle-right"></i></button>
+                <div class="gallery-track">
+                    <!-- Video card 1 -->
+                    <div class="cg-card videos">
+                        <a href="../src/yap-lm-play-1.html"><img src="../assets/videos/GalleryVid/thumbnail/yap-gal-1.jpg"></a>
+                        <p>Let's Play Together with Young Athletes</p>
+                    </div>
+                    <!-- Video card 2 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/yap-gal-2.jpg"></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 3 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/yap-gal-3.jpg"></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 4 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/yap-gal-4.jpg"></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                    <!-- Video card 5 -->
+                    <div class="cg-card videos">
+                        <a href="#"><img src="../assets/images/GalleryImg/yap-gal-5.jpg"></a>
+                        <p>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function getGalleryVisibleCount() {
+            const w = window.innerWidth;
+            // May not works due to transition slide (class name gallery-track)
+            if (w <= 670) return 1;
+            if (w <= 1000) return 2;
+            if (w <= 1320) return 3;
+            // Default cards visibility
+            return 4;
+        }
+
+        function setupGallerySlider(gridEl, cardSelector, leftBtnSelector, rightBtnSelector, visibleCount) {
+            if (!gridEl) return;
+            
+            const track = gridEl.querySelector('.gallery-track');
+            if (!track) return;
+            
+            const cards = Array.from(track.querySelectorAll(cardSelector));
+            let startIdx = 0;
+            let currentVisible = visibleCount;
+
+            function getCardWidth() {
+                if (cards.length === 0) return 0;
+                const cardStyle = window.getComputedStyle(cards[0]);
+                const cardWidth = cards[0].offsetWidth;
+                const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+                return cardWidth + gap;
+            }
+
+            function render() {
+                const slideDistance = startIdx * getCardWidth();
+                track.style.transform = `translateX(-${slideDistance}px)`;
+            }
+
+            const leftBtn = gridEl.querySelector(leftBtnSelector);
+            const rightBtn = gridEl.querySelector(rightBtnSelector);
+
+            leftBtn?.addEventListener('click', () => {
+                if (startIdx > 0) {
+                    startIdx--;
+                    render();
+                }
+            });
+
+            rightBtn?.addEventListener('click', () => {
+                if (startIdx < cards.length - currentVisible) {
+                    startIdx++;
+                    render();
+                }
+            });
+
+            function adjustVisible() {
+                const newCount = getGalleryVisibleCount();
+                if (newCount !== currentVisible) {
+                    currentVisible = newCount;
+                    if (startIdx > cards.length - currentVisible) {
+                        startIdx = Math.max(0, cards.length - currentVisible);
+                    }
+                    render();
+                }
+            }
+            
+            window.addEventListener('resize', () => {
+                adjustVisible();
+                render(); // Recalculate slide distance on resize
+            }, { passive: true });
+
+            render();
+        }
+
+        setupGallerySlider(
+            document.querySelector('.lg-grid'),
+            '.lp-card.videos',
+            '.gallery-arrow.left',
+            '.gallery-arrow.right',
+            getGalleryVisibleCount()
+        );
+
+        document.querySelectorAll('.cg-grid').forEach(grid => {
+            setupGallerySlider(
+                grid,
+                '.cg-card.videos',
+                '.gallery-arrow.left',
+                '.gallery-arrow.right',
+                getGalleryVisibleCount()
+            );
+        });
+    </script>
+    
+    <script src="../scripts/components/bottom-nav.js"></script>
+    <script src="../scripts/components/site-footer.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

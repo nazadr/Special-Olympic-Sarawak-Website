@@ -4,7 +4,7 @@ document.writeln(`
     <footer class="site-footer">
         <div class="footer-top">
             <div class="footer-logo">
-                <a href="../index.html"> <img src="../assets/images/so-sarawak-footer-2.png" alt="Special Olympics Sarawak Logo" width="262" height="60"></a>
+                <a href="../index.html"> <img src="../assets/images/Remake/SO Sarawak (site footer) BG.png" alt="Special Olympics Sarawak Logo" width="262" height="60"></a>
             </div>
             <div class="footer-buttons">
                 <a href="../src/join_us.html" class="btn join-us">Join Us</a>
@@ -18,25 +18,16 @@ document.writeln(`
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/getting_started.html">Getting Started</a></li>
                         <li><a href="../src/sport.html">Our Sports</a></li>
-                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
-                        <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
+                        <li><a href="../src/latest-news.php">In the News</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
                     <h3>About <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/introduction-1.html">Introduction</a></li>
-                        <li><a href="#">Organization Overview</a></li>
+                        <li><a href="../src/dev.html">Organization Overview</a></li>
                         <li><a href="../src/brochure.html">SO Brochure</a></li>
                         <li><a href="../src/how_can_you_help.html">How Can You Help?</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>News <i class="fa-solid fa-caret-right"></i></h3>
-                    <ul class="nav-group-dropdown">
-                        <li><a href="../src/latest-news.php">Latest News</a></li>
-                        <li><a href="#">Archived News</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -50,10 +41,19 @@ document.writeln(`
                     </ul>
                 </div>
                 <div class="nav-group">
+                    <h3>Programs <i class="fa-solid fa-caret-right"></i></h3>
+                    <ul class="nav-group-dropdown">
+                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
+                        <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
                     <h3>Affiliate <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
                         <li><a href="../src/sponsorships.html">Sponsorships</a></li>
+                        <li><a href="../src/other-so.html">Other Special Olympics</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -72,10 +72,9 @@ document.writeln(`
                     </ul>
                 </div>
                 <div class="nav-group">
-                    <h3>Community <i class="fa-solid fa-caret-right"></i></h3>
+                    <h3>Admin <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="#">Program Partners</a></li>
-                        <li><a href="#">Other Special Olympics</a></li>
+                        <li><a href="../admin/login_page_v1.php">Admin Webmaster</a></li>
                     </ul>
                 </div>
             </nav>

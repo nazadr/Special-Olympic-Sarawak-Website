@@ -3,7 +3,7 @@
 
 [ Quick Fix ]
 
-If MySQL is failed to initialised, open Task Manager and end task for the following background processes:
+If MySQL is failed to initialised, open Task Manager and END TASK for the following background processes:
 — mysqld.exe
 — (other related SQL)
 

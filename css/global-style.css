@@ -1444,7 +1444,7 @@ body, html {
   width: 100px;
   height: 100px;
   background: #ffffff;
-  border-radius: 50%;
+  border-radius: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1558,6 +1558,24 @@ body, html {
   object-fit: contain;
   display: block;
   border-radius: 8px;
+}
+
+.donation-card-qr h3 {
+  padding: 60px 20px 60px 20px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  text-align: center;
+  color: #333;
+  margin: 0
+}
+
+.donation-card-qr p {
+  padding: 4px 20px 4px 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+  color: #333;
+  margin: 0;
 }
 
 .donation-card {
@@ -2081,6 +2099,173 @@ input[type="number"] {
   color: #fff;
 }
 
+/* ----- GALLERY (FOR PHOTOS AND VIDEOS) ----- */
+.gallery-hero {
+  background: linear-gradient(135deg, #ca3441 0%, #db2727 100%);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.gallery-hero.photos {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/gallery-photo-hero.jpg') center/cover no-repeat;
+}
+.gallery-hero.videos {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/state-games-hero.jpg') center/cover no-repeat;
+}
+.gallery-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.gallery-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+.gallery-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+.latest-gallery,
+.category-gallery {
+  max-width: 1280px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+.cg-container {
+  margin-bottom: 50px;
+}
+.cg-container h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.6rem;
+}
+.cg-container p {
+  text-align: left;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+.lg-desc h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #cc0000;
+  font-size: 2rem;
+  position: relative;
+}
+.lg-desc p {
+  text-align: left;
+  margin-bottom: 40px;
+  color: #333;
+  font-size: 1.1rem;
+  position: relative;
+}
+/* Arrow Button and Grid */
+.lg-grid,
+.cg-grid {
+  display: flex;
+  /* justify-content: center; -- This works better without transition slide */
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  min-height: 180px;
+}
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #ca3441;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s;
+}
+.gallery-arrow:hover {
+  background: #ca3441;
+  color: #fff;
+}
+/* Keep arrows at container edges */
+.lg-grid .gallery-arrow.left,
+.cg-grid .gallery-arrow.left {
+  left: 8px;
+}
+.lg-grid .gallery-arrow.right,
+.cg-grid .gallery-arrow.right {
+  right: 8px;
+}
+.lp-card,
+.cg-card {
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lp-card img,
+.cg-card img {
+  width: 302px;
+  height: 170px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+.lp-card:hover img,
+.cg-card:hover img {
+  transform: scale(1.06);
+  transition: transform 0.3s;
+}
+.lp-card img,
+.cg-card img {
+  transition: transform 0.3s;
+}
+/* Custom video thumbnail */
+.lp-card.videos, .cg-card.videos {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  text-align: left;
+  box-shadow: none;
+  max-width: 302px;
+  padding: 0;
+}
+.lp-card.videos img, .cg-card.videos img {
+  width: 302px;
+  height: auto;
+  border-radius: 12px 12px 0 0;
+  margin: 0;
+  display: block;
+  object-fit: cover;
+}
+.lp-card.videos p, .cg-card.videos p {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  background-color: white;
+}
+
 /* ----- OUR CHAPTER : KUCHING, SAMARAHAN, SIBU, BINTULU, MIRI ----- */
 .our-chapter-hero-kuching {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/chapter-kuching-2.jpg') center/cover no-repeat;
@@ -2410,6 +2595,14 @@ input[type="number"] {
   width: auto;
   height: auto;
   line-height: 1;
+}
+
+.our-chapter-contact-card img {
+  /* Exclusively for Email Us page style*/
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 20px auto 0 auto;
 }
 
 .our-chapter-contact-card p.occ-tc {
@@ -2970,6 +3163,27 @@ input[type="number"] {
 
   .about-content {
     flex-direction: column;
+  }
+}
+
+/* GALLERY (FOR PHOTOS AND VIDEOS) */
+@media (max-width: 768px) {
+  .gallery-hero {
+    height: 40vh;
+  }
+  .gallery-hero h1 {
+    font-size: 2.5rem;
+  }
+  .gallery-hero p {
+    font-size: 1rem;
+  }
+  .lg-desc h2,
+  .cg-container h2 {
+    font-size: 1.5rem;
+  }
+  .lg-desc p,
+  .cg-container p {
+    font-size: 1rem;
   }
 }
 

@@ -705,7 +705,7 @@
             <!-- Placeholder card for adding affiliates -->
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/SO_Miri_chapter.png" alt="SO Miri Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png" alt="SO Miri Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Miri Chapter</h3>
@@ -716,7 +716,7 @@
             
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/SO_Bintulu_chapter.png" alt="SO Bintulu Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png" alt="SO Bintulu Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Bintulu Chapter</h3>
@@ -727,7 +727,7 @@
             
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/SO_Samarahan_chapter.png" alt="SO Samarahan Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png" alt="SO Samarahan Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Samarahan Chapter</h3>
@@ -738,7 +738,7 @@
 
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/SO_Sibu_Chapter.png" alt="SO Sibu Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png" alt="SO Sibu Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Sibu Chapter</h3>
@@ -749,7 +749,7 @@
 
              <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/SO_Kuching_chapter.png" alt="SO Kuching Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png" alt="SO Kuching Chapter" />
                 </div>
                 <div class="affiliate-details">
                     <h3>SO Kuching Chapter</h3>
@@ -824,7 +824,7 @@
                 
                 <!-- SO Kuching Chapter Card -->
                 <div class="chapter-card">
-                    <img src="../assets/images/SO_Kuching_chapter.png" alt="SO Kuching Chapter Logo" class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png" alt="SO Kuching Chapter Logo" class="chapter-logo">
                     <h3>SO Kuching Chapter</h3>
                     <table class="analytics-table chapter-summary-table">
                         <thead>
@@ -863,7 +863,7 @@
 
                 <!-- SO Samarahan Chapter Card -->
                 <div class="chapter-card">
-                    <img src="../assets/images/SO_Samarahan_chapter.png" alt="SO Samarahan Chapter Logo" class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png" alt="SO Samarahan Chapter Logo" class="chapter-logo">
                     <h3>SO Samarahan Chapter (Upcoming)</h3>
                     <table class="analytics-table chapter-summary-table">
                         <thead>
@@ -902,7 +902,7 @@
 
                 <!-- SO Sibu Chapter -->
                 <div class="chapter-card">
-                    <img src="../assets/images/SO_Sibu_Chapter.png" alt="SO Sibu Chapter Logo" class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png" alt="SO Sibu Chapter Logo" class="chapter-logo">
                     <h3>SO Sibu Chapter</h3>
                     <table class="analytics-table chapter-summary-table">
                         <thead>
@@ -941,7 +941,7 @@
 
                 <!-- SO Bintulu Chapter -->
                 <div class="chapter-card">
-                    <img src="../assets/images/SO_Bintulu_chapter.png" alt="SO Bintulu Chapter Logo" class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png" alt="SO Bintulu Chapter Logo" class="chapter-logo">
                     <h3>SO Bintulu Chapter</h3>
                     <table class="analytics-table chapter-summary-table">
                         <thead>
@@ -980,7 +980,7 @@
 
                 <!-- SO Miri Chapter -->
                 <div class="chapter-card">
-                    <img src="../assets/images/SO_Miri_chapter.png" alt="SO Miri Chapter Logo" class="chapter-logo">
+                    <img src="../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png" alt="SO Miri Chapter Logo" class="chapter-logo">
                     <h3>SO Miri Chapter</h3>
                     <table class="analytics-table chapter-summary-table">
                         <thead>
@@ -1032,7 +1032,7 @@
                 {
                     id: 'miri',
                     name: 'SO Miri Chapter',
-                    logo: '../assets/images/SO_Miri_chapter.png',
+                    logo: '../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png',
                     description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Madam Liza Chai</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>',
                     top: '59%', // Original: 37%
                     left: '67%',
@@ -1043,7 +1043,7 @@
                 {
                     id: 'bintulu',
                     name: 'SO Bintulu Chapter',
-                    logo: '../assets/images/SO_Bintulu_chapter.png',
+                    logo: '../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png',
                     description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Dato Haji Ruslan Bin Abdul Ghani</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">Sabrina Cheong Oi Lin binti Abdullah</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '70%', // Original: 55%
                     left: '56%',
@@ -1054,7 +1054,7 @@
                 {
                     id: 'sarawak-sibu',
                     name: 'SO Sarawak/Sibu Chapter',
-                    logo: '../assets/images/SO_Sibu_Chapter.png',
+                    logo: '../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png',
                     description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Pemanca Datuk Jason Tai Hee</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '79%', // Original: 68%
                     left: '39%',
@@ -1065,7 +1065,7 @@
                 {
                     id: 'kuching',
                     name: 'SO Kuching Chapter',
-                    logo: '../assets/images/SO_Kuching_chapter.png',
+                    logo: '../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png',
                     description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Datin Dayang Mariani Abang Zain</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '86%', // Original: 80%
                     left: '20%',
@@ -1076,7 +1076,7 @@
                 {
                     id: 'samarahan',
                     name: 'SO Samarahan Chapter (Upcoming)',
-                    logo: '../assets/images/SO_Samarahan_chapter.png',
+                    logo: '../assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png',
                     description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Mr. Sarahandi Api Abdullah</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '87%', // Original: 81%
                     left: '24%',
