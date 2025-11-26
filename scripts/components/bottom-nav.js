@@ -8,7 +8,6 @@ document.writeln(`
       <button class="nav-btn"><span>What We Do?</span></button>
       <div class="dropup-menu">
         <a href="../src/getting_started.html">Getting Started</a>
-        
         <a href="../src/alp.html">Athlete Leadership Program (ALP)</a>
         <a href="../src/yap.html">Young Athletes Program (YAP)</a>
       </div>
@@ -43,8 +42,8 @@ document.writeln(`
     <li class="nav-item">
       <button class="nav-btn"><span>Gallery</span></button>
       <div class="dropup-menu">
-        <a href="../src/dev.html">Photos</a>
-        <a href="../src/dev.html">Videos</a>
+        <a href="../src/gallery-photos.html">Photos</a>
+        <a href="../src/gallery-videos.html">Videos</a>
       </div>
     </li>
     <li class="nav-item">

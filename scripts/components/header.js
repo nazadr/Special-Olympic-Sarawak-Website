@@ -22,7 +22,7 @@ document.writeln(`
                     <a href="#about">About Us <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/introduction.html">Introduction</a></li>
-                        <li><a href="../src/dev.html">Organization Overview</a></li>
+                        <!-- <li><a href="../src/dev.html">Organization Overview</a></li> -->
                         <li><a href="../src/brochure.html">SO Brochure</a></li>
                         <li><a href="../src/how_can_you_help.html">How can you help?</a></li>
                     </ul>
@@ -69,7 +69,7 @@ document.writeln(`
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Core Program <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="../src/sohap.html">Healthy Athletes Program (HAP)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
@@ -96,8 +96,8 @@ document.writeln(`
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Gallery <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/dev.html">Photos</a></li>
-                        <li><a href="../src/dev.html">Videos</a></li>
+                        <li><a href="../src/gallery-photos.html">Photos</a></li>
+                        <li><a href="../src/gallery-videos.html">Videos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">

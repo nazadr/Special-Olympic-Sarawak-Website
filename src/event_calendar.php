@@ -1,9 +1,3 @@
-<!-- Things needed to be done
-    1. Mobile: City Legend icons placed below the day-number text, event title is hidden.
-    2. Redesign the Upcoming Events card to look more appealing and modern.
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -601,7 +595,7 @@
             // Function to fetch events from the database
             async function fetchEvents() {
                 try {
-                    const response = await fetch('../admin/admin_event_handler.php?action=fetch');
+                    const response = await fetch('../admin/handler/admin_event_handler.php?action=fetch');
                     const data = await response.json();
                     if (data.success) {
                         // Convert event_date strings to Date objects

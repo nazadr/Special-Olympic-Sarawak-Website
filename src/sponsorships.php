@@ -352,7 +352,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('../admin/admin_sponsorship_handler.php?action=fetch')
+            fetch('../admin/handler/admin_sponsorship_handler.php?action=fetch')
                 .then(response => response.json())
                 .then(data => {
                     // Fill main sponsors grid (only type 'Special Olympics Sarawak')

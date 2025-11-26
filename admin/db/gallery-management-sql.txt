@@ -1,0 +1,7 @@
+-- Insert new collection
+INSERT INTO gallery_photos_collection (id, name, description) 
+VALUES ('3', 'Healthy Athletes', 'This is a collection for Healthy Athletes Program.');
+
+-- Insert photo (replace 1 with actual collection_id if different)
+INSERT INTO gallery_photos (collection_id, image_path) 
+VALUES (3, '../assets/images/GalleryImg/sohap-gal-1.jpg');

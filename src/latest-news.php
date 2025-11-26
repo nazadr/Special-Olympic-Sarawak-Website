@@ -46,7 +46,7 @@
     <script>
         // Function to load news articles from the database
         function loadLatestNews() {
-            fetch('../admin/admin_news_handler.php?action=fetch') // Use the same handler to fetch news
+            fetch('../admin/handler/admin_news_handler.php?action=fetch') // Use the same handler to fetch news
                 .then(response => response.json())
                 .then(news => {
                     const newsContainer = document.getElementById('news-articles-container');

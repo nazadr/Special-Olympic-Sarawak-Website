@@ -1,3 +1,4 @@
+*This is a premade (exported SQL) database.
 *Require XAMPP Control Panel installed on a computer.
 *Require Apache and MySQL started, leave the and Port(s) number as default.
 

@@ -1,4 +1,4 @@
-<!-- This pre-release version is made to be identical to the printed form of SO Sarawak Volunteer Registration Form -->
+<!-- This pre-release version is an identical physical form of SO Sarawak Volunteer Registration Form -->
 
 <!DOCTYPE html>
 <html lang="en">

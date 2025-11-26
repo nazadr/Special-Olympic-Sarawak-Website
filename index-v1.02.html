@@ -1,0 +1,106 @@
+<!-- Last updated: 17 Nov 2025 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Special Olympics Sarawak</title>
+    <link rel="shortcut icon" href="assets/images/master_logo_front.png"> <!-- 28/8/2025: This web icon previously was not added -->
+    <link rel="stylesheet" href="css/global-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .index-section {
+            padding: 4rem 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            min-height: 82vh; /* Optimised for 1920x1080 (100% scale) on Firefox with vertical sidebar enabled */
+        }
+        .index-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 70px auto 0 auto;
+        }
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .index-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .index-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .index-card {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .index-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .index-card-image {
+            position: relative;
+            aspect-ratio: 4 / 5; /* Aspect ratio 4:5 portrait - Optimised for up to 125% scale Windows PC on 1920x1080 display */
+            overflow: hidden;
+            width: 100%;
+        }
+        .index-card-image a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .index-card-image img {
+            position: static;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script src="scripts/components/index/header-index.js"></script>
+    <script src="scripts/components/index/socmed-bar-index.js"></script>
+
+    <section class="index-section">
+        <div class="index-container">
+            <div class="index-grid">
+                <!-- Image card 1 -->
+                <div class="index-card">
+                    <div class="index-card-image">
+                        <a href="#"><img src="assets/images/join-us-3.jpg" alt="Special Olympics National Games 2026"></a>
+                    </div>
+                </div>
+                <!-- Image card 2 -->
+                <div class="index-card">
+                    <div class="index-card-image">
+                        <a href="#"><img src="assets/images/special-olympics-1-1024x768.webp" alt="Healthy Athletes Program"></a>
+                    </div>
+                </div>
+                <!-- Image card 3 -->
+                <div class="index-card">
+                    <div class="index-card-image">
+                        <a href="#"><img src="assets/images/yap-brochure-3.jpg" alt="3rd Event Announcement"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/components/index/bottom-nav-index.js"></script>
+    <script src="scripts/components/index/site-footer-index.js"></script>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

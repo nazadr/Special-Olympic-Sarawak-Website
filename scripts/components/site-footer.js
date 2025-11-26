@@ -25,7 +25,7 @@ document.writeln(`
                     <h3>About <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/introduction-1.html">Introduction</a></li>
-                        <li><a href="../src/dev.html">Organization Overview</a></li>
+                        <!-- <li><a href="../src/dev.html">Organization Overview</a></li> -->
                         <li><a href="../src/brochure.html">SO Brochure</a></li>
                         <li><a href="../src/how_can_you_help.html">How Can You Help?</a></li>
                     </ul>
@@ -103,9 +103,9 @@ document.writeln(`
             <div class="copyright-links">
                 <p>© 2025 Special Olympics Sarawak. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
+                    <a href="../src/privacy-policy.html">Privacy Policy</a>
                     <a href="../src/disclaimer.html">Disclaimer</a>
-                    <a href="#">Terms & Conditions</a>
+                    <a href="../src/terms-and-conditions.html">Terms & Conditions</a>
                 </div>
             </div>
             <div class="developer-credit">
