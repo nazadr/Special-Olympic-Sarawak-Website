@@ -1,5 +1,3 @@
-<!-- This is a legacy Donate page. -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,60 +44,65 @@
         <div class="donate-container">
             <h1>Empower Athletes with Intellectual Disabilities</h1>
             <p>Your donation to Special Olympics helps provide year-round sports training and athletic competition in a variety of Olympic-type sports for children and adults with intellectual disabilities.</p>
-            <a href="#donate" class="donate-btn-page">Donate Now</a>
         </div>
     </section>
     
     <div class="donate-container">
+        <h2>Donate via QR Code</h2>
+        <!-- Both QR codes is just a sample, not an actual SO Sarawak QR -->
+        <div class="donation-options">
+            <div class="donation-card-qr">
+                <img src="../assets/images/donate-qr-1.png" alt="SO Sarawak DuitNow QR">
+            </div>
+            <div class="donation-card-qr">
+                <!-- <img src="../assets/images/donate-qr-2.png" alt="SO Sarawak Touch 'n Go QR"> -->
+                <h3>You can fund transfer donation to our account as follow:</h3>
+                <p><strong>Bank: </strong>Lorem Ipsum Bank Berhad</p>
+                <p><strong>Account Number: </strong>1234-5678-901234</p>
+                <p style="margin-bottom: 20px;"><strong>Account Name: </strong>Special Olympics Sarawak</p>
+            </div>
+        </div>
+        <!-- <h2>Donate via FPX</h2>
         <div class="donation-options">
             <div class="donation-card">
                 <h3>Champion</h3>
-                <div class="donate-amount">RM100.00</div>
+                <div class="donate-amount">RM 100.00</div>
                 <div class="donate-impact">Provides sports equipment for one athlete for a season</div>
-                <a href="#" class="donate-btn-page">Donate RM100.00</a>
+                <a href="#" class="donate-btn-page">Donate RM 100.00</a>
             </div>
             
             <div class="donation-card">
                 <h3>Advocate</h3>
-                <div class="donate-amount">RM500.00</div>
+                <div class="donate-amount">RM 500.00</div>
                 <div class="donate-impact">Covers the cost of training for two athletes</div>
-                <a href="#" class="donate-btn-page">Donate RM500.00</a>
+                <a href="#" class="donate-btn-page">Donate RM 500.00</a>
             </div>
             
             <div class="donation-card">
                 <h3>Leader</h3>
-                <div class="donate-amount">RM1000.00</div>
+                <div class="donate-amount">RM 1,000.00</div>
                 <div class="donate-impact">Sponsors an athlete for an entire year</div>
-                <a href="#" class="donate-btn-page">Donate RM1000.00</a>
+                <a href="#" class="donate-btn-page">Donate RM 1,000.00</a>
             </div>
             
             <div class="donation-card">
                 <h3>Visionary</h3>
-                <div class="donate-amount">RM5000.00</div>
+                <div class="donate-amount">RM 5,000.00</div>
                 <div class="donate-impact">Supports an entire team's participation in local competitions</div>
-                <a href="#" class="donate-btn-page">Donate RM5000.00</a>
+                <a href="#" class="donate-btn-page">Donate RM 5,000.00</a>
             </div>
         </div>
         
         <div id="donate" class="custom-donation">
             <h2>Make a Custom Donation</h2>
-            <form class="donation-form">
-                <div class="donate-amount-selector">
-                    <button type="button" class="donate-amount-btn">RM100.00</button>
-                    <button type="button" class="donate-amount-btn">RM500.00</button>
-                    <button type="button" class="donate-amount-btn active">RM1000.00</button>
-                    <button type="button" class="donate-amount-btn">RM5000.00</button>
-
-                </div>
-                
+            <form class="donation-form">        
                 <div class="donate-custom-amount">
                     <span>RM</span>
                     <input type="number" placeholder="Other amount" min="1">
                 </div>
-                
-                <button type="submit" class="donate-btn-page">Continue to Payment</button>
+                <button type="submit" class="donate-btn-page-2">Pay via FPX</button>
             </form>
-        </div>
+        </div> -->
     </div>
     
     <section class="donate-impact-section">
@@ -129,7 +132,7 @@
         <div class="donate-testimonial-grid">
             <div class="donate-testimonial-card">
                 <p>"Seeing the joy and confidence these athletes gain through sports is priceless. My donation is an investment in human potential."</p>
-                <div class="donate-author">- Michael T., Monthly Donor</div>
+                <div class="author">- Michael T., Monthly Donor</div>
             </div>
             <div class="donate-testimonial-card">
                 <p>"Our company proudly supports Special Olympics because we believe in inclusion and the transformative power of sports."</p>
@@ -137,7 +140,7 @@
             </div>
             <div class="donate-testimonial-card">
                 <p>"As a parent of an athlete, I've witnessed firsthand how Special Olympics changes lives. I give so others can experience this too."</p>
-                <div class="donate-author">- David R., Legacy Donor</div>
+                <div class="author">- David R., Legacy Donor</div>
             </div>
         </div>
     </section>
