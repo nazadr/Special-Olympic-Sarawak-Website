@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Scripts - Admin Panel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0; 
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #60a5fa; margin-bottom: 10px; font-size: 32px; }
+        h2 { color: #34d399; margin-top: 40px; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        .subtitle { color: #94a3b8; margin-bottom: 40px; font-size: 16px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: #3b82f6;
+        }
+        .card h3 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .card .type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .type.test { background: #1e40af; color: #bfdbfe; }
+        .type.utility { background: #065f46; color: #a7f3d0; }
+        .type.debug { background: #7c2d12; color: #fed7aa; }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #2563eb; }
+        .back-btn {
+            background: #64748b;
+            margin-left: 10px;
+        }
+        .back-btn:hover { background: #475569; }
+        .info-box {
+            background: #334155;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3b82f6;
+        }
+        .info-box p { color: #cbd5e1; line-height: 1.8; }
+        .icon { font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Scripts & Utilities</h1>
+        <p class="subtitle">Admin Panel Testing and Debugging Tools</p>
+
+        <div class="info-box">
+            <p><strong>📍 Location:</strong> All test scripts are organized in the <code>test-scripts/</code> folder</p>
+            <p style="margin-top: 10px;"><strong>📌 Purpose:</strong> These scripts help test, debug, and verify the admin panel functionality without affecting production code.</p>
+        </div>
+
+        <h2>🔬 Testing Scripts</h2>
+        <div class="grid">
+            <div class="card" onclick="window.location.href='test_profile_api.php'">
+                <span class="type test">TEST</span>
+                <h3><span class="icon">🌐</span> API Endpoint Tester</h3>
+                <p>Comprehensive backend testing for profile API handler. Tests session, database, API calls, and form population.</p>
+                <a href="test_profile_api.php" class="btn" onclick="event.stopPropagation()">Run Test</a>
+            </div>
+
+            <div class="card" onclick="window.location.href='test_profile_inspector.html'">
+                <span class="type test">TEST</span>
+                <h3><span class="icon">🔍</span> Profile Inspector</h3>
+                <p>Real-time profile data flow monitoring. Watch field population, API responses, and element detection live.</p>
+                <a href="test_profile_inspector.html" class="btn" onclick="event.stopPropagation()">Open Inspector</a>
+            </div>
+
+            <div class="card" onclick="window.location.href='test_login.php'">
+                <span class="type test">TEST</span>
+                <h3><span class="icon">🔐</span> Login Credentials Test</h3>
+                <p>Verify login credentials and password hash verification. Tests database user and password compatibility.</p>
+                <a href="test_login.php" class="btn" onclick="event.stopPropagation()">Test Login</a>
+            </div>
+
+            <div class="card" onclick="window.location.href='verify_no_hardcoded.php'">
+                <span class="type test">TEST</span>
+                <h3><span class="icon">✅</span> Hardcoded Values Check</h3>
+                <p>Verify that no hardcoded values remain in profile section. Confirms data flows from database only.</p>
+                <a href="verify_no_hardcoded.php" class="btn" onclick="event.stopPropagation()">Run Check</a>
+            </div>
+        </div>
+
+        <h2>🛠️ Utility Scripts</h2>
+        <div class="grid">
+            <div class="card" onclick="window.location.href='clear_session.php'">
+                <span class="type utility">UTILITY</span>
+                <h3><span class="icon">🗑️</span> Session Cleanup</h3>
+                <p>Clear all PHP sessions and cookies. Useful for resolving session conflicts or testing fresh login.</p>
+                <a href="clear_session.php" class="btn" onclick="event.stopPropagation()">Clear Sessions</a>
+            </div>
+
+            <div class="card" onclick="window.location.href='fix_password.php'">
+                <span class="type utility">UTILITY</span>
+                <h3><span class="icon">🔧</span> Password Hash Fixer</h3>
+                <p>Generate and update password hash in database. Fixes password authentication issues.</p>
+                <a href="fix_password.php" class="btn" onclick="event.stopPropagation()">Fix Password</a>
+            </div>
+        </div>
+
+        <h2>🐛 Debug Interfaces</h2>
+        <div class="grid">
+            <div class="card" onclick="window.location.href='PROFILE_DEBUG_TEST.html'">
+                <span class="type debug">DEBUG</span>
+                <h3><span class="icon">🔍</span> Profile Debug Interface</h3>
+                <p>Interactive debug interface for profile section. Step-by-step testing with expected results.</p>
+                <a href="PROFILE_DEBUG_TEST.html" class="btn" onclick="event.stopPropagation()">Open Debug</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #334155; text-align: center;">
+            <a href="../admin_panel_soswk.php" class="btn">📋 Go to Admin Panel</a>
+            <a href="../login_page_v1.php" class="btn">🔐 Go to Login</a>
+            <a href="../documentation/README.md" class="btn back-btn">📚 View Documentation</a>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; color: #64748b; font-size: 14px;">
+            <p>Test Scripts for Special Olympics Sarawak Admin Panel</p>
+            <p style="margin-top: 5px;">Last Updated: December 12, 2025</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -25,6 +25,42 @@
             overflow-y: auto;
             min-height: 100vh;
         }
+
+        /* Video-specific styling */
+        .cg-card.videos .cg-card-thumbnail {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cg-card.videos:hover .video-play-overlay {
+            opacity: 1;
+        }
+
+        .cg-card.videos {
+            transition: transform 0.2s ease;
+        }
+
+        .cg-card.videos:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body>
@@ -111,24 +147,6 @@
             render();
         }
 
-        setupGallerySlider(
-            document.querySelector('.lg-grid'),
-            '.lp-card.videos',
-            '.gallery-arrow.left',
-            '.gallery-arrow.right',
-            getGalleryVisibleCount()
-        );
-
-        document.querySelectorAll('.cg-grid').forEach(grid => {
-            setupGallerySlider(
-                grid,
-                '.cg-card.videos',
-                '.gallery-arrow.left',
-                '.gallery-arrow.right',
-                getGalleryVisibleCount()
-            );
-        });
-
         // Fetch video collections
         document.addEventListener('DOMContentLoaded', ()=>{
             const container = document.querySelector('.category-gallery');
@@ -153,15 +171,32 @@
                                     </div>`;
                                 const track = wrap.querySelector('.gallery-track');
                                 items.videos.forEach(v=>{
-                                    const card=document.createElement('a');
-                                    card.href = v.video_path;
+                                    const card=document.createElement('div');
                                     card.className='cg-card videos';
+                                    card.onclick = () => {
+                                        // Open video in the dedicated player page
+                                        window.location.href = `video-player.php?id=${v.id}`;
+                                    };
                                     card.innerHTML = `
-                                        <div class="cg-card-thumbnail"><img src="${v.cover_path}" alt="${v.title}"></div>
+                                        <div class="cg-card-thumbnail">
+                                            <img src="${v.cover_path}" alt="${v.title}">
+                                            <div class="video-play-overlay">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
                                         <div class="cg-card-title"><p>${v.title}</p></div>`;
                                     track.appendChild(card);
                                 });
                                 container.appendChild(wrap);
+                                
+                                // Setup slider for this new collection
+                                setupGallerySlider(
+                                    wrap.querySelector('.cg-grid'),
+                                    '.cg-card.videos',
+                                    '.gallery-arrow.left',
+                                    '.gallery-arrow.right',
+                                    getGalleryVisibleCount()
+                                );
                             });
                     });
                 });

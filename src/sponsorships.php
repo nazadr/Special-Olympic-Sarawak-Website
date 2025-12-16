@@ -393,7 +393,7 @@
                     }
                 })
                 .catch(error => {
-                    console.error('Error fetching sponsorships:', error);
+                    // Error fetching sponsorships
                     document.querySelector('.sponsors-grid').innerHTML = '<div class="empty-state">Failed to load sponsorships.</div>';
                 });
         });

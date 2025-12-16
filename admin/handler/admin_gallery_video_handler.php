@@ -85,20 +85,24 @@ if ($action==='add_video'){
     }
 
     $vOrig = safeName($_FILES['galleryVideo']['name']);
-    $vPath = $videoDir . time().'_'.$vOrig;
-    if (!move_uploaded_file($_FILES['galleryVideo']['tmp_name'],$vPath)){
+    $vFilename = time().'_'.$vOrig;
+    $vPathPhysical = $videoDir . $vFilename;
+    $vPathWeb = '../assets/videos/gallery_videos_upload/' . $vFilename;
+    if (!move_uploaded_file($_FILES['galleryVideo']['tmp_name'],$vPathPhysical)){
         echo json_encode(['success'=>false,'message'=>'Video upload fail']); exit;
     }
 
     $cOrig = safeName($_FILES['galleryVideoImage']['name']);
-    $cPath = $coverDir . time().'_'.$cOrig;
-    if (!move_uploaded_file($_FILES['galleryVideoImage']['tmp_name'],$cPath)){
-        @unlink($vPath);
+    $cFilename = time().'_'.$cOrig;
+    $cPathPhysical = $coverDir . $cFilename;
+    $cPathWeb = '../assets/videos/gallery_videos_upload/covers/' . $cFilename;
+    if (!move_uploaded_file($_FILES['galleryVideoImage']['tmp_name'],$cPathPhysical)){
+        @unlink($vPathPhysical);
         echo json_encode(['success'=>false,'message'=>'Cover upload fail']); exit;
     }
 
     $stmt=$conn->prepare("INSERT INTO gallery_videos (collection_id,video_path,cover_path,title,description) VALUES (?,?,?,?,?)");
-    $stmt->bind_param('issss',$cid,$vPath,$cPath,$title,$description);
+    $stmt->bind_param('issss',$cid,$vPathWeb,$cPathWeb,$title,$description);
     if ($stmt->execute()) echo json_encode(['success'=>true,'message'=>'Video added']); else echo json_encode(['success'=>false,'message'=>'DB fail']);
     exit;
 }
@@ -108,7 +112,10 @@ if ($action==='delete_video'){
     $stmt=$conn->prepare("SELECT video_path,cover_path FROM gallery_videos WHERE id=?");
     $stmt->bind_param('i',$id); $stmt->execute(); $r=$stmt->get_result()->fetch_assoc();
     if (!$r){ echo json_encode(['success'=>false,'message'=>'Not found']); exit; }
-    @unlink($r['video_path']); @unlink($r['cover_path']);
+    // Convert web paths back to physical paths for deletion
+    $vPhysical = str_replace('../assets/videos/gallery_videos_upload/', $videoDir, $r['video_path']);
+    $cPhysical = str_replace('../assets/videos/gallery_videos_upload/covers/', $coverDir, $r['cover_path']);
+    @unlink($vPhysical); @unlink($cPhysical);
     $d=$conn->prepare("DELETE FROM gallery_videos WHERE id=?");
     $d->bind_param('i',$id); $d->execute();
     echo json_encode(['success'=>true]); exit;
@@ -118,10 +125,41 @@ if ($action==='delete_collection'){
     $cid=(int)($_POST['id'] ?? 0);
     $stmt=$conn->prepare("SELECT video_path,cover_path FROM gallery_videos WHERE collection_id=?");
     $stmt->bind_param('i',$cid); $stmt->execute(); $res=$stmt->get_result();
-    while($row=$res->fetch_assoc()){ @unlink($row['video_path']); @unlink($row['cover_path']); }
+    while($row=$res->fetch_assoc()){ 
+        // Convert web paths back to physical paths for deletion
+        $vPhysical = str_replace('../assets/videos/gallery_videos_upload/', $videoDir, $row['video_path']);
+        $cPhysical = str_replace('../assets/videos/gallery_videos_upload/covers/', $coverDir, $row['cover_path']);
+        @unlink($vPhysical); @unlink($cPhysical); 
+    }
     $del=$conn->prepare("DELETE FROM gallery_videos_collection WHERE id=?");
     $del->bind_param('i',$cid); $del->execute();
     echo json_encode(['success'=>true]); exit;
+}
+
+if ($action==='get_video'){
+    $id = (int)($_GET['id'] ?? 0);
+    if ($id === 0) {
+        echo json_encode(['success'=>false,'message'=>'Invalid video ID']); 
+        exit;
+    }
+    
+    $stmt = $conn->prepare("
+        SELECT v.id, v.title, v.description, v.video_path, v.cover_path, 
+               c.name as collection_name, c.description as collection_description
+        FROM gallery_videos v 
+        LEFT JOIN gallery_videos_collection c ON v.collection_id = c.id 
+        WHERE v.id = ?
+    ");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($row = $result->fetch_assoc()) {
+        echo json_encode(['success'=>true,'video'=>$row]); 
+    } else {
+        echo json_encode(['success'=>false,'message'=>'Video not found']); 
+    }
+    exit;
 }
 
 echo json_encode(['success'=>false,'message'=>'Invalid action']);

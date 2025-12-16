@@ -268,16 +268,16 @@ document.addEventListener('DOMContentLoaded', function () {
         videoInput.addEventListener('change', () => {
             if (videoInput.files && videoInput.files[0]) {
                 const f = videoInput.files[0];
-                statusSpan.textContent = `Ready: ${f.name} (${(f.size / 1048576).toFixed(2)} MB)`;
+                statusSpan.textContent = `${f.name} (${(f.size / 1048576).toFixed(2)} MB)`;
                 delVideoBtn.style.display = 'inline-block';
             } else {
-                statusSpan.textContent = 'No file selected.';
+                statusSpan.textContent = 'No file selected';
                 delVideoBtn.style.display = 'none';
             }
         });
         delVideoBtn.addEventListener('click', () => {
             videoInput.value = '';
-            statusSpan.textContent = 'No file selected.';
+            statusSpan.textContent = 'No file selected';
             delVideoBtn.style.display = 'none';
         });
     }
@@ -286,25 +286,31 @@ document.addEventListener('DOMContentLoaded', function () {
         delCoverBtn.style.display = 'none';
         coverInput.addEventListener('change', () => {
             if (coverInput.files && coverInput.files[0]) {
-                coverStatus.textContent = coverInput.files[0].name;
+                const f = coverInput.files[0];
+                coverStatus.textContent = f.name;
                 const fr = new FileReader();
                 fr.onload = e => {
-                    coverPreview.src = e.target.result;
-                    coverPreview.style.display = 'block';
+                    const previewImg = coverPreview.querySelector('img');
+                    if (previewImg) {
+                        previewImg.src = e.target.result;
+                        coverPreview.style.display = 'block';
+                    }
                 };
-                fr.readAsDataURL(coverInput.files[0]);
+                fr.readAsDataURL(f);
                 delCoverBtn.style.display = 'inline-block';
             } else {
-                coverStatus.textContent = 'No file selected.';
-                coverPreview.src = '';
+                coverStatus.textContent = 'No file selected';
+                const previewImg = coverPreview.querySelector('img');
+                if (previewImg) previewImg.src = '';
                 coverPreview.style.display = 'none';
                 delCoverBtn.style.display = 'none';
             }
         });
         delCoverBtn.addEventListener('click', () => {
             coverInput.value = '';
-            coverStatus.textContent = 'No file selected.';
-            coverPreview.src = '';
+            coverStatus.textContent = 'No file selected';
+            const previewImg = coverPreview.querySelector('img');
+            if (previewImg) previewImg.src = '';
             coverPreview.style.display = 'none';
             delCoverBtn.style.display = 'none';
         });
@@ -333,15 +339,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (xhr.readyState === 4) {
                     try {
                         const d = JSON.parse(xhr.responseText);
-                        alert(d.message || (d.success ? 'Uploaded' : 'Failed'));
+                        alert(d.message || (d.success ? 'Video uploaded successfully!' : 'Upload failed'));
                         if (d.success) {
-                            statusSpan.textContent = videoInput.files[0].name;
+                            // Reset form and hide modal
                             videoForm.reset();
+                            statusSpan.textContent = 'No file selected';
+                            coverStatus.textContent = 'No file selected';
+                            const previewImg = coverPreview.querySelector('img');
+                            if (previewImg) previewImg.src = '';
                             coverPreview.style.display = 'none';
-                            coverStatus.textContent = 'No file selected.';
                             delVideoBtn.style.display = 'none';
                             delCoverBtn.style.display = 'none';
+                            
+                            // Close modal
+                            if (typeof closeVideoModal === 'function') {
+                                closeVideoModal();
+                            }
+                            
+                            // Reload videos and collections
                             loadPublishedVideos();
+                            populateVideoCollections();
                         }
                     } catch (e) { alert('Upload failed'); }
                 }

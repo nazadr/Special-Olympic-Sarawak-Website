@@ -786,237 +786,15 @@
         <h2>Participants Overview</h2>
         <!-- Displays the whole participants based on the total of (Athletes/UP + Coaches + Volunteers)-->
         <div class="chapter-overall-container">
-            <div class="chapter-overall-grid">
-                <!-- SO Kuching Chapter -->
-                <div class="chapter-overall-card">
-                    <h3>Kuching Chapter</h3>
-                    <p>Total participants:</p>
-                    <p class="coc-num">470</p>
-                </div>
-                <!-- SO Samarahan Chapter -->
-                <div class="chapter-overall-card">
-                    <h3>Samarahan Chapter</h3>
-                    <p>Total participants:</p>
-                    <p class="coc-num">90</p>
-                </div>
-                <!-- SO Sibu Chapter-->
-                <div class="chapter-overall-card">
-                    <h3>Sibu Chapter</h3>
-                    <p>Total participants:</p>
-                    <p class="coc-num">290</p>
-                </div>
-                <!-- SO Bintulu Chapter -->
-                <div class="chapter-overall-card">
-                    <h3>Bintulu Chapter</h3>
-                    <p>Total participants:</p>
-                    <p class="coc-num">314</p>
-                </div>
-                <!-- SO Miri Chapter -->
-                <div class="chapter-overall-card">
-                    <h3>Miri Chapter</h3>
-                    <p>Total participants:</p>
-                    <p class="coc-num">205</p>
-                </div>
+            <div class="chapter-overall-grid" id="dynamicChapterOverview">
+                <!-- Dynamic chapter overview cards will be loaded here -->
+                <p style="text-align: center; color: #666;">Loading participant data...</p>
             </div>
         </div>
         <div class="chapter-overview-container">
-            <div class="chapter-table-wrapper">
-                
-                <!-- SO Kuching Chapter Card -->
-                <div class="chapter-card">
-                    <img src="../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png" alt="SO Kuching Chapter Logo" class="chapter-logo">
-                    <h3>SO Kuching Chapter</h3>
-                    <table class="analytics-table chapter-summary-table">
-                        <thead>
-                            <tr>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Athletes / Unified Partners</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Coaches</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Volunteers</th>
-                            </tr>
-                            <tr>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>160</td>
-                                <td>140</td>
-                                <td style="font-weight: bold;">300</td>
-                                <td>27</td>
-                                <td>23</td>
-                                <td style="font-weight: bold;">50</td>
-                                <td>72</td>
-                                <td>48</td>
-                                <td style="font-weight: bold;">120</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- SO Samarahan Chapter Card -->
-                <div class="chapter-card">
-                    <img src="../assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png" alt="SO Samarahan Chapter Logo" class="chapter-logo">
-                    <h3>SO Samarahan Chapter (Upcoming)</h3>
-                    <table class="analytics-table chapter-summary-table">
-                        <thead>
-                            <tr>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Athletes / Unified Partners</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Coaches</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Volunteers</th>
-                            </tr>
-                            <tr>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>28</td>
-                                <td>22</td>
-                                <td style="font-weight: bold;">50</td>
-                                <td>6</td>
-                                <td>4</td>
-                                <td style="font-weight: bold;">10</td>
-                                <td>18</td>
-                                <td>12</td>
-                                <td style="font-weight: bold;">30</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- SO Sibu Chapter -->
-                <div class="chapter-card">
-                    <img src="../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png" alt="SO Sibu Chapter Logo" class="chapter-logo">
-                    <h3>SO Sibu Chapter</h3>
-                    <table class="analytics-table chapter-summary-table">
-                        <thead>
-                            <tr>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Athletes / Unified Partners</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Coaches</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Volunteers</th>
-                            </tr>
-                            <tr>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>74</td>
-                                <td>106</td>
-                                <td style="font-weight: bold;">180</td>
-                                <td>13</td>
-                                <td>17</td>
-                                <td style="font-weight: bold;">30</td>
-                                <td>43</td>
-                                <td>37</td>
-                                <td style="font-weight: bold;">80</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- SO Bintulu Chapter -->
-                <div class="chapter-card">
-                    <img src="../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png" alt="SO Bintulu Chapter Logo" class="chapter-logo">
-                    <h3>SO Bintulu Chapter</h3>
-                    <table class="analytics-table chapter-summary-table">
-                        <thead>
-                            <tr>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Athletes / Unified Partners </th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Coaches</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Volunteers</th>
-                            </tr>
-                            <tr>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>93</td>
-                                <td>81</td>
-                                <td style="font-weight: bold;">174</td>
-                                <td>22</td>
-                                <td>18</td>
-                                <td style="font-weight: bold;">40</td>
-                                <td>55</td>
-                                <td>45</td>
-                                <td style="font-weight: bold;">100</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- SO Miri Chapter -->
-                <div class="chapter-card">
-                    <img src="../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png" alt="SO Miri Chapter Logo" class="chapter-logo">
-                    <h3>SO Miri Chapter</h3>
-                    <table class="analytics-table chapter-summary-table">
-                        <thead>
-                            <tr>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Athletes / Unified Partners</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Coaches</th>
-                                <th colspan="3" style="background-color: var(--maincategory-color);">Volunteers</th>
-                            </tr>
-                            <tr>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                                <th>M</th>
-                                <th>F</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>59</td>
-                                <td>61</td>
-                                <td style="font-weight: bold;">120</td>
-                                <td>12</td>
-                                <td>13</td>
-                                <td style="font-weight: bold;">25</td>
-                                <td>33</td>
-                                <td>27</td>
-                                <td style="font-weight: bold;">60</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+            <div class="chapter-table-wrapper" id="dynamicChapterDetails">
+                <!-- Dynamic detailed participant tables will be loaded here -->
+                <p style="text-align: center; color: #666;">Loading detailed participant data...</p>
             </div>
         <p><span style="color: #e53935;">* </span><strong>M</strong> = Male | <strong>F</strong> = Female</p>
         </div>
@@ -1027,8 +805,89 @@
             const mapContainer = document.querySelector('.map-container');
             const sarawakMap = document.querySelector('.sarawak-map');
 
-            // Pinpoint data with initial positions (adjust these values)
-            const pinpointsData = [
+            // Pinpoint data will be loaded from database
+            let pinpointsData = [];
+
+            // Fetch pinpoint data from database - THE 5 KEY DATA POINTS
+            async function fetchPinpointData() {
+                try {
+                    const response = await fetch('../admin/handler/admin_chapters_handler.php?action=fetch_pinpoint_data');
+                    const data = await response.json();
+                    
+                    if (data.success && data.pinpoint_data) {
+                        // Map database data to pinpoint format with the 5 key data points
+                        pinpointsData = data.pinpoint_data.map(chapter => ({
+                            id: getChapterMapId(chapter.chapter_name, chapter.city),
+                            name: chapter.chapter_name,
+                            logo: chapter.logo_path || '../assets/images/Remake/SO Sarawak Chapter BG - Official logo.png',
+                            // DATA POINT 1: Chairman name
+                            chairman: chapter.chairman,
+                            // DATA POINT 2: Vice Chairman name  
+                            vice_chairman: chapter.vice_chairman,
+                            // DATA POINT 3: Secretary name
+                            secretary: chapter.secretary,
+                            // DATA POINT 4: Treasurer name
+                            treasurer: chapter.treasurer,
+                            // DATA POINT 5: Participant statistics (Athletes, Coaches, Volunteers)
+                            athletes: chapter.total_athletes,
+                            coaches: chapter.total_coaches,
+                            volunteers: chapter.total_volunteers,
+                            status: chapter.status,
+                            top: '50%', // Default position, will be updated based on chapter
+                            left: '50%'
+                        }));
+                        
+                        // Set specific positions for each chapter
+                        setChapterPositions();
+                        // Initialize pinpoints after data is loaded
+                        initializePinpoints();
+                        // Populate participant overview sections
+                        populateParticipantOverview(data.pinpoint_data);
+                        populateDetailedParticipants(data.pinpoint_data);
+                    } else {
+                        console.error('Failed to fetch pinpoint data:', data.message);
+                        pinpointsData = [];
+                    }
+                } catch (error) {
+                    console.error('Error fetching pinpoint data:', error);
+                    pinpointsData = [];
+                }
+            }
+
+            // Map chapter names to consistent IDs for positioning
+            function getChapterMapId(chapterName, city) {
+                const name = chapterName.toLowerCase();
+                const cityLower = city.toLowerCase();
+                
+                if (name.includes('miri') || cityLower.includes('miri')) return 'miri';
+                if (name.includes('bintulu') || cityLower.includes('bintulu')) return 'bintulu';
+                if (name.includes('sibu') || cityLower.includes('sibu')) return 'sarawak-sibu';
+                if (name.includes('kuching') || cityLower.includes('kuching')) return 'kuching';
+                if (name.includes('samarahan') || cityLower.includes('samarahan')) return 'samarahan';
+                
+                return name.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            }
+
+            // Set positions for each chapter based on their ID
+            function setChapterPositions() {
+                const desktopPositions = {
+                    'miri': {top: '59%', left: '67%'},
+                    'bintulu': {top: '70%', left: '56%'},
+                    'sarawak-sibu': {top: '79%', left: '39%'},
+                    'kuching': {top: '86%', left: '20%'},
+                    'samarahan': {top: '87%', left: '24%'}
+                };
+                
+                pinpointsData.forEach(chapter => {
+                    if (desktopPositions[chapter.id]) {
+                        chapter.top = desktopPositions[chapter.id].top;
+                        chapter.left = desktopPositions[chapter.id].left;
+                    }
+                });
+            }
+
+            // Legacy array for compatibility - now empty since we fetch from database
+            const legacyPinpointsData = [
                 {
                     id: 'miri',
                     name: 'SO Miri Chapter',
@@ -1160,7 +1019,10 @@
                 infoBox.innerHTML = `
                     <h4>${data.name}</h4>
                     <img src="${data.logo}" alt="${data.name} Logo">
-                    <p>${data.description}</p>
+                    <p><strong>Chairman:</strong><br>${data.chairman}</p>
+                    <p><strong>Vice Chairman:</strong><br>${data.vice_chairman}</p>
+                    <p><strong>Secretary:</strong><br>${data.secretary}</p>
+                    <p><strong>Treasurer:</strong><br>${data.treasurer}</p>
                     <div class="pinpoint-stats">
                         <div><i class="fa-solid fa-person-running" style="margin: 0 6px 0 2px;"></i> Athletes: ${data.athletes}</div>
                         <div><i class="fa-solid fa-user-tie" style="margin: 0 6px 0 2px;"></i> Coaches: ${data.coaches}</div>
@@ -1260,11 +1122,93 @@
                 handleResponsivePinpoints();
             });
 
-            // Create all pinpoints
-            pinpointsData.forEach(data => createPinpoint(data));
+            // Initialize pinpoints after data is fetched
+            function initializePinpoints() {
+                // Create all pinpoints
+                pinpointsData.forEach(data => createPinpoint(data));
+                
+                // Setup responsive handling
+                setupMobilePinpointBar();
+                handleResponsivePinpoints();
+            }
 
-            // Initial run
-            setupMobilePinpointBar();
+            // Function to populate participant overview cards
+            function populateParticipantOverview(chapters) {
+                const container = document.getElementById('dynamicChapterOverview');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                chapters.forEach(chapter => {
+                    const card = document.createElement('div');
+                    card.classList.add('chapter-overall-card');
+                    
+                    const displayName = chapter.chapter_name.replace('SO ', '');
+                    const statusText = chapter.status === 'upcoming' ? ' (Upcoming)' : '';
+                    
+                    card.innerHTML = `
+                        <h3>${displayName}${statusText}</h3>
+                        <p>Total participants:</p>
+                        <p class="coc-num">${chapter.total_participants}</p>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            // Function to populate detailed participant tables
+            function populateDetailedParticipants(chapters) {
+                const container = document.getElementById('dynamicChapterDetails');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                chapters.forEach(chapter => {
+                    const card = document.createElement('div');
+                    card.classList.add('chapter-card');
+                    
+                    const statusText = chapter.status === 'upcoming' ? ' (Upcoming)' : '';
+                    
+                    card.innerHTML = `
+                        <img src="${chapter.logo_path}" alt="${chapter.chapter_name} Logo" class="chapter-logo">
+                        <h3>${chapter.chapter_name}${statusText}</h3>
+                        <table class="analytics-table chapter-summary-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" style="background-color: var(--maincategory-color);">Athletes / Unified Partners</th>
+                                    <th colspan="3" style="background-color: var(--maincategory-color);">Coaches</th>
+                                    <th colspan="3" style="background-color: var(--maincategory-color);">Volunteers</th>
+                                </tr>
+                                <tr>
+                                    <th>M</th>
+                                    <th>F</th>
+                                    <th>Total</th>
+                                    <th>M</th>
+                                    <th>F</th>
+                                    <th>Total</th>
+                                    <th>M</th>
+                                    <th>F</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>${chapter.athletes_male}</td>
+                                    <td>${chapter.athletes_female}</td>
+                                    <td style="font-weight: bold;">${chapter.total_athletes}</td>
+                                    <td>${chapter.coaches_male}</td>
+                                    <td>${chapter.coaches_female}</td>
+                                    <td style="font-weight: bold;">${chapter.total_coaches}</td>
+                                    <td>${chapter.volunteers_male}</td>
+                                    <td>${chapter.volunteers_female}</td>
+                                    <td style="font-weight: bold;">${chapter.total_volunteers}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            // Fetch data from database and initialize pinpoints
+            fetchPinpointData();
             handleResponsivePinpoints();
             updatePinpointPositions();
         });

@@ -610,7 +610,7 @@
                         renderCalendar();
                         renderHighlightedEvents();
                     } else {
-                        console.error('Failed to fetch events:', data.message);
+                        // Failed to fetch events
                         allEvents = placeholderEvents.map(event => ({
                             ...event,
                             date: new Date(event.event_date + 'T00:00:00')
@@ -619,7 +619,7 @@
                         renderHighlightedEvents();
                     }
                 } catch (error) {
-                    console.error('Error fetching events:', error);
+                    // Error fetching events
                     allEvents = placeholderEvents.map(event => ({
                         ...event,
                         date: new Date(event.event_date + 'T00:00:00')
@@ -781,7 +781,7 @@
                 document.getElementById('modal-description').textContent = event.description;
                 const modalImage = document.getElementById('modal-image');
                 //              Custom image || Placeholder image if none provided
-                modalImage.src = event.image_path || "../assets/images/SOS_modalimage-default.png";
+                modalImage.src = event.image_path ? (event.image_path.startsWith('../') ? event.image_path : '../' + event.image_path) : "../assets/images/SOS_modalimage-default.png";
                 modalImage.alt = `${event.title}: ${event.description.substring(0, 100)}`;
                 document.getElementById('modal-date').textContent = 'Date: ' + event.date.toLocaleDateString('ms-MY', {
                     // weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'

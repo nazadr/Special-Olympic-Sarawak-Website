@@ -120,16 +120,6 @@
             getGalleryVisibleCount()
         );
 
-        document.querySelectorAll('.cg-grid').forEach(grid => {
-            setupGallerySlider(
-                grid,
-                '.cg-card',
-                '.gallery-arrow.left',
-                '.gallery-arrow.right',
-                getGalleryVisibleCount()
-            );
-        });
-
         // Fetch photo collections
         document.addEventListener('DOMContentLoaded', ()=>{
             const photoForm = document.getElementById('galleryPhoto');
@@ -146,7 +136,7 @@
                     })
                     .then(r => r.json())
                     .then(d => {
-                        alert(d.message || (d.success ? 'Uploaded' : 'Failed'));
+                        // Upload completed
                     });
                 });
             };
@@ -155,14 +145,27 @@
             fetch('../admin/handler/admin_gallery_photo_handler.php?action=fetch_collections')
                 .then(r=>r.json())
                 .then(d=>{
-                    if (!d.success) return;
-                    d.collections.forEach(col=>{
-                        fetch(`../admin/handler/admin_gallery_photo_handler.php?action=fetch_items&collection_id=${col.id}`)
-                            .then(r=>r.json())
-                            .then(items=>{
-                                if (!items.success) return;
-                                const wrap=document.createElement('div');
-                                wrap.className='cg-container';
+                    if (!d.success || !d.collections) {
+                        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><p>No photo collections available at the moment.</p></div>';
+                        return;
+                    }
+                    
+                    if (d.collections.length === 0) {
+                        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><p>No photo collections found.</p></div>';
+                        return;
+                    }
+                    
+                    // Process collections sequentially to maintain order
+                    const processCollections = async () => {
+                        for (const col of d.collections) {
+                            try {
+                                const itemsResponse = await fetch(`../admin/handler/admin_gallery_photo_handler.php?action=fetch_items&collection_id=${col.id}`);
+                                const items = await itemsResponse.json();
+                                
+                                if (!items.success || !items.photos || items.photos.length === 0) continue;
+                                
+                                const wrap = document.createElement('div');
+                                wrap.className = 'cg-container';
                                 wrap.innerHTML = `
                                     <h2>${col.name}</h2>
                                     <p>${col.description || ''}</p>
@@ -171,16 +174,37 @@
                                         <button class="gallery-arrow right" aria-label="Next"><i class="fa-solid fa-angle-right"></i></button>
                                         <div class="gallery-track photos"></div>
                                     </div>`;
+                                
                                 const track = wrap.querySelector('.gallery-track');
-                                items.photos.forEach(p=>{
-                                    const card=document.createElement('div');
-                                    card.className='cg-card';
+                                // Photos are already ordered by sort_order in the handler
+                                items.photos.forEach(p => {
+                                    const card = document.createElement('div');
+                                    card.className = 'cg-card';
                                     card.innerHTML = `<a href="${p.image_path}"><img src="${p.image_path}" alt=""></a>`;
                                     track.appendChild(card);
                                 });
+                                
                                 container.appendChild(wrap);
-                            });
-                    });
+                                
+                                // Setup gallery slider for this newly added grid
+                                setupGallerySlider(
+                                    wrap.querySelector('.cg-grid'),
+                                    '.cg-card',
+                                    '.gallery-arrow.left',
+                                    '.gallery-arrow.right',
+                                    getGalleryVisibleCount()
+                                );
+                            } catch (error) {
+                                // Error processing collection
+                            }
+                        }
+                    };
+                    
+                    processCollections();
+                })
+                .catch(error => {
+                    // Error fetching collections
+                    container.innerHTML = '<div style="text-align: center; padding: 40px; color: #e74c3c;"><p>Failed to load gallery collections. Please try again later.</p></div>';
                 });
         });
     </script>

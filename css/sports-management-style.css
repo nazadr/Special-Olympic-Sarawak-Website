@@ -1,0 +1,489 @@
+/* =====================================================
+   SPORTS MANAGEMENT - Enhanced Styles
+   ===================================================== */
+
+/* Sports Controls - Search & Sort */
+.sports-controls {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.sports-search {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+.sports-search i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.sports-search-input {
+    width: 100%;
+    padding: 12px 14px 12px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.sports-search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.sports-search-input::placeholder {
+    color: #94a3b8;
+}
+
+.sports-sort {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.sports-sort label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sports-sort label i {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.sports-sort-select {
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.sports-sort-select:hover {
+    border-color: #cbd5e1;
+}
+
+.sports-sort-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Sport List Header */
+.sport-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.sport-list-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sport-count-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.sport-view-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.drag-mode-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.drag-mode-info i {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.sport-view-toggle {
+    display: flex;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+/* Sports Grid View */
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Sports List View */
+.sports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Sport Card - Grid View */
+.sport-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: move;
+    position: relative;
+}
+
+.sport-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.sport-card.sortable-ghost {
+    opacity: 0.4;
+}
+
+.sport-card.sortable-drag {
+    opacity: 0.8;
+    transform: rotate(2deg);
+}
+
+.sport-card-drag-handle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    cursor: move;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.sport-card-drag-handle:hover {
+    background: white;
+    color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sport-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.sport-card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sport-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.sport-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.sport-order-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #e0f2fe;
+    color: #0369a1;
+    white-space: nowrap;
+}
+
+.sport-card-description {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sport-card-actions {
+    display: flex;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sport-action-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+.sport-action-btn.edit {
+    background: #eff6ff;
+    color: #3b82f6;
+}
+
+.sport-action-btn.edit:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.sport-action-btn.delete {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.sport-action-btn.delete:hover {
+    background: #ef4444;
+    color: white;
+}
+
+/* Sport Item - List View */
+.sport-item {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: move;
+    position: relative;
+}
+
+.sport-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sport-item.sortable-ghost {
+    opacity: 0.4;
+}
+
+.sport-item-drag-handle {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #cbd5e1;
+    font-size: 20px;
+    cursor: move;
+    transition: color 0.2s ease;
+}
+
+.sport-item:hover .sport-item-drag-handle {
+    color: #3b82f6;
+}
+
+.sport-item-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    margin-left: 40px;
+}
+
+.sport-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sport-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.sport-item-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.sport-item-description {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 8px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sport-item-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+/* Empty State */
+.sports-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #64748b;
+}
+
+.sports-empty-state i {
+    font-size: 48px;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.sports-empty-state h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #475569;
+    margin: 0 0 8px 0;
+}
+
+.sports-empty-state p {
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Sortable Placeholder */
+.sortable-chosen {
+    opacity: 0.5;
+}
+
+.sortable-fallback {
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sports-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sports-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sports-search {
+        max-width: 100%;
+    }
+    
+    .sports-sort {
+        width: 100%;
+    }
+    
+    .sports-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sport-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .sport-view-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .sport-item {
+        flex-direction: column;
+    }
+    
+    .sport-item-image {
+        width: 100%;
+        height: 180px;
+        margin-left: 0;
+    }
+    
+    .sport-item-drag-handle {
+        top: 20px;
+        transform: none;
+    }
+}

@@ -19,7 +19,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($row = $res->fetch_assoc()) {
         if (password_verify($password, $row['password'])) {
+            // Regenerate session ID for security
+            session_regenerate_id(true);
+            
+            // Store user information in session
             $_SESSION['user'] = $row['fullname'];
+            $_SESSION['admin_id'] = $row['id'];
+            $_SESSION['admin_email'] = $row['email'];
+            $_SESSION['last_activity'] = time();
+            $_SESSION['login_time'] = time();
+            $_SESSION['session_timeout'] = 1800; // 30 minutes default
+            
+            // Log successful login (optional - only if table exists)
+            try {
+                $login_ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+                $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+                
+                // Check if the activity logs table exists first
+                $table_check = $conn->query("SHOW TABLES LIKE 'admin_activity_logs'");
+                if ($table_check && $table_check->num_rows > 0) {
+                    // Try to log to activity table if it exists
+                    $log_stmt = $conn->prepare("INSERT INTO admin_activity_logs (user_id, action, description, ip_address, user_agent, created_at) VALUES (?, 'login', ?, ?, ?, NOW())");
+                    $login_description = 'Successful login from ' . $login_ip;
+                    if ($log_stmt) {
+                        $log_stmt->bind_param("isss", $row['id'], $login_description, $login_ip, $user_agent);
+                        $log_stmt->execute();
+                        $log_stmt->close();
+                    }
+                }
+            } catch (mysqli_sql_exception $e) {
+                // Silently handle any database errors during login logging
+                // Don't prevent login if logging fails
+            }
+            
             header("Location: admin_panel_soswk.php");
             exit();
         } else {
@@ -31,6 +63,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt->close();
     $conn->close();
+}
+
+// Handle messages from URL parameters
+$message = '';
+if (isset($_GET['message'])) {
+    switch($_GET['message']) {
+        case 'logged_out':
+            $message = "You have been successfully logged out.";
+            break;
+    }
+}
+
+// Handle error messages from URL parameters
+if (isset($_GET['error'])) {
+    switch($_GET['error']) {
+        case 'not_logged_in':
+            $error = "Please log in to access the admin panel.";
+            break;
+        case 'session_expired':
+            $error = "Your session has expired. Please log in again.";
+            break;
+        case 'access_denied':
+            $error = "Access denied. Please log in with valid credentials.";
+            break;
+        default:
+            $error = "An error occurred. Please try logging in again.";
+    }
+}
+
+// Check if already logged in
+if (isset($_SESSION['user']) && isset($_SESSION['admin_id'])) {
+    header("Location: admin_panel_soswk.php");
+    exit();
 }
 ?>
 
@@ -233,6 +298,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <img src="../assets/images/master_logo_front.png" alt="Special Olympics Sarawak logo" />
             <h2>Special Olympics Sarawak Admin Webmaster</h2>
             <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+            <?php if (!empty($message)) echo "<p style='color:green;'>$message</p>"; ?>
             <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success') echo "<p style='color:green;'>Signup successful! Please log in.</p>"; ?>
         </div>
         <form method="POST" action="">

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Section Debug Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            padding: 40px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        .status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .test-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .test-step {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #3b82f6;
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .test-step strong {
+            color: #1e293b;
+        }
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        .code-block .keyword {
+            color: #f472b6;
+        }
+        .code-block .string {
+            color: #86efac;
+        }
+        .code-block .comment {
+            color: #94a3b8;
+        }
+        .expected {
+            background: #dcfce7;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .expected-title {
+            font-weight: 600;
+            color: #065f46;
+            margin-bottom: 8px;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checklist li:before {
+            content: '☐';
+            font-size: 18px;
+            color: #64748b;
+        }
+        .checklist li.checked:before {
+            content: '✓';
+            color: #10b981;
+        }
+        .issue-box {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .issue-title {
+            font-weight: 600;
+            color: #991b1b;
+            margin-bottom: 8px;
+        }
+        .fix-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .fix-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        .btn.secondary {
+            background: #64748b;
+        }
+        .btn.secondary:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 Profile Section Debug Test</h1>
+            <p style="color: #64748b; margin-bottom: 15px;">Verify profile data loading is working correctly</p>
+            <span class="status success">✓ FIX IMPLEMENTED</span>
+        </div>
+
+        <!-- Issue Identified -->
+        <div class="test-section">
+            <h2>🔍 Issue Identified</h2>
+            <div class="issue-box">
+                <div class="issue-title">Problem:</div>
+                <p>Profile data was not loading when navigating to the Profile section from the sidebar.</p>
+            </div>
+            <div class="issue-box">
+                <div class="issue-title">Root Cause:</div>
+                <p><code>loadProfileData()</code> was called on page load but the Profile section was hidden (Dashboard is default). The function never triggered when actually navigating to Profile via the sidebar menu.</p>
+            </div>
+        </div>
+
+        <!-- Solution Implemented -->
+        <div class="test-section">
+            <h2>✅ Solution Implemented</h2>
+            <div class="fix-box">
+                <div class="fix-title">Fix 1: Hook into Navigation</div>
+                <p>Added profile data loading when navigating to the profile section:</p>
+            </div>
+            <div class="code-block">
+<span class="keyword">function</span> <span class="string">navigateToSection</span>(sectionId) {
+    <span class="comment">// ... navigation code ...</span>
+    
+    <span class="comment">// Load profile data when navigating to profile section</span>
+    <span class="keyword">if</span> (sectionId === <span class="string">'profile'</span>) {
+        console.log(<span class="string">'Navigating to profile section, loading data...'</span>);
+        setTimeout(() => {
+            <span class="keyword">if</span> (<span class="keyword">typeof</span> loadProfileData === <span class="string">'function'</span>) {
+                loadProfileData();
+            }
+        }, <span class="string">100</span>);
+    }
+}
+            </div>
+
+            <div class="fix-box">
+                <div class="fix-title">Fix 2: Optimize Initial Load</div>
+                <p>Only load profile data if section is already visible (e.g., page refresh on Profile):</p>
+            </div>
+            <div class="code-block">
+document.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="keyword">function</span>() {
+    <span class="keyword">const</span> profileSection = document.getElementById(<span class="string">'profile'</span>);
+    <span class="keyword">if</span> (profileSection && profileSection.classList.contains(<span class="string">'active'</span>)) {
+        <span class="comment">// Load data only if already on profile page</span>
+        loadProfileData();
+    } <span class="keyword">else</span> {
+        console.log(<span class="string">'Profile section not active, data will load on navigation'</span>);
+    }
+});
+            </div>
+        </div>
+
+        <!-- Test Procedures -->
+        <div class="test-section">
+            <h2>🧪 Test Procedures</h2>
+            
+            <h3 style="color: #475569; margin-top: 20px; margin-bottom: 15px;">Test Case 1: Fresh Page Load</h3>
+            <div class="test-step">
+                <strong>Step 1:</strong> Open admin panel at <code>http://localhost/Special-Olympic-Sarawak-Website-Staging-environment/admin/admin_panel_soswk.php</code>
+            </div>
+            <div class="test-step">
+                <strong>Step 2:</strong> Open browser DevTools Console (F12)
+            </div>
+            <div class="test-step">
+                <strong>Step 3:</strong> Check console logs
+            </div>
+            <div class="expected">
+                <div class="expected-title">✓ Expected Results:</div>
+                <ul class="checklist">
+                    <li>"DOM loaded, initializing profile functionality..."</li>
+                    <li>"Profile section not active, data will load on navigation"</li>
+                    <li>NO API call to admin_profile_handler.php (optimized!)</li>
+                </ul>
+            </div>
+
+            <h3 style="color: #475569; margin-top: 20px; margin-bottom: 15px;">Test Case 2: Navigate to Profile</h3>
+            <div class="test-step">
+                <strong>Step 1:</strong> Click "Profile" in the sidebar menu
+            </div>
+            <div class="test-step">
+                <strong>Step 2:</strong> Observe console logs
+            </div>
+            <div class="test-step">
+                <strong>Step 3:</strong> Check form fields
+            </div>
+            <div class="expected">
+                <div class="expected-title">✓ Expected Results:</div>
+                <ul class="checklist">
+                    <li>"Navigating to profile section, loading data..."</li>
+                    <li>"Starting loadProfileData..."</li>
+                    <li>"Response status: 200"</li>
+                    <li>"Profile data response: {success: true, ...}"</li>
+                    <li>"Profile data loaded successfully"</li>
+                    <li>Form fields populated with your database values</li>
+                    <li>Display name and position updated at top</li>
+                </ul>
+            </div>
+
+            <h3 style="color: #475569; margin-top: 20px; margin-bottom: 15px;">Test Case 3: Update Profile</h3>
+            <div class="test-step">
+                <strong>Step 1:</strong> Modify any field (e.g., change phone number)
+            </div>
+            <div class="test-step">
+                <strong>Step 2:</strong> Click "Save Changes" button
+            </div>
+            <div class="test-step">
+                <strong>Step 3:</strong> Check notification
+            </div>
+            <div class="expected">
+                <div class="expected-title">✓ Expected Results:</div>
+                <ul class="checklist">
+                    <li>Green notification: "Profile updated successfully!"</li>
+                    <li>Display name/position updated immediately</li>
+                    <li>Form values persist</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Debugging Tools -->
+        <div class="test-section">
+            <h2>🛠️ Debugging Tools</h2>
+            
+            <h3 style="color: #475569; margin-bottom: 15px;">Browser DevTools Checklist:</h3>
+            <ul class="checklist">
+                <li><strong>Console Tab:</strong> Check for logs and errors</li>
+                <li><strong>Network Tab:</strong> Verify API calls to <code>admin_profile_handler.php</code></li>
+                <li><strong>Elements Tab:</strong> Inspect form inputs for populated values</li>
+            </ul>
+
+            <h3 style="color: #475569; margin-top: 20px; margin-bottom: 15px;">Console Logs to Look For:</h3>
+            <div class="code-block">
+<span class="comment">// On Page Load</span>
+✓ "DOM loaded, initializing profile functionality..."
+✓ "Profile section not active, data will load on navigation"
+
+<span class="comment">// On Navigation to Profile</span>
+✓ "Navigating to profile section, loading data..."
+✓ "Starting loadProfileData..."
+✓ "Response status: 200"
+✓ "Profile data response: {success: true, data: {...}}"
+✓ "Profile data loaded successfully"
+
+<span class="comment">// If Errors Occur</span>
+❌ "Failed to load profile data: [error message]"
+❌ "Session expired. Please log in again."
+            </div>
+        </div>
+
+        <!-- Common Issues -->
+        <div class="test-section">
+            <h2>⚠️ Common Issues & Solutions</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <strong style="color: #1e293b;">Issue: Session Expired</strong>
+                <p style="color: #64748b; margin: 5px 0;">Error message: "Session expired. Please log in again."</p>
+                <p style="color: #475569;"><strong>Solution:</strong> Debug mode in handler automatically creates session. If disabled, log in through login page.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <strong style="color: #1e293b;">Issue: Form Fields Not Updating</strong>
+                <p style="color: #64748b; margin: 5px 0;">Console shows data but fields stay empty</p>
+                <p style="color: #475569;"><strong>Solution:</strong> Check element IDs match: <code>profileFullName</code>, <code>profileEmail</code>, <code>profilePhone</code>, <code>profilePosition</code>, <code>profileBio</code></p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <strong style="color: #1e293b;">Issue: Network Error</strong>
+                <p style="color: #64748b; margin: 5px 0;">"Network response was not ok"</p>
+                <p style="color: #475569;"><strong>Solution:</strong> Ensure XAMPP Apache and MySQL are running. Check file path to handler.</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="test-section">
+            <h2>🚀 Quick Actions</h2>
+            <a href="../admin_panel_soswk.php" class="btn">Open Admin Panel</a>
+            <a href="../handler/admin_profile_handler.php?action=get_profile_data" class="btn secondary" target="_blank">Test API Endpoint</a>
+            <button class="btn secondary" onclick="window.location.reload()">Refresh Page</button>
+        </div>
+
+        <!-- Success Criteria -->
+        <div class="test-section">
+            <h2>✅ Success Criteria</h2>
+            <div style="background: #dcfce7; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981;">
+                <p style="font-weight: 600; color: #065f46; margin-bottom: 10px;">Profile section is working correctly when:</p>
+                <ul style="color: #065f46; line-height: 1.8;">
+                    <li>✓ No errors in browser console</li>
+                    <li>✓ Data loads when clicking Profile in sidebar</li>
+                    <li>✓ Form fields populate with database values</li>
+                    <li>✓ Display name and position update at top</li>
+                    <li>✓ Save Changes button updates data successfully</li>
+                    <li>✓ No unnecessary API calls on page load</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 30px; color: #64748b;">
+            <p><strong>Status:</strong> Fix Implemented ✓</p>
+            <p><strong>Date:</strong> December 12, 2025</p>
+            <p><strong>Ready for Testing</strong></p>
+        </div>
+    </div>
+</body>
+</html>

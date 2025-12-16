@@ -27,12 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.getElementById(sectionId);
             if (targetSection) targetSection.classList.add('active');
 
-            // Optionally, trigger section-specific loading logic
-            // Example:
-            // if (sectionId === 'news' && typeof loadNewsArticles === 'function') loadNewsArticles();
-            // if (sectionId === 'events' && typeof loadEvents === 'function') loadEvents();
-            // if (sectionId === 'sponsorships' && typeof loadSponsorships === 'function') loadSponsorships();
-            // if (sectionId === 'photos' && typeof loadPublishedPhotos === 'function') loadPublishedPhotos();
+            // Trigger section-specific loading logic
+            if (sectionId === 'news' && typeof loadNewsArticles === 'function') loadNewsArticles();
+            if (sectionId === 'events' && typeof loadEvents === 'function') loadEvents();
+            if (sectionId === 'sponsorships' && typeof loadSponsorships === 'function') loadSponsorships();
+            if (sectionId === 'photos' && typeof loadPublishedPhotos === 'function') loadPublishedPhotos();
+            if (sectionId === 'state-games' && typeof loadStateGamesEvents === 'function') loadStateGamesEvents();
+            if (sectionId === 'sohap' && typeof loadHapArticles === 'function') loadHapArticles();
         });
     });
 
@@ -40,9 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const initialActiveSection = document.querySelector('.content-section.active');
     if (initialActiveSection) {
         const sectionId = initialActiveSection.id;
-        // Optionally, trigger section-specific loading logic here as well
-        // Example:
-        // if (sectionId === 'news' && typeof loadNewsArticles === 'function') loadNewsArticles();
-        // if (sectionId === 'events' && typeof loadEvents === 'function') loadEvents();
+        // Trigger section-specific loading logic for initial section
+        if (sectionId === 'news' && typeof loadNewsArticles === 'function') loadNewsArticles();
+        if (sectionId === 'events' && typeof loadEvents === 'function') loadEvents();
+        if (sectionId === 'sponsorships' && typeof loadSponsorships === 'function') loadSponsorships();
+        if (sectionId === 'photos' && typeof loadPublishedPhotos === 'function') loadPublishedPhotos();
+        if (sectionId === 'state-games' && typeof loadStateGamesEvents === 'function') loadStateGamesEvents();
+        if (sectionId === 'sohap' && typeof loadHapArticles === 'function') loadHapArticles();
     }
 });

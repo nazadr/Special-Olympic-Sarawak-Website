@@ -78,7 +78,7 @@
                     }
                 })
                 .catch(error => {
-                    console.error('Error loading latest news:', error);
+                    // Error loading news
                     document.getElementById('news-articles-container').innerHTML = '<p style="text-align: center; color: #ef4444;">Failed to load news articles.</p>';
                 });
         }

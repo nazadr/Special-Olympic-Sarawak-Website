@@ -46,16 +46,18 @@ if (hamburgerIcon && navRightMenu) {
   });
 }
 // Close menu when a link is clicked (optional, but good for UX)
-navRightMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    // Check if the link is not a dropdown toggle (i.e., it's a final destination link)
-    // This prevents the menu from closing when a dropdown is just being opened.
-    if (!link.closest('.dropdown')) { // If it's not part of a dropdown parent
-        hamburgerIcon.classList.remove('open');
-        navRightMenu.classList.remove('open');
-    }
+if (navRightMenu) {
+  navRightMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      // Check if the link is not a dropdown toggle (i.e., it's a final destination link)
+      // This prevents the menu from closing when a dropdown is just being opened.
+      if (!link.closest('.dropdown')) { // If it's not part of a dropdown parent
+        if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+        if (navRightMenu) navRightMenu.classList.remove('open');
+      }
+    });
   });
-});
+}
 
 // Close menu if screen resized from mobile to desktop 
 window.addEventListener('resize', () => {
@@ -84,48 +86,54 @@ const chatWindow = document.getElementById('chatbot-window');
 const input = document.getElementById('chat-input');
 const messages = document.getElementById('chat-messages');
 // Toggle chatbot open/close
-toggleBtn.addEventListener('click', (e) => {
-  e.stopPropagation(); // Prevent closing immediately after open
-  chatWindow.classList.toggle('open');
-});
+if (toggleBtn && chatWindow) {
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent closing immediately after open
+    chatWindow.classList.toggle('open');
+  });
+}
 // Click outside to close
 document.addEventListener('click', (e) => {
-  const isClickInsideChatbot = chatWindow.contains(e.target) || toggleBtn.contains(e.target);
-  const isClickInsideNav = navRightMenu.contains(e.target) || hamburgerIcon.contains(e.target); // Added for nav
+  const isClickInsideChatbot = (chatWindow && chatWindow.contains(e.target)) || (toggleBtn && toggleBtn.contains(e.target));
+  const isClickInsideNav = (navRightMenu && navRightMenu.contains(e.target)) || (hamburgerIcon && hamburgerIcon.contains(e.target)); // Added for nav
   if (!isClickInsideChatbot && !isClickInsideNav) { // Check both
-    chatWindow.classList.remove('open');
+    if (chatWindow) chatWindow.classList.remove('open');
     // Also close the nav menu if clicked outside
-    hamburgerIcon.classList.remove('open');
-    navRightMenu.classList.remove('open');
+    if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+    if (navRightMenu) navRightMenu.classList.remove('open');
   }
 });
 
 // Send message on Enter of chat bot (experimental)
-input.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-    const text = this.value.trim();
-    if (!text) return;
-    messages.innerHTML += `<p class="user-msg">${text}</p>`;
-    this.value = '';
-    setTimeout(() => {
-      messages.innerHTML += `<p class="bot-msg">This is a sample response.</p>`;
-      messages.scrollTop = messages.scrollHeight;
-    }, 500);
-  }
-});
+if (input && messages) {
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      const text = this.value.trim();
+      if (!text) return;
+      messages.innerHTML += `<p class="user-msg">${text}</p>`;
+      this.value = '';
+      setTimeout(() => {
+        messages.innerHTML += `<p class="bot-msg">This is a sample response.</p>`;
+        messages.scrollTop = messages.scrollHeight;
+      }, 500);
+    }
+  });
+}
 
 // Footer Dropdown for Mobile Navigation (optional, not implemented yet)
-const footerNavigation = document.querySelector(".footer-navigation"); // actionBtn
+const actionBtn = document.querySelector(".footer-navigation"); // actionBtn
 const navGroup = document.querySelector(".nav-group"); // dropdown
 
-actionBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  navGroup.classList.toggle("hide");
-});
+if (actionBtn && navGroup) {
+  actionBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navGroup.classList.toggle("hide");
+  });
 
-window.addEventListener("click", () => {
-  navGroup.classList.add("hide");
-});
+  window.addEventListener("click", () => {
+    navGroup.classList.add("hide");
+  });
+}
 
 /* Initial Search function implementation (not working yet) */
 /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
@@ -135,11 +143,15 @@ function myFunction() {
 
 function filterFunction() {
   const input = document.getElementById("search-input");
+  if (!input) return;
+  
   const filter = input.value.toUpperCase();
   const div = document.getElementById("myDropdown");
+  if (!div) return;
+  
   const a = div.getElementsByTagName("a");
   for (let i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
+    const txtValue = a[i].textContent || a[i].innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       a[i].style.display = "";
     } else {
@@ -156,8 +168,11 @@ function filterFunction() {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   });
 });

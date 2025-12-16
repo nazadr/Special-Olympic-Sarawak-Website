@@ -1,23 +1,56 @@
 <?php
+// Set proper headers for JSON response
+header('Content-Type: application/json');
+
+// Enable error reporting for debugging (remove in production)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Database connection (replace with your actual credentials)
 $servername = "localhost";
 $username = "root"; // Your MySQL username
 $password = "";     // Your MySQL password
 $dbname = "so_sarawak_db"; // Database name on local phpMyAdmin
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'message' => 'Connection failed: ' . $conn->connect_error]));
+try {
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        throw new Exception('Connection failed: ' . $conn->connect_error);
+    }
+    
+    // Initialize variables
+    $action = $_POST['action'] ?? $_GET['action'] ?? '';
+    $response = ['success' => false, 'message' => 'Invalid action.'];
+} catch (Exception $e) {
+    $response = ['success' => false, 'message' => $e->getMessage()];
+    echo json_encode($response);
+    exit();
 }
 
-// Initialize variables
-$action = $_POST['action'] ?? $_GET['action'] ?? '';
-$response = ['success' => false, 'message' => 'Invalid action.'];
-
-switch ($action) {
+try {
+    // Debug information
+    error_log("Event handler called with action: " . $action);
+    error_log("POST data: " . print_r($_POST, true));
+    error_log("FILES data: " . print_r($_FILES, true));
+    
+    // Test case - return debug info if action is 'test'
+    if ($action === 'test') {
+        $response = [
+            'success' => true,
+            'message' => 'Test successful',
+            'post_data' => $_POST,
+            'files_data' => $_FILES,
+            'working_directory' => getcwd()
+        ];
+        echo json_encode($response);
+        exit();
+    }
+    
+    switch ($action) {
     case 'add':
         $title = $_POST['eventTitle'] ?? '';
         $description = $_POST['eventDescription'] ?? '';
@@ -30,17 +63,25 @@ switch ($action) {
 
         // Handle image upload
         if (isset($_FILES['eventImage']) && $_FILES['eventImage']['error'] == UPLOAD_ERR_OK) {
-            $target_dir = "../../assets/images/events/"; // Directory to save event images
-            if (!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
-            }
-            $image_name = basename($_FILES["eventImage"]["name"]);
-            $image_path = $target_dir . uniqid() . '_' . $image_name; // Unique filename to prevent overwrites
+            $target_dir = "../../assets/images/events/"; // File system path
+            $web_dir = "assets/images/events/"; // Web path for database storage
             
-            if (!move_uploaded_file($_FILES["eventImage"]["tmp_name"], $image_path)) {
+            if (!is_dir($target_dir)) {
+                if (!mkdir($target_dir, 0777, true)) {
+                    $response = ['success' => false, 'message' => 'Failed to create upload directory.'];
+                    echo json_encode($response);
+                    exit();
+                }
+            }
+            
+            $image_name = basename($_FILES["eventImage"]["name"]);
+            $unique_name = uniqid() . '_' . $image_name;
+            $file_path = $target_dir . $unique_name; // For file operations
+            $image_path = $web_dir . $unique_name; // For database storage
+            
+            if (!move_uploaded_file($_FILES["eventImage"]["tmp_name"], $file_path)) {
                 $response = ['success' => false, 'message' => 'Failed to upload image.'];
                 echo json_encode($response);
-                $conn->close();
                 exit();
             }
         }
@@ -92,8 +133,8 @@ switch ($action) {
 
             if ($stmt->execute()) {
                 // Delete the image file if it exists
-                if ($image_path_to_delete && file_exists($image_path_to_delete)) {
-                    unlink($image_path_to_delete);
+                if ($image_path_to_delete && file_exists("../../" . $image_path_to_delete)) {
+                    unlink("../../" . $image_path_to_delete);
                 }
                 $response = ['success' => true, 'message' => 'Event deleted successfully!'];
             } else {
@@ -118,25 +159,50 @@ switch ($action) {
 
         // Handle new image upload
         if (isset($_FILES['eventImage']) && $_FILES['eventImage']['error'] == UPLOAD_ERR_OK) {
-            $target_dir = "../../assets/images/events/";
+            $target_dir = "../../assets/images/events/"; // File system path
+            $web_dir = "assets/images/events/"; // Web path
+            
             if (!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
+                if (!mkdir($target_dir, 0777, true)) {
+                    $response = ['success' => false, 'message' => 'Failed to create upload directory.'];
+                    echo json_encode($response);
+                    exit();
+                }
             }
+            
             $image_name = basename($_FILES["eventImage"]["name"]);
-            $new_image_path = $target_dir . uniqid() . '_' . $image_name;
+            $unique_name = uniqid() . '_' . $image_name;
+            $new_file_path = $target_dir . $unique_name; // For file operations
+            $new_image_path = $web_dir . $unique_name; // For database storage
 
-            if (move_uploaded_file($_FILES["eventImage"]["tmp_name"], $new_image_path)) {
-                // Delete old image if a new one is uploaded
-                if ($image_path && file_exists($image_path)) {
-                    unlink($image_path);
+            if (move_uploaded_file($_FILES["eventImage"]["tmp_name"], $new_file_path)) {
+                // Delete old image file if a new one is uploaded
+                if ($image_path && file_exists("../../" . $image_path)) {
+                    unlink("../../" . $image_path);
                 }
                 $image_path = $new_image_path;
             } else {
                 $response = ['success' => false, 'message' => 'Failed to upload new image.'];
                 echo json_encode($response);
-                $conn->close();
                 exit();
             }
+        }
+        
+        // Check if image was intentionally removed (currentImage is empty but no new file uploaded)
+        if (empty($_POST['currentImage']) && (!isset($_FILES['eventImage']) || $_FILES['eventImage']['error'] !== UPLOAD_ERR_OK)) {
+            // Get the old image path to delete it
+            $stmt = $conn->prepare("SELECT image_path FROM events WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->bind_result($old_image_path);
+            $stmt->fetch();
+            $stmt->close();
+            
+            // Delete the old image file
+            if ($old_image_path && file_exists("../../" . $old_image_path)) {
+                unlink("../../" . $old_image_path);
+            }
+            $image_path = null; // Set to null to remove from database
         }
 
         if ($id && $title && $description && $location && $city && $event_date && $event_time && $type) {
@@ -174,6 +240,12 @@ switch ($action) {
         break;
 }
 
+} catch (Exception $e) {
+    $response = ['success' => false, 'message' => 'Server error: ' . $e->getMessage()];
+}
+
 echo json_encode($response);
-$conn->close();
+if (isset($conn)) {
+    $conn->close();
+}
 ?>

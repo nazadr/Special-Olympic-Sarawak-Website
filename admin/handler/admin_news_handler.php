@@ -45,7 +45,8 @@ switch ($action) {
             $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
             if (in_array($fileExtension, $allowedfileExtensions)) {
                 if (move_uploaded_file($fileTmpPath, $destPath)) {
-                    $imagePath = $destPath;
+                    // Store the web-accessible path instead of server file path
+                    $imagePath = '../assets/images/news_uploads/' . $newFileName;
                 } else {
                     echo json_encode(['success' => false, 'message' => 'Failed to move uploaded file.']);
                     exit();
@@ -86,6 +87,27 @@ switch ($action) {
         echo json_encode($news);
         break;
 
+    case 'fetch_single':
+        $id = $_GET['id'] ?? '';
+        if (empty($id)) {
+            echo json_encode(['success' => false, 'message' => 'News ID is required.']);
+            exit();
+        }
+
+        $stmt = $conn->prepare("SELECT id, image_path, headline, news_date, description FROM news WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            $newsData = $result->fetch_assoc();
+            echo json_encode(['success' => true, 'data' => $newsData]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'News article not found.']);
+        }
+        $stmt->close();
+        break;
+
     case 'delete':
         $id = $_POST['id'] ?? '';
         if (empty($id)) {
@@ -116,15 +138,20 @@ switch ($action) {
         $stmt->close();
         break;
 
-    // You would add 'edit' case here for updating news articles
+    // Edit case for updating news articles
     case 'edit':
         $id = $_POST['id'] ?? '';
         $headline = $_POST['newsHeadline'] ?? '';
         $newsDate = $_POST['newsDate'] ?? '';
         $description = $_POST['newsDescription'] ?? '';
-        $imagePath = $_POST['currentImagePath'] ?? ''; // Hidden field for current image path
+        $imagePath = $_POST['currentImagePath'] ?? ''; // Current image path from hidden field
 
-        // Handle image upload if a new one is provided
+        if (empty($id) || empty($headline) || empty($newsDate) || empty($description)) {
+            echo json_encode(['success' => false, 'message' => 'All fields are required for edit.']);
+            exit();
+        }
+
+        // Handle new image upload if provided
         if (isset($_FILES['newsImage']) && $_FILES['newsImage']['error'] == UPLOAD_ERR_OK) {
             $fileTmpPath = $_FILES['newsImage']['tmp_name'];
             $fileName = $_FILES['newsImage']['name'];
@@ -139,11 +166,16 @@ switch ($action) {
             $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
             if (in_array($fileExtension, $allowedfileExtensions)) {
                 if (move_uploaded_file($fileTmpPath, $destPath)) {
-                    // Delete old image if it exists and is not the default placeholder
-                    if (!empty($imagePath) && file_exists($imagePath) && strpos($imagePath, 'news_uploads') !== false) {
-                        unlink($imagePath);
+                    // Delete old image if it exists and is in news_uploads folder
+                    if (!empty($imagePath)) {
+                        // Convert web path to server path for deletion
+                        $oldImageServerPath = str_replace('../assets/images/news_uploads/', $uploadDir, $imagePath);
+                        if (file_exists($oldImageServerPath) && strpos($imagePath, 'news_uploads') !== false) {
+                            unlink($oldImageServerPath);
+                        }
                     }
-                    $imagePath = $destPath; // Update image path to new one
+                    // Update image path to new web-accessible path
+                    $imagePath = '../assets/images/news_uploads/' . $newFileName;
                 } else {
                     echo json_encode(['success' => false, 'message' => 'Failed to move uploaded file for edit.']);
                     exit();
@@ -154,8 +186,9 @@ switch ($action) {
             }
         }
 
-        if (empty($id) || empty($headline) || empty($newsDate) || empty($description)) {
-            echo json_encode(['success' => false, 'message' => 'All fields are required for edit.']);
+        // Ensure we have an image path (either existing or new)
+        if (empty($imagePath)) {
+            echo json_encode(['success' => false, 'message' => 'Image is required.']);
             exit();
         }
 
