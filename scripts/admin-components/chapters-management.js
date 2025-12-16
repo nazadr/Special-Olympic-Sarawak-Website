@@ -1,24 +1,20 @@
 // Sarawak Chapters Management JavaScript for Admin Panel
 // Force global availability
 window.loadChapters = function() {
-    console.log('Loading chapters...');
     const existingChaptersContainer = document.getElementById('existingChapters');
     
     if (!existingChaptersContainer) {
-        console.log('existingChapters element not found');
         return;
     }
     
     fetch('handler/admin_chapters_handler.php?action=fetch_chapters')
         .then(response => {
-            console.log('Response status:', response.status);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            console.log('Chapters data received:', data);
             if (data.success) {
                 existingChaptersContainer.innerHTML = '';
                 
@@ -33,12 +29,15 @@ window.loadChapters = function() {
                         chapterItem.id = 'chapter-' + chapter.id;
                         
                         const statusBadge = getStatusBadge(chapter.status);
-                        const leaderCount = countLeaders(chapter);
                         
+                        // Refurbished card structure - cleaner HTML
                         chapterItem.innerHTML = `
                             <div class="chapter-card-header">
                                 <div class="chapter-logo-admin">
-                                    <img src="${chapter.logo_path}" alt="${chapter.chapter_name} Logo" class="chapter-logo-img" onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-building\\' style=\\'color:#cbd5e1;font-size:36px;\\'></i>';">
+                                    <img src="${chapter.logo_path}" 
+                                         alt="${chapter.chapter_name} Logo" 
+                                         class="chapter-logo-img" 
+                                         onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-building\\' style=\\'color:#cbd5e1;font-size:36px;\\'></i>';">
                                 </div>
                                 <div class="chapter-header-content">
                                     <div class="chapter-item-admin-header">
@@ -51,6 +50,7 @@ window.loadChapters = function() {
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="chapter-leadership-info">
                                 <div class="leadership-header">
                                     <i class="fas fa-users-cog"></i>
@@ -75,12 +75,15 @@ window.loadChapters = function() {
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="chapter-item-admin-actions">
-                                <button class="edit-btn" onclick="editChapter(${chapter.id})">
-                                    <i class="fas fa-edit"></i> Edit Chapter
+                                <button type="button" class="edit-btn" data-chapter-id="${chapter.id}" onclick="window.editChapter(${chapter.id}); return false;">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Edit Chapter</span>
                                 </button>
                             </div>
                         `;
+                        
                         existingChaptersContainer.appendChild(chapterItem);
                     });
                 } else {
@@ -138,8 +141,35 @@ function getStatusBadge(status) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Chapters management script loaded');
     
-    // Create modal early
-    createChapterModal();
+    // Global click handler for edit buttons
+    document.addEventListener('click', function(e) {
+        const editBtn = e.target.closest('.edit-btn');
+        if (editBtn && editBtn.classList.contains('edit-btn')) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const chapterId = editBtn.getAttribute('data-chapter-id') || editBtn.dataset.chapterId;
+            
+            if (chapterId && chapterId !== 'null') {
+                window.editChapter(chapterId);
+            } else {
+                // Fallback: extract from parent card ID
+                const chapterCard = editBtn.closest('.chapter-item-admin');
+                if (chapterCard && chapterCard.id && chapterCard.id.startsWith('chapter-')) {
+                    const extractedId = chapterCard.id.replace('chapter-', '');
+                    window.editChapter(extractedId);
+                }
+            }
+        }
+    }, true);
+    
+    // Ensure modal exists - check and create if needed
+    setTimeout(() => {
+        let modal = document.getElementById('chapterModal');
+        if (!modal) {
+            createChapterModalDynamic();
+        }
+    }, 100);
     
     // Also listen for when the Sarawak Chapters section becomes active
     const sarawakChaptersNavItem = document.querySelector('[data-section="sarawak-chapters"]');
@@ -155,7 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         const existingChaptersContainer = document.getElementById('existingChapters');
         if (existingChaptersContainer) {
-            console.log('Found existingChapters element, loading chapters...');
             window.loadChapters();
         }
     }, 500);
@@ -203,81 +232,155 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Container:', document.getElementById('existingChapters'));
         console.log('Chapters found:', document.querySelectorAll('.chapter-item-admin').length);
         
-        // Test modal creation
-        console.log('Testing modal creation...');
-        createChapterModal();
+        // Check if modal exists in HTML
+        console.log('Checking modal...');
         const modal = document.getElementById('chapterModal');
-        console.log('Modal created:', !!modal);
+        console.log('Modal exists:', !!modal);
         if (modal) {
-            console.log('Modal HTML:', modal.outerHTML.substring(0, 200) + '...');
+            console.log('Modal display:', modal.style.display);
+            console.log('Modal classes:', modal.className);
+        } else {
+            console.log('Modal NOT FOUND - will be created on first edit click');
+        }
+        
+        // Test edit button
+        const firstEditBtn = document.querySelector('.edit-btn');
+        console.log('First edit button found:', !!firstEditBtn);
+        if (firstEditBtn) {
+            console.log('Button onclick:', firstEditBtn.getAttribute('onclick'));
+        }
+    };
+    
+    // Global test function
+    window.testChapterModal = function() {
+        console.log('Testing modal creation...');
+        createChapterModalDynamic();
+        const modal = document.getElementById('chapterModal');
+        if (modal) {
+            console.log('✅ Modal created successfully!');
+            modal.classList.add('show');
+            modal.style.display = 'block';
+            console.log('Modal should be visible now');
+        } else {
+            console.error('❌ Failed to create modal');
+        }
+    };
+    
+    // Test edit button clicks
+    window.testEditButtons = function() {
+        console.log('=== TESTING EDIT BUTTONS ===');
+        const editButtons = document.querySelectorAll('.chapter-item-admin .edit-btn');
+        console.log('Edit buttons found:', editButtons.length);
+        
+        editButtons.forEach((btn, index) => {
+            console.log(`Button ${index + 1}:`, {
+                'data-chapter-id': btn.getAttribute('data-chapter-id'),
+                'onclick': btn.getAttribute('onclick'),
+                'has event listeners': btn.onclick !== null,
+                'cursor style': window.getComputedStyle(btn).cursor,
+                'pointer-events': window.getComputedStyle(btn).pointerEvents,
+                'z-index': window.getComputedStyle(btn).zIndex
+            });
+        });
+        
+        if (editButtons.length > 0) {
+            console.log('Attempting to click first button programmatically...');
+            editButtons[0].click();
         }
     };
 });
 
 // Global functions for modal management
 window.editChapter = function editChapter(chapterId) {
-    console.log('Editing chapter:', chapterId);
-    
     const chapterElement = document.getElementById('chapter-' + chapterId);
     if (!chapterElement) {
-        alert('Chapter not found!');
+        // Try finding by data-id attribute instead
+        const altElement = document.querySelector(`.chapter-item-admin[data-id="${chapterId}"]`);
+        if (altElement) {
+            return editChapterByElement(altElement, chapterId);
+        }
+        
+        alert('Chapter not found! Please refresh the page.');
         return;
     }
     
-    // Get current values from the new card structure
-    const chapterName = chapterElement.querySelector('.chapter-item-admin-title').textContent;
-    const logoImg = chapterElement.querySelector('.chapter-logo-img');
-    const logoSrc = logoImg ? logoImg.src : '';
-    const chairmanText = chapterElement.querySelector('.chairman-text').textContent.trim();
-    const viceChairmanText = chapterElement.querySelector('.vice-chairman-text').textContent.trim();
-    const secretaryText = chapterElement.querySelector('.secretary-text').textContent.trim();
-    const treasurerText = chapterElement.querySelector('.treasurer-text').textContent.trim();
-    const statusElement = chapterElement.querySelector('.chapter-status-badge');
-    const currentStatus = statusElement.classList.contains('upcoming') ? 'upcoming' : 
-                         statusElement.classList.contains('inactive') ? 'inactive' : 'active';
-    
-    openChapterModal(chapterId, {
-        name: chapterName,
-        logo: logoSrc,
-        chairman: chairmanText === 'TBD' ? '' : chairmanText,
-        vice_chairman: viceChairmanText === 'TBD' ? '' : viceChairmanText,
-        secretary: secretaryText === 'TBD' ? '' : secretaryText,
-        treasurer: treasurerText === 'TBD' ? '' : treasurerText,
-        status: currentStatus
-    });
+    editChapterByElement(chapterElement, chapterId);
 };
 
-window.openChapterModal = function openChapterModal(chapterId, chapterData) {
-    console.log('Opening modal for chapter:', chapterId, chapterData);
-    const modal = document.getElementById('chapterModal');
+// Helper function to edit chapter by element
+function editChapterByElement(chapterElement, chapterId) {
+    // Extract data from card
+    const titleElement = chapterElement.querySelector('.chapter-item-admin-title');
+    const logoImg = chapterElement.querySelector('.chapter-logo-img');
+    const chairmanElement = chapterElement.querySelector('.chairman-text');
+    const viceChairmanElement = chapterElement.querySelector('.vice-chairman-text');
+    const secretaryElement = chapterElement.querySelector('.secretary-text');
+    const treasurerElement = chapterElement.querySelector('.treasurer-text');
+    const statusElement = chapterElement.querySelector('.chapter-status-badge');
+    
+    const chapterData = {
+        id: chapterId,
+        name: titleElement ? titleElement.textContent : '',
+        logo: logoImg ? logoImg.src : '',
+        chairman: chairmanElement ? chairmanElement.textContent.trim() : '',
+        vice_chairman: viceChairmanElement ? viceChairmanElement.textContent.trim() : '',
+        secretary: secretaryElement ? secretaryElement.textContent.trim() : '',
+        treasurer: treasurerElement ? treasurerElement.textContent.trim() : '',
+        status: statusElement && statusElement.classList.contains('upcoming') ? 'upcoming' : 
+                statusElement && statusElement.classList.contains('inactive') ? 'inactive' : 'active'
+    };
+    
+    // Ensure modal exists
+    let modal = document.getElementById('chapterModal');
     if (!modal) {
-        console.log('Modal not found, creating new modal');
-        createChapterModal();
-        return openChapterModal(chapterId, chapterData);
+        createChapterModalDynamic();
+        modal = document.getElementById('chapterModal');
+        if (!modal) {
+            alert('Error: Unable to open edit form. Please refresh the page.');
+            return;
+        }
     }
-    console.log('Modal found:', modal);
     
-    // Populate modal with current data
-    document.getElementById('modalChapterLogo').src = chapterData.logo;
-    document.getElementById('modalChapterLogo').alt = chapterData.name + ' Logo';
-    document.getElementById('editChairman').value = chapterData.chairman;
-    document.getElementById('editViceChairman').value = chapterData.vice_chairman;
-    document.getElementById('editSecretary').value = chapterData.secretary;
-    document.getElementById('editTreasurer').value = chapterData.treasurer;
-    document.getElementById('editStatus').value = chapterData.status;
+    // Populate modal fields
+    const modalLogo = document.getElementById('modalChapterLogo');
+    const editChairman = document.getElementById('editChairman');
+    const editViceChairman = document.getElementById('editViceChairman');
+    const editSecretary = document.getElementById('editSecretary');
+    const editTreasurer = document.getElementById('editTreasurer');
+    const editStatus = document.getElementById('editStatus');
     
-    // Store chapter ID for saving
+    if (modalLogo && chapterData.logo) {
+        modalLogo.src = chapterData.logo;
+        modalLogo.alt = chapterData.name + ' Logo';
+    }
+    if (editChairman) editChairman.value = chapterData.chairman === 'TBD' ? '' : chapterData.chairman;
+    if (editViceChairman) editViceChairman.value = chapterData.vice_chairman === 'TBD' ? '' : chapterData.vice_chairman;
+    if (editSecretary) editSecretary.value = chapterData.secretary === 'TBD' ? '' : chapterData.secretary;
+    if (editTreasurer) editTreasurer.value = chapterData.treasurer === 'TBD' ? '' : chapterData.treasurer;
+    if (editStatus) editStatus.value = chapterData.status;
+    
+    // Store chapter ID
     modal.setAttribute('data-chapter-id', chapterId);
     
-    // Show modal
-    console.log('Showing modal...');
-    modal.classList.add('show');
+    // Show the modal
     modal.style.display = 'block';
-    console.log('Modal classes:', modal.className);
-    console.log('Modal display style:', modal.style.display);
-};
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Force repaint
+    modal.offsetHeight;
+}
 
-window.createChapterModal = function createChapterModal() {
+// Create modal dynamically if it doesn't exist
+window.createChapterModalDynamic = function createChapterModalDynamic() {
+    console.log('Creating chapter modal dynamically...');
+    
+    // Remove existing modal if any
+    const existingModal = document.getElementById('chapterModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
     const modalHTML = `
         <div class="chapter-modal" id="chapterModal" style="display: none;">
             <div class="chapter-modal-backdrop" onclick="closeChapterModal()"></div>
@@ -287,7 +390,7 @@ window.createChapterModal = function createChapterModal() {
                     <span class="chapter-modal-close" onclick="closeChapterModal()">×</span>
                 </div>
                 <div class="chapter-modal-body">
-                    <form id="chapterForm">
+                    <form id="chapterForm" onsubmit="return false;">
                         <div style="text-align: center; margin-bottom: 30px;">
                             <img id="modalChapterLogo" src="" alt="Chapter Logo" style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px; border: 2px solid #e9ecef;">
                         </div>
@@ -332,6 +435,7 @@ window.createChapterModal = function createChapterModal() {
     `;
     
     document.body.insertAdjacentHTML('beforeend', modalHTML);
+    console.log('Modal created successfully');
 };
 
 window.closeChapterModal = function closeChapterModal() {
@@ -339,6 +443,7 @@ window.closeChapterModal = function closeChapterModal() {
     if (modal) {
         modal.classList.remove('show');
         modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore body scrolling
     }
 };
 

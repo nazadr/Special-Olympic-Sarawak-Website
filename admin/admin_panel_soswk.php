@@ -3242,14 +3242,14 @@ if ($debug_mode) {
                         <div class="gpmac-form-group">
                             <label>Collection Name</label>
                             <!-- Fetch collection name from the database -->
-                            <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryPhotoAlbum"
-                                name="galleryPhotoAlbum">
+                            <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryPhotoAlbumEdit"
+                                name="galleryPhotoAlbumEdit">
                         </div>
                         <div class="gpmac-form-group">
                             <label>Descriptions</label>
                             <!-- Fetch descriptions from the database -->
-                            <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryPhotoAlbumDesc"
-                                name="galleryPhotoAlbumDesc">
+                            <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryPhotoAlbumDescEdit"
+                                name="galleryPhotoAlbumDescEdit">
                         </div>
                     </div>
                     <div class="gpmac-options">
@@ -3549,7 +3549,7 @@ if ($debug_mode) {
                             <div class="sponsorship-modal-actions">
                                 <button type="button" class="btn-cancel" onclick="closeSponsorshipModal()">Cancel</button>
                                 <button type="submit" class="btn-submit" id="submitSponsorshipBtn">Add Sponsor</button>
-                                <button type="button" class="btn-cancel" id="cancelEditBtn" style="display: none;">Cancel Edit</button>
+                                <button type="button" class="btn-cancel" id="cancelSponsorshipEditBtn" style="display: none;">Cancel Edit</button>
                             </div>
                         </form>
                     </div>
@@ -3964,6 +3964,58 @@ if ($debug_mode) {
                     <div class="modal-footer">
                         <button type="button" class="btn-cancel" onclick="closeYapModal()">Cancel</button>
                         <button type="button" class="btn-submit" id="submitYapBtn" onclick="submitYapContent()">Save YAP Content</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chapter Edit Modal -->
+    <div class="chapter-modal" id="chapterModal" style="display: none;">
+        <div class="chapter-modal-backdrop" onclick="closeChapterModal()"></div>
+        <div class="chapter-modal-content">
+            <div class="chapter-modal-header">
+                <h3>Edit Chapter Information</h3>
+                <span class="chapter-modal-close" onclick="closeChapterModal()">×</span>
+            </div>
+            <div class="chapter-modal-body">
+                <form id="chapterForm">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <img id="modalChapterLogo" src="" alt="Chapter Logo" style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px; border: 2px solid #e9ecef;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editChairman">Chairman <span class="required">*</span></label>
+                        <input type="text" id="editChairman" name="chairman" placeholder="Enter chairman name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editViceChairman">Vice Chairman <span class="required">*</span></label>
+                        <input type="text" id="editViceChairman" name="vice_chairman" placeholder="Enter vice chairman name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editSecretary">Secretary <span class="required">*</span></label>
+                        <input type="text" id="editSecretary" name="secretary" placeholder="Enter secretary name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editTreasurer">Treasurer <span class="required">*</span></label>
+                        <input type="text" id="editTreasurer" name="treasurer" placeholder="Enter treasurer name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editStatus">Status <span class="required">*</span></label>
+                        <select id="editStatus" name="status">
+                            <option value="active">Active</option>
+                            <option value="upcoming">Upcoming</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    
+                    <div class="chapter-modal-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeChapterModal()">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="saveChapterChanges()">Update Chapter</button>
                     </div>
                 </form>
             </div>
@@ -5897,6 +5949,7 @@ if ($debug_mode) {
                 });
             }
         }
+        
     </script>
     
 
@@ -5919,52 +5972,13 @@ if ($debug_mode) {
             if (sarawakNav) {
                 sarawakNav.addEventListener('click', function() {
                     setTimeout(function() {
-                        console.log('Loading chapters after nav click...');
-                        forceLoadChapters();
+                        window.loadChapters();
                     }, 200);
                 });
             }
         });
         
-        function forceLoadChapters() {
-            const container = document.getElementById('existingChapters');
-            if (!container) return;
-            
-            fetch('handler/admin_chapters_handler.php?action=fetch_chapters')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.chapters) {
-                        container.innerHTML = '';
-                        data.chapters.forEach(chapter => {
-                            const div = document.createElement('div');
-                            div.className = 'chapter-item-admin';
-                            div.innerHTML = `
-                                <div class="chapter-logo-admin">
-                                    <img src="${chapter.logo_path}" alt="${chapter.chapter_name}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">
-                                </div>
-                                <div class="chapter-item-admin-content" style="flex:1;padding:0 15px;">
-                                    <h4 style="margin:0 0 10px 0;">${chapter.chapter_name}</h4>
-                                    <p style="margin:3px 0;"><strong>Chairman:</strong> ${chapter.chairman || 'Not set'}</p>
-                                    <p style="margin:3px 0;"><strong>Vice Chairman:</strong> ${chapter.vice_chairman || 'Not set'}</p>
-                                    <p style="margin:3px 0;"><strong>Secretary:</strong> ${chapter.secretary || 'Not set'}</p>
-                                    <p style="margin:3px 0;"><strong>Treasurer:</strong> ${chapter.treasurer || 'Not set'}</p>
-                                </div>
-                                <div class="chapter-item-admin-actions">
-                                    <button class="edit-btn" style="padding:8px 16px;background:#3b82f6;color:white;border:none;border-radius:4px;cursor:pointer;">
-                                        <i class="fa-solid fa-pencil"></i> Edit
-                                    </button>
-                                </div>
-                            `;
-                            div.style.cssText = 'display:flex;align-items:center;padding:15px;margin:10px 0;border:1px solid #e2e8f0;border-radius:8px;background:white;';
-                            container.appendChild(div);
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    container.innerHTML = '<p>Error loading chapters</p>';
-                });
-        } // Close forceLoadChapters function
+        // REMOVED forceLoadChapters - using chapters-management.js instead
     </script>
 
     <!-- Direct sortable implementation -->

@@ -2497,24 +2497,30 @@ body {
     margin: 0;
 }
 
-/* Chapter Card */
+/* Chapter Card - Refurbished */
 .chapter-item-admin {
     background: white;
-    border: 2px solid #f3f4f6;
+    border: 2px solid #e5e7eb;
     border-radius: 16px;
     padding: 24px;
     transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+    position: relative;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.chapter-item-admin > * {
+    pointer-events: auto;
 }
 
 .chapter-item-admin:hover {
     border-color: #3b82f6;
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+    transform: translateY(-2px);
 }
 
 .chapter-card-header {
@@ -2610,12 +2616,12 @@ body {
     font-size: 12px;
 }
 
-/* Leadership Section */
+/* Leadership Section - Refurbished */
 .chapter-leadership-info {
-    background: white;
+    background: #f8fafc;
     border-radius: 12px;
     padding: 20px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #e2e8f0;
 }
 
 .leadership-header {
@@ -2683,41 +2689,60 @@ body {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Chapter Actions */
+/* Chapter Actions - Refurbished */
 .chapter-item-admin-actions {
     display: flex;
-    gap: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #e5e7eb;
+    gap: 10px;
+    padding-top: 16px;
+    margin-top: 4px;
+    border-top: 2px solid #f1f5f9;
+    position: relative;
+    z-index: 1000;
+    pointer-events: auto !important;
 }
 
 .chapter-item-admin .edit-btn,
 .chapter-item-admin .save-btn,
 .chapter-item-admin .cancel-btn {
     flex: 1;
-    padding: 10px 16px;
+    padding: 12px 20px;
     border: none;
-    cursor: pointer;
+    cursor: pointer !important;
     font-size: 14px;
     font-weight: 600;
-    border-radius: 99px;
-    transition: all 0.3s ease;
-    display: flex;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    isolation: isolate;
+}
+
+.chapter-item-admin .edit-btn *,
+.chapter-item-admin .save-btn *,
+.chapter-item-admin .cancel-btn * {
+    pointer-events: none !important;
 }
 
 .chapter-item-admin .edit-btn {
-    background: #f0efff;
-    color: #605bff;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
 }
 
 .chapter-item-admin .edit-btn:hover {
-    background: #605bff;
-    color: white;
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(96, 91, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.chapter-item-admin .edit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 .chapter-item-admin .save-btn {
