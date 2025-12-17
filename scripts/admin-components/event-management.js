@@ -1,3 +1,43 @@
+/**
+ * Event Management Script
+ * 
+ * Notification System:
+ * - Uses global window.showNotification() from admin_panel_soswk.php
+ * - Supports types: 'success', 'error', 'warning', 'info'
+ * - Auto-dismisses after 3 seconds with smooth animations
+ * - Styled with green gradient for success, red for errors
+ */
+
+function showNotification(message, type = 'success') {
+    if (typeof window.showNotification === 'function') {
+        window.showNotification(message, type);
+    } else {
+        console.warn('⚠️ Global showNotification not found, using fallback');
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            min-width: 300px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            background: ${type === 'success' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'};
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            animation: slideIn 0.3s ease-out;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Simple base path for admin directory - since this JS is loaded from admin panel
     const basePath = './';
@@ -381,7 +421,10 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data.success) {
+                showNotification('Event deleted successfully!', 'success');
                 loadEvents();
+            } else {
+                showNotification('Error deleting event: ' + (data.message || 'Unknown error'), 'error');
             }
         })
         .catch(error => {
@@ -425,6 +468,9 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 if (data.success) {
+                    const action = eventIdInput.value ? 'updated' : 'added';
+                    showNotification(`Event ${action} successfully!`, 'success');
+                    
                     // Close the modal first
                     closeEventModal();
                     
@@ -449,10 +495,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         loadEvents();
                     }, 100);
+                } else {
+                    showNotification('Error saving event: ' + (data.message || 'Unknown error'), 'error');
                 }
             })
             .catch(error => {
-                // Error handled silently
+                showNotification('An error occurred while saving the event.', 'error');
+                console.error('Error:', error);
             });
         });
     }

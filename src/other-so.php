@@ -1,3 +1,54 @@
+<?php
+/**
+ * ============================================================================
+ * Other Special Olympics Page
+ * ============================================================================
+ * 
+ * Purpose: Display Special Olympics organizations (International, Malaysia, States)
+ * Data Source: other_special_olympics table
+ * 
+ * Author: SO Sarawak Web Team
+ * Updated: December 17, 2025
+ * ============================================================================
+ */
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "so_sarawak_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Database connection failed. Please try again later.");
+}
+
+$conn->set_charset("utf8mb4");
+
+// Fetch organizations grouped by category
+$international = [];
+$malaysia = [];
+$states = [];
+
+$sql = "SELECT * FROM other_special_olympics WHERE is_active = 1 ORDER BY category, display_order ASC";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        if ($row['category'] === 'international') {
+            $international[] = $row;
+        } elseif ($row['category'] === 'malaysia') {
+            $malaysia[] = $row;
+        } elseif ($row['category'] === 'state') {
+            $states[] = $row;
+        }
+    }
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,9 +117,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 260px;      /* Increased height */
-            width: 530px;       /* Increased width */
-            padding: 40px;      /* Optional: more padding for bigger card */
+            height: 260px;
+            width: 530px;
+            padding: 40px;
             transition: transform 0.3s;
         }
         .other-so-card-duo:hover {
@@ -76,7 +127,7 @@
         }
         .other-so-card-duo img {
             max-width: 100%;
-            max-height: 160px;  /* Increased image size */
+            max-height: 160px;
             object-fit: contain;
         }
         .other-so-card-link {
@@ -200,9 +251,6 @@
     <!-- Social Media Bar (Loaded via JS) -->
     <script src="../scripts/components/socmed-bar.js"></script>
 
-    <!-- Chatbot (Loaded via JS) -->
-    <!-- <div id="chatbot-container"></div> -->
-
     <!-- Space for existing header -->
     <div class="header-space"></div>
 
@@ -213,156 +261,79 @@
 
     <section class="other-so-section">
         <div class="other-so-container">
+            <?php if (!empty($international) || !empty($malaysia)): ?>
             <h2>Special Olympics International and Malaysia</h2>
             <div class="so-afterline-60w-mb40"></div>
-            <div class=""></div>
             <div class="other-so-grid-duo">
-                <div class="other-so-grid-duo">
-                    <!-- Special Olympics International -->
-                    <a href="https://www.specialolympics.org" class="other-so-card-link">
-                        <div class="other-so-card-duo">
-                            <img src="../assets/images/SO International.png" alt="Special Olympics International">
-                        </div>
-                    </a>
-                    <!-- Special Olympics Malaysia -->
-                    <a href="https://www.specialolympicsmalaysia.org" class="other-so-card-link">
-                        <div class="other-so-card-duo">
-                            <img src="../assets/images/SO Malaysia.png" alt="Special Olympics Malaysia">
-                        </div>
-                    </a>
-                </div>
-            </div>
+                <?php
+                // Display International organizations
+                foreach ($international as $org):
+                    $url = $org['website_url'] ?: '#';
+                    $logo = $org['logo_desktop'] ?: '../assets/images/placeholder.png';
+                    $name = htmlspecialchars($org['name']);
+                ?>
+                <a href="<?php echo htmlspecialchars($url); ?>" class="other-so-card-link" 
+                   <?php if ($url !== '#'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
+                    <div class="other-so-card-duo">
+                        <img src="<?php echo htmlspecialchars($logo); ?>" 
+                             alt="<?php echo $name; ?>"
+                             onerror="this.src='../assets/images/placeholder.png'">
+                    </div>
+                </a>
+                <?php endforeach; ?>
 
+                <?php
+                // Display Malaysia organizations
+                foreach ($malaysia as $org):
+                    $url = $org['website_url'] ?: '#';
+                    $logo = $org['logo_desktop'] ?: '../assets/images/placeholder.png';
+                    $name = htmlspecialchars($org['name']);
+                ?>
+                <a href="<?php echo htmlspecialchars($url); ?>" class="other-so-card-link" 
+                   <?php if ($url !== '#'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
+                    <div class="other-so-card-duo">
+                        <img src="<?php echo htmlspecialchars($logo); ?>" 
+                             alt="<?php echo $name; ?>"
+                             onerror="this.src='../assets/images/placeholder.png'">
+                    </div>
+                </a>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if (!empty($states)): ?>
             <h2>Special Olympics in other States and Federal Territories</h2>
             <div class="so-afterline-60w-mb40"></div>
             <div class="other-so-grid">
-                <!-- Johor -->
-                <a href="#" class="other-so-card-link">
+                <?php foreach ($states as $org):
+                    $url = $org['website_url'] ?: '#';
+                    $logoDesktop = $org['logo_desktop'] ?: '../assets/images/placeholder.png';
+                    $logoMobile = $org['logo_mobile'] ?: $logoDesktop;
+                    $name = htmlspecialchars($org['name']);
+                ?>
+                <a href="<?php echo htmlspecialchars($url); ?>" class="other-so-card-link"
+                   <?php if ($url !== '#'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
                     <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Johor - square logo.png" alt="Special Olympics Johor">
+                        <img src="<?php echo htmlspecialchars($logoDesktop); ?>" 
+                             alt="<?php echo $name; ?>"
+                             onerror="this.src='../assets/images/placeholder.png'">
                     </div>
                     <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Johor.png" alt="Special Olympics Johor">
+                        <img src="<?php echo htmlspecialchars($logoMobile); ?>" 
+                             alt="<?php echo $name; ?>"
+                             onerror="this.src='../assets/images/placeholder.png'">
                     </div>
                 </a>
-                <!-- Kedah -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Kedah - square logo.png" alt="Special Olympics Kedah">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Kedah.png" alt="Special Olympics Kedah">
-                    </div>
-                </a>
-                <!-- Kelantan -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Kelantan - square logo.png" alt="Special Olympics Kelantan">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Kelantan.png" alt="Special Olympics Kelantan">
-                    </div>
-                </a>
-                <!-- Labuan -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Labuan - square logo.png" alt="Special Olympics Labuan">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Labuan.png" alt="Special Olympics Labuan">
-                    </div>
-                </a>
-                <!-- Malacca -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Melaka (EN) - square logo.png" alt="Special Olympics Malacca">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Melaka (EN).png" alt="Special Olympics Malacca">
-                    </div>
-                </a>
-                <!-- Negeri Sembilan -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Negeri Sembilan - square logo.png" alt="Special Olympics Negeri Sembilan">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Negeri Sembilan.png" alt="Special Olympics Negeri Sembilan">
-                    </div>
-                </a>
-                <!-- Pahang -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Pahang - square logo.png" alt="Special Olympics Pahang">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Pahang.png" alt="Special Olympics Pahang">
-                    </div>
-                </a>
-                <!-- Penang -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Penang - square logo.png" alt="Special Olympics Penang">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Penang.png" alt="Special Olympics Penang">
-                    </div>
-                </a>
-                <!-- Perak -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Perak - square logo.png" alt="Special Olympics Perak">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Perak.png" alt="Special Olympics Perak">
-                    </div>
-                </a>
-                <!-- Perlis -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Perlis - square logo.png" alt="Special Olympics Perlis">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Perlis.png" alt="Special Olympics Perlis">
-                    </div>
-                </a>
-                <!-- WP Putrajaya -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO WP Putrajaya - square logo.png" alt="Special Olympics Putrajaya">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO WP Putrajaya.png" alt="Special Olympics Putrajaya">
-                    </div>
-                </a>
-                <!-- Sabah -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Sabah - square logo.png" alt="Special Olympics Sabah">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Sabah.png" alt="Special Olympics Sabah">
-                    </div>
-                </a>
-                <!-- Selangor -->
-                <a href="https://www.specialolympicsselangor.org" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Selangor - square logo.png" alt="Special Olympics Selangor">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Selangor.png" alt="Special Olympics Selangor">
-                    </div>
-                </a>
-                <!-- Terengganu -->
-                <a href="#" class="other-so-card-link">
-                    <div class="other-so-card-desktop">
-                        <img src="../assets/images/Square logo/SO Terengganu - square logo.png" alt="Special Olympics Terengganu">
-                    </div>
-                    <div class="other-so-card-mobile">
-                        <img src="../assets/images/SO Terengganu.png" alt="Special Olympics Terengganu">
-                    </div>
-                </a>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
+
+            <?php if (empty($international) && empty($malaysia) && empty($states)): ?>
+            <div style="text-align: center; padding: 80px 20px; color: #666;">
+                <i class="fas fa-globe" style="font-size: 64px; opacity: 0.3; margin-bottom: 20px;"></i>
+                <p style="font-size: 18px;">No organizations available at the moment.</p>
+            </div>
+            <?php endif; ?>
         </div>
     </section>
 

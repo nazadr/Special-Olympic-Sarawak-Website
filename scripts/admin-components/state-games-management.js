@@ -424,25 +424,20 @@ function truncateText(text, maxLength) {
     return text.substring(0, maxLength) + '...';
 }
 
-// Utility function to show notifications
+// Standardized notification system - uses global function
 function showNotification(message, type = 'success') {
-    // Check if the global showNotification function exists, otherwise create a simple alert
     if (typeof window.showNotification === 'function') {
         window.showNotification(message, type);
     } else {
-        // Simple fallback notification
+        console.warn('Global showNotification not found, using fallback');
         const notification = document.createElement('div');
+        notification.className = `notification-toast ${type}`;
         notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 20px;
-            border-radius: 4px;
-            color: white;
-            font-weight: 500;
-            z-index: 9999;
-            background-color: ${type === 'success' ? '#28a745' : '#dc3545'};
-            animation: slideIn 0.3s ease;
+            position: fixed; top: 20px; right: 20px; padding: 16px 24px;
+            background: ${type === 'success' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'};
+            color: white; border-radius: 12px; font-weight: 500; z-index: 999999;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            font-family: 'Inter', sans-serif; font-size: 14px;
         `;
         notification.textContent = message;
         document.body.appendChild(notification);

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 
 // Debug: Show session status (remove in production)
@@ -1345,6 +1345,593 @@ if ($debug_mode) {
             color: #64748b;
             margin: 0;
         }
+
+        /* ========================================
+           Section Header Icon Styling
+           ======================================== */
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .section-header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+        }
+
+        .section-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .section-icon img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .section-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .section-subtitle {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Icon color variations for different sections */
+        .section-icon.dashboard {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .section-icon.analytics {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .section-icon.posters {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .section-icon.events {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .section-icon.sports {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .section-icon.participants {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .section-icon.media {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .section-icon.articles {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .section-icon.affiliates {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .section-icon.settings {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        /* ========================================
+           Other Special Olympics Management Styles
+           ======================================== */
+        
+        /* Add Organization Button */
+        .add-other-so-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .add-other-so-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .add-other-so-btn i {
+            font-size: 16px;
+        }
+
+        /* Stats Grid */
+        .other-so-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Controls */
+        .other-so-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 16px;
+            min-width: 300px;
+        }
+
+        .search-bar i {
+            color: #94a3b8;
+            margin-right: 8px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 14px;
+        }
+
+        /* Organizations Container */
+        .other-so-management-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .other-so-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .other-so-category-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .category-title i {
+            color: #667eea;
+        }
+
+        /* Organizations Grid */
+        .other-so-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .international-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        /* Organization Card */
+        .other-so-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: move;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .other-so-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .card-drag-handle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #cbd5e1;
+            cursor: grab;
+            padding: 4px;
+            margin: -8px -8px 0 -8px;
+        }
+
+        .card-drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .card-drag-handle i {
+            font-size: 16px;
+        }
+
+        .card-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .meta-badge {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .category-international {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .category-malaysia {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .category-state {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-inactive {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .card-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .card-link i {
+            font-size: 12px;
+        }
+
+        .card-link-empty {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-style: italic;
+        }
+
+        .website-link {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .website-link:hover {
+            text-decoration: underline;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 10px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .btn-edit:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-toggle {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .btn-toggle:hover {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .btn-delete {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .btn-delete:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Modal Styles */
+        .other-so-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .other-so-modal.show {
+            opacity: 1;
+        }
+
+        .other-so-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .other-so-modal-content {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            max-width: 800px;
+            max-height: 90vh;
+            margin: 5vh auto;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-hint {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .image-preview {
+            margin-top: 10px;
+        }
+
+        .image-preview-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .image-preview-item img {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .image-preview-item small {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* Loading & Empty States */
+        .loading-spinner {
+            text-align: center;
+            padding: 60px;
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #94a3b8;
+        }
+
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Sortable States */
+        .sortable-ghost {
+            opacity: 0.4;
+        }
+
+        .sortable-chosen {
+            cursor: grabbing;
+        }
+
+        .sortable-drag {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .other-so-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+
+            .search-bar {
+                min-width: 100%;
+            }
+
+            .other-so-grid,
+            .international-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .other-so-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1527,8 +2114,15 @@ if ($debug_mode) {
             <!-- Dashboard Section -->
             <div class="content-section active" id="dashboard">
                 <div class="section-header">
-                    <h2 class="section-title">Dashboard Overview</h2>
-                    <p class="section-subtitle">Welcome to Special Olympics Sarawak Admin Webmaster</p>
+                    <div class="section-header-content">
+                        <div class="section-icon dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Dashboard Overview</h2>
+                            <p class="section-subtitle">Welcome to Special Olympics Sarawak Admin Webmaster</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Participants Overview -->
@@ -1727,8 +2321,15 @@ if ($debug_mode) {
             <!-- Analytics Section -->
             <div class="content-section" id="analytics">
                 <div class="section-header">
-                    <h2 class="section-title">Analytics & Insights</h2>
-                    <p class="section-subtitle">Comprehensive data analysis and performance metrics</p>
+                    <div class="section-header-content">
+                        <div class="section-icon analytics">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Analytics & Insights</h2>
+                            <p class="section-subtitle">Comprehensive data analysis and performance metrics</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Key Metrics Overview -->
@@ -1995,8 +2596,15 @@ if ($debug_mode) {
 
             <div class="content-section" id="posters">
                 <div class="section-header">
-                    <h2 class="section-title">Posters Management</h2>
-                    <p class="section-subtitle">Upload and manage posters for Special Olympics Sarawak</p>  
+                    <div class="section-header-content">
+                        <div class="section-icon posters">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Posters Management</h2>
+                            <p class="section-subtitle">Upload and manage posters for Special Olympics Sarawak</p>  
+                        </div>
+                    </div>
                 </div>
 
                 <div class="management-container">
@@ -2270,9 +2878,14 @@ if ($debug_mode) {
             <!-- Sports Section -->
             <div class="content-section" id="sports">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Sports Management</h2>
-                        <p class="section-subtitle">Manage sports in the Our Sports page.</p>
+                    <div class="section-header-content">
+                        <div class="section-icon sports">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Sports Management</h2>
+                            <p class="section-subtitle">Manage sports in the Our Sports page.</p>
+                        </div>
                     </div>
                     <button class="add-sport-btn" onclick="openSportModal()">
                         <i class="fas fa-plus"></i> Add Sport
@@ -2372,8 +2985,15 @@ if ($debug_mode) {
             <!-- Athletes Section -->
             <div class="content-section" id="athletes">
                 <div class="section-header">
-                    <h2 class="section-title">Athletes Management</h2>
-                    <p class="section-subtitle">Manage athlete registrations and profiles</p>
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Athletes Management</h2>
+                            <p class="section-subtitle">Manage athlete registrations and profiles</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-placeholder">
@@ -2386,8 +3006,15 @@ if ($debug_mode) {
             <!-- Volunteers Section -->
             <div class="content-section" id="volunteers">
                 <div class="section-header">
-                    <h2 class="section-title">Volunteers Management</h2>
-                    <p class="section-subtitle">Manage volunteer applications and schedules</p>
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Volunteers Management</h2>
+                            <p class="section-subtitle">Manage volunteer applications and schedules</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-placeholder">
@@ -2400,8 +3027,15 @@ if ($debug_mode) {
             <!-- Coaches Section -->
             <div class="content-section" id="coaches">
                 <div class="section-header">
-                    <h2 class="section-title">Coaches Management</h2>
-                    <p class="section-subtitle">Manage coach profiles and certifications</p>
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Coaches Management</h2>
+                            <p class="section-subtitle">Manage coach profiles and certifications</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-placeholder">
@@ -2540,9 +3174,14 @@ if ($debug_mode) {
             <!-- News Section -->
             <div class="content-section" id="news">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">News Management</h2>
-                        <p class="section-subtitle">Create and manage news articles</p>
+                    <div class="section-header-content">
+                        <div class="section-icon articles">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">News Management</h2>
+                            <p class="section-subtitle">Create and manage news articles</p>
+                        </div>
                     </div>
                     <button id="addNewsBtn" class="add-news-btn">
                         <i class="fas fa-plus"></i> Add News
@@ -2646,9 +3285,14 @@ if ($debug_mode) {
             <!-- Athlete Leaderships -->
             <div class="content-section" id="alp">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Athlete Leaderships Management</h2>
-                        <p class="section-subtitle">Manage Athlete Leaderships Program (ALP) overview articles, resources and the "learn more" page.</p>
+                    <div class="section-header-content">
+                        <div class="section-icon articles">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Athlete Leaderships Management</h2>
+                            <p class="section-subtitle">Manage Athlete Leaderships Program (ALP) overview articles, resources and the "learn more" page.</p>
+                        </div>
                     </div>
                     <button class="add-alp-btn" onclick="openAlpModal()">
                         <i class="fas fa-plus"></i>
@@ -3022,9 +3666,14 @@ if ($debug_mode) {
             <!-- Young Athletes -->
             <div class="content-section" id="yap">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Young Athletes Program (YAP)</h2>
-                        <p class="section-subtitle">Manage YAP overview articles, resources and the "learn more" page.</p>
+                    <div class="section-header-content">
+                        <div class="section-icon articles">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Young Athletes Program (YAP)</h2>
+                            <p class="section-subtitle">Manage YAP overview articles, resources and the "learn more" page.</p>
+                        </div>
                     </div>
                     <button class="add-yap-btn" onclick="openYapModal()">
                         <i class="fas fa-edit"></i> Edit YAP Content
@@ -3156,9 +3805,14 @@ if ($debug_mode) {
             <!-- Gallery/Photos Section -->
             <div class="content-section" id="photos">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Photo Management</h2>
-                        <p class="section-subtitle">Manage gallery photos and collections</p>
+                    <div class="section-header-content">
+                        <div class="section-icon media">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Photo Management</h2>
+                            <p class="section-subtitle">Manage gallery photos and collections</p>
+                        </div>
                     </div>
                     <button class="add-photo-btn" onclick="openPhotoModal()">
                         <i class="fas fa-plus"></i> Add Photo
@@ -3294,15 +3948,20 @@ if ($debug_mode) {
             <!-- Gallery/Videos Section -->
             <div class="content-section" id="videos">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Video Management</h2>
-                        <p class="section-subtitle">Upload and manage videos in the gallery. The recommended maximum
+                    <div class="section-header-content">
+                        <div class="section-icon media">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Video Management</h2>
+                            <p class="section-subtitle">Upload and manage videos in the gallery. The recommended maximum
                         video resolution is <strong>1920×1080</strong>, with a <strong>video bitrate between 2–6
                             Mbps</strong> and an <strong>audio bitrate of 128 kbps (AAC)</strong> to help prevent
                         buffering issues. Since the admin webmaster does <strong>not support automatic video
-                            compression</strong> like most streaming platforms, you’ll need to <strong>manually compress
+                            compression</strong> like most streaming platforms, you'll need to <strong>manually compress
                             your original video</strong> into the MP4 format before uploading.<br><br>*This video
                         management interface is under development.</p>
+                        </div>
                     </div>
                     <button id="addVideoBtn" class="add-video-btn">
                         <i class="fas fa-plus"></i> Add Video
@@ -3419,9 +4078,14 @@ if ($debug_mode) {
             <!-- Sponsorships -->
             <div class="content-section" id="sponsorships">
                 <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Sponsorships Management</h2>
-                        <p class="section-subtitle">Manage sponsors grouped by chapter. Each chapter has its own sponsor list for easy tracking.</p>
+                    <div class="section-header-content">
+                        <div class="section-icon affiliates">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Sponsorships Management</h2>
+                            <p class="section-subtitle">Manage sponsors grouped by chapter. Each chapter has its own sponsor list for easy tracking.</p>
+                        </div>
                     </div>
                     <button class="add-sponsorship-btn" onclick="openSponsorshipModal()">
                         <i class="fas fa-plus"></i> Add Sponsor
@@ -3559,22 +4223,104 @@ if ($debug_mode) {
             <!-- Other Special Olympics -->
             <div class="content-section" id="other-special-olympics">
                 <div class="section-header">
-                    <h2 class="section-title">Other Special Olympics Management</h2>
-                    <p class="section-subtitle">Manage other Special Olympics.</p>
+                    <div class="section-header-content">
+                        <div class="section-icon affiliates">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Other Special Olympics Management</h2>
+                            <p class="section-subtitle">Manage Special Olympics organizations across the globe</p>
+                        </div>
+                    </div>
+                    <button class="add-other-so-btn" onclick="openOtherSOModal('add')">
+                        <i class="fas fa-plus"></i> Add Organization
+                    </button>
                 </div>
 
-                <div class="content-placeholder">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Other Special Olympics</h3>
-                    <p>Add your other Special Olympics management interface here</p>
+                <!-- Statistics Overview -->
+                <div class="other-so-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="totalOtherSO">0</h4>
+                            <p class="stat-label">Total Organizations</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="activeOtherSO">0</h4>
+                            <p class="stat-label">Active</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="statesCount">0</h4>
+                            <p class="stat-label">States & Territories</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="inactiveOtherSO">0</h4>
+                            <p class="stat-label">Inactive</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="other-so-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterOtherSOByCategory('all')">
+                            <i class="fas fa-globe"></i> All
+                        </button>
+                        <button class="filter-btn" onclick="filterOtherSOByCategory('international')">
+                            <i class="fas fa-earth-americas"></i> International
+                        </button>
+                        <button class="filter-btn" onclick="filterOtherSOByCategory('malaysia')">
+                            <i class="fas fa-star"></i> Malaysia
+                        </button>
+                        <button class="filter-btn" onclick="filterOtherSOByCategory('state')">
+                            <i class="fas fa-map-marked-alt"></i> States
+                        </button>
+                    </div>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search organizations..." 
+                               onkeyup="searchOtherSO(this.value)">
+                    </div>
+                </div>
+
+                <!-- Organizations List -->
+                <div class="other-so-management-container">
+                    <div id="otherSOList" class="other-so-list">
+                        <!-- Organizations will be loaded here via JavaScript -->
+                        <div class="loading-spinner">Loading organizations...</div>
+                    </div>
                 </div>
             </div>
 
             <!-- Settings Section -->
             <div class="content-section" id="settings">
                 <div class="section-header">
-                    <h2 class="section-title">Settings</h2>
-                    <p class="section-subtitle">Configure your admin panel settings</p>
+                    <div class="section-header-content">
+                        <div class="section-icon settings">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Settings</h2>
+                            <p class="section-subtitle">Configure your admin panel settings</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-placeholder">
@@ -3587,8 +4333,15 @@ if ($debug_mode) {
             <!-- Profile Section -->
             <div class="content-section" id="profile">
                 <div class="section-header">
-                    <h2 class="section-title">Profile</h2>
-                    <p class="section-subtitle">Manage your admin profile and security settings</p>
+                    <div class="section-header-content">
+                        <div class="section-icon settings">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Profile</h2>
+                            <p class="section-subtitle">Manage your admin profile and security settings</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="profile-container">
@@ -4016,6 +4769,102 @@ if ($debug_mode) {
                     <div class="chapter-modal-actions">
                         <button type="button" class="btn btn-secondary" onclick="closeChapterModal()">Cancel</button>
                         <button type="button" class="btn btn-primary" onclick="saveChapterChanges()">Update Chapter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Special Olympics Modal -->
+    <div id="otherSOModal" class="other-so-modal" style="display: none;">
+        <div class="other-so-modal-backdrop" onclick="closeOtherSOModal()"></div>
+        <div class="other-so-modal-content">
+            <div class="other-so-modal-header">
+                <h3>Add New Organization</h3>
+                <span class="other-so-modal-close" onclick="closeOtherSOModal()">&times;</span>
+            </div>
+            <div class="other-so-modal-body">
+                <form id="otherSOForm" onsubmit="submitOtherSOForm(event)" enctype="multipart/form-data">
+                    <div class="other-so-form-group">
+                        <label for="otherSOName">Organization Name <span class="required">*</span></label>
+                        <input type="text" id="otherSOName" name="name" required 
+                               placeholder="e.g., Special Olympics Johor">
+                    </div>
+
+                    <div class="other-so-form-row">
+                        <div class="other-so-form-group">
+                            <label for="otherSOCategory">Category <span class="required">*</span></label>
+                            <select id="otherSOCategory" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="international">International</option>
+                                <option value="malaysia">Malaysia</option>
+                                <option value="state">State / Federal Territory</option>
+                            </select>
+                        </div>
+
+                        <div class="other-so-form-group">
+                            <label for="otherSOWebsite">Website URL</label>
+                            <input type="url" id="otherSOWebsite" name="website_url" 
+                                   placeholder="https://example.com">
+                        </div>
+                    </div>
+
+                    <div class="other-so-form-row">
+                        <div class="other-so-form-group">
+                            <label for="otherSOOrder">Display Order</label>
+                            <input type="number" id="otherSOOrder" name="display_order" 
+                                   value="0" min="0" step="10">
+                            <small class="form-hint">Lower numbers appear first</small>
+                        </div>
+
+                        <div class="other-so-form-group">
+                            <label for="otherSOStatus">Status</label>
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="otherSOStatus" name="is_active" checked>
+                                <label for="otherSOStatus" class="checkbox-label">Active (Visible on website)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="other-so-form-group">
+                        <label for="otherSODesktopLogo">Desktop Logo (Square) <span class="required">*</span></label>
+                        <div class="file-upload-container">
+                            <input type="file" id="otherSODesktopLogo" name="logo_desktop" 
+                                   accept="image/*" style="display: none;" onchange="previewOtherSODesktopLogo(this)">
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('otherSODesktopLogo').click()">
+                                Choose File
+                            </button>
+                            <span id="otherSODesktopStatus" class="file-status">No file selected</span>
+                            <button type="button" id="deleteOtherSODesktopBtn" class="file-delete-btn" style="display: none;" onclick="removeOtherSODesktopLogo()">Remove</button>
+                        </div>
+                        <small class="form-hint">Recommended: Square format (500x500px)</small>
+                        <div id="otherSODesktopPreview" class="image-preview" style="display: none;">
+                            <img src="" alt="Desktop Logo Preview" />
+                        </div>
+                    </div>
+
+                    <div class="other-so-form-group">
+                        <label for="otherSOMobileLogo">Mobile Logo (Horizontal)</label>
+                        <div class="file-upload-container">
+                            <input type="file" id="otherSOMobileLogo" name="logo_mobile" 
+                                   accept="image/*" style="display: none;" onchange="previewOtherSOMobileLogo(this)">
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('otherSOMobileLogo').click()">
+                                Choose File
+                            </button>
+                            <span id="otherSOMobileStatus" class="file-status">No file selected</span>
+                            <button type="button" id="deleteOtherSOMobileBtn" class="file-delete-btn" style="display: none;" onclick="removeOtherSOMobileLogo()">Remove</button>
+                        </div>
+                        <small class="form-hint">Recommended: Horizontal format (800x300px)</small>
+                        <div id="otherSOMobilePreview" class="image-preview" style="display: none;">
+                            <img src="" alt="Mobile Logo Preview" />
+                        </div>
+                    </div>
+
+                    <div class="other-so-modal-actions">
+                        <button type="button" class="btn-cancel" onclick="closeOtherSOModal()">Cancel</button>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-save"></i> Save Organization
+                        </button>
                     </div>
                 </form>
             </div>
@@ -5962,6 +6811,7 @@ if ($debug_mode) {
     <script src="../scripts/admin-components/alp-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/yap-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/chapters-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/other-so-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script>
         // Force load chapters when needed
         document.addEventListener('DOMContentLoaded', function() {
@@ -5983,31 +6833,55 @@ if ($debug_mode) {
 
     <!-- Direct sortable implementation -->
     <script>
-        // Gallery Collections Sortable
+        // Standardized Global Notification System
         function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed; top: 20px; right: 20px; padding: 12px 20px;
-                background: ${type === 'success' ? '#10b981' : '#ef4444'};
-                color: white; border-radius: 6px; z-index: 10000;
-                font-family: 'Inter', sans-serif; font-size: 14px;
-                animation: slideIn 0.3s ease;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 3000);
-        }
-        
-        // Add CSS animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
+            // Create notification container if it doesn't exist
+            let container = document.querySelector('.notification-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'notification-container';
+                document.body.appendChild(container);
             }
-        `;
-        document.head.appendChild(style);
 
+            // Create notification toast
+            const notification = document.createElement('div');
+            notification.className = `notification-toast ${type}`;
+            
+            // Icon mapping
+            const icons = {
+                success: '<i class="fas fa-check-circle"></i>',
+                error: '<i class="fas fa-times-circle"></i>',
+                warning: '<i class="fas fa-exclamation-triangle"></i>',
+                info: '<i class="fas fa-info-circle"></i>'
+            };
+            
+            notification.innerHTML = `
+                <span class="notification-icon">${icons[type] || icons.success}</span>
+                <span class="notification-message">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            // Add to container
+            container.appendChild(notification);
+            
+            // Auto-remove after 3 seconds with fade animation
+            setTimeout(() => {
+                notification.classList.add('fade-out');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                    // Remove container if empty
+                    if (container.children.length === 0) {
+                        container.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Gallery Collections Sortable
         window.initializeGallerySortable = function() {
             const container = document.getElementById('publishedGalleryPhoto');
             
