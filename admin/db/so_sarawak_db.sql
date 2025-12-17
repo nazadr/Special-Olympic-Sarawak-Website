@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2025 at 02:29 AM
+-- Generation Time: Dec 17, 2025 at 09:49 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -108,8 +108,7 @@ INSERT INTO `events` (`id`, `title`, `description`, `location`, `city`, `event_d
 (9, 'Check City', 'abcdefgg', 'Boulevard Mall', 'Miri', '2025-10-23', '9:00 AM - 3:00 PM', 'meeting', '../assets/images/events/68ef10b2d0f4e_another_news.jpg'),
 (10, 'Bintulu Marathon', '1122', 'Stadium Bintulu', 'Bintulu', '2025-10-20', '9:00 AM - 3:00 PM', 'special', '../assets/images/events/68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg'),
 (15, 'Test Event ', 'Testing entries\r\n', 'Lasar Kenyalang', 'Bintulu', '2025-11-29', '8.00 P.M - 12.00 P.M', 'special', 'assets/images/events/6927c69f94de5_yap-gal-3.jpg'),
-(18, 'Bintulu Ultra Marathon', 'Bintulu Ultra Marathon', 'Lasar Kenyalang', 'Bintulu', '2025-12-05', '8.00 A.M - 12.00 P.M', 'special', 'assets/images/events/692ce1c87e7f6_68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg'),
-(19, 'Aqua Rally', 'Swimlane test', 'Public Swimming Pool Bintulu', 'Bintulu', '2025-12-14', '9:00 AM - 3:00 PM', 'special', 'assets/images/events/693f6d4be445e_Aquatics_sport.jpg');
+(18, 'Bintulu Ultra Marathon', 'Bintulu Ultra Marathon', 'Tanjung Batu', 'Bintulu', '2025-12-05', '8.00 A.M - 12.00 P.M', 'special', 'assets/images/events/692ce1c87e7f6_68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg');
 
 -- --------------------------------------------------------
 
@@ -263,6 +262,47 @@ INSERT INTO `news` (`id`, `image_path`, `headline`, `news_date`, `description`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `other_special_olympics`
+--
+
+CREATE TABLE `other_special_olympics` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL COMMENT 'Organization name (e.g., Special Olympics International)',
+  `category` enum('international','malaysia','state') NOT NULL COMMENT 'Type of organization',
+  `logo_desktop` varchar(500) DEFAULT NULL COMMENT 'Path to desktop/square logo',
+  `logo_mobile` varchar(500) DEFAULT NULL COMMENT 'Path to mobile horizontal logo',
+  `website_url` varchar(500) DEFAULT NULL COMMENT 'External website URL',
+  `display_order` int(11) NOT NULL DEFAULT 0 COMMENT 'Order for display (lower = first)',
+  `is_active` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 = visible, 0 = hidden',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Stores Special Olympics organizations for Other SO page';
+
+--
+-- Dumping data for table `other_special_olympics`
+--
+
+INSERT INTO `other_special_olympics` (`id`, `name`, `category`, `logo_desktop`, `logo_mobile`, `website_url`, `display_order`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Special Olympics International', 'international', '../assets/images/SO International.png', '../assets/images/SO International.png', 'https://www.specialolympics.org', 1, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(2, 'Special Olympics Malaysia', 'malaysia', '../assets/images/SO Malaysia.png', '../assets/images/SO Malaysia.png', 'https://www.specialolympicsmalaysia.org', 2, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(3, 'Special Olympics Johor', 'state', '../assets/images/Square logo/SO Johor - square logo.png', '../assets/images/SO Johor.png', '#', 10, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(4, 'Special Olympics Kedah', 'state', '../assets/images/Square logo/SO Kedah - square logo.png', '../assets/images/SO Kedah.png', '#', 20, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(5, 'Special Olympics Kelantan', 'state', '../assets/images/Square logo/SO Kelantan - square logo.png', '../assets/images/SO Kelantan.png', '#', 30, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(6, 'Special Olympics Malacca', 'state', '../assets/images/Square logo/SO Melaka (EN) - square logo.png', '../assets/images/SO Melaka (EN).png', '#', 40, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(7, 'Special Olympics Negeri Sembilan', 'state', '../assets/images/Square logo/SO Negeri Sembilan - square logo.png', '../assets/images/SO Negeri Sembilan.png', '#', 50, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(8, 'Special Olympics Pahang', 'state', '../assets/images/Square logo/SO Pahang - square logo.png', '../assets/images/SO Pahang.png', '#', 60, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(9, 'Special Olympics Penang', 'state', '../assets/images/Square logo/SO Penang - square logo.png', '../assets/images/SO Penang.png', '#', 70, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(10, 'Special Olympics Perak', 'state', '../assets/images/Square logo/SO Perak - square logo.png', '../assets/images/SO Perak.png', '#', 80, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(11, 'Special Olympics Perlis', 'state', '../assets/images/Square logo/SO Perlis - square logo.png', '../assets/images/SO Perlis.png', '#', 90, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(12, 'Special Olympics Sabah', 'state', '../assets/images/Square logo/SO Sabah - square logo.png', '../assets/images/SO Sabah.png', '#', 100, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(13, 'Special Olympics Selangor', 'state', '../assets/images/Square logo/SO Selangor - square logo.png', '../assets/images/SO Selangor.png', 'https://www.specialolympicsselangor.org', 110, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(14, 'Special Olympics Terengganu', 'state', '../assets/images/Square logo/SO Terengganu - square logo.png', '../assets/images/SO Terengganu.png', '#', 120, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(15, 'Special Olympics Labuan', 'state', '../assets/images/Square logo/SO Labuan - square logo.png', '../assets/images/SO Labuan.png', '#', 130, 1, '2025-12-17 01:03:56', '2025-12-17 01:03:56'),
+(16, 'Special Olympics WP Putrajaya', 'state', '../assets/images/Square logo/SO WP Putrajaya - square logo.png', '../assets/images/SO WP Putrajaya.png', '#', 140, 1, '2025-12-17 01:03:56', '2025-12-17 01:04:52');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sarawak_chapters`
 --
 
@@ -285,7 +325,7 @@ CREATE TABLE `sarawak_chapters` (
 --
 
 INSERT INTO `sarawak_chapters` (`id`, `chapter_name`, `city`, `chairman`, `vice_chairman`, `secretary`, `treasurer`, `logo_path`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'SO Kuching Chapter', 'Kuching', 'Madam Liza Chai', 'Unknown', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-02 01:00:38'),
+(1, 'SO Kuching Chapter', 'Kuching', 'Madam Liza Chai', 'Unknown', '', '', 'assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-17 00:36:33'),
 (2, 'SO Samarahan Chapter', 'Samarahan', 'TBD', 'TBD', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png', 'upcoming', '2025-12-01 01:53:08', '2025-12-02 07:06:57'),
 (3, 'SO Sibu Chapter', 'Sibu', 'Pemanca Datuk Jason Tai Hee', 'TBD', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:53:18'),
 (4, 'SO Bintulu Chapter', 'Bintulu', 'Dato Haji Ruslan Bin Abdul Ghani', 'TBD', 'Sabrina Cheong Oi Lin binti Abdullah', 'TBD', 'assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:53:36'),
@@ -358,9 +398,9 @@ INSERT INTO `sports` (`id`, `title`, `description`, `image_path`, `display_order
 (6, 'Bowling', 'Popular sport combining fun and skill with lane strategy', '../assets/images/sports/692cef5e17cac_SO_bowling.jpg', 5, '2025-12-01 01:12:54', '2025-12-15 07:20:21'),
 (7, 'Floorball', 'Fast indoor team sport similar to floor hockey', 'https://www.specialolympicsmalaysia.org/images/FIH%20Hockey/FIH-SOM%20FIH%20ID-Hockey2.png', 7, '2025-12-01 01:12:54', '2025-12-01 06:11:59'),
 (8, 'Football', 'The world\'s most popular sport', 'https://jpwpl.gov.my/sanasini/wp-content/uploads/2017/11/olympiad-smklajau-768x448.jpg', 8, '2025-12-01 01:12:54', '2025-12-01 06:12:00'),
-(9, 'Judo', 'Martial art focusing on throws and grappling techniques', '../assets/images/sports/692cefaeed625_SO_judo.jpg', 10, '2025-12-01 01:12:54', '2025-12-01 06:12:02'),
+(9, 'Judo', 'Martial art focusing on throws and grappling techniques', '../assets/images/sports/692cefaeed625_SO_judo.jpg', 11, '2025-12-01 01:12:54', '2025-12-16 02:11:01'),
 (10, 'Netball', 'Fast-paced team sport similar to basketball', 'https://www.thestatesman.com/wp-content/uploads/2018/08/net-ball.jpg', 9, '2025-12-01 01:12:54', '2025-12-01 06:12:02'),
-(11, 'Swimming', 'Individual and team aquatic sport with various strokes and distances', 'https://dotorg.brightspotcdn.com/ac/e1/a4297c14411e803691dafbd93b26/1300x680-aquatics.jpg', 11, '2025-12-01 01:12:54', '2025-12-01 06:11:59'),
+(11, 'Swimming', 'Individual and team aquatic sport with various strokes and distances', 'https://dotorg.brightspotcdn.com/ac/e1/a4297c14411e803691dafbd93b26/1300x680-aquatics.jpg', 10, '2025-12-01 01:12:54', '2025-12-16 02:11:01'),
 (12, 'Tennis', 'Racquet sport played individually or in doubles on a court', '../assets/images/sports/692cefb9f18b2_SO_tennis.jpg', 13, '2025-12-01 01:12:54', '2025-12-01 08:28:51'),
 (13, 'Table Tennis', 'Fast-paced indoor racquet sport played on a table', 'https://dotorg.brightspotcdn.com/dims4/default/612aa0c/2147483647/strip/true/crop/2160x1440+0+0/resize/800x533!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F0a%2F60%2F7dad13d84fb9bcb4fa8eac7baaae%2Fsbr0078.jpg', 12, '2025-12-01 01:12:54', '2025-12-01 08:28:51');
 
@@ -387,9 +427,9 @@ CREATE TABLE `state_games` (
 --
 
 INSERT INTO `state_games` (`id`, `event_title`, `event_date`, `event_description`, `learn_more_link`, `image_path`, `display_order`, `created_at`, `updated_at`) VALUES
-(1, '8th State Games Kuching 2025', 'TBA 2025', 'The 8th edition of the State Games will be held in Kuching, Sarawak in 2025. This event will feature a variety of sports and activities, bringing together athletes from across the state to compete and celebrate their achievements.', '#', 'https://www.theborneopost.com/newsimages/2025/05/kch-030525-dd-fatimah-702x336.jpg', 1, '2025-12-04 08:14:36', NULL),
-(2, 'National Games 2027', 'TBA 2027', 'An event that brings together athletes from across Malaysia to compete in a variety of sports.', '#', 'https://www.theborneopost.com/newsimages/2025/09/kch-260925-mtu-bg_ath_roundup-p1-B.jpg', 2, '2025-12-04 08:14:36', NULL),
-(3, 'SEA Games 2027', 'TBA 2027', 'This event card is just a placeholder for mockup.', '#', 'https://media.freemalaysiatoday.com/wp-content/uploads/2022/05/Sea-Gaes-2017-Malaysia-Bernama.jpg', 3, '2025-12-04 08:14:36', NULL);
+(1, '8th State Games Kuching 2025', 'TBA 2025', 'The 8th edition of the State Games will be held in Kuching, Sarawak in 2025. This event will feature a variety of sports and activities, bringing together athletes from across the state to compete and celebrate their achievements.', '', 'https://www.theborneopost.com/newsimages/2025/05/kch-030525-dd-fatimah-702x336.jpg', 1, '2025-12-04 08:14:36', '2025-12-17 07:51:23'),
+(2, 'National Games 2027', 'TBA 2027', 'An event that brings together athletes from across Malaysia to compete in a variety of sports.', '', 'https://www.theborneopost.com/newsimages/2025/09/kch-260925-mtu-bg_ath_roundup-p1-B.jpg', 2, '2025-12-04 08:14:36', '2025-12-17 07:51:29'),
+(3, 'SEA Games 2027', 'TBA 2027', 'This event card is just a placeholder for mockup.', 'https://www.bernama.com/en/region/news.php?id=2500404', 'https://media.freemalaysiatoday.com/wp-content/uploads/2022/05/Sea-Gaes-2017-Malaysia-Bernama.jpg', 3, '2025-12-04 08:14:36', '2025-12-17 07:46:19');
 
 -- --------------------------------------------------------
 
@@ -516,6 +556,15 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `other_special_olympics`
+--
+ALTER TABLE `other_special_olympics`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_category` (`category`),
+  ADD KEY `idx_display_order` (`display_order`),
+  ADD KEY `idx_is_active` (`is_active`);
+
+--
 -- Indexes for table `sarawak_chapters`
 --
 ALTER TABLE `sarawak_chapters`
@@ -615,6 +664,12 @@ ALTER TABLE `hap`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `other_special_olympics`
+--
+ALTER TABLE `other_special_olympics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `sarawak_chapters`
