@@ -4,7 +4,7 @@
 document.writeln(`
     <nav class="top-nav">
         <div class="logo">
-            <a href="../index.html"><img src="../assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img" style="margin-top: 4px;"></a>
+            <a href="../index.php"><img src="../assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img" style="margin-top: 4px;"></a>
             <img src="../assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
         </div>
 
@@ -62,42 +62,42 @@ document.writeln(`
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/getting_started.html">Getting Started</a></li>
-                        <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
+                        <li><a href="../src/alp.php">Athlete Leadership Program (ALP)</a></li>
+                        <li><a href="../src/yap.php">Young Athletes Program (YAP)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Core Program <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/sohap.html">Healthy Athletes Program (HAP)</a></li>
+                        <li><a href="../src/sohap.php">Healthy Athletes Program (HAP)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Sports <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/sport.html">Our Sports</a></li>
+                        <li><a href="../src/sport.php">Our Sports</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Affiliate <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
-                        <li><a href="../src/sponsorships.html">Sponsorships</a></li>
-                        <li><a href="../src/other-so.html">Other Special Olympics</a></li>
+                        <li><a href="../src/sponsorships.php">Sponsorships</a></li>
+                        <li><a href="../src/other-so.php">Other Special Olympics</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/state-games.html">State Games</a></li>
+                        <li><a href="../src/state-games.php">State Games</a></li>
                         <li><a href="../src/event_calendar.php">Event Calendar</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Gallery <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/gallery-photos.html">Photos</a></li>
-                        <li><a href="../src/gallery-videos.html">Videos</a></li>
+                        <li><a href="../src/gallery-photos.php">Photos</a></li>
+                        <li><a href="../src/gallery-videos.php">Videos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">

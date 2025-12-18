@@ -4,7 +4,7 @@ document.writeln(`
     <footer class="site-footer">
         <div class="footer-top">
             <div class="footer-logo">
-                <a href="index.html"> <img src="assets/images/Remake/SO Sarawak (site footer) BG.png" alt="Special Olympics Sarawak Logo" width="262" height="60"></a>
+                <a href="index.php"> <img src="assets/images/Remake/SO Sarawak (site footer) BG.png" alt="Special Olympics Sarawak Logo" width="262" height="60"></a>
             </div>
             <div class="footer-buttons">
                 <a href="src/join_us.html" class="btn join-us">Join Us</a>

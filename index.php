@@ -109,42 +109,42 @@
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="src/getting_started.html">Getting Started</a></li>
-                        <li><a href="src/alp.html">Athletes Leadership Program (ALP)</a></li>
-                        <li><a href="src/yap.html">Young Athletes Program (YAP)</a></li>
+                        <li><a href="src/alp.php">Athletes Leadership Program (ALP)</a></li>
+                        <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Core Program <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sohap.html">Healthy Athletes Program (HAP)</a></li>
+                        <li><a href="src/sohap.php">Healthy Athletes Program (HAP)</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Sports <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sport.html">Our Sports</a></li>
+                        <li><a href="src/sport.php">Our Sports</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Affiliate <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="src/sarawak-chapters.php">Sarawak Chapters</a></li>
-                        <li><a href="src/sponsorships.html">Sponsorships</a></li>
-                        <li><a href="src/other-so.html">Other Special Olympics</a></li>
+                        <li><a href="src/sponsorships.php">Sponsorships</a></li>
+                        <li><a href="src/other-so.php">Other Special Olympics</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/state-games.html">State Games</a></li>
+                        <li><a href="src/state-games.php">State Games</a></li>
                         <li><a href="src/event_calendar.php">Event Calendar</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Gallery <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/gallery-photos.html">Photos</a></li>
-                        <li><a href="src/gallery-videos.html">Videos</a></li>
+                        <li><a href="src/gallery-photos.php">Photos</a></li>
+                        <li><a href="src/gallery-videos.php">Videos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
@@ -190,26 +190,26 @@
                 <button class="nav-btn"><span>What We Do?</span></button>
                 <div class="dropup-menu">
                     <a href="src/getting_started.html">Getting Started</a>
-                    <a href="src/alp.html">Athletes Leadership Program (ALP)</a>
-                    <a href="src/yap.html">Young Athletes Program (YAP)</a>
+                    <a href="src/alp.php">Athletes Leadership Program (ALP)</a>
+                    <a href="src/yap.php">Young Athletes Program (YAP)</a>
                 </div>
             </li>
             <li class="nav-item">
                 <button class="nav-btn"><span>Core Program</span></button>
                 <div class="dropup-menu">
-                    <a href="src/sohap.html">Healthy Athletes Program (HAP)</a>
+                    <a href="src/sohap.php">Healthy Athletes Program (HAP)</a>
                 </div>
             </li>
             <li class="nav-item">
                 <button class="nav-btn"><span>Sports</span></button>
                 <div class="dropup-menu">
-                    <a href="src/sport.html">Our Sports</a>
+                    <a href="src/sport.php">Our Sports</a>
                 </div>
             </li>
             <li class="nav-item">
                 <button class="nav-btn"><span>Events</span></button>
                 <div class="dropup-menu">
-                    <a href="src/state-games.html">State Games</a>
+                    <a href="src/state-games.php">State Games</a>
                     <a href="src/event_calendar.php">Events Calendar</a>
                 </div>
             </li>
@@ -217,15 +217,15 @@
                 <button class="nav-btn"><span>Affiliate</span></button>
                 <div class="dropup-menu">
                     <a href="src/sarawak-chapters.php">Sarawak Chapters</a>
-                    <a href="src/sponsorships.html">Sponsorships</a>
-                    <a href="src/other-so.html">Other Special Olympics</a>
+                    <a href="src/sponsorships.php">Sponsorships</a>
+                    <a href="src/other-so.php">Other Special Olympics</a>
                 </div>
             </li>
             <li class="nav-item">
                 <button class="nav-btn"><span>Gallery</span></button>
                 <div class="dropup-menu">
-                    <a href="src/gallery-photos.html">Photos</a>
-                    <a href="src/gallery-videos.html">Videos</a>
+                    <a href="src/gallery-photos.php">Photos</a>
+                    <a href="src/gallery-videos.php">Videos</a>
                 </div>
             </li>
             <li class="nav-item">
