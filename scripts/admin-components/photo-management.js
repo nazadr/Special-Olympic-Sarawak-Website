@@ -149,8 +149,26 @@ function loadPublishedPhotos() {
                 
                 // Initialize sortable functionality after galleries are loaded
                 setTimeout(() => {
-                    initializeGallerySortable();
-                    initializePhotoCardsSortable();
+                    if (typeof window.initializePhotoGallerySortable === 'function') {
+                        console.log('Calling initializePhotoGallerySortable()');
+                        window.initializePhotoGallerySortable();
+                    } else if (typeof window.initializeGallerySortable === 'function') {
+                        console.log('Calling fallback initializeGallerySortable()');
+                        window.initializeGallerySortable();
+                    } else {
+                        console.warn('No gallery collection initializer found');
+                    }
+    
+                    if (typeof window.initializePhotoCardsSortable === 'function') {
+                        window.initializePhotoCardsSortable();
+                    } else {
+                        console.warn('initializePhotoCardsSortable() not found');
+                    }
+    
+                    if (typeof window.initializeVideoGallerySortable === 'function') {
+                        console.log('Calling initializeVideoGallerySortable()');
+                        window.initializeVideoGallerySortable();
+                    }
                 }, 100);
             });
         })

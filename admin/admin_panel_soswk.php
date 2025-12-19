@@ -299,6 +299,127 @@ if ($debug_mode) {
             max-height: calc(95vh - 140px) !important;
             overflow-y: auto !important;
         }
+
+        /* Standardized Modal Actions/Buttons */
+        .modal-footer,
+        .news-modal-actions,
+        .state-games-modal-actions,
+        .sport-modal-actions,
+        .video-modal-actions,
+        .photo-modal-actions,
+        .yap-modal-actions {
+            display: flex !important;
+            justify-content: flex-end !important;
+            gap: 12px !important;
+            padding-top: 24px !important;
+            margin-top: 24px !important;
+            border-top: 1px solid #e2e8f0 !important;
+        }
+
+        /* Standardized Button Styles */
+        .btn-cancel,
+        .btn-secondary {
+            padding: 10px 24px !important;
+            background: #6c757d !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .btn-cancel:hover,
+        .btn-secondary:hover {
+            background: #5a6268 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3) !important;
+        }
+
+        .btn-submit,
+        .btn-primary {
+            padding: 10px 24px !important;
+            background: #3b82f6 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .btn-submit:hover,
+        .btn-primary:hover {
+            background: #2563eb !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+        }
+
+        .btn-submit:active,
+        .btn-primary:active {
+            transform: translateY(0) !important;
+        }
+
+        /* Edit mode specific button */
+        .btn-submit.edit-mode {
+            background: #10b981 !important;
+        }
+
+        .btn-submit.edit-mode:hover {
+            background: #059669 !important;
+        }
+
+        /* State Games specific button fix */
+        #submitStateGamesBtn {
+            padding: 10px 24px !important;
+            background: #3b82f6 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        #submitStateGamesBtn:hover {
+            background: #2563eb !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+        }
+
+        /* When in edit mode */
+        #submitStateGamesBtn.edit-mode {
+            background: #10b981 !important;
+        }
+
+        #submitStateGamesBtn.edit-mode:hover {
+            background: #059669 !important;
+        }
+
+        #cancelEditStateGamesBtn {
+            padding: 10px 24px !important;
+            background: #6c757d !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        #cancelEditStateGamesBtn:hover {
+            background: #5a6268 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3) !important;
+        }
         
         /* Rich Text Editor Styling */
         .rich-editor-container {
@@ -1902,6 +2023,90 @@ if ($debug_mode) {
 
         .sortable-drag {
             opacity: 0.8;
+        }
+
+        /* Drag Handle Styles for Gallery Items */
+        .gallery-drag-handle {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        .gallery-drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .gallery-drag-handle i {
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Show drag handle on hover */
+        .gallery-item:hover .gallery-drag-handle,
+        .video-item:hover .gallery-drag-handle {
+            opacity: 1;
+        }
+
+        /* Ensure buttons remain clickable */
+        .gallery-item .edit-btn,
+        .gallery-item .delete-btn,
+        .video-item .edit-btn,
+        .video-item .delete-btn {
+            pointer-events: auto;
+            position: relative;
+            z-index: 11;
+        }
+
+        /* Collection Header Drag Handle */
+        .collection-header-drag-handle {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            cursor: grab;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 6px;
+            margin-right: 12px;
+            transition: background 0.2s ease;
+        }
+
+        .collection-header-drag-handle:hover {
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .collection-header-drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .collection-header-drag-handle i {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        /* Make sure gallery items are positioned relatively */
+        .gallery-item,
+        .video-item {
+            position: relative;
+        }
+
+        /* Prevent text selection during drag */
+        .sortable-collection.dragging,
+        .sortable-items.dragging {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         /* Responsive Design */
@@ -4873,13 +5078,12 @@ if ($debug_mode) {
 
     <!-- SortableJS for drag-and-drop functionality -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-    <script>
-
-    </script>
     
     <script src="../scripts/admin-components/navigation-functionality.js"></script>
     <script src="../scripts/admin-components/event-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/news-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/gallery-photo-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/gallery-video-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     
     <!-- Modal Functionality Script -->
     <script>

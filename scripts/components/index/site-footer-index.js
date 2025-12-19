@@ -16,8 +16,8 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>What We Do? <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="src/getting_started.html">Getting Started</a></li>
-                        <li><a href="src/sport.html">Our Sports</a></li>
+                        <li><a href="src/getting_started.php">Getting Started</a></li>
+                        <li><a href="src/sport.php">Our Sports</a></li>
                         <li><a href="src/latest-news.php">In the News</a></li>
                     </ul>
                 </div>
@@ -43,23 +43,23 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>Programs <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
-                        <li><a href="src/alp.html">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="src/yap.html">Young Athletes Program (YAP)</a></li>
+                        <li><a href="src/sohap.php">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="src/alp.php">Athlete Leadership Program (ALP)</a></li>
+                        <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
                     <h3>Affiliate <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
                         <li><a href="src/sarawak-chapters.php">Sarawak Chapters</a></li>
-                        <li><a href="src/sponsorships.html">Sponsorships</a></li>
-                        <li><a href="src/other-so.html">Other Special Olympics</a></li>
+                        <li><a href="src/sponsorships.php">Sponsorships</a></li>
+                        <li><a href="src/other-so.php">Other Special Olympics</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
                     <h3>Events <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="src/state-games.html">State Games</a></li>
+                        <li><a href="src/state-games.php">State Games</a></li>
                         <li><a href="src/event_calendar.php">Events Calendar</a></li>
                     </ul>
                 </div>

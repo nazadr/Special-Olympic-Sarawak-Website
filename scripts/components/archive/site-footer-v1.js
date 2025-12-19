@@ -28,8 +28,8 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>What We Do? <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="../src/getting_started.html">Getting Started</a></li>
-                        <li><a href="../src/sport.html">Our Sports</a></li>
+                        <li><a href="../src/getting_started.php">Getting Started</a></li>
+                        <li><a href="../src/sport.php">Our Sports</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -60,8 +60,8 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>Affiliate <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="../src/loaffiliate_v1.html">Sarawak Chapters</a></li>
-                        <li><a href="../src/sponsorships.html">Sponsorships</a></li>
+                        <li><a href="../src/loaffiliate_v1.php">Sarawak Chapters</a></li>
+                        <li><a href="../src/sponsorships.php">Sponsorships</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">

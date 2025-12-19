@@ -7,7 +7,7 @@ document.writeln(`
     <li class="nav-item">
       <button class="nav-btn"><span>What We Do?</span></button>
       <div class="dropup-menu">
-        <a href="../src/getting_started.html">Getting Started</a>
+        <a href="../src/getting_started.php">Getting Started</a>
         <a href="../src/alp.php">Athlete Leadership Program (ALP)</a>
         <a href="../src/yap.php">Young Athletes Program (YAP)</a>
       </div>

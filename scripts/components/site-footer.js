@@ -16,7 +16,7 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>What We Do? <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="../src/getting_started.html">Getting Started</a></li>
+                        <li><a href="../src/getting_started.php">Getting Started</a></li>
                         <li><a href="../src/sport.html">Our Sports</a></li>
                         <li><a href="../src/latest-news.php">In the News</a></li>
                     </ul>

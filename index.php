@@ -108,7 +108,7 @@
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/getting_started.html">Getting Started</a></li>
+                        <li><a href="src/getting_started.php">Getting Started</a></li>
                         <li><a href="src/alp.php">Athletes Leadership Program (ALP)</a></li>
                         <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
                     </ul>
@@ -189,7 +189,7 @@
             <li class="nav-item">
                 <button class="nav-btn"><span>What We Do?</span></button>
                 <div class="dropup-menu">
-                    <a href="src/getting_started.html">Getting Started</a>
+                    <a href="src/getting_started.php">Getting Started</a>
                     <a href="src/alp.php">Athletes Leadership Program (ALP)</a>
                     <a href="src/yap.php">Young Athletes Program (YAP)</a>
                 </div>
