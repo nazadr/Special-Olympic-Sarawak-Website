@@ -46,7 +46,7 @@
         </section>
     </div>
 
-    <!-- Navigation Bar -->
+    <!-- Updated Navigation Bar -->
     <nav class="top-nav">
         <div class="logo">
             <img src="assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img">
@@ -62,12 +62,10 @@
 
         <div class="nav-right" id="nav-right-menu">
             <ul class="nav-menu">
-                <!-- Searchbar moved to the very top for mobile -->
                 <li class="dropdown mobile-dropdown-parent">
                     <a href="#about">About Us <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="src/introduction.html">Introduction</a></li>
-                        <li><a href="src/dev.html">Organization Overview</a></li>
                         <li><a href="src/brochure.html">SO Brochure</a></li>
                         <li><a href="src/how_can_you_help.html">How can you help?</a></li>
                     </ul>
@@ -75,8 +73,7 @@
                 <li class="dropdown mobile-dropdown-parent">
                     <a href="#news">News <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/latest-news.php">Latest News</a></li>
-                        <li><a href="src/dev.html">Archived News</a></li>
+                        <li><a href="src/latest-news.php">In the News</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-dropdown-parent">
@@ -84,32 +81,19 @@
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="src/visit_us_with_map.html">Visit Us</a></li>
                         <li><a href="src/email-us.html">Email Us</a></li>
-                        <li><a href="admin/login_page_v1.php">Admin Webmaster</a></li>
                     </ul>
                 </li>
-                <!-- Searchbar moved to the very top of the sidebar for mobile -->
-                <!-- <li class="search-item">
-                    <div class="search-container">
-                        <form class="search-form">
-                            <input type="text" placeholder="Search..." class="search-input">
-                            <button type="submit" class="search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                </li> -->
-                <!-- Donation button moved to the very bottom of the sidebar for mobile -->
-                <li class="donation-item">
+                <li class="donation-item desktop-only">
                     <div class="donation-button-container">
+                        <a href="src/join_us.html" class="donate-btn">Join Us</a>
                         <a href="src/donation_page.html" class="donate-btn">Donate</a>
                     </div>
                 </li>
-                <!-- Bottom Navigation items integrated here for mobile -->
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="src/getting_started.php">Getting Started</a></li>
-                        <li><a href="src/alp.php">Athletes Leadership Program (ALP)</a></li>
+                        <li><a href="src/alp.php">Athlete Leadership Program (ALP)</a></li>
                         <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
                     </ul>
                 </li>
@@ -126,11 +110,9 @@
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Affiliate <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="#">SONG 2026 <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sarawak-chapters.php">Sarawak Chapters</a></li>
-                        <li><a href="src/sponsorships.php">Sponsorships</a></li>
-                        <li><a href="src/other-so.php">Other Special Olympics</a></li>
+                        <li><a href="src/SONG 26.php">SONG 26</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
@@ -147,15 +129,40 @@
                         <li><a href="src/gallery-videos.php">Videos</a></li>
                     </ul>
                 </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Join Us <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/join_us.html">Join Us</a></li>
-                    </ul>
+                <li class="donation-item mobile-only">
+                    <div class="donation-button-container">
+                        <a href="src/join_us.html" class="donate-btn">Join Us</a>
+                        <a href="src/donation_page.html" class="donate-btn">Donate</a>
+                    </div>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <style>
+        /* Inline CSS to ensure donation buttons display properly on desktop */
+        .donation-button-container {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-left: 0;
+        }
+
+        /* Ensure donation item doesn't break flex layout */
+        .donation-item {
+            margin-left: auto;
+        }
+
+        /* Fix button text display */
+        .donation-button-container .donate-btn {
+            line-height: 1.4 !important;
+            padding: 10px 24px !important;
+            white-space: nowrap;
+            font-size: 1rem !important;
+            height: auto !important;
+            min-width: fit-content;
+        }
+    </style>
 
 
     <!-- Social Media Bar -->
@@ -190,7 +197,7 @@
                 <button class="nav-btn"><span>What We Do?</span></button>
                 <div class="dropup-menu">
                     <a href="src/getting_started.php">Getting Started</a>
-                    <a href="src/alp.php">Athletes Leadership Program (ALP)</a>
+                    <a href="src/alp.php">Athlete Leadership Program (ALP)</a>
                     <a href="src/yap.php">Young Athletes Program (YAP)</a>
                 </div>
             </li>
@@ -204,6 +211,12 @@
                 <button class="nav-btn"><span>Sports</span></button>
                 <div class="dropup-menu">
                     <a href="src/sport.php">Our Sports</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <button class="nav-btn"><span>SONG 2026</span></button>
+                <div class="dropup-menu">
+                    <a href="src/SONG 26.php">SONG 26</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -226,12 +239,6 @@
                 <div class="dropup-menu">
                     <a href="src/gallery-photos.php">Photos</a>
                     <a href="src/gallery-videos.php">Videos</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <button class="nav-btn"><span>Join Us</span></button>
-                <div class="dropup-menu">
-                    <a href="src/join_us.html">Join Us</a>
                 </div>
             </li>
         </ul>

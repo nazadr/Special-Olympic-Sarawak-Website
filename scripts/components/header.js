@@ -51,10 +51,11 @@ document.writeln(`
                         </form>
                     </div>
                 </li> -->
-                <!-- Donation button moved to the very bottom of the sidebar for mobile -->
+                <!-- Donation and Join Us buttons moved to the very bottom of the sidebar for mobile -->
                 <li class="donation-item">
                     <div class="donation-button-container">
-                        <a href="../src/donation_page.html" class="donate-btn">Donate</a>
+                            <a href="../src/join_us.html" class="donate-btn">Join Us</a>
+                            <a href="../src/donation_page.html" class="donate-btn">Donate</a>
                     </div>
                 </li>
                 <!-- Bottom Navigation items integrated here for mobile -->
@@ -79,11 +80,9 @@ document.writeln(`
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Affiliate <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="#">SONG 2026 <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
-                        <li><a href="../src/sponsorships.php">Sponsorships</a></li>
-                        <li><a href="../src/other-so.php">Other Special Olympics</a></li>
+                        <li><a href="../src/SONG 26.php">SONG 26</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">

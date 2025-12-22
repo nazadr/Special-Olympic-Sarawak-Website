@@ -24,6 +24,12 @@ document.writeln(`
         <a href="../src/sport.php">Our Sports</a>
       </div>
     </li>
+     <li class="nav-item">
+      <button class="nav-btn"><span>SONG 2026</span></button>
+      <div class="dropup-menu">
+        <a href="../src/SONG 26.php">SONG 2026</a>
+      </div>
+    </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Events</span></button>
       <div class="dropup-menu">
@@ -44,12 +50,6 @@ document.writeln(`
       <div class="dropup-menu">
         <a href="../src/gallery-photos.php">Photos</a>
         <a href="../src/gallery-videos.php">Videos</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <button class="nav-btn"><span>Join Us</span></button>
-      <div class="dropup-menu">
-        <a href="../src/join_us.html">Join Us</a>
       </div>
     </li>
   </ul>
