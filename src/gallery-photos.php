@@ -212,5 +212,6 @@
     <script src="../scripts/components/bottom-nav.js"></script>
     <script src="../scripts/components/site-footer.js"></script>
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/song-bubble.js"></script>
 </body>
 </html>

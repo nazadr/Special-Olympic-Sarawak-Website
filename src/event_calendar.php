@@ -881,5 +881,6 @@
     <!-- Section Divider -->
     <div class="section-divider"></div>
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/song-bubble.js"></script>
 </body>
 </html>

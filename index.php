@@ -15,6 +15,11 @@
 
 <body>
     
+    <!-- Floating SONG 26 Nav Bubble -->
+    <a href="src/SONG 26.php" class="song26-nav-bubble" aria-label="Go to SONG 26">
+        <img src="assets/icons/bintulu-stork.png" alt="SONG 26" class="song26-bubble-icon">
+        <span class="song26-bubble-tooltip">SONG 2026 page</span>
+    </a>
     <div class="video-background" style="position:relative;width:100vw;height:100vh;overflow:hidden;">
         <video autoplay loop muted playsinline
             style="width:100vw;height:100vh;object-fit:cover;position:fixed;top:0;left:0;z-index:1;">
@@ -22,8 +27,10 @@
             <source src="assets/videos/soswk-index-datasaver.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <!-- Clickable overlay for SONG 26 -->
+        <a href="src/SONG 26.php" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:2;display:block;text-decoration:none;cursor:pointer;" aria-label="Go to SONG 26"></a>
         <!-- Welcome Section with Logo (now in front of video) -->
-        <section class="welcome-section">
+        <section class="welcome-section" style="position:relative;z-index:3;">
             <img src="assets/images/master_logo_front.png" alt="Special Olympics Sarawak Main Title">
             <h1>
                 Welcome to Special Olympics Sarawak
@@ -140,6 +147,89 @@
     </nav>
 
     <style>
+                /* SONG 26 Nav Bubble Tooltip */
+                .song26-nav-bubble {
+                    position: fixed;
+                    top: 50%;
+                    left: 32px;
+                    transform: translateY(-50%);
+                    z-index: 100;
+                    width: 64px;
+                    height: 64px;
+                    background: #d90429;
+                    border-radius: 50%;
+                    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background 0.3s, box-shadow 0.3s;
+                    cursor: pointer;
+                    border: none;
+                    outline: none;
+                    animation: bubble-pop-in 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+                }
+                .song26-bubble-tooltip {
+                    position: absolute;
+                    left: 80px;
+                    top: 50%;
+                    transform: translateY(-50%) scale(0.95);
+                    background: #d90429;
+                    color: #fff;
+                    padding: 8px 18px;
+                    border-radius: 24px;
+                    font-size: 1rem;
+                    font-family: 'Inter', sans-serif;
+                    white-space: nowrap;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.25s, transform 0.25s, background 0.3s, color 0.3s;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                }
+                .song26-nav-bubble:hover .song26-bubble-tooltip {
+                    opacity: 1;
+                    transform: translateY(-50%) scale(1);
+                    background: #fff;
+                    color: #d90429;
+                }
+            /* SONG 26 Nav Bubble Styles */
+            .song26-nav-bubble {
+                position: fixed;
+                top: 50%;
+                left: 32px;
+                transform: translateY(-50%);
+                z-index: 100;
+                width: 64px;
+                height: 64px;
+                background: #d90429;
+                border-radius: 50%;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.3s, box-shadow 0.3s;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                animation: bubble-pop-in 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+            }
+            .song26-nav-bubble:hover {
+                background: #fff;
+                box-shadow: 0 8px 24px rgba(217,4,41,0.18);
+            }
+            .song26-bubble-icon {
+                width: 32px;
+                height: 32px;
+                filter: invert(1);
+                transition: filter 0.3s;
+            }
+            .song26-nav-bubble:hover .song26-bubble-icon {
+                filter: invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%);
+            }
+            @keyframes bubble-pop-in {
+                0% { transform: scale(0.5) translateY(-50%); opacity: 0; }
+                60% { transform: scale(1.1) translateY(-50%); opacity: 1; }
+                100% { transform: scale(1) translateY(-50%); opacity: 1; }
+            }
         /* Inline CSS to ensure donation buttons display properly on desktop */
         .donation-button-container {
             display: flex;
