@@ -84,7 +84,7 @@ document.writeln(`
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
                         <li><a href="../src/sponsorships.php">Sponsorships</a></li>
-                        <li><a href="../src/other-so.php">Other Special Olympics</a></li>
+                        <li><a href="../src/other-so.php">Special Olympics Organization</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">

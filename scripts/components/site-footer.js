@@ -53,7 +53,7 @@ document.writeln(`
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
                         <li><a href="../src/sponsorships.html">Sponsorships</a></li>
-                        <li><a href="../src/other-so.html">Other Special Olympics</a></li>
+                        <li><a href="../src/other-so.html">Special Olympics Organization</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">

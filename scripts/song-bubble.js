@@ -5,7 +5,7 @@
 (function() {
     // Configurable options
     var bubbleConfig = {
-        link: 'src/SONG 26.php',
+        link: 'SONG 26.php',
         icon: "assets/icons/bintulu-stork.png", // Use relative path from main pages
         tooltip: 'SONG 2026 page',
         bubbleColor: '#d90429',
@@ -19,8 +19,27 @@
     };
 
     // Detect if current page is in src/ folder
-    var isSrcPage = window.location.pathname.indexOf('/src/') !== -1;
+    var isSrcPage = window.location.pathname.match(/\/src\//);
     bubbleConfig.icon = isSrcPage ? '../assets/icons/bintulu-stork.png' : 'assets/icons/bintulu-stork.png';
+
+    // Robust path detection for SONG 26.php (no src/ in link, only for logo if needed)
+    var songPage = 'SONG 26.php';
+    var songLink = '';
+    var pathParts = window.location.pathname.split('/');
+    // If already on SONG 26.php (anywhere), disable link
+    if (pathParts[pathParts.length - 1] === songPage) {
+        songLink = '#';
+    } else if (window.location.pathname.endsWith('/' + songPage)) {
+        songLink = '#';
+    } else {
+        // If on root, link to SONG 26.php; if in src/, link to ../src/SONG 26.php
+        if (isSrcPage) {
+            songLink = 'SONG 26.php';
+        } else {
+            songLink = 'src/SONG 26.php';
+        }
+    }
+    bubbleConfig.link = songLink;
 
     function createSongBubble(config) {
         if (document.querySelector('.song26-nav-bubble')) return; // Prevent duplicate

@@ -2252,7 +2252,7 @@ if ($debug_mode) {
                 </a>
                 <a href="#" class="nav-item" data-section="other-special-olympics">
                     <i class="fa-solid fa-globe"></i>
-                    <span>Other Special Olympics</span>
+                    <span>Special Olympics Organization</span>
                 </a>
             </div>
 
@@ -2279,12 +2279,7 @@ if ($debug_mode) {
                 <h1 class="page-title">Dashboard</h1>
             </div>
 
-            <div class="header-right">
-                <div class="search-box">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" placeholder="Search...">
-                </div>
-
+            <div class="header-right"> 
                 <button class="notification-btn">
                     <i class="fas fa-bell"></i>
                     <span class="notification-badge"></span>
@@ -3264,7 +3259,7 @@ if ($debug_mode) {
                         </div>
                         <div class="section-text">
                             <h2 class="section-title">Special Olympics Malaysia National Games 2026</h2>
-                            <p class="section-subtitle">Manage Special Olympics Malaysia National Games 2026 content and events</p>
+                            <p class="section-subtitle">Manage Special Olympics Malaysia National Games 2026 content and forms</p>
                         </div>
                     </div>
                     <button class="add-state-games-btn" onclick="openSong26Modal()">
@@ -3298,7 +3293,7 @@ if ($debug_mode) {
                         <div class="state-games-modal-backdrop" onclick="closeSong26Modal()"></div>
                         <div class="state-games-modal-content">
                             <div class="state-games-modal-header">
-                                <h3>Add New SONG 26 Event</h3>
+                                <h3>Add New SONG 26 Forms</h3>
                                 <span class="state-games-modal-close" onclick="closeSong26Modal()">&times;</span>
                             </div>
                             <div class="state-games-modal-body">
@@ -4568,7 +4563,7 @@ if ($debug_mode) {
                             <i class="fas fa-globe-americas"></i>
                         </div>
                         <div class="section-text">
-                            <h2 class="section-title">Other Special Olympics Management</h2>
+                            <h2 class="section-title">Special Olympics Organization Management</h2>
                             <p class="section-subtitle">Manage Special Olympics organizations across the globe</p>
                         </div>
                     </div>

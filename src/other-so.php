@@ -255,49 +255,34 @@ $conn->close();
     <div class="header-space"></div>
 
     <section class="other-so-hero">
-        <h1>Other Special Olympics</h1>
+        <h1>Special Olympics Organization</h1>
         <p>Explore the wider Special Olympics network, including Special Olympics International, Special Olympics Malaysia, and programs across other states and federal territories in Malaysia.</p>
     </section>
 
     <section class="other-so-section">
         <div class="other-so-container">
-            <?php if (!empty($international) || !empty($malaysia)): ?>
-            <h2>Special Olympics International and Malaysia</h2>
-            <div class="so-afterline-60w-mb40"></div>
-            <div class="other-so-grid-duo">
-                <?php
-                // Display International organizations
-                foreach ($international as $org):
-                    $url = $org['website_url'] ?: '#';
-                    $logo = $org['logo_desktop'] ?: '../assets/images/placeholder.png';
-                    $name = htmlspecialchars($org['name']);
-                ?>
-                <a href="<?php echo htmlspecialchars($url); ?>" class="other-so-card-link" 
-                   <?php if ($url !== '#'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
-                    <div class="other-so-card-duo">
-                        <img src="<?php echo htmlspecialchars($logo); ?>" 
-                             alt="<?php echo $name; ?>"
-                             onerror="this.src='../assets/images/placeholder.png'">
-                    </div>
-                </a>
-                <?php endforeach; ?>
-
-                <?php
-                // Display Malaysia organizations
-                foreach ($malaysia as $org):
-                    $url = $org['website_url'] ?: '#';
-                    $logo = $org['logo_desktop'] ?: '../assets/images/placeholder.png';
-                    $name = htmlspecialchars($org['name']);
-                ?>
-                <a href="<?php echo htmlspecialchars($url); ?>" class="other-so-card-link" 
-                   <?php if ($url !== '#'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
-                    <div class="other-so-card-duo">
-                        <img src="<?php echo htmlspecialchars($logo); ?>" 
-                             alt="<?php echo $name; ?>"
-                             onerror="this.src='../assets/images/placeholder.png'">
-                    </div>
-                </a>
-                <?php endforeach; ?>
+            <?php if (!empty($malaysia)): ?>
+            <div style="text-align:center;">
+                <h2>Special Olympics Malaysia</h2>
+                <div class="so-afterline-60w-mb40" style="margin-left:auto; margin-right:auto;"></div>
+                <div class="other-so-grid-duo" style="display:inline-grid;">
+                    <?php
+                    // Display Malaysia organizations only
+                    foreach ($malaysia as $org):
+                        $url = $org['website_url'] ?: '#';
+                        $logo = $org['logo_desktop'] ?: '../assets/images/placeholder.png';
+                        $name = htmlspecialchars($org['name']);
+                    ?>
+                    <a href="<?php echo htmlspecialchars($url); ?>" class="other-so-card-link" 
+                       <?php if ($url !== '#'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
+                        <div class="other-so-card-duo">
+                            <img src="<?php echo htmlspecialchars($logo); ?>" 
+                                 alt="<?php echo $name; ?>"
+                                 onerror="this.src='../assets/images/placeholder.png'">
+                        </div>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
             <?php endif; ?>
 

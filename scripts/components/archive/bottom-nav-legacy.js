@@ -46,7 +46,7 @@ document.writeln(`
       <button class="nav-btn"><span>Community</span></button>
       <div class="dropup-menu">
         <a href="#join">Program Partners</a>
-        <a href="#details">Other Special Olympics</a>
+        <a href="#details">Special Olympics Organization</a>
       </div>
     </li>
   </ul>

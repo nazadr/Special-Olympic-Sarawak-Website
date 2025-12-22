@@ -321,7 +321,7 @@
                 <div class="dropup-menu">
                     <a href="src/sarawak-chapters.php">Sarawak Chapters</a>
                     <a href="src/sponsorships.php">Sponsorships</a>
-                    <a href="src/other-so.php">Other Special Olympics</a>
+                    <a href="src/other-so.php">Special Olympics Organization</a>
                 </div>
             </li>
             <li class="nav-item">
