@@ -12,8 +12,8 @@
         iconColor: 'invert(1)', // white
         hoverBubbleColor: '#fff',
         hoverIconColor: 'invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%)', // red
-        size: 64,
-        iconSize: 32,
+        size: 70,
+        iconSize: 35,
         left: 32,
         zIndex: 100
     };
@@ -42,6 +42,7 @@
     bubbleConfig.link = songLink;
 
     function createSongBubble(config) {
+        console.log('Creating SONG bubble with size:', config.size);
         if (document.querySelector('.song26-nav-bubble')) return; // Prevent duplicate
         var bubble = document.createElement('a');
         bubble.className = 'song26-nav-bubble';

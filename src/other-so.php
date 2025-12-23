@@ -255,8 +255,8 @@ $conn->close();
     <div class="header-space"></div>
 
     <section class="other-so-hero">
-        <h1>Special Olympics Organization</h1>
-        <p>Explore the wider Special Olympics network, including Special Olympics International, Special Olympics Malaysia, and programs across other states and federal territories in Malaysia.</p>
+        <h1>Special Olympics Organizations</h1>
+        <p>Explore the Special Olympics network in Malaysia and across other states and federal territories.</p>
     </section>
 
     <section class="other-so-section">
@@ -313,7 +313,7 @@ $conn->close();
             </div>
             <?php endif; ?>
 
-            <?php if (empty($international) && empty($malaysia) && empty($states)): ?>
+            <?php if (empty($malaysia) && empty($states)): ?>
             <div style="text-align: center; padding: 80px 20px; color: #666;">
                 <i class="fas fa-globe" style="font-size: 64px; opacity: 0.3; margin-bottom: 20px;"></i>
                 <p style="font-size: 18px;">No organizations available at the moment.</p>

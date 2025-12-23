@@ -55,14 +55,14 @@ document.writeln(`
                 <li class="donation-item">
                     <div class="donation-button-container">
                             <a href="../src/join_us.html" class="donate-btn">Join Us</a>
-                            <a href="../src/donation_page.html" class="donate-btn">Donate</a>
+                            <a href="../src/donation_page.php" class="donate-btn">Donate</a>
                     </div>
                 </li>
                 <!-- Bottom Navigation items integrated here for mobile -->
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/getting_started.html">Getting Started</a></li>
+                        <li><a href="../src/getting_started.php">Getting Started</a></li>
                         <li><a href="../src/alp.php">Athlete Leadership Program (ALP)</a></li>
                         <li><a href="../src/yap.php">Young Athletes Program (YAP)</a></li>
                     </ul>
@@ -82,7 +82,7 @@ document.writeln(`
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">SONG 2026 <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/SONG 26.php">SONG 26</a></li>
+                        <li><a href="../src/SONG 26.php">SONG 2026</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">

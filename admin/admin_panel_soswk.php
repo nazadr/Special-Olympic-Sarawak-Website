@@ -1492,7 +1492,7 @@ if ($debug_mode) {
             min-width: 48px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            <span class="section-title"><i class="fa fa-globe"></i> Malaysia &amp; State</span>
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
@@ -4563,8 +4563,8 @@ if ($debug_mode) {
                             <i class="fas fa-globe-americas"></i>
                         </div>
                         <div class="section-text">
-                            <h2 class="section-title">Special Olympics Organization Management</h2>
-                            <p class="section-subtitle">Manage Special Olympics organizations across the globe</p>
+                            <h2 class="section-title">Special Olympics Organizations Management</h2>
+                            <p class="section-subtitle">Manage Special Olympics organizations in Malaysia and states</p>
                         </div>
                     </div>
                     <button class="add-other-so-btn" onclick="openOtherSOModal('add')">
@@ -4618,9 +4618,7 @@ if ($debug_mode) {
                         <button class="filter-btn active" onclick="filterOtherSOByCategory('all')">
                             <i class="fas fa-globe"></i> All
                         </button>
-                        <button class="filter-btn" onclick="filterOtherSOByCategory('international')">
-                            <i class="fas fa-earth-americas"></i> International
-                        </button>
+                        <!-- Removed International filter -->
                         <button class="filter-btn" onclick="filterOtherSOByCategory('malaysia')">
                             <i class="fas fa-star"></i> Malaysia
                         </button>
@@ -5131,7 +5129,6 @@ if ($debug_mode) {
                             <label for="otherSOCategory">Category <span class="required">*</span></label>
                             <select id="otherSOCategory" name="category" required>
                                 <option value="">Select Category</option>
-                                <option value="international">International</option>
                                 <option value="malaysia">Malaysia</option>
                                 <option value="state">State / Federal Territory</option>
                             </select>
