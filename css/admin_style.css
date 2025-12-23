@@ -895,6 +895,35 @@ body {
     box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
 }
 
+/* Chapter badges for sponsors - improved visibility */
+.sponsor-chapters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+.sponsor-chapter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: #ffffff;
+    border: 1px solid #e6eef9;
+    color: #334155;
+    font-size: 12px;
+    border-radius: 12px;
+    box-shadow: 0 1px 0 rgba(16,24,40,0.02);
+}
+.sponsor-chapter-badge i {
+    color: #3b82f6;
+    font-size: 12px;
+}
+
+/* Slightly smaller badge for compact layouts */
+@media (max-width: 700px) {
+    .sponsor-chapter-badge { font-size: 11px; padding: 5px 8px; }
+}
+
 /* Sponsorship Modal Enhancements */
 .sponsorship-modal {
     position: fixed;

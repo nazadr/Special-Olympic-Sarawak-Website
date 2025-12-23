@@ -187,11 +187,14 @@ if (window.sponsorshipManagementInitialized) {
                 return response.json();
             })
             .then(data => {
-                if (data.success) {
-                    state.sponsors = data.sponsorships || [];
-                    updateStats(data.stats);
-                    renderSponsors();
-                } else {
+                        if (data.success) {
+                        // Aggregate sponsors by sponsor_name to avoid duplicates across chapters
+                        const raw = data.sponsorships || [];
+                        state.sponsors = aggregateSponsors(raw);
+                        // Prefer server stats only if they're already aggregated; otherwise compute from aggregated list
+                        updateStats();
+                        renderSponsors();
+                    } else {
                     showError('Failed to load sponsors');
                 }
             })
@@ -204,13 +207,77 @@ if (window.sponsorshipManagementInitialized) {
             });
     }
 
+    /**
+     * Aggregate raw sponsorship rows by sponsor_name (case-insensitive)
+     * Produces a list where each sponsor has an array of chapters assigned
+     */
+    function aggregateSponsors(rawList) {
+        const chapterCities = {'0': 'State Level', '1': 'Kuching', '2': 'Samarahan', '3': 'Sibu', '4': 'Bintulu', '5': 'Miri'};
+        const map = new Map();
+        const tierPriority = { 'supporter':1, 'bronze':2, 'silver':3, 'gold':4, 'platinum':5 };
+
+        rawList.forEach(row => {
+            const name = String(row.sponsor_name || row.type || '').trim();
+            if (!name) return;
+            const key = name.toLowerCase();
+
+            const chapter_id = (row.chapter_id === null || row.chapter_id === '' || row.chapter_id === 0) ? null : String(row.chapter_id);
+            const chapterLabel = chapter_id === null ? 'State Level' : (row.city || chapterCities[chapter_id] || 'Unknown');
+
+            if (!map.has(key)) {
+                map.set(key, {
+                    id: row.id,
+                    sponsor_name: name,
+                    sponsor_tier: row.sponsor_tier || 'supporter',
+                    image_path: row.image_path || null,
+                    display_order: row.display_order || 0,
+                    chapter_list: new Set(),
+                    chapter_ids: new Set()
+                });
+            }
+
+            const item = map.get(key);
+            item.chapter_list.add(chapterLabel);
+            item.chapter_ids.add(chapter_id === null ? 'state' : chapter_id);
+
+            // Prefer a non-empty image if we don't have one yet
+            if (!item.image_path && row.image_path) item.image_path = row.image_path;
+
+            // Prefer higher tier if duplicates exist
+            const currentPriority = tierPriority[item.sponsor_tier || 'supporter'] || 1;
+            const rowPriority = tierPriority[row.sponsor_tier || 'supporter'] || 1;
+            if (rowPriority > currentPriority) item.sponsor_tier = row.sponsor_tier || item.sponsor_tier;
+
+            // Use the smallest display_order encountered
+            if (typeof row.display_order !== 'undefined' && row.display_order !== null) {
+                if (!item.display_order || row.display_order < item.display_order) {
+                    item.display_order = row.display_order;
+                    item.id = row.id;
+                }
+            }
+        });
+
+        // Convert map to sorted array
+        const arr = Array.from(map.values()).map(it => ({
+            id: it.id,
+            sponsor_name: it.sponsor_name,
+            sponsor_tier: it.sponsor_tier,
+            image_path: it.image_path,
+            display_order: it.display_order,
+            chapter_list: Array.from(it.chapter_list),
+            chapter_ids: Array.from(it.chapter_ids)
+        }));
+
+        arr.sort((a,b) => (a.display_order || 0) - (b.display_order || 0));
+        return arr;
+    }
+
     function updateStats(stats) {
         if (!stats) {
-            stats = {
-                total: state.sponsors.length,
-                state_level: state.sponsors.filter(s => !s.chapter_id || s.chapter_id == 0).length,
-                chapter_level: state.sponsors.filter(s => s.chapter_id && s.chapter_id != 0).length
-            };
+            const total = state.sponsors.length;
+            const state_level = state.sponsors.filter(s => (s.chapter_ids || []).includes('state')).length;
+            const chapter_level = state.sponsors.filter(s => (s.chapter_ids || []).some(id => id !== 'state')).length;
+            stats = { total, state_level, chapter_level };
         }
 
         const ids = ['totalSponsorsCount', 'stateSponsorsCount', 'chapterSponsorsCount'];
@@ -255,10 +322,11 @@ if (window.sponsorshipManagementInitialized) {
     function filterSponsors() {
         const filter = state.currentFilter;
         if (filter === 'all') return state.sponsors;
-        if (filter === '0') {
-            return state.sponsors.filter(s => !s.chapter_id || s.chapter_id == 0 || s.chapter_id === '0');
+        const normalized = String(filter);
+        if (normalized === '0') {
+            return state.sponsors.filter(s => (s.chapter_ids || []).includes('state'));
         }
-        return state.sponsors.filter(s => String(s.chapter_id) === String(filter));
+        return state.sponsors.filter(s => (s.chapter_ids || []).includes(normalized));
     }
 
     function updateFilterHeader(count) {
@@ -284,10 +352,16 @@ if (window.sponsorshipManagementInitialized) {
         const card = document.createElement('div');
         card.className = 'sponsorship-item-admin';
         card.setAttribute('data-sponsorship-id', sponsor.id);
-        card.setAttribute('data-chapter-id', sponsor.chapter_id || '0');
+        // Store representative chapter id for legacy uses; use 'state' if state-level
+        card.setAttribute('data-chapter-id', (sponsor.chapter_ids && sponsor.chapter_ids.length) ? sponsor.chapter_ids[0] : 'state');
 
-        let chapterDisplay = (!sponsor.chapter_id || sponsor.chapter_id == 0) ? 'State Level' : 
-                           (sponsor.city || chapterCities[sponsor.chapter_id] || 'State Level');
+        // If aggregated chapters exist, join them for display
+        let chapterDisplay = 'State Level';
+        if (Array.isArray(sponsor.chapter_list) && sponsor.chapter_list.length > 0) {
+            chapterDisplay = sponsor.chapter_list.join(', ');
+        } else if (sponsor.chapter_id !== undefined) {
+            chapterDisplay = (!sponsor.chapter_id || sponsor.chapter_id == 0) ? 'State Level' : (sponsor.city || chapterCities[sponsor.chapter_id] || 'State Level');
+        }
 
         const tierClass = sponsor.sponsor_tier || 'supporter';
         const tierDisplay = tierClass.charAt(0).toUpperCase() + tierClass.slice(1);
@@ -300,13 +374,16 @@ if (window.sponsorshipManagementInitialized) {
 
         const escapeHtml = (text) => String(text).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 
+        // Build chapter badges HTML (use icon + label)
+        const badgesHtml = (Array.isArray(sponsor.chapter_list) ? sponsor.chapter_list : []).map(ch => `\n                <span class="sponsor-chapter-badge"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(ch)}</span>`).join('');
+
         card.innerHTML = `
             <div class="sponsor-logo-container">
                 <img src="${imageSrc}" alt="${escapeHtml(sponsor.sponsor_name || 'Sponsor')}" onerror="this.src='https://via.placeholder.com/150?text=No+Logo'">
             </div>
             <div class="sponsor-info">
                 <div class="sponsor-name">${escapeHtml(sponsor.sponsor_name || sponsor.type || 'Sponsor')}</div>
-                <div class="sponsor-chapter"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(chapterDisplay)}</div>
+                <div class="sponsor-chapters">${badgesHtml || `<span class="sponsor-chapter-badge"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(chapterDisplay)}</span>`}</div>
                 <span class="sponsor-tier ${tierClass}">${tierDisplay}</span>
             </div>
             <div class="sponsor-actions">
@@ -369,7 +446,15 @@ if (window.sponsorshipManagementInitialized) {
         const fields = {
             sponsorshipId: sponsor.id,
             sponsorshipName: sponsor.sponsor_name || '',
-            sponsorshipChapter: sponsor.chapter_id === null ? '0' : String(sponsor.chapter_id),
+            // If aggregated, prefer a non-state chapter, otherwise '0' for state
+            sponsorshipChapter: (function(){
+                if (Array.isArray(sponsor.chapter_ids) && sponsor.chapter_ids.length>0) {
+                    // prefer first non-state id when possible
+                    const nonState = sponsor.chapter_ids.find(id => id !== 'state');
+                    return nonState ? String(nonState) : '0';
+                }
+                return (sponsor.chapter_id === null || sponsor.chapter_id === undefined) ? '0' : String(sponsor.chapter_id);
+            })(),
             sponsorshipTier: sponsor.sponsor_tier || 'supporter',
             sponsorshipOrder: sponsor.display_order || 0
         };
