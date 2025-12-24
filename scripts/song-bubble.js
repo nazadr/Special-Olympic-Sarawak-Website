@@ -12,9 +12,9 @@
         iconColor: 'invert(1)', // white
         hoverBubbleColor: '#fff',
         hoverIconColor: 'invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%)', // red
-        size: 70,
-        iconSize: 35,
-        left: 32,
+        size: 74,
+        iconSize: 36,
+        left: 12,
         zIndex: 100
     };
 

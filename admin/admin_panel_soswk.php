@@ -2173,11 +2173,7 @@ if ($debug_mode) {
                     <i class="fas fa-calendar-alt"></i>
                     <span>Events Calendar</span>
                 </a>
-                <a href="#" class="nav-item" data-section="song26">
-                    <img src="../assets/icons/bintulu-stork.png"
-                        style="width: 16px; height: 16px; margin: 0 14px 0 2px; filter: invert(1);">
-                    <span>SONG 26</span>
-                </a>
+
                 <a href="#" class="nav-item" data-section="sports">
                     <i class="fa-solid fa-futbol"></i>
                     <span>Sports</span>
@@ -3250,136 +3246,7 @@ if ($debug_mode) {
                 </div>
             </div>
 
-            <!-- SONG 26 -->
-            <div class="content-section" id="song26">
-                <div class="section-header">
-                    <div class="section-header-content">
-                        <div class="section-icon song26">
-                            <img src="../assets/icons/bintulu-stork.png" style="width: 24px; height: 24px; margin-right: 10px; vertical-align: middle; filter: invert(1);">
-                        </div>
-                        <div class="section-text">
-                            <h2 class="section-title">Special Olympics Malaysia National Games 2026</h2>
-                            <p class="section-subtitle">Manage Special Olympics Malaysia National Games 2026 content and forms</p>
-                        </div>
-                    </div>
-                    <button class="add-state-games-btn" onclick="openSong26Modal()">
-                        <i class="fas fa-plus"></i> Add Event
-                    </button>
-                </div>
 
-                <!-- SONG 26 Controls -->
-                <div class="state-games-controls">
-                    <div class="state-games-search">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchSong26" placeholder="Search events by title or description..." class="state-games-search-input">
-                    </div>
-                    <div class="state-games-sort">
-                        <label for="sortSong26">
-                            <i class="fas fa-sort"></i> Sort by
-                        </label>
-                        <select id="sortSong26" class="state-games-sort-select">
-                            <option value="order">Display Order</option>
-                            <option value="title_asc">Title (A-Z)</option>
-                            <option value="title_desc">Title (Z-A)</option>
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="state-games-management-container">
-                    <!-- SONG 26 Form Modal -->
-                    <div id="song26Modal" class="state-games-modal" style="display: none;">
-                        <div class="state-games-modal-backdrop" onclick="closeSong26Modal()"></div>
-                        <div class="state-games-modal-content">
-                            <div class="state-games-modal-header">
-                                <h3>Add New SONG 26 Forms</h3>
-                                <span class="state-games-modal-close" onclick="closeSong26Modal()">&times;</span>
-                            </div>
-                            <div class="state-games-modal-body">
-                                <form id="song26Form" action="handler/admin_song26_handler.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" id="song26Id" name="id">
-                                    <input type="hidden" id="currentSong26Image" name="currentImage">
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="song26Image">Upload Image:</label>
-                                        <div class="file-upload-container">
-                                            <input type="file" id="song26Image" name="song26Image" accept="image/*" style="display: none;" onchange="handleSong26FileSelect(this)">
-                                            <button type="button" id="song26ImageBtn" class="file-upload-btn" onclick="document.getElementById('song26Image').click()">Choose File</button>
-                                            <span id="song26ImageStatus" class="file-status">No file selected</span>
-                                            <button type="button" id="deleteSong26ImageBtn" class="file-delete-btn" style="display: none;" onclick="removeSong26SelectedFile()">Remove</button>
-                                        </div>
-                                        <div id="song26ImagePreview" class="image-preview" style="display: none;">
-                                            <img src="" alt="Preview" />
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="song26EventTitle">Event Title *</label>
-                                        <input type="text" id="song26EventTitle" name="eventTitle" placeholder="Enter event title" required>
-                                    </div>
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="song26EventDate">Event Date *</label>
-                                        <div class="date-input-container">
-                                            <input type="text" id="song26EventDate" name="eventDate" placeholder="e.g., TBA 2026 or 2-5 May 2026" required>
-                                            <div class="date-helper-buttons">
-                                                <button type="button" class="date-helper-btn" onclick="setSong26TBADate()">TBA 2026</button>
-                                                <button type="button" class="date-helper-btn" onclick="setSong26TBADate('2027')">TBA 2027</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="song26EventDescription">Event Description *</label>
-                                        <textarea id="song26EventDescription" name="eventDescription" placeholder="Enter event description" rows="4" required></textarea>
-                                    </div>
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="song26LearnMoreLink">Learn More Link (optional)</label>
-                                        <input type="url" id="song26LearnMoreLink" name="learnMoreLink" placeholder="https://example.com">
-                                    </div>
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="song26DisplayOrder">Display Order</label>
-                                        <input type="number" id="song26DisplayOrder" name="displayOrder" placeholder="Order (optional)" min="1">
-                                    </div>
-                                    
-                                    <div class="state-games-modal-actions">
-                                        <button type="button" class="btn-cancel" onclick="closeSong26Modal()">Cancel</button>
-                                        <button type="submit" class="btn-submit" id="submitSong26Btn">Add Event</button>
-                                        <button type="button" class="btn-cancel" id="cancelEditSong26Btn" style="display:none;">Cancel Edit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="state-games-list-admin">
-                        <div class="state-games-list-header">
-                            <h3>All Events <span class="state-games-count-badge" id="displayedSong26Count">0</span></h3>
-                            <div class="state-games-view-controls">
-                                <div class="drag-mode-info">
-                                    <i class="fas fa-grip-vertical"></i>
-                                    <span>Drag to reorder</span>
-                                </div>
-                                <div class="state-games-view-toggle">
-                                    <button class="view-toggle-btn active" data-view="grid" title="Grid View">
-                                        <i class="fas fa-th"></i>
-                                    </button>
-                                    <button class="view-toggle-btn" data-view="list" title="List View">
-                                        <i class="fas fa-list"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="existingSong26" class="state-games-grid sortable-song26">
-                            <!-- SONG 26 events will be loaded here via AJAX -->
-                            <p style="text-align: center; color: #333; grid-column: 1 / -1;">No events added yet. Click "Add Event" to get started.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="content-section" id="state-games">
                 <div class="section-header">
