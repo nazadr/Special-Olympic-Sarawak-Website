@@ -7,49 +7,49 @@ document.writeln(`
     <li class="nav-item">
       <button class="nav-btn"><span>What We Do?</span></button>
       <div class="dropup-menu">
-        <a href="../src/getting_started.php">Getting Started</a>
-        <a href="../src/alp.php">Athlete Leadership Program (ALP)</a>
-        <a href="../src/yap.php">Young Athletes Program (YAP)</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/getting_started.php">Getting Started</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/alp.php">Athlete Leadership Program (ALP)</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/yap.php">Young Athletes Program (YAP)</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Core Program</span></button>
       <div class="dropup-menu">
-        <a href="../src/sohap.php">Healthy Athletes Program (HAP)</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sohap.php">Healthy Athletes Program (HAP)</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Sports</span></button>
       <div class="dropup-menu">
-        <a href="../src/sport.php">Our Sports</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sport.php">Our Sports</a>
       </div>
     </li>
      <li class="nav-item">
       <button class="nav-btn"><span>SONG 2026</span></button>
       <div class="dropup-menu">
-        <a href="../src/SONG 26.php">SONG 2026</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/SONG 26.php">SONG 2026</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Events</span></button>
       <div class="dropup-menu">
-        <a href="../src/state-games.php">State Games</a>
-        <a href="../src/event_calendar.php">Events Calendar</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/state-games.php">State Games</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/event_calendar.php">Events Calendar</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Affiliate</span></button>
       <div class="dropup-menu">
-        <a href="../src/sarawak-chapters.php">Sarawak Chapters</a>
-        <a href="../src/sponsorships.php">Sponsorships</a>
-        <a href="../src/other-so.php">Special Olympics Organization</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sarawak-chapters.php">Sarawak Chapters</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sponsorships.php">Sponsorships</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/other-so.php">Special Olympics Organization</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Gallery</span></button>
-      <div class="dropup-menu" 
-        <a href="../src/gallery-photos.php">Photos</a>
-        <a href="../src/gallery-videos.php">Videos</a>
+      <div class="dropup-menu"> 
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/gallery-photos.php">Photos</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/gallery-videos.php">Videos</a>
       </div>
     </li>
   </ul>

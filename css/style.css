@@ -138,9 +138,12 @@ body, html {
 
 /* --- Donation Button Styles --- */
 .donation-button-container {
-    padding-left: 20px;
-    width: 108px; /* Manually fixed to match with the original/unmodified */
-    margin-top: -2px;
+  padding-left: 0px;
+  width: 200px;
+  margin-top: 0;
+  display: inline-flex;
+  gap: 0px;
+  align-items: center;
 }
 
 .donate-btn {
@@ -160,7 +163,7 @@ body, html {
     display: inline-block;
     text-decoration: none;
     outline: none;
-    line-height: 0.3;
+    line-height: 1.2;
 }
 
 .donate-btn:hover {
@@ -525,7 +528,9 @@ body, html {
   left: 50%;
   transform: translateX(-50%) perspective(1000px) rotateX(-90deg);
   transform-origin: bottom center;
-  width: 169px; /* Originally 169px */
+  width: auto; /* allow content-sized width */
+  min-width: 160px;
+  max-width: 320px;
   background: linear-gradient(to bottom, #ffffff, #f5f5f5);
   border-radius: 8px;
   box-shadow: 

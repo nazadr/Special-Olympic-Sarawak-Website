@@ -53,98 +53,8 @@
         </section>
     </div>
 
-    <!-- Updated Navigation Bar -->
-    <nav class="top-nav">
-        <div class="logo">
-            <img src="assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img">
-            <img src="assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
-        </div>
-
-        <!-- Hamburger Icon for Mobile -->
-        <div class="hamburger" id="hamburger-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-
-        <div class="nav-right" id="nav-right-menu">
-            <ul class="nav-menu">
-                <li class="dropdown mobile-dropdown-parent">
-                    <a href="#about">About Us <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/introduction.html">Introduction</a></li>
-                        <li><a href="src/brochure.html">SO Brochure</a></li>
-                        <li><a href="src/how_can_you_help.html">How can you help?</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-dropdown-parent">
-                    <a href="#news">News <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/latest-news.php">In the News</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-dropdown-parent">
-                    <a href="#contact">Contact Us <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/visit_us_with_map.html">Visit Us</a></li>
-                        <li><a href="src/email-us.html">Email Us</a></li>
-                    </ul>
-                </li>
-                <li class="donation-item desktop-only">
-                    <div class="donation-button-container">
-                        <a href="src/join_us.html" class="donate-btn">Join Us</a>
-                        <a href="src/donation_page.html" class="donate-btn">Donate</a>
-                    </div>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/getting_started.php">Getting Started</a></li>
-                        <li><a href="src/alp.php">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Core Program <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sohap.php">Healthy Athletes Program (HAP)</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Sports <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sport.php">Our Sports</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">SONG 2026 <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/SONG 26.php">SONG 26</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/state-games.php">State Games</a></li>
-                        <li><a href="src/event_calendar.php">Event Calendar</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Gallery <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/gallery-photos.php">Photos</a></li>
-                        <li><a href="src/gallery-videos.php">Videos</a></li>
-                    </ul>
-                </li>
-                <li class="donation-item mobile-only">
-                    <div class="donation-button-container">
-                        <a href="src/join_us.html" class="donate-btn">Join Us</a>
-                        <a href="src/donation_page.html" class="donate-btn">Donate</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation component injected from script to avoid duplicate markup -->
+    <script src="scripts/components/index/header-index.js"></script>
 
     <style>
                 /* SONG 26 Nav Bubble Tooltip */
@@ -230,33 +140,74 @@
                 60% { transform: scale(1.1) translateY(-50%); opacity: 1; }
                 100% { transform: scale(1) translateY(-50%); opacity: 1; }
             }
-        /* Inline CSS to ensure donation buttons display properly on desktop */
+        /* Top-nav layout and overflow fixes */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 24px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Right side: contains the nav menu and donation buttons */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1 1 auto;
+            justify-content: flex-end;
+            min-width: 0; /* allow children to shrink */
+        }
+
+        /* Primary nav list - prevent it from expanding beyond available space
+           but allow the donation list-item (which lives inside the ul) to be visible */
+        .nav-menu {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            flex: 0 1 auto; /* don't force the nav to take all space */
+            min-width: 0;
+            overflow: visible; /* allow donate buttons (inside li) to show */
+        }
+
+        .nav-menu > li { white-space: nowrap; }
+
+        /* Donation group should not grow and must stay on the right */
+        .donation-item {
+            margin-left: 0;
+            display: inline-flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
         .donation-button-container {
             display: flex;
             gap: 12px;
             align-items: center;
             margin-left: 0;
+            flex-wrap: nowrap;
         }
 
-        /* Ensure donation item doesn't break flex layout */
-        .donation-item {
-            margin-left: 0;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        /* Make nav list align horizontally so donation buttons sit inline */
-        .nav-right { display: flex; align-items: center; }
-        .nav-menu { display: flex; gap: 18px; align-items: center; margin: 0; padding: 0; list-style: none; }
-
-        /* Fix button text display */
+        /* Fix button text display and prevent buttons from pushing layout */
         .donation-button-container .donate-btn {
             line-height: 1.4 !important;
-            padding: 10px 24px !important;
+            padding: 8px 18px !important;
             white-space: nowrap;
-            font-size: 1rem !important;
+            font-size: 0.95rem !important;
             height: auto !important;
-            min-width: fit-content;
+            min-width: 0;
+        }
+
+        /* Responsive adjustments: collapse menu on smaller viewports */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .donation-item.desktop-only { display: none; }
+            .donation-item.mobile-only { display: inline-flex; }
         }
     </style>
 
