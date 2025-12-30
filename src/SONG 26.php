@@ -7,7 +7,7 @@ $song26Data = [];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Sarawak — 6th State Games | SONG 26</title>
+    <title>Special Olympics Sarawak — 6th National Games | SONG 26</title>
     <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
     <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -62,6 +62,12 @@ $song26Data = [];
             justify-content: center;
             gap: 30px;
             font-weight: bold;
+        }
+
+        .song26-hero-logo-inline {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .song26-hero-logo {
@@ -383,6 +389,12 @@ $song26Data = [];
                 height: 60px;
             }
 
+            .song26-hero-logo-inline {
+                width: 50px;
+                height: 50px;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            }
+
             .song26-main-content {
                 padding: 40px 15px;
                 margin-top: -10px;
@@ -454,24 +466,28 @@ $song26Data = [];
     <!-- Social Media Bar (Loaded via JS) -->
     <script src="../scripts/components/socmed-bar.js"></script>
 
-    <!-- Chatbot (Loaded via JS) -->
-    <!-- <div id="chatbot-container"></div> -->
-
     <!-- Header Space for Navigation Bar -->
     <div class="header-space"></div>
 
     <!-- Hero Section -->
     <section class="song26-hero">
         <img src="../assets/icons/bintulu-stork.png" alt="SONG 26 Logo" class="song26-hero-logo">
-        <h1>Special Olympics Sarawak — 6th State Games</h1>
+        <h1>Special Olympics Sarawak — 6th National Games</h1>
     </section>
 
     <!-- Main Content -->
     <div class="song26-main-content">
         <section class="song26-section song26-about-overview">
-            <h2>About the 6th State Games</h2>
-            <p>The Special Olympics Sarawak 6th State Games is a celebration of athletic achievement, inclusion and community for athletes with intellectual disabilities across Sarawak. The Games provide competition, skill development and social opportunities, bringing together athletes, families, coaches and volunteers.</p>
+            <h2>About the 6th National Games</h2>
+            <p>The Special Olympics Sarawak 6th National Games is a celebration of athletic achievement, inclusion and community for athletes with intellectual disabilities across Sarawak. The Games provide competition, skill development and social opportunities, bringing together athletes, families, coaches and volunteers.</p>
         </section>
+        <div class="song26-logo-section">
+            <div class="song26-logo-card" style="display:flex;justify-content:center;align-items:center;margin:36px 0 48px;">
+                <div aria-hidden="false" role="img" aria-label="Special Olympics Sarawak logo" style="width:74px;height:74px;background:#d90429;border-radius:50%;box-shadow:0 4px 16px rgba(217,4,41,0.12);display:flex;align-items:center;justify-content:center;">
+                    <img src="../assets/icons/bintulu-stork.png" alt="Special Olympics Sarawak logo" style="width:36px;height:36px;display:block;object-fit:contain;filter:brightness(0) invert(1);" aria-hidden="false">
+                </div>
+            </div>
+        </div>
 
         <div class="song26-info-cards">
             <div class="song26-info-card">
@@ -516,7 +532,7 @@ $song26Data = [];
             <ul>
                 <li>Volunteer: support athletes, logistics and community programmes.</li>
                 <li>Coach or Unified Partner: participate alongside athletes to promote inclusion.</li>
-                <li>Sponsor or Donate: support athlete services, equipment and legacy projects.</li>
+                <li>Sponsor or Donate: to be listed in an official and displayable container that purpose in crediting the sponsors</li>
             </ul>
         </section>
 
@@ -566,14 +582,7 @@ $song26Data = [];
             </div>
         </div>
 
-        <div class="song26-logo-section">
-            <div class="song26-logo-card">
-                <h3>Visual Identity</h3>
-                <div class="song26-logo-placeholder">
-                    <img src="../assets/icons/bintulu-stork.png" alt="Special Olympics Sarawak logo">
-                </div>
-            </div>
-        </div>
+        <!-- Logo section moved above, after About section -->
     </div>
 
     <!-- Section Divider -->

@@ -47,7 +47,7 @@ document.writeln(`
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Gallery</span></button>
-      <div class="dropup-menu">
+      <div class="dropup-menu" 
         <a href="../src/gallery-photos.php">Photos</a>
         <a href="../src/gallery-videos.php">Videos</a>
       </div>

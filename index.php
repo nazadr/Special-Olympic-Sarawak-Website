@@ -240,8 +240,14 @@
 
         /* Ensure donation item doesn't break flex layout */
         .donation-item {
-            margin-left: auto;
+            margin-left: 0;
+            display: inline-flex;
+            align-items: center;
         }
+
+        /* Make nav list align horizontally so donation buttons sit inline */
+        .nav-right { display: flex; align-items: center; }
+        .nav-menu { display: flex; gap: 18px; align-items: center; margin: 0; padding: 0; list-style: none; }
 
         /* Fix button text display */
         .donation-button-container .donate-btn {
