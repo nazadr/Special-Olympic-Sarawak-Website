@@ -7,6 +7,30 @@ body, html {
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* Custom Scrollbar Styling - Clean Red Design */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e53935;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c62828;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e53935 #f1f1f1;
+}
+
 /* ---------- DESKTOP STYLES ---------- */
 
 /* ----- Top nav ----- */
@@ -149,10 +173,10 @@ body, html {
 .donate-btn {
     background-color: #e53935;
     color: white !important; /* Ensure text color is white */
-    padding: 12px 25px;
+    padding: 10px 24px !important;
     border: none;
     border-radius: 25px;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 600; /* Make font bold */
     text-align: center;
     cursor: pointer;
@@ -160,10 +184,11 @@ body, html {
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    display: inline-block;
+    display: inline-block !important;
     text-decoration: none;
     outline: none;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 .donate-btn:hover {
@@ -967,9 +992,12 @@ body, html {
     margin-bottom: 50px; /* Space in the sidebar */
   }
   .donation-button-container {
-    width: auto; /* Wider donate button for mobile sidebar */
-    padding-left: 0px;
+    width: 100%; /* Full width for mobile */
+    padding: 0 20px;
     margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
   .search-container {
     margin-left: center;
@@ -980,8 +1008,8 @@ body, html {
     text-align: center;
     font-weight: 600; /* Ensure bold for mobile sidebar */
     border-radius: 50px;
-    font-size: 1.5em !important; /* Slightly larger font for mobile sidebar */
-    padding: 25px 0px !important;
+    font-size: 1.3em !important; /* Slightly larger font for mobile sidebar */
+    padding: 20px 0px !important;
   }
 }
 

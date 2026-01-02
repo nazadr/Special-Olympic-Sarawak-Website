@@ -57,157 +57,73 @@
     <script src="scripts/components/index/header-index.js"></script>
 
     <style>
-                /* SONG 26 Nav Bubble Tooltip */
-                .song26-nav-bubble {
-                    position: fixed;
-                    top: 50%;
-                    left: 32px;
-                    transform: translateY(-50%);
-                    z-index: 100;
-                    width: 64px;
-                    height: 64px;
-                    background: #d90429;
-                    border-radius: 50%;
-                    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: background 0.3s, box-shadow 0.3s;
-                    cursor: pointer;
-                    border: none;
-                    outline: none;
-                    animation: bubble-pop-in 0.6s cubic-bezier(.68,-0.55,.27,1.55);
-                }
-                .song26-bubble-tooltip {
-                    position: absolute;
-                    left: 80px;
-                    top: 50%;
-                    transform: translateY(-50%) scale(0.95);
-                    background: #d90429;
-                    color: #fff;
-                    padding: 8px 18px;
-                    border-radius: 24px;
-                    font-size: 1rem;
-                    font-family: 'Inter', sans-serif;
-                    white-space: nowrap;
-                    opacity: 0;
-                    pointer-events: none;
-                    transition: opacity 0.25s, transform 0.25s, background 0.3s, color 0.3s;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-                }
-                .song26-nav-bubble:hover .song26-bubble-tooltip {
-                    opacity: 1;
-                    transform: translateY(-50%) scale(1);
-                    background: #fff;
-                    color: #d90429;
-                }
-            /* SONG 26 Nav Bubble Styles */
-            .song26-nav-bubble {
-                position: fixed;
-                top: 50%;
-                left: 32px;
-                transform: translateY(-50%);
-                z-index: 100;
-                width: 64px;
-                height: 64px;
-                background: #d90429;
-                border-radius: 50%;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.3s, box-shadow 0.3s;
-                cursor: pointer;
-                border: none;
-                outline: none;
-                animation: bubble-pop-in 0.6s cubic-bezier(.68,-0.55,.27,1.55);
-            }
-            .song26-nav-bubble:hover {
-                background: #fff;
-                box-shadow: 0 8px 24px rgba(217,4,41,0.18);
-            }
-            .song26-bubble-icon {
-                width: 32px;
-                height: 32px;
-                filter: invert(1);
-                transition: filter 0.3s;
-            }
-            .song26-nav-bubble:hover .song26-bubble-icon {
-                filter: invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%);
-            }
-            @keyframes bubble-pop-in {
-                0% { transform: scale(0.5) translateY(-50%); opacity: 0; }
-                60% { transform: scale(1.1) translateY(-50%); opacity: 1; }
-                100% { transform: scale(1) translateY(-50%); opacity: 1; }
-            }
-        /* Top-nav layout and overflow fixes */
-        .top-nav {
+        /* SONG 26 Nav Bubble Styles */
+        .song26-nav-bubble {
+            position: fixed;
+            top: 50%;
+            left: 32px;
+            transform: translateY(-50%);
+            z-index: 100;
+            width: 64px;
+            height: 64px;
+            background: #d90429;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 12px 24px;
-            box-sizing: border-box;
-            width: 100%;
+            justify-content: center;
+            transition: background 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            animation: bubble-pop-in 0.6s cubic-bezier(.68,-0.55,.27,1.55);
         }
-
-        /* Right side: contains the nav menu and donation buttons */
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex: 1 1 auto;
-            justify-content: flex-end;
-            min-width: 0; /* allow children to shrink */
+        
+        .song26-nav-bubble:hover {
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(217,4,41,0.18);
         }
-
-        /* Primary nav list - prevent it from expanding beyond available space
-           but allow the donation list-item (which lives inside the ul) to be visible */
-        .nav-menu {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            flex: 0 1 auto; /* don't force the nav to take all space */
-            min-width: 0;
-            overflow: visible; /* allow donate buttons (inside li) to show */
+        
+        .song26-bubble-icon {
+            width: 32px;
+            height: 32px;
+            filter: invert(1);
+            transition: filter 0.3s;
         }
-
-        .nav-menu > li { white-space: nowrap; }
-
-        /* Donation group should not grow and must stay on the right */
-        .donation-item {
-            margin-left: 0;
-            display: inline-flex;
-            align-items: center;
-            flex: 0 0 auto;
+        
+        .song26-nav-bubble:hover .song26-bubble-icon {
+            filter: invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%);
         }
-
-        .donation-button-container {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-left: 0;
-            flex-wrap: nowrap;
-        }
-
-        /* Fix button text display and prevent buttons from pushing layout */
-        .donation-button-container .donate-btn {
-            line-height: 1.4 !important;
-            padding: 8px 18px !important;
+        
+        .song26-bubble-tooltip {
+            position: absolute;
+            left: 80px;
+            top: 50%;
+            transform: translateY(-50%) scale(0.95);
+            background: #d90429;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 24px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
             white-space: nowrap;
-            font-size: 0.95rem !important;
-            height: auto !important;
-            min-width: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s, transform 0.25s, background 0.3s, color 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
         }
-
-        /* Responsive adjustments: collapse menu on smaller viewports */
-        @media (max-width: 900px) {
-            .nav-menu { display: none; }
-            .donation-item.desktop-only { display: none; }
-            .donation-item.mobile-only { display: inline-flex; }
+        
+        .song26-nav-bubble:hover .song26-bubble-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
+            background: #fff;
+            color: #d90429;
+        }
+        
+        @keyframes bubble-pop-in {
+            0% { transform: scale(0.5) translateY(-50%); opacity: 0; }
+            60% { transform: scale(1.1) translateY(-50%); opacity: 1; }
+            100% { transform: scale(1) translateY(-50%); opacity: 1; }
         }
     </style>
 

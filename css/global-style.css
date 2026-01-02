@@ -10,6 +10,30 @@ body, html {
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* Custom Scrollbar Styling - Clean Red Design */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e53935;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c62828;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e53935 #f1f1f1;
+}
+
 /* ---------- REUSABLE STYLES ---------- */
 
 /* ----- Misc ----- */

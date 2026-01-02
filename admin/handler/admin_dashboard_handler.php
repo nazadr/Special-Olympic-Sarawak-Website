@@ -49,6 +49,11 @@ $conn->close();
  * Get participants statistics from chapter_participants table
  */
 function getParticipantsStats($conn) {
+    // Get the latest year with data
+    $latest_year_result = $conn->query("SELECT MAX(year) as latest_year FROM chapter_participants");
+    $latest_year_row = $latest_year_result->fetch_assoc();
+    $year = $latest_year_row['latest_year'] ?? date('Y');
+    
     $sql = "SELECT 
                 SUM(athletes_male) as athletes_male,
                 SUM(athletes_female) as athletes_female,
@@ -61,7 +66,7 @@ function getParticipantsStats($conn) {
                 SUM(volunteers_total) as volunteers_total,
                 SUM(total_participants) as total_participants
             FROM chapter_participants 
-            WHERE year = YEAR(CURDATE())";
+            WHERE year = $year";
     
     $result = $conn->query($sql);
     $stats = $result->fetch_assoc();
@@ -76,7 +81,7 @@ function getParticipantsStats($conn) {
                         cp.total_participants
                       FROM chapter_participants cp
                       JOIN sarawak_chapters c ON cp.chapter_id = c.id
-                      WHERE cp.year = YEAR(CURDATE())
+                      WHERE cp.year = $year
                       ORDER BY cp.total_participants DESC";
     
     $breakdown_result = $conn->query($breakdown_sql);
@@ -87,7 +92,8 @@ function getParticipantsStats($conn) {
     
     return [
         'totals' => $stats,
-        'by_chapter' => $breakdown
+        'by_chapter' => $breakdown,
+        'year' => $year
     ];
 }
 

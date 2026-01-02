@@ -38,12 +38,14 @@ document.writeln(`
                         <li><a href="src/email-us.html">Email Us</a></li>
                     </ul>
                 </li>
-                <li class="donation-item desktop-only">
+                <!-- Donation buttons moved to the very bottom of the sidebar for mobile -->
+                <li class="donation-item">
                     <div class="donation-button-container">
                             <a href="src/join_us.html" class="donate-btn">Join Us</a>
                             <a href="src/donation_page.php" class="donate-btn">Donate</a>
                     </div>
                 </li>
+                <!-- Bottom Navigation items integrated here for mobile -->
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
@@ -82,12 +84,6 @@ document.writeln(`
                     <ul class="dropdown-menu mobile-dropdown-submenu">
                         <li><a href="src/gallery-photos.php">Photos</a></li>
                         <li><a href="src/gallery-videos.php">Videos</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Join Us <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/join_us.html">Join Us</a></li>
                     </ul>
                 </li>
             </ul>

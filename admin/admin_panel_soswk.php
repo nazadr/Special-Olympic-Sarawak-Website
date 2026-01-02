@@ -1492,7 +1492,7 @@ if ($debug_mode) {
             min-width: 48px;
             display: flex;
             align-items: center;
-            <span class="section-title"><i class="fa fa-globe"></i> Malaysia &amp; State</span>
+            justify-content: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
@@ -1536,10 +1536,6 @@ if ($debug_mode) {
 
         .section-icon.analytics {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .section-icon.posters {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
         .section-icon.events {
@@ -2165,10 +2161,6 @@ if ($debug_mode) {
             <!-- Managements -->
             <div class="nav-section">
                 <div class="nav-section-title">Managements</div>
-                <a href="#" class="nav-item" data-section="posters">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Posters</span>
-                </a>
                 <a href="#" class="nav-item" data-section="events">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Events Calendar</span>
@@ -2727,19 +2719,8 @@ if ($debug_mode) {
                     </div>
                 </div>
 
-                <!-- Top Performing Chapters & Content Activity -->
+                <!-- Content Publication Activity -->
                 <div class="analytics-row">
-                    <div class="analytics-card">
-                        <div class="analytics-card-header">
-                            <h3><i class="fas fa-medal"></i> Top Performing Chapters</h3>
-                        </div>
-                        <div class="analytics-card-body">
-                            <div class="leaderboard" id="chapterLeaderboard">
-                                <!-- Populated by JS -->
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="analytics-card">
                         <div class="analytics-card-header">
                             <h3><i class="fas fa-newspaper"></i> Content Publication Activity</h3>
@@ -2792,88 +2773,6 @@ if ($debug_mode) {
                     <div class="insights-grid" id="insightsGrid">
                         <!-- Populated by JS with dynamic insights -->
                     </div>
-                </div>
-            </div>
-
-            <div class="content-section" id="posters">
-                <div class="section-header">
-                    <div class="section-header-content">
-                        <div class="section-icon posters">
-                            <i class="fa-solid fa-house"></i>
-                        </div>
-                        <div class="section-text">
-                            <h2 class="section-title">Posters Management</h2>
-                            <p class="section-subtitle">Upload and manage posters for Special Olympics Sarawak</p>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="management-container">
-                    <h3>Add a Posters</h3>
-                    <form id="posterForm" action="../admin/handler/admin_poster_handler.php" method="POST"
-                        enctype="multipart/form-data">
-                        <input type="hidden" id="posterId" name="id">
-                        <input type="hidden" id="currentPosterImage" name="currentImage">
-                        <div class="form-group">
-                            <label for="posterImage">Upload Image:</label>
-                            <label for="posterImage" class="custom-browse-btn">Browse</label>
-                            <input type="file" id="posterImage" name="posterImage" accept="image/*"
-                                style="display: none;">
-                            <button type="button" id="deletePosterImageBtn" class="custom-delete-btn">Delete</button>
-                            <span style="font-size: 14px;" id="posterImageStatus">No file selected.</span>
-                            <img id="posterImagePreview" src="" alt="Poster Image Preview"
-                                style="max-width: 100%; max-height: 100%; margin-top: 10px; display: none;">
-                        </div>
-                        <button type="submit" class="form-submit-btn" id="submitPosterBtn">Publish</button>
-
-                        <div class="published-container">
-                            <div class="published-title">
-                                <h3>Published Posters</h3>
-                            </div>
-                            <!-- Fetch the published posters from the database -->
-                            <!-- Below is just a hard-coded structure sample, not connected to the database -->
-                            <div id="publishedPoster">
-                                <div class="p-poster-container">
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Special Olympics National Games 2026">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Healthy Athletes Program Poster">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 3">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 4">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 5">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 6">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 7">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 8">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 9">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 10">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 11">
-                                    </div>
-                                    <div class="card_4-5-portrait">
-                                        <img src="" alt="Poster Card 12">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
 
@@ -6114,30 +6013,6 @@ if ($debug_mode) {
                 const videosPercent = (data.media.videos.total / totalMedia) * 100;
                 document.getElementById('photosProgress').style.width = photosPercent + '%';
                 document.getElementById('videosProgress').style.width = videosPercent + '%';
-            }
-            
-            // Leaderboard
-            if (data.participants && data.participants.by_chapter) {
-                const sorted = [...data.participants.by_chapter].sort((a, b) => b.total_participants - a.total_participants);
-                const container = document.getElementById('chapterLeaderboard');
-                
-                container.innerHTML = sorted.map((chapter, index) => {
-                    const rankClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : 'other';
-                    const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : (index + 1);
-                    
-                    return `
-                        <div class="leaderboard-item">
-                            <div class="leaderboard-rank ${rankClass}">${medal}</div>
-                            <div class="leaderboard-content">
-                                <div class="leaderboard-name">${chapter.chapter_name}</div>
-                                <div class="leaderboard-details">
-                                    ${chapter.athletes_total} Athletes • ${chapter.coaches_total} Coaches • ${chapter.volunteers_total} Volunteers
-                                </div>
-                            </div>
-                            <div class="leaderboard-score">${chapter.total_participants}</div>
-                        </div>
-                    `;
-                }).join('');
             }
             
             // Content Activity
