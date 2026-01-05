@@ -2268,11 +2268,6 @@ if ($debug_mode) {
             </div>
 
             <div class="header-right"> 
-                <button class="notification-btn">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-badge"></span>
-                </button>
-
                 <div class="user-profile" onclick="toggleUserDropdown()">
                     <div class="user-avatar"><?php echo strtoupper(substr($_SESSION['user'] ?? 'A', 0, 1)); ?></div>
                     <div class="user-info">

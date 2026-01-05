@@ -208,7 +208,12 @@ try {
         break;
 
     case 'fetch_chapters_with_participants':
-        $year = $_GET['year'] ?? date('Y');
+        // Get the latest year with data or default to current year
+        $year_query = "SELECT MAX(year) as latest_year FROM chapter_participants";
+        $year_result = $conn->query($year_query);
+        $year_row = $year_result->fetch_assoc();
+        $year = $year_row['latest_year'] ?? date('Y');
+        
         $sql = "SELECT sc.*, 
                        COALESCE(cp.athletes_male, 0) as athletes_male,
                        COALESCE(cp.athletes_female, 0) as athletes_female,
@@ -243,7 +248,12 @@ try {
         break;
 
     case 'fetch_pinpoint_data':
-        $year = $_GET['year'] ?? date('Y');
+        // Get the latest year with data or default to current year
+        $year_query = "SELECT MAX(year) as latest_year FROM chapter_participants";
+        $year_result = $conn->query($year_query);
+        $year_row = $year_result->fetch_assoc();
+        $year = $year_row['latest_year'] ?? date('Y');
+        
         $sql = "SELECT sc.id, sc.chapter_name, sc.city, sc.chairman, sc.vice_chairman, sc.secretary, sc.treasurer, sc.logo_path, sc.status,
                        COALESCE(cp.athletes_male, 0) as athletes_male,
                        COALESCE(cp.athletes_female, 0) as athletes_female,

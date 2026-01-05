@@ -108,6 +108,13 @@ $conn->close();
             margin-bottom: 40px;
             align-items: center;
             justify-items: center;
+            justify-content: center;
+        }
+        
+        /* Center single card */
+        .other-so-grid-duo:has(.other-so-card-duo:only-child) {
+            grid-template-columns: 1fr;
+            justify-content: center;
         }
 
         .other-so-card-duo {
@@ -265,7 +272,7 @@ $conn->close();
             <div style="text-align:center;">
                 <h2>Special Olympics Malaysia</h2>
                 <div class="so-afterline-60w-mb40" style="margin-left:auto; margin-right:auto;"></div>
-                <div class="other-so-grid-duo" style="display:inline-grid;">
+                <div class="other-so-grid-duo">
                     <?php
                     // Display Malaysia organizations only
                     foreach ($malaysia as $org):

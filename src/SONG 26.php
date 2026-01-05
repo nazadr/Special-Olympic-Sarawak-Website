@@ -813,14 +813,14 @@ $song26Data = [];
 
         <!-- Info Cards -->
         <section class="song26-full-section gray-bg">
-            <div class="song26-container">
+            <div class="song26-container"> 
                 <div class="song26-info-grid">
                     <div class="song26-info-card">
                         <div class="song26-icon-wrapper">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3>Venue</h3>
-                        <p>Bintulu, Sarawak<br>The Gateway to Northern Sarawak</p>
+                        <h3>Venue</h3> 
+                        <p>Bintulu, Sarawak<br>Energy Town of Sarawak</p>
                     </div>
                     <div class="song26-info-card">
                         <div class="song26-icon-wrapper">
@@ -884,7 +884,7 @@ $song26Data = [];
                     <div class="song26-sport-card">Aquatics</div>
                     <div class="song26-sport-card">Bocce</div>
                     <div class="song26-sport-card">Badminton</div>
-                    <div class="song26-sport-card">Bowling</div>
+                    <div class="song26-sport-card">Football 5-a-Side</div>
                     <div class="song26-sport-card">Table Tennis</div>
                     <div class="song26-sport-card">Basketball</div>
                     <div class="song26-sport-card">Unified Sports</div>
@@ -892,7 +892,8 @@ $song26Data = [];
             </div>
         </section>
 
-        <!-- Get Involved Section -->
+        <!-- Get Involved Section --> 
+         <!-- Part tok mun possible engkah link untuk forms mun sik just for informatics --> 
         <section class="song26-full-section white-bg">
             <div class="song26-container">
                 <div class="song26-section-title">
@@ -909,14 +910,14 @@ $song26Data = [];
                         <p>Participate alongside athletes to promote inclusion. Share your skills and passion for sports while building meaningful connections.</p>
                     </div>
                     <div class="song26-involvement-card">
-                        <h4>Sponsor or Donate</h4>
+                        <h4>Sponsor or Donation</h4>
                         <p>Support the Games financially and be recognized as an official sponsor. Your contribution helps provide equipment, facilities, and opportunities for our athletes.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Organizing Committee Section -->
+        <!-- Organizing Committee Section (To be branched and put in trees + To be added the photos of commitee-->
         <section class="song26-committee-section">
             <div class="song26-container">
                 <h2 class="song26-committee-title">Organising Committee</h2>
