@@ -629,7 +629,7 @@ $song26Data = [];
         }
 
         .song26-sponsor-card:hover .song26-sponsor-logo {
-            filter: grayscale(0%);
+            fliter:grayscale(0%);
         }
 
         .song26-sponsor-placeholder {
@@ -799,7 +799,7 @@ $song26Data = [];
                     <h2>SONG 2026</h2>
                     <p>A celebration of athletic achievement, inclusion, and community for athletes with intellectual disabilities across Sarawak.</p>
                 </div>
-                
+
                 <!-- Logo Display -->
                 <div class="song26-logo-section">
                     <div class="song26-logo-card">
@@ -855,7 +855,7 @@ $song26Data = [];
         <!-- Motto Section -->
         <section class="song26-motto-section">
             <div class="song26-motto-content">
-                <h3>Our Motto</h3>
+                <h3>Special Olympic Oath</h3>
                 <p>Let me win. But if I cannot win, let me be brave in the attempt.</p>
             </div>
         </section>

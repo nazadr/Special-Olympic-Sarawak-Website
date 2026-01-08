@@ -2133,6 +2133,309 @@ if ($debug_mode) {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* ========================================
+           PARTICIPANTS MANAGEMENT STYLES
+           Athletes, Coaches, Volunteers
+           ======================================== */
+        
+        .participants-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-info-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .upload-info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .upload-info-content {
+            flex: 1;
+        }
+
+        .upload-info-label {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 500;
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .upload-info-text {
+            font-size: 13px;
+            color: #1e293b;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .participants-table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .participants-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .participants-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .participants-table th {
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .participants-table tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+        }
+
+        .participants-table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        .participants-table td {
+            padding: 14px 12px;
+            color: #1e293b;
+        }
+
+        .participant-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .participant-status.approved {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .participant-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .participant-status.rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .participant-status.archived {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .participant-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .participant-action-btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .participant-action-btn.view {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .participant-action-btn.view:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .participant-action-btn.approve {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .participant-action-btn.approve:hover {
+            background: #10b981;
+            color: white;
+        }
+
+        .participant-action-btn.reject {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .participant-action-btn.reject:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        .participant-action-btn.delete {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .participant-action-btn.delete:hover {
+            background: #dc2626;
+            color: white;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-btn {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .pagination-info {
+            padding: 8px 16px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Upload Modal Specific Styles */
+        .upload-instructions h4 {
+            display: flex;
+            align-items: center;
+        }
+
+        .file-upload-container button:hover {
+            border-color: #3b82f6 !important;
+            background: #f0f9ff !important;
+        }
+
+        #selectedFileName {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .upload-column-mapping {
+            font-size: 12px;
+        }
+
+        .column-list {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+            list-style: decimal;
+            color: #92400e;
+        }
+
+        .column-list li {
+            margin: 4px 0;
+        }
+
+        /* Responsive Design for Participants */
+        @media (max-width: 1200px) {
+            .participants-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .upload-info-card {
+                width: 100%;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .filter-buttons {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .participants-table-container {
+                overflow-x: auto;
+            }
+
+            .participants-table {
+                min-width: 800px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -3077,71 +3380,6 @@ if ($debug_mode) {
                 </div>
             </div>
 
-            <!-- Athletes Section -->
-            <div class="content-section" id="athletes">
-                <div class="section-header">
-                    <div class="section-header-content">
-                        <div class="section-icon participants">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="section-text">
-                            <h2 class="section-title">Athletes Management</h2>
-                            <p class="section-subtitle">Manage athlete registrations and profiles</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-placeholder">
-                    <i class="fas fa-users"></i>
-                    <h3>Athletes Content</h3>
-                    <p>Add your athlete management interface here</p>
-                </div>
-            </div>
-
-            <!-- Volunteers Section -->
-            <div class="content-section" id="volunteers">
-                <div class="section-header">
-                    <div class="section-header-content">
-                        <div class="section-icon participants">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <div class="section-text">
-                            <h2 class="section-title">Volunteers Management</h2>
-                            <p class="section-subtitle">Manage volunteer applications and schedules</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-placeholder">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Volunteers Content</h3>
-                    <p>Add your volunteer management interface here</p>
-                </div>
-            </div>
-
-            <!-- Coaches Section -->
-            <div class="content-section" id="coaches">
-                <div class="section-header">
-                    <div class="section-header-content">
-                        <div class="section-icon participants">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <div class="section-text">
-                            <h2 class="section-title">Coaches Management</h2>
-                            <p class="section-subtitle">Manage coach profiles and certifications</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-placeholder">
-                    <i class="fas fa-user-tie"></i>
-                    <h3>Coaches Content</h3>
-                    <p>Add your coach management interface here</p>
-                </div>
-            </div>
-
-
-
             <div class="content-section" id="state-games">
                 <div class="section-header">
                     <div>
@@ -3265,6 +3503,405 @@ if ($debug_mode) {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Athletes Section -->
+            <div class="content-section" id="athletes">
+                <div class="section-header">
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Athletes Management</h2>
+                            <p class="section-subtitle">Manage athlete registrations and data from Microsoft Forms</p>
+                        </div>
+                    </div>
+                    <button class="add-news-btn" onclick="openUploadModal('athletes')">
+                        <i class="fas fa-file-upload"></i> Upload Excel File
+                    </button>
+                </div>
+
+                <!-- Athletes Statistics Overview -->
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="athletesTotalCount">0</h4>
+                            <p class="stat-label">Total Athletes</p>
+                            <span class="stat-subtitle">All registrations</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="athletesApprovedCount">0</h4>
+                            <p class="stat-label">Approved</p>
+                            <span class="stat-subtitle">Active athletes</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="athletesPendingCount">0</h4>
+                            <p class="stat-label">Pending</p>
+                            <span class="stat-subtitle">Awaiting review</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="athletesRecentCount">0</h4>
+                            <p class="stat-label">New (7 Days)</p>
+                            <span class="stat-subtitle">Recent registrations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Info and Filters -->
+                <div class="participants-controls">
+                    <div class="upload-info-card">
+                        <div class="upload-info-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="upload-info-content">
+                            <p class="upload-info-label">Last Excel Upload</p>
+                            <p class="upload-info-text" id="athletesLastUpload">No uploads yet</p>
+                        </div>
+                    </div>
+
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="athletesSearchInput" placeholder="Search athletes by name, email, or phone...">
+                    </div>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterAthletes('all')">
+                            <i class="fas fa-list"></i> All
+                        </button>
+                        <button class="filter-btn" data-filter="approved" onclick="filterAthletes('approved')">
+                            <i class="fas fa-check"></i> Approved
+                        </button>
+                        <button class="filter-btn" data-filter="pending" onclick="filterAthletes('pending')">
+                            <i class="fas fa-clock"></i> Pending
+                        </button>
+                        <button class="filter-btn" data-filter="rejected" onclick="filterAthletes('rejected')">
+                            <i class="fas fa-times"></i> Rejected
+                        </button>
+                    </div>
+
+                    <button class="add-news-btn" onclick="exportData('athletes')">
+                        <i class="fas fa-download"></i> Export to CSV
+                    </button>
+                </div>
+
+                <!-- Athletes Table -->
+                <div class="participants-table-container">
+                    <table class="participants-table" id="athletesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Chapter</th>
+                                <th>Gender</th>
+                                <th>Sports</th>
+                                <th>Status</th>
+                                <th>Registered</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="athletesTableBody">
+                            <tr>
+                                <td colspan="10" style="text-align: center; padding: 40px;">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i>
+                                    <p style="margin-top: 10px; color: #64748b;">Loading athletes data...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container" id="athletesPagination"></div>
+            </div>
+
+            <!-- Coaches Section -->
+            <div class="content-section" id="coaches">
+                <div class="section-header">
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Coaches Management</h2>
+                            <p class="section-subtitle">Manage coach registrations and data from Microsoft Forms</p>
+                        </div>
+                    </div>
+                    <button class="add-news-btn" onclick="openUploadModal('coaches')">
+                        <i class="fas fa-file-upload"></i> Upload Excel File
+                    </button>
+                </div>
+
+                <!-- Coaches Statistics Overview -->
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="coachesTotalCount">0</h4>
+                            <p class="stat-label">Total Coaches</p>
+                            <span class="stat-subtitle">All registrations</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="coachesApprovedCount">0</h4>
+                            <p class="stat-label">Approved</p>
+                            <span class="stat-subtitle">Active coaches</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="coachesPendingCount">0</h4>
+                            <p class="stat-label">Pending</p>
+                            <span class="stat-subtitle">Awaiting review</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="coachesAvgExperience">0</h4>
+                            <p class="stat-label">Avg. Experience</p>
+                            <span class="stat-subtitle">Years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Info and Filters -->
+                <div class="participants-controls">
+                    <div class="upload-info-card">
+                        <div class="upload-info-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="upload-info-content">
+                            <p class="upload-info-label">Last Excel Upload</p>
+                            <p class="upload-info-text" id="coachesLastUpload">No uploads yet</p>
+                        </div>
+                    </div>
+
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="coachesSearchInput" placeholder="Search coaches by name, email, or phone...">
+                    </div>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterCoaches('all')">
+                            <i class="fas fa-list"></i> All
+                        </button>
+                        <button class="filter-btn" data-filter="approved" onclick="filterCoaches('approved')">
+                            <i class="fas fa-check"></i> Approved
+                        </button>
+                        <button class="filter-btn" data-filter="pending" onclick="filterCoaches('pending')">
+                            <i class="fas fa-clock"></i> Pending
+                        </button>
+                        <button class="filter-btn" data-filter="rejected" onclick="filterCoaches('rejected')">
+                            <i class="fas fa-times"></i> Rejected
+                        </button>
+                    </div>
+
+                    <button class="add-news-btn" onclick="exportData('coaches')">
+                        <i class="fas fa-download"></i> Export to CSV
+                    </button>
+                </div>
+
+                <!-- Coaches Table -->
+                <div class="participants-table-container">
+                    <table class="participants-table" id="coachesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Chapter</th>
+                                <th>Gender</th>
+                                <th>Sports Expertise</th>
+                                <th>Experience</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coachesTableBody">
+                            <tr>
+                                <td colspan="10" style="text-align: center; padding: 40px;">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i>
+                                    <p style="margin-top: 10px; color: #64748b;">Loading coaches data...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container" id="coachesPagination"></div>
+            </div>
+
+            <!-- Volunteers Section -->
+            <div class="content-section" id="volunteers">
+                <div class="section-header">
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Volunteers Management</h2>
+                            <p class="section-subtitle">Manage volunteer registrations and data from Microsoft Forms</p>
+                        </div>
+                    </div>
+                    <button class="add-news-btn" onclick="openUploadModal('volunteers')">
+                        <i class="fas fa-file-upload"></i> Upload Excel File
+                    </button>
+                </div>
+
+                <!-- Volunteers Statistics Overview -->
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="volunteersTotalCount">0</h4>
+                            <p class="stat-label">Total Volunteers</p>
+                            <span class="stat-subtitle">All registrations</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="volunteersApprovedCount">0</h4>
+                            <p class="stat-label">Approved</p>
+                            <span class="stat-subtitle">Active volunteers</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="volunteersPendingCount">0</h4>
+                            <p class="stat-label">Pending</p>
+                            <span class="stat-subtitle">Awaiting review</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="volunteersRecentCount">0</h4>
+                            <p class="stat-label">New (7 Days)</p>
+                            <span class="stat-subtitle">Recent registrations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Info and Filters -->
+                <div class="participants-controls">
+                    <div class="upload-info-card">
+                        <div class="upload-info-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="upload-info-content">
+                            <p class="upload-info-label">Last Excel Upload</p>
+                            <p class="upload-info-text" id="volunteersLastUpload">No uploads yet</p>
+                        </div>
+                    </div>
+
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="volunteersSearchInput" placeholder="Search volunteers by name, email, or phone...">
+                    </div>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterVolunteers('all')">
+                            <i class="fas fa-list"></i> All
+                        </button>
+                        <button class="filter-btn" data-filter="approved" onclick="filterVolunteers('approved')">
+                            <i class="fas fa-check"></i> Approved
+                        </button>
+                        <button class="filter-btn" data-filter="pending" onclick="filterVolunteers('pending')">
+                            <i class="fas fa-clock"></i> Pending
+                        </button>
+                        <button class="filter-btn" data-filter="rejected" onclick="filterVolunteers('rejected')">
+                            <i class="fas fa-times"></i> Rejected
+                        </button>
+                    </div>
+
+                    <button class="add-news-btn" onclick="exportData('volunteers')">
+                        <i class="fas fa-download"></i> Export to CSV
+                    </button>
+                </div>
+
+                <!-- Volunteers Table -->
+                <div class="participants-table-container">
+                    <table class="participants-table" id="volunteersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Chapter</th>
+                                <th>Gender</th>
+                                <th>Volunteer Role</th>
+                                <th>Status</th>
+                                <th>Registered</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="volunteersTableBody">
+                            <tr>
+                                <td colspan="10" style="text-align: center; padding: 40px;">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i>
+                                    <p style="margin-top: 10px; color: #64748b;">Loading volunteers data...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container" id="volunteersPagination"></div>
             </div>
 
             <!-- News Section -->
@@ -4562,6 +5199,103 @@ if ($debug_mode) {
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Upload Excel Modal for Participants (Athletes, Coaches, Volunteers) -->
+    <div id="uploadExcelModal" class="news-modal" style="display: none;">
+        <div class="news-modal-backdrop" onclick="closeUploadModal()"></div>
+        <div class="news-modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="uploadModalTitle">Upload Excel File</h3>
+                <button class="modal-close" onclick="closeUploadModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 32px;">
+                <div class="upload-instructions" style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 16px; margin-bottom: 24px; border-radius: 8px;">
+                    <h4 style="margin: 0 0 8px 0; color: #1e293b; font-size: 14px; font-weight: 600;">
+                        <i class="fas fa-info-circle" style="color: #3b82f6; margin-right: 8px;"></i>
+                        Excel File Format Instructions
+                    </h4>
+                    <ul style="margin: 0; padding-left: 20px; color: #64748b; font-size: 13px; line-height: 1.8;">
+                        <li>Export your Microsoft Forms responses as Excel (.xlsx) or CSV file</li>
+                        <li>First row should contain column headers</li>
+                        <li>Required columns: Full Name, Email, Phone</li>
+                        <li>System will automatically match or update existing records</li>
+                        <li>Date formats: YYYY-MM-DD or any Excel date format</li>
+                    </ul>
+                </div>
+
+                <form id="uploadExcelForm" enctype="multipart/form-data">
+                    <input type="hidden" id="participantType" name="participantType">
+                    
+                    <div class="form-group">
+                        <label for="excelFile" style="display: block; margin-bottom: 8px; font-weight: 500; color: #1e293b;">
+                            Select Excel File <span style="color: #ef4444;">*</span>
+                        </label>
+                        <div class="file-upload-container" style="position: relative;">
+                            <input 
+                                type="file" 
+                                id="excelFile" 
+                                name="excelFile" 
+                                accept=".xlsx,.xls,.csv"
+                                required
+                                style="display: none;"
+                                onchange="handleExcelFileSelect(this)">
+                            <button 
+                                type="button" 
+                                onclick="document.getElementById('excelFile').click()"
+                                style="width: 100%; padding: 16px; border: 2px dashed #cbd5e1; background: #f8fafc; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
+                                <i class="fas fa-cloud-upload-alt" style="font-size: 32px; color: #3b82f6; display: block; margin-bottom: 8px;"></i>
+                                <span style="display: block; color: #1e293b; font-weight: 500; margin-bottom: 4px;">
+                                    Click to select Excel file
+                                </span>
+                                <span style="display: block; color: #64748b; font-size: 13px;">
+                                    or drag and drop here
+                                </span>
+                            </button>
+                        </div>
+                        <div id="selectedFileName" style="margin-top: 12px; padding: 12px; background: #f1f5f9; border-radius: 6px; display: none;">
+                            <i class="fas fa-file-excel" style="color: #10b981; margin-right: 8px;"></i>
+                            <span id="fileNameText" style="color: #1e293b; font-weight: 500;"></span>
+                            <button type="button" onclick="removeExcelFile()" style="float: right; background: none; border: none; color: #ef4444; cursor: pointer;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="upload-column-mapping" style="margin-top: 24px; padding: 16px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px;">
+                        <h4 style="margin: 0 0 8px 0; color: #92400e; font-size: 13px; font-weight: 600;">
+                            <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>
+                            Expected Column Order (based on participant type)
+                        </h4>
+                        <div id="columnMappingGuide" style="font-size: 12px; color: #78350f; line-height: 1.6;"></div>
+                    </div>
+
+                    <div class="modal-footer" style="margin-top: 24px;">
+                        <button type="button" class="btn-cancel" onclick="closeUploadModal()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-upload"></i> Upload & Process
+                        </button>
+                    </div>
+                </form>
+
+                <div id="uploadProgress" style="display: none; margin-top: 20px;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <i class="fas fa-spinner fa-spin" style="color: #3b82f6; font-size: 20px;"></i>
+                            <span style="color: #1e293b; font-weight: 500;">Processing Excel file...</span>
+                        </div>
+                        <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                            <div id="uploadProgressBar" style="height: 100%; background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%); width: 0%; transition: width 0.3s;"></div>
+                        </div>
+                        <p id="uploadStatus" style="margin: 8px 0 0 0; color: #64748b; font-size: 13px;"></p>
+                    </div>
+                </div>
+
+                <div id="uploadResults" style="display: none; margin-top: 20px;"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Add News Modal - Only for News Section -->
@@ -7603,5 +8337,11 @@ if ($debug_mode) {
         
         // Let external JS handle everything
     </script>
+
+    <!-- Participants Management Scripts -->
+    <script src="../scripts/admin-components/participants-shared.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/athletes-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/coaches-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/volunteers-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
 </body>
 </html>
