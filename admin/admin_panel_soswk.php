@@ -199,6 +199,296 @@ if ($debug_mode) {
         .add-yap-btn i {
             font-size: 14px !important;
         }
+
+        /* ========================================
+           ALP PAGE SETTINGS MANAGEMENT STYLES
+           ======================================== */
+        
+        .alp-page-management-container {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .alp-settings-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .alp-settings-card .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 24px;
+            border-bottom: none;
+        }
+
+        .alp-settings-card .card-header h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alp-settings-card .card-header p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 0.95rem;
+        }
+
+        .alp-settings-card .card-body {
+            padding: 24px;
+        }
+
+        .alp-form-group {
+            margin-bottom: 24px;
+        }
+
+        .alp-form-group label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .alp-form-group label i {
+            color: #667eea;
+            margin-right: 6px;
+        }
+
+        .label-hint {
+            display: block;
+            font-weight: 400;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        .alp-form-group input[type="text"],
+        .alp-form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .alp-form-group input[type="text"]:focus,
+        .alp-form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .alp-form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+            line-height: 1.6;
+        }
+
+        .form-hint {
+            display: block;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        /* Hero Preview */
+        .current-hero-preview {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .current-hero-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .hero-overlay h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Image Preview Large */
+        .image-preview-large {
+            margin-top: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-preview-large img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        /* Bullet Points Section */
+        .bullet-points-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .bullet-points-section h4 {
+            margin: 0 0 8px 0;
+            color: #374151;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-note {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 0 0 20px 0;
+        }
+
+        /* Action Buttons */
+        .alp-save-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .btn-save-alp,
+        .btn-preview-alp {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-save-alp {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-save-alp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-preview-alp {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-preview-alp:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Last Updated Info */
+        .last-updated-info {
+            text-align: center;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .last-updated-info i {
+            margin-right: 8px;
+            color: #667eea;
+        }
+
+        .last-updated-info strong {
+            color: #374151;
+        }
+
+        /* File Upload Styling */
+        .file-upload-btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .file-upload-btn:hover {
+            background: #5568d3;
+        }
+
+        .file-status {
+            margin-left: 12px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .current-hero-preview {
+                height: 200px;
+            }
+
+            .hero-overlay h1 {
+                font-size: 1.5rem;
+            }
+
+            .alp-save-actions {
+                flex-direction: column;
+            }
+
+            .btn-save-alp,
+            .btn-preview-alp {
+                width: 100%;
+                justify-content: center;
+            }
+        }
         
         /* STANDARDIZED MODAL STYLING - Based on News Modal */
         .photo-modal,
@@ -4015,7 +4305,7 @@ if ($debug_mode) {
                 </div>
             </div>
 
-            <!-- Athlete Leaderships -->
+            <!-- Athlete Leadership Program Page Settings -->
             <div class="content-section" id="alp">
                 <div class="section-header">
                     <div class="section-header-content">
@@ -4023,161 +4313,144 @@ if ($debug_mode) {
                             <i class="fas fa-user-graduate"></i>
                         </div>
                         <div class="section-text">
-                            <h2 class="section-title">Athlete Leaderships Management</h2>
-                            <p class="section-subtitle">Manage Athlete Leaderships Program (ALP) overview articles, resources and the "learn more" page.</p>
+                            <h2 class="section-title">Athlete Leadership Program Page</h2>
+                            <p class="section-subtitle">Manage hero section image and description content for the ALP page</p>
                         </div>
                     </div>
-                    <button class="add-alp-btn" onclick="openAlpModal()">
-                        <i class="fas fa-plus"></i>
-                        Add ALP Article
-                    </button>
                 </div>
 
-                <div class="alp-management-container">
-                    <!-- ALP Add Modal -->
-                    <div id="alpModal" class="alp-modal" style="display: none;">
-                        <div class="alp-modal-backdrop" onclick="closeAlpModal()"></div>
-                        <div class="alp-modal-content">
-                            <div class="alp-modal-header">
-                                <h3>Add New ALP Article</h3>
-                                <span class="alp-modal-close" onclick="closeAlpModal()">&times;</span>
+                <div class="alp-page-management-container">
+                    <!-- Hero Section Card -->
+                    <div class="alp-settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-image"></i> Hero Section</h3>
+                            <p>Customize the hero banner image and title</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="current-hero-preview" id="currentHeroPreview">
+                                <img src="" alt="Current Hero Image" id="currentHeroImage">
+                                <div class="hero-overlay">
+                                    <h1 id="currentHeroTitle">Athlete Leadership Program (ALP)</h1>
+                                </div>
                             </div>
-                            <div class="alp-modal-body">
-                                <form id="alpForm" action="handler/admin_alp_handler.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="action" value="add">
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="alpImage">Upload Image:</label>
-                                        <div class="file-upload-container">
-                                            <input type="file" id="alpImage" name="alpImage" accept="image/*" style="display: none;" onchange="handleAlpFileSelect(this)">
-                                            <button type="button" id="alpImageBtn" class="file-upload-btn" onclick="document.getElementById('alpImage').click()">Choose File</button>
-                                            <span id="alpImageStatus" class="file-status">No file selected</span>
-                                            <button type="button" id="deleteAlpImageBtn" class="file-delete-btn" style="display: none;" onclick="removeAlpSelectedFile()">Remove</button>
-                                        </div>
-                                        <div id="alpImagePreview" class="image-preview" style="display: none;">
-                                            <img src="" alt="Preview" />
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="alpTitle">Article Title *</label>
-                                        <input type="text" id="alpTitle" name="title" placeholder="Enter article title" required>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="alpCategory">Category *</label>
-                                        <select id="alpCategory" name="category" required>
-                                            <option value="">Select category</option>
-                                            <option value="LEADERSHIP DEVELOPMENT">Leadership Development</option>
-                                            <option value="TRAINING PROGRAMS">Training Programs</option>
-                                            <option value="ATHLETE SPOTLIGHT">Athlete Spotlight</option>
-                                            <option value="SUCCESS STORIES">Success Stories</option>
-                                            <option value="COMMUNITY ENGAGEMENT">Community Engagement</option>
-                                            <option value="MENTORSHIP">Mentorship</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="alpDescription">Description *</label>
-                                        <textarea id="alpDescription" name="description" placeholder="Enter article description" rows="4" required></textarea>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="alpLearnMoreLink">Learn More Link (optional)</label>
-                                        <input type="url" id="alpLearnMoreLink" name="learnMoreLink" placeholder="https://example.com">
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="alpDisplayOrder">Display Order</label>
-                                        <input type="number" id="alpDisplayOrder" name="displayOrder" placeholder="Order (optional)" min="1">
-                                    </div>
-                                    
-                                    <div class="alp-modal-actions">
-                                        <button type="button" class="btn-cancel" onclick="closeAlpModal()">Cancel</button>
-                                        <button type="submit" class="btn-submit" id="submitAlpBtn">Add Article</button>
-                                    </div>
-                                </form>
+                            
+                            <div class="alp-form-group">
+                                <label for="heroTitle">Hero Title</label>
+                                <input type="text" id="heroTitle" placeholder="Athlete Leadership Program (ALP)" maxlength="100">
+                            </div>
+
+                            <div class="alp-form-group">
+                                <label for="heroImage">Hero Background Image</label>
+                                <div class="file-upload-container">
+                                    <input type="file" id="heroImage" name="hero_image" accept="image/*" style="display: none;" onchange="handleHeroImageSelect(this)">
+                                    <button type="button" class="file-upload-btn" onclick="document.getElementById('heroImage').click()">
+                                        <i class="fas fa-upload"></i> Choose New Hero Image
+                                    </button>
+                                    <span id="heroImageStatus" class="file-status">No file selected</span>
+                                </div>
+                                <small class="form-hint">Recommended size: 1920x800px. Max 5MB.</small>
+                                <div id="heroImagePreview" class="image-preview-large" style="display: none;">
+                                    <img src="" alt="Preview" />
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ALP Edit Modal -->
-                    <div id="alpEditModal" class="alp-modal alp-edit-modal" style="display: none;">
-                        <div class="alp-modal-backdrop" onclick="closeAlpEditModal()"></div>
-                        <div class="alp-modal-content">
-                            <div class="alp-modal-header edit-modal-header">
-                                <h3><i class="fas fa-edit"></i> Edit ALP Article</h3>
-                                <span class="alp-modal-close" onclick="closeAlpEditModal()">&times;</span>
-                            </div>
-                            <div class="alp-modal-body">
-                                <form id="alpEditForm" action="handler/admin_alp_handler.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" id="editAlpId" name="id">
-                                    <input type="hidden" id="currentEditAlpImage" name="currentImage">
-                                    <input type="hidden" name="action" value="update">
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="editAlpImage">Upload New Image:</label>
-                                        <div class="file-upload-container">
-                                            <input type="file" id="editAlpImage" name="alpImage" accept="image/*" style="display: none;" onchange="handleEditAlpFileSelect(this)">
-                                            <button type="button" id="editAlpImageBtn" class="file-upload-btn" onclick="document.getElementById('editAlpImage').click()">Choose New File</button>
-                                            <span id="editAlpImageStatus" class="file-status">Current image loaded</span>
-                                            <button type="button" id="deleteEditAlpImageBtn" class="file-delete-btn" style="display: none;" onclick="removeEditAlpSelectedFile()">Remove</button>
-                                        </div>
-                                        <div id="editAlpImagePreview" class="image-preview" style="display: none;">
-                                            <img src="" alt="Preview" />
-                                        </div>
+                    <!-- Page Content Card -->
+                    <div class="alp-settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-file-alt"></i> Page Description Content</h3>
+                            <p>Use the rich text editor to format your content</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="alp-form-group">
+                                <label for="descriptionContent">
+                                    <i class="fas fa-edit"></i> Description Content
+                                    <span class="label-hint">Use the toolbar to format text, add lists, and style your content</span>
+                                </label>
+                                
+                                <!-- Rich Text Editor -->
+                                <div class="rich-editor-container">
+                                    <!-- Toolbar -->
+                                    <div class="editor-toolbar">
+                                        <button type="button" class="editor-btn" onclick="formatText('bold')" title="Bold">
+                                            <i class="fas fa-bold"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatText('italic')" title="Italic">
+                                            <i class="fas fa-italic"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatText('underline')" title="Underline">
+                                            <i class="fas fa-underline"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="formatText('insertUnorderedList')" title="Bullet List">
+                                            <i class="fas fa-list-ul"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatText('insertOrderedList')" title="Numbered List">
+                                            <i class="fas fa-list-ol"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="formatText('formatBlock', 'p')" title="Paragraph">
+                                            <i class="fas fa-paragraph"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatText('formatBlock', 'h3')" title="Heading">
+                                            <i class="fas fa-heading"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="formatText('justifyLeft')" title="Align Left">
+                                            <i class="fas fa-align-left"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatText('justifyCenter')" title="Align Center">
+                                            <i class="fas fa-align-center"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatText('justifyRight')" title="Align Right">
+                                            <i class="fas fa-align-right"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="clearFormatting()" title="Clear Formatting">
+                                            <i class="fas fa-remove-format"></i>
+                                        </button>
                                     </div>
                                     
-                                    <div class="alp-form-group">
-                                        <label for="editAlpTitle">Article Title *</label>
-                                        <input type="text" id="editAlpTitle" name="title" placeholder="Enter article title" required>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="editAlpCategory">Category *</label>
-                                        <select id="editAlpCategory" name="category" required>
-                                            <option value="">Select category</option>
-                                            <option value="LEADERSHIP DEVELOPMENT">Leadership Development</option>
-                                            <option value="TRAINING PROGRAMS">Training Programs</option>
-                                            <option value="ATHLETE SPOTLIGHT">Athlete Spotlight</option>
-                                            <option value="SUCCESS STORIES">Success Stories</option>
-                                            <option value="COMMUNITY ENGAGEMENT">Community Engagement</option>
-                                            <option value="MENTORSHIP">Mentorship</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="editAlpDescription">Description *</label>
-                                        <textarea id="editAlpDescription" name="description" placeholder="Enter article description" rows="4" required></textarea>
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="editAlpLearnMoreLink">Learn More Link (optional)</label>
-                                        <input type="url" id="editAlpLearnMoreLink" name="learnMoreLink" placeholder="https://example.com">
-                                    </div>
-                                    
-                                    <div class="alp-form-group">
-                                        <label for="editAlpDisplayOrder">Display Order</label>
-                                        <input type="number" id="editAlpDisplayOrder" name="displayOrder" placeholder="Order (optional)" min="1">
-                                    </div>
-                                    
-                                    <div class="alp-modal-actions">
-                                        <button type="button" class="btn-cancel" onclick="closeAlpEditModal()">Cancel</button>
-                                        <button type="submit" class="btn-submit edit-btn-submit" id="submitEditAlpBtn">Update Article</button>
-                                    </div>
-                                </form>
+                                    <!-- Editable Content Area -->
+                                    <div 
+                                        id="descriptionContent" 
+                                        class="editor-content" 
+                                        contenteditable="true" 
+                                        placeholder="Start typing your description here..."
+                                    ></div>
+                                </div>
+                                
+                                <small class="form-hint">
+                                    <i class="fas fa-info-circle"></i> 
+                                    Tip: Use <strong>bold</strong> text for key terms, bullet lists for features, and paragraphs to organize your content.
+                                </small>
                             </div>
                         </div>
                     </div>
 
-                    <div class="alp-list-admin">
-                        <div class="published-title">
-                            <h3>Published ALP Articles</h3>
-                            <p>Manage your Athlete Leadership Program articles</p>
-                        </div>
-                        <div id="existingAlp" class="existing-alp-container">
-                            <!-- ALP articles will be loaded here via JavaScript -->
-                        </div>
+                    <!-- Save Button -->
+                    <div class="alp-save-actions">
+                        <button type="button" class="btn-save-alp" onclick="saveAlpPageSettings()">
+                            <i class="fas fa-save"></i> Save All Changes
+                        </button>
+                        <button type="button" class="btn-preview-alp" onclick="previewAlpPage()">
+                            <i class="fas fa-eye"></i> Preview Page
+                        </button>
+                    </div>
+
+                    <!-- Last Updated Info -->
+                    <div class="last-updated-info" id="alpLastUpdated" style="display: none;">
+                        <i class="fas fa-clock"></i>
+                        <span>Last updated: <strong id="alpUpdateTime">-</strong> by <strong id="alpUpdateBy">-</strong></span>
                     </div>
                 </div>
             </div>
@@ -4404,119 +4677,213 @@ if ($debug_mode) {
                             <i class="fas fa-child"></i>
                         </div>
                         <div class="section-text">
-                            <h2 class="section-title">Young Athletes Program (YAP)</h2>
-                            <p class="section-subtitle">Manage YAP overview articles, resources and the "learn more" page.</p>
+                            <h2 class="section-title">Young Athletes Program (YAP) Page</h2>
+                            <p class="section-subtitle">Manage hero section image and description content for the YAP page</p>
                         </div>
                     </div>
-                    <button class="add-yap-btn" onclick="openYapModal()">
-                        <i class="fas fa-edit"></i> Edit YAP Content
-                    </button>
                 </div>
-                
-                <!-- YAP Content Display with Admin Friendly Layout -->
-                <div class="yap-admin-dashboard">
-                    <!-- Key Information Cards -->
-                    <div class="yap-cards-grid">
-                        <!-- Hero Section Card -->
-                        <div class="yap-info-card yap-hero-card">
-                            <div class="yap-card-header">
-                                <h3><i class="fas fa-image"></i> Hero Section</h3>
-                                <span class="yap-card-status" id="heroStatus">Not Set</span>
-                            </div>
-                            <div class="yap-card-body">
-                                <div class="yap-hero-image-container">
-                                    <img id="yapHeroImagePreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect fill='%23e2e8f0' width='200' height='150'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2364748b' text-anchor='middle' dominant-baseline='middle'%3ENo Image%3C/text%3E%3C/svg%3E" alt="Hero Image" class="yap-hero-img">
+
+                <div class="yap-page-management-container">
+                    <!-- Hero Section Card -->
+                    <div class="yap-settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-image"></i> Hero Section</h3>
+                            <p>Customize the hero banner image and title</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="current-hero-preview" id="currentYapHeroPreview">
+                                <img src="" alt="Current Hero Image" id="currentYapHeroImage">
+                                <div class="hero-overlay">
+                                    <h1 id="currentYapHeroTitle">Young Athletes Program (YAP)</h1>
                                 </div>
-                                <div class="yap-hero-info">
-                                    <label>Hero Title</label>
-                                    <p id="yapHeroTitleDisplay" class="yap-display-text">Not Set</p>
+                            </div>
+                            
+                            <div class="yap-form-group">
+                                <label for="yapHeroTitle">Hero Title</label>
+                                <input type="text" id="yapHeroTitle" placeholder="Young Athletes Program (YAP)" maxlength="100">
+                            </div>
+
+                            <div class="yap-form-group">
+                                <label for="yapHeroImage">Hero Background Image</label>
+                                <div class="file-upload-container">
+                                    <input type="file" id="yapHeroImage" name="hero_image" accept="image/*" style="display: none;" onchange="handleYapHeroImageSelect(this)">
+                                    <button type="button" class="file-upload-btn" onclick="document.getElementById('yapHeroImage').click()">
+                                        <i class="fas fa-upload"></i> Choose New Hero Image
+                                    </button>
+                                    <span id="yapHeroImageStatus" class="file-status">No file selected</span>
+                                </div>
+                                <small class="form-hint">Recommended size: 1920x800px. Max 5MB.</small>
+                                <div id="yapHeroImagePreview" class="image-preview-large" style="display: none;">
+                                    <img src="" alt="Preview" />
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Description Card -->
-                        <div class="yap-info-card yap-description-card">
-                            <div class="yap-card-header">
-                                <h3><i class="fas fa-align-left"></i> Description</h3>
-                                <span class="yap-card-status" id="descriptionStatus">Not Set</span>
-                            </div>
-                            <div class="yap-card-body">
-                                <div class="yap-description-content">
-                                    <div id="yapDescriptionDisplay" class="yap-display-content">Not Set</div>
-                                    <div class="yap-char-count">
-                                        <small id="yapDescriptionCharCount">0 characters</small>
+                    <!-- Page Content Card -->
+                    <div class="yap-settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-file-alt"></i> Page Description Content</h3>
+                            <p>Use the rich text editor to format your content</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="yap-form-group">
+                                <label for="yapDescriptionContent">
+                                    <i class="fas fa-edit"></i> Description Content
+                                    <span class="label-hint">Use the toolbar to format text, add lists, and style your content</span>
+                                </label>
+                                
+                                <!-- Rich Text Editor -->
+                                <div class="rich-editor-container">
+                                    <!-- Toolbar -->
+                                    <div class="editor-toolbar">
+                                        <button type="button" class="editor-btn" onclick="formatYapText('bold')" title="Bold">
+                                            <i class="fas fa-bold"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatYapText('italic')" title="Italic">
+                                            <i class="fas fa-italic"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatYapText('underline')" title="Underline">
+                                            <i class="fas fa-underline"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="formatYapText('insertUnorderedList')" title="Bullet List">
+                                            <i class="fas fa-list-ul"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatYapText('insertOrderedList')" title="Numbered List">
+                                            <i class="fas fa-list-ol"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <select class="editor-btn" onchange="formatYapText('formatBlock', this.value); this.selectedIndex=0;" title="Paragraph Style">
+                                            <option value="">¶ Style</option>
+                                            <option value="p">Paragraph</option>
+                                            <option value="h1">Heading 1</option>
+                                            <option value="h2">Heading 2</option>
+                                            <option value="h3">Heading 3</option>
+                                        </select>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="formatYapText('justifyLeft')" title="Align Left">
+                                            <i class="fas fa-align-left"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatYapText('justifyCenter')" title="Align Center">
+                                            <i class="fas fa-align-center"></i>
+                                        </button>
+                                        <button type="button" class="editor-btn" onclick="formatYapText('justifyRight')" title="Align Right">
+                                            <i class="fas fa-align-right"></i>
+                                        </button>
+                                        
+                                        <span class="editor-separator"></span>
+                                        
+                                        <button type="button" class="editor-btn" onclick="clearYapFormatting()" title="Clear Formatting">
+                                            <i class="fas fa-remove-format"></i>
+                                        </button>
                                     </div>
+                                    
+                                    <!-- Editable Content Area -->
+                                    <div 
+                                        id="yapDescriptionContent" 
+                                        class="editor-content" 
+                                        contenteditable="true" 
+                                        placeholder="Start typing your description here..."
+                                    ></div>
                                 </div>
+                                
+                                <small class="form-hint">
+                                    <i class="fas fa-info-circle"></i> 
+                                    Tip: Use <strong>bold</strong> text for key terms, bullet lists for features, and paragraphs to organize your content.
+                                </small>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Testimonial Card -->
-                        <div class="yap-info-card yap-testimonial-card">
-                            <div class="yap-card-header">
-                                <h3><i class="fas fa-quote-left"></i> Testimonial</h3>
-                                <span class="yap-card-status" id="testimonialStatus">Not Set</span>
+                    <!-- Additional Sections (Testimonial & Resources) -->
+                    <div class="yap-settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-quote-left"></i> Testimonial Section (Optional)</h3>
+                            <p>Add a testimonial to showcase parent or athlete experiences</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="yap-form-group">
+                                <label for="yapTestimonialText">Testimonial Quote</label>
+                                <textarea id="yapTestimonialText" rows="4" placeholder="Enter testimonial quote..."></textarea>
                             </div>
-                            <div class="yap-card-body">
-                                <div id="yapTestimonialDisplay" class="yap-display-content yap-testimonial-text">Not Set</div>
-                                <div class="yap-testimonial-meta">
-                                    <label>By:</label>
-                                    <p id="yapTestimonialAuthorDisplay" class="yap-meta-text">Not Set</p>
-                                    <label>Location:</label>
-                                    <p id="yapTestimonialLocationDisplay" class="yap-meta-text">Not Set</p>
+                            
+                            <div class="yap-form-row">
+                                <div class="yap-form-group">
+                                    <label for="yapTestimonialAuthor">Author Name</label>
+                                    <input type="text" id="yapTestimonialAuthor" placeholder="e.g., SARAH, MOTHER OF A YOUNG ATHLETE">
+                                </div>
+                                <div class="yap-form-group">
+                                    <label for="yapTestimonialLocation">Location</label>
+                                    <input type="text" id="yapTestimonialLocation" placeholder="e.g., KUCHING">
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Resources Card -->
-                        <div class="yap-info-card yap-resources-card">
-                            <div class="yap-card-header">
-                                <h3><i class="fas fa-book"></i> Resources</h3>
-                                <span class="yap-card-status" id="resourcesStatus">Not Set</span>
+                    <div class="yap-settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-book"></i> Resources Section (Optional)</h3>
+                            <p>Link to additional YAP resources and materials</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="yap-form-row">
+                                <div class="yap-form-group">
+                                    <label for="yapResourcesTitle">Section Title</label>
+                                    <input type="text" id="yapResourcesTitle" placeholder="YAP Resources">
+                                </div>
+                                <div class="yap-form-group">
+                                    <label for="yapResourcesButtonText">Button Text</label>
+                                    <input type="text" id="yapResourcesButtonText" placeholder="Learn More">
+                                </div>
                             </div>
-                            <div class="yap-card-body">
-                                <div>
-                                    <label>Resources Title</label>
-                                    <p id="yapResourcesTitleDisplay" class="yap-display-text">Not Set</p>
+                            
+                            <div class="yap-form-group">
+                                <label for="yapResourcesDescription">Section Description</label>
+                                <textarea id="yapResourcesDescription" rows="3" placeholder="Brief description of resources..."></textarea>
+                            </div>
+                            
+                            <div class="yap-form-group">
+                                <label for="yapResourcesButtonLink">Button Link URL</label>
+                                <input type="text" id="yapResourcesButtonLink" placeholder="../src/yap-lm.html">
+                            </div>
+                            
+                            <div class="yap-form-group">
+                                <label for="yapResourcesBackgroundImage">Resources Background Image</label>
+                                <div class="file-upload-container">
+                                    <input type="file" id="yapResourcesBackgroundImage" name="resources_image" accept="image/*" style="display: none;" onchange="handleYapResourcesImageSelect(this)">
+                                    <button type="button" class="file-upload-btn" onclick="document.getElementById('yapResourcesBackgroundImage').click()">
+                                        <i class="fas fa-upload"></i> Choose Image
+                                    </button>
+                                    <span id="yapResourcesImageStatus" class="file-status">No file selected</span>
                                 </div>
-                                <div>
-                                    <label>Resources Description</label>
-                                    <div id="yapResourcesDescriptionDisplay" class="yap-display-content">Not Set</div>
-                                </div>
-                                <div>
-                                    <label>Button Text</label>
-                                    <p id="yapResourcesButtonTextDisplay" class="yap-display-text">Not Set</p>
-                                </div>
-                                <div>
-                                    <label>Button Link</label>
-                                    <a id="yapResourcesButtonLinkDisplay" href="#" class="yap-link" target="_blank">Not Set</a>
+                                <div id="yapResourcesImagePreview" class="image-preview-large" style="display: none;">
+                                    <img src="" alt="Preview" />
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Resources Image Card -->
-                        <div class="yap-info-card yap-resources-image-card">
-                            <div class="yap-card-header">
-                                <h3><i class="fas fa-image"></i> Resources Image</h3>
-                                <span class="yap-card-status" id="resourcesImageStatus">Not Set</span>
-                            </div>
-                            <div class="yap-card-body">
-                                <div class="yap-resources-image-container">
-                                    <img id="yapResourcesImagePreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect fill='%23e2e8f0' width='200' height='150'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2364748b' text-anchor='middle' dominant-baseline='middle'%3ENo Image%3C/text%3E%3C/svg%3E" alt="Resources Image" class="yap-resources-img">
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Save Button -->
+                    <div class="yap-save-actions">
+                        <button type="button" class="btn-save-yap" onclick="saveYapPageSettings()">
+                            <i class="fas fa-save"></i> Save All Changes
+                        </button>
+                        <button type="button" class="btn-preview-yap" onclick="previewYapPage()">
+                            <i class="fas fa-eye"></i> Preview Page
+                        </button>
                     </div>
 
                     <!-- Last Updated Info -->
-                    <div class="yap-footer-info">
-                        <div class="yap-update-info">
-                            <small>Last Updated: <span id="yapLastUpdate">Never</span></small>
-                        </div>
-                        <div class="yap-action-links">
-                            <a href="../src/yap.php" target="_blank" class="yap-view-link">
-                                <i class="fas fa-external-link-alt"></i> View YAP Page
-                            </a>
-                        </div>
+                    <div class="last-updated-info" id="yapLastUpdated" style="display: none;">
+                        <i class="fas fa-clock"></i>
+                        <span>Last updated: <strong id="yapUpdateTime">-</strong> by <strong id="yapUpdateBy">-</strong></span>
                     </div>
                 </div>
             </div>
@@ -5463,14 +5830,27 @@ if ($debug_mode) {
                                     <i class="fas fa-list-ol"></i>
                                 </button>
                                 <div class="editor-separator"></div>
-                                <button type="button" class="editor-btn" onclick="createLink()" title="Insert Link">
-                                    <i class="fas fa-link"></i>
+                                <select class="editor-btn" onchange="formatText('formatBlock', this.value); this.selectedIndex=0;" title="Paragraph Style">
+                                    <option value="">¶ Style</option>
+                                    <option value="p">Paragraph</option>
+                                    <option value="h1">Heading 1</option>
+                                    <option value="h2">Heading 2</option>
+                                    <option value="h3">Heading 3</option>
+                                </select>
+                                <div class="editor-separator"></div>
+                                <button type="button" class="editor-btn" onclick="formatText('justifyLeft')" title="Align Left">
+                                    <i class="fas fa-align-left"></i>
                                 </button>
-                                <button type="button" class="editor-btn" onclick="removeLink()" title="Remove Link">
-                                    <i class="fas fa-unlink"></i>
+                                <button type="button" class="editor-btn" onclick="formatText('justifyCenter')" title="Align Center">
+                                    <i class="fas fa-align-center"></i>
+                                </button>
+                                <button type="button" class="editor-btn" onclick="formatText('justifyRight')" title="Align Right">
+                                    <i class="fas fa-align-right"></i>
+                                </button>
+                                <button type="button" class="editor-btn" onclick="formatText('justifyFull')" title="Justify">
+                                    <i class="fas fa-align-justify"></i>
                                 </button>
                                 <div class="editor-separator"></div>
-                                <input type="color" class="color-picker" onchange="changeTextColor(this.value)" title="Text Color" value="#000000">
                                 <button type="button" class="editor-btn" onclick="removeFormat()" title="Clear Formatting">
                                     <i class="fas fa-remove-format"></i>
                                 </button>
@@ -5478,7 +5858,7 @@ if ($debug_mode) {
                             <div id="yapDescriptionEditor" class="editor-content" contenteditable="true" placeholder="Enter the main YAP description content. Use the toolbar above for formatting."></div>
                         </div>
                         <textarea id="yapDescriptionText" name="description_text" style="display: none;" required></textarea>
-                        <small>Use the toolbar above for rich text formatting including bold, italic, lists, links, and colors.</small>
+                        <small>Use the toolbar above for rich text formatting including bold, italic, lists, headings, alignment, and more.</small>
                     </div>
 
                     <div class="form-group">
@@ -7696,7 +8076,8 @@ if ($debug_mode) {
     <script src="../scripts/admin-components/sports-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/state-games-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/hap-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
-    <script src="../scripts/admin-components/alp-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/alp-page-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/yap-page-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/yap-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/chapters-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/other-so-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>

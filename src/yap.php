@@ -305,15 +305,7 @@ try {
         <div style="max-width: 1200px; margin: 0 auto;">
         <?php 
         // Display HTML content from rich text editor
-        $descriptionText = $yapContent['description_text'] ?? '';
-        
-        if (!empty($descriptionText)) {
-            // Clean and display the HTML content
-            $cleanedText = strip_tags($descriptionText, '<p><br><strong><b><em><i><u><ul><ol><li><a><span><div>');
-            echo $cleanedText;
-        } else {
-            echo '<p>No content available.</p>';
-        }
+        echo $yapContent['description_text'] ?? '<p>No content available.</p>';
         ?>
         </div>
     </section>
@@ -321,17 +313,7 @@ try {
     <?php if (!empty($yapContent['testimonial_text'])): ?>
     <div class="yap-section">
         <div class="yap-message">
-            <h3><?php 
-                // Display HTML content for testimonial
-                $testimonialText = $yapContent['testimonial_text'] ?? '';
-                if (!empty($testimonialText)) {
-                    // Clean and display the HTML content, allowing basic formatting
-                    $cleanedTestimonial = strip_tags($testimonialText, '<strong><b><em><i><u><span>');
-                    echo $cleanedTestimonial;
-                } else {
-                    echo 'No testimonial available.';
-                }
-            ?></h3>
+            <h3><?php echo $yapContent['testimonial_text']; ?></h3>
             <?php if (!empty($yapContent['testimonial_author'])): ?>
             <p>— <?php echo strtoupper(htmlspecialchars($yapContent['testimonial_author'])); ?></p>
             <?php endif; ?>
