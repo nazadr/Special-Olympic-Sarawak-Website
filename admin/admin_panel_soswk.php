@@ -42,6 +42,7 @@ if ($debug_mode) {
     <link rel="stylesheet" href="../css/sports-management-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/state-games-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/news-style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/video-gallery-style.css?v=<?php echo time(); ?>">
 
     <style>
         * {
@@ -504,6 +505,8 @@ if ($debug_mode) {
         #eventModal,
         #sponsorshipModal,
         #addVideoModal,
+        #addVideoCollectionModal,
+        #editVideoCollectionModal,
         #addSportModal,
         #sportModal,
         #yapModal {
@@ -523,6 +526,8 @@ if ($debug_mode) {
         #eventModal.show,
         #sponsorshipModal.show,
         #addVideoModal.show,
+        #addVideoCollectionModal.show,
+        #editVideoCollectionModal.show,
         #addSportModal.show,
         #sportModal.show,
         #yapModal.show {
@@ -2349,10 +2354,15 @@ if ($debug_mode) {
         .gallery-item .edit-btn,
         .gallery-item .delete-btn,
         .video-item .edit-btn,
-        .video-item .delete-btn {
-            pointer-events: auto;
-            position: relative;
-            z-index: 11;
+        .video-item .delete-btn,
+        .video-collection .edit-btn,
+        .video-collection .delete-btn,
+        .gallery-collection .edit-btn,
+        .gallery-collection .delete-btn {
+            pointer-events: auto !important;
+            position: relative !important;
+            z-index: 100 !important;
+            cursor: pointer !important;
         }
 
         /* Collection Header Drag Handle */
@@ -2386,11 +2396,21 @@ if ($debug_mode) {
             position: relative;
         }
 
-        /* Prevent text selection during drag */
+        /* Prevent text selection during drag but keep buttons clickable */
         .sortable-collection.dragging,
         .sortable-items.dragging {
             user-select: none;
             -webkit-user-select: none;
+        }
+
+        /* Ensure buttons are always clickable even during drag */
+        .sortable-collection.dragging .edit-btn,
+        .sortable-collection.dragging .delete-btn,
+        .sortable-items.dragging .edit-btn,
+        .sortable-items.dragging .delete-btn {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
             -moz-user-select: none;
             -ms-user-select: none;
         }
@@ -5063,8 +5083,8 @@ if ($debug_mode) {
                         management interface is under development.</p>
                         </div>
                     </div>
-                    <button id="addVideoBtn" class="add-video-btn">
-                        <i class="fas fa-plus"></i> Add Video
+                    <button id="addVideoCollectionBtn" class="add-video-btn" onclick="openVideoCollectionModal(); return false;">
+                        <i class="fas fa-folder-plus"></i> Add Collection
                     </button>
                 </div>
 
@@ -5076,6 +5096,16 @@ if ($debug_mode) {
                         </div>
                         <div id="publishedGalleryVideo">
                             <!-- Published videos will be loaded here via AJAX -->
+                            <!-- 
+                                DEVELOPER NOTE: 
+                                To add videos to a collection, use the edit button with:
+                                onclick="openVideoModalForCollection(collectionId)"
+                                
+                                Example:
+                                <button onclick="openVideoModalForCollection(<?php echo $collection['id']; ?>)" class="edit-btn">
+                                    <i class="fas fa-plus"></i> Add Videos
+                                </button>
+                            -->
                             <p style="text-align: center; color: #333;">Loading videos...</p>
                         </div>
                     </div>
@@ -5715,70 +5745,361 @@ if ($debug_mode) {
         <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
         <div class="video-modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Add New Video</h3>
-                <button class="modal-close" onclick="closeVideoModal()">&times;</button>
+                <h3 class="modal-title">Add Videos to Collection</h3>
+                <button class="modal-close" onclick="closeVideoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="video-modal-body">
-                <form id="galleryVideo" action="handler/admin_gallery_video_handler.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" id="galleryVideoId" name="id">
-                    <input type="hidden" id="currentGalleryVideoImage" name="currentImage">
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideo">Upload Video <span style="color: #e53935;">*required</span></label>
-                        <div class="file-upload-container">
-                            <input type="file" id="galleryVideo" name="galleryVideo" accept="video/mp4" style="display: none;">
-                            <button type="button" id="galleryVideoBtn" class="file-upload-btn" onclick="document.getElementById('galleryVideo').click()">Choose Video File</button>
-                            <span id="galleryVideoStatus" class="file-status">No file selected</span>
-                            <button type="button" id="deleteGalleryVideoBtn" class="file-delete-btn" style="display: none;">Remove</button>
-                        </div>
+            <form id="galleryVideo" action="handler/admin_gallery_video_handler.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" id="galleryVideoId" name="id">
+                <input type="hidden" id="currentGalleryVideoImage" name="currentImage">
+                <input type="hidden" id="galleryVideoCollectionId" name="collectionId">
+                
+                <div class="galphoto-form-group">
+                    <label for="galleryVideoAlbum">Collection <span style="color: #e53935;">*required</span></label>
+                    <select style="font-family: 'Inter', sans-serif;" id="galleryVideoAlbum" name="galleryVideoAlbum" required>
+                        <option value="">Select a collection...</option>
+                    </select>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        <i class="fa-solid fa-info-circle"></i> Choose which collection to add videos to. Don't see your collection? Click "Add Collection" button first.
                     </div>
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideoImage">Video Cover Image <span style="color: #e53935;">*required</span></label>
-                        <div class="file-upload-container">
-                            <input type="file" id="galleryVideoImage" name="galleryVideoImage" accept="image/*" style="display: none;">
-                            <button type="button" id="galleryVideoImageBtn" class="file-upload-btn" onclick="document.getElementById('galleryVideoImage').click()">Choose Cover Image</button>
-                            <span id="galleryVideoImageStatus" class="file-status">No file selected</span>
-                            <button type="button" id="deleteGalleryVideoImageBtn" class="file-delete-btn" style="display: none;">Remove</button>
-                        </div>
-                        <div id="galleryVideoImagePreview" class="image-preview" style="display: none;">
-                            <img src="" alt="Video Cover Preview" />
-                        </div>
+                </div>
+                
+                <div class="galphoto-form-group">
+                    <label for="galleryVideo">Upload Videos <span style="color: #e53935;">*required</span></label>
+                    <label for="galleryVideo" class="custom-browse-btn">Browse</label>
+                    <input type="file" id="galleryVideo" name="galleryVideo[]" accept="video/mp4" multiple style="display: none;">
+                    <button type="button" id="deleteGalleryVideoBtn" class="custom-delete-btn" style="display: none;">Delete</button>
+                    <span style="font-size: 14px;" id="galleryVideoStatus">No file selected</span>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        <i class="fa-solid fa-info-circle"></i> Select multiple videos to upload in batch. Max resolution <strong>1920×1080</strong>, bitrate <strong>2-5 Mbps</strong>, audio <strong>128 kbps (AAC)</strong>.
                     </div>
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideoTitle">Video Title <span style="color: #e53935;">*required</span></label>
-                        <input type="text" id="galleryVideoTitle" name="galleryVideoTitle" placeholder="Enter video title" required>
+                </div>
+                
+                <div class="galphoto-form-group">
+                    <label for="galleryVideoImage">Video Cover Image <span style="color: #e53935;">*required</span></label>
+                    <label for="galleryVideoImage" class="custom-browse-btn">Browse</label>
+                    <input type="file" id="galleryVideoImage" name="galleryVideoImage" accept="image/*" style="display: none;">
+                    <button type="button" id="deleteGalleryVideoImageBtn" class="custom-delete-btn" style="display: none;">Delete</button>
+                    <span style="font-size: 14px;" id="galleryVideoImageStatus">No file selected</span>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        <i class="fa-solid fa-info-circle"></i> Cover image is automatically compressed and resized (max 1920x1080)
                     </div>
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideoDesc">Description</label>
-                        <textarea id="galleryVideoDesc" name="galleryVideoDesc" placeholder="Enter video description" rows="4"></textarea>
-                    </div>
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideoAlbum">Select Existing Collection <span style="color: #e53935;">*required</span></label>
-                        <select id="galleryVideoAlbum" name="galleryVideoAlbum" required>
-                            <option value="">Select Collection</option>
-                        </select>
-                    </div>
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideoAddAlbum">New Collection Name</label>
-                        <input type="text" id="galleryVideoAddAlbum" name="galleryVideoAddAlbum" placeholder="Enter new collection name">
-                    </div>
-                    
-                    <div class="video-form-group">
-                        <label for="galleryVideoAlbumDesc">New Collection Description</label>
-                        <input type="text" id="galleryVideoAlbumDesc" name="galleryVideoAlbumDesc" placeholder="Enter collection description for better UX">
-                    </div>
-                    
-                    <div class="video-modal-actions">
-                        <button type="button" class="btn-cancel" onclick="closeVideoModal()">Cancel</button>
-                        <button type="submit" class="btn-submit" id="submitGalleryVideoBtn">Add Video</button>
-                    </div>
-                </form>
+                    <img id="galleryVideoImagePreview" src="" alt="Image Preview" style="max-width: 100px; max-height: 100px; margin-top: 10px; display: none;">
+                </div>
+                
+                <div class="galphoto-form-group">
+                    <label for="galleryVideoTitle">Video Title <span style="color: #e53935;">*required</span></label>
+                    <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryVideoTitle" name="galleryVideoTitle" placeholder="Enter video title" required>
+                </div>
+                
+                <div class="galphoto-form-group">
+                    <label for="galleryVideoDesc">Description</label>
+                    <textarea style="font-family: 'Inter', sans-serif;" id="galleryVideoDesc" name="galleryVideoDesc" placeholder="Enter video description" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="galphoto-submit-btn" id="submitGalleryVideoBtn">Publish Videos</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Video Collection Modal -->
+    <div id="addVideoCollectionModal" class="video-modal" style="display: none;">
+        <div class="video-modal-backdrop" onclick="closeVideoCollectionModal()"></div>
+        <div class="video-modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Video Collection</h3>
+                <button class="modal-close" onclick="closeVideoCollectionModal()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
+            <form id="videoCollectionForm" action="handler/admin_gallery_video_handler.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="add_collection">
+                
+                <div class="galphoto-form-group">
+                    <label for="videoCollectionImage">Collection Cover Image</label>
+                    <label for="videoCollectionImage" class="custom-browse-btn">Browse Image</label>
+                    <input type="file" id="videoCollectionImage" name="image" accept="image/*" style="display: none;">
+                    <button type="button" id="deleteVideoCollectionImage" class="custom-delete-btn" style="display: none;">Delete</button>
+                    <span style="font-size: 14px;" id="videoCollectionImageStatus">No file selected</span>
+                    <div id="videoCollectionImagePreview" style="margin-top: 10px; display: none;">
+                        <img src="" alt="Preview" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                    </div>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        <i class="fa-solid fa-info-circle"></i> Optional cover image for this collection.
+                    </div>
+                </div>
+                
+                <div class="galphoto-form-group">
+                    <label for="videoCollectionName">Collection Name <span style="color: #e53935;">*required</span></label>
+                    <input style="font-family: 'Inter', sans-serif;" type="text" id="videoCollectionName" name="name" placeholder="e.g., Healthy Athletes Program" required>
+                </div>
+                
+                <div class="galphoto-form-group">
+                    <label for="videoCollectionDesc">Collection Description</label>
+                    <textarea style="font-family: 'Inter', sans-serif;" id="videoCollectionDesc" name="description" placeholder="Brief description of this video collection" rows="3"></textarea>
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                        <i class="fa-solid fa-info-circle"></i> This description will help users understand what videos are in this collection.
+                    </div>
+                </div>
+                
+                <button type="submit" class="galphoto-submit-btn" id="submitVideoCollectionBtn">Create Collection</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Video Collection Modal - Consistent Design -->
+    <div id="editVideoCollectionModal" class="video-modal" style="display: none;">
+        <div class="video-modal-backdrop" onclick="closeEditCollectionModal()"></div>
+        <div class="video-modal-content">
+            <div class="modal-header">
+                <div style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                        <i class="fas fa-edit" style="color: #3b82f6; font-size: 18px;"></i>
+                        <h3 id="editCollectionNameDisplay" onclick="enableCollectionNameEdit()" 
+                            style="margin: 0; font-size: 20px; font-weight: 600; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: all 0.2s;"
+                            onmouseover="this.style.background='#f1f5f9'"
+                            onmouseout="this.style.background=''"
+                            title="Click to edit collection name">
+                            Collection Name
+                        </h3>
+                        <i class="fas fa-pencil-alt" style="color: #94a3b8; font-size: 12px;"></i>
+                    </div>
+                    <input type="text" id="editCollectionNameInput" 
+                           style="display: none; font-size: 20px; font-weight: 600; padding: 4px 8px; border: 2px solid #3b82f6; border-radius: 4px; font-family: 'Inter', sans-serif; width: 100%; max-width: 500px;"
+                           onblur="saveCollectionNameEdit()"
+                           onkeydown="if(event.key==='Enter'){saveCollectionNameEdit();event.preventDefault();} if(event.key==='Escape'){cancelCollectionNameEdit()}">
+                    <div style="font-size: 12px; color: #64748b; margin-top: 2px;">
+                        <i class="fas fa-info-circle" style="font-size: 10px;"></i> Click the title to edit collection name
+                    </div>
+                </div>
+                <button type="button" class="modal-close" onclick="closeEditCollectionModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="editCollectionInfoForm" enctype="multipart/form-data">
+                <input type="hidden" id="editCollectionId" name="id">
+                <input type="hidden" id="editCollectionName" name="name">
+                <input type="hidden" id="currentEditCollectionImage" name="currentImage">
+                
+                <!-- Existing Videos Carousel - Edit Video Titles -->
+                <div class="galphoto-form-group">
+                    <label>
+                        <i class="fas fa-film" style="margin-right: 6px; color: #3b82f6;"></i>
+                        Existing Videos in Collection
+                    </label>
+                    <div id="existingVideosCarousel" style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 12px; display: none;">
+                        <div style="position: relative;">
+                            <!-- Carousel Navigation -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                <button type="button" onclick="previousExistingVideo()" style="background: #e2e8f0; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fas fa-chevron-left"></i> Previous
+                                </button>
+                                <span id="existingVideoCounter" style="font-weight: 600; color: #475569;">No videos</span>
+                                <button type="button" onclick="nextExistingVideo()" style="background: #e2e8f0; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s;">
+                                    Next <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Current Video Display -->
+                            <div id="currentExistingVideoDisplay" style="text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #000; border-radius: 8px; position: relative;">
+                                <video id="currentExistingVideoElement" controls style="max-width: 100%; max-height: 400px; border-radius: 8px;"></video>
+                            </div>
+                            
+                            <!-- Video Title Editor -->
+                            <div style="margin-top: 16px;">
+                                <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px; font-size: 14px;">
+                                    <i class="fas fa-heading" style="margin-right: 6px; color: #3b82f6;"></i>Video Title
+                                </label>
+                                <input type="text" id="currentVideoTitle" placeholder="Enter video title..." style="width: 100%; padding: 10px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; margin-bottom: 8px;" onchange="updateCurrentVideoTitle()">
+                                
+                                <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px; font-size: 14px;">
+                                    <i class="fas fa-align-left" style="margin-right: 6px; color: #3b82f6;"></i>Video Description
+                                </label>
+                                <textarea id="currentVideoDesc" placeholder="Enter video description..." rows="3" style="width: 100%; padding: 10px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif;" onchange="updateCurrentVideoDesc()"></textarea>
+                            </div>
+                            
+                            <!-- Video Actions -->
+                            <div style="display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end;">
+                                <button type="button" onclick="saveCurrentVideoEdit()" style="background: #10b981; color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
+                                    <i class="fas fa-save"></i> Save Video Info
+                                </button>
+                                <button type="button" onclick="deleteCurrentVideo()" style="background: #ef4444; color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
+                                    <i class="fas fa-trash"></i> Delete Video
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Video Thumbnails Row -->
+                        <div id="existingVideoThumbnails" style="display: flex; gap: 12px; margin-top: 20px; overflow-x: auto; padding: 12px 0;"></div>
+                    </div>
+                    
+                    <div style="font-size: 12px; color: #64748b; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                        Click on a video to edit its title and description. Changes are saved individually.
+                    </div>
+                </div>
+                
+                <!-- Videos Upload Section - Multiple Upload -->
+                <div class="galphoto-form-group">
+                    <label for="editCollectionVideos">
+                        <i class="fas fa-video" style="margin-right: 6px; color: #3b82f6;"></i>
+                        Upload New Videos to Collection
+                    </label>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                        <label for="editCollectionVideos" class="custom-browse-btn" style="cursor: pointer; background: #3b82f6; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+                            <i class="fas fa-upload"></i> Browse Videos
+                        </label>
+                        <input type="file" id="editCollectionVideos" name="videos[]" accept="video/*" multiple style="display: none;">
+                        <button type="button" id="deleteEditCollectionVideos" class="custom-delete-btn" style="display: none; background: #ef4444; color: white; padding: 10px 16px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                        <span style="font-size: 14px; color: #64748b;" id="editCollectionVideoStatus">No files selected</span>
+                    </div>
+                    <div id="editCollectionVideoPreview" style="margin-top: 12px; display: none; padding: 12px; background: #f8fafc; border-radius: 8px; border: 2px dashed #e2e8f0;">
+                        <div id="editCollectionVideoList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+                    </div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                        Select multiple video files (MP4, WebM, MOV). Max 50MB per file.
+                    </div>
+                </div>
+                
+                <!-- Video Thumbnail Management -->
+                <div class="galphoto-form-group" id="videoThumbnailSection" style="display: none;">
+                    <label>
+                        <i class="fas fa-image" style="margin-right: 6px; color: #3b82f6;"></i>
+                        Video Thumbnail/Cover Image
+                    </label>
+                    <div style="background: #f8fafc; border: 2px dashed #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 12px;">
+                        <!-- Current Video Info -->
+                        <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #3b82f6;">
+                            <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">
+                                <i class="fas fa-video" style="color: #3b82f6; margin-right: 6px;"></i>
+                                <span id="thumbnailVideoTitle">Select a video from carousel above</span>
+                            </div>
+                            <div style="font-size: 12px; color: #64748b;" id="thumbnailVideoInfo">
+                                No video selected
+                            </div>
+                        </div>
+                        
+                        <!-- Current Thumbnail Preview -->
+                        <div id="currentThumbnailPreview" style="display: none; text-align: center; margin-bottom: 16px; background: #000; border-radius: 8px; padding: 16px;">
+                            <div style="font-size: 12px; color: #94a3b8; margin-bottom: 8px;">Current Thumbnail:</div>
+                            <img id="currentThumbnailImage" src="" alt="Current Thumbnail" style="max-width: 100%; max-height: 200px; object-fit: contain; border-radius: 4px;">
+                        </div>
+                        
+                        <!-- Upload New Thumbnail -->
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <label for="videoThumbnailUpload" class="custom-browse-btn" style="cursor: pointer; background: #3b82f6; color: white; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease;">
+                                <i class="fas fa-upload"></i> Upload New Thumbnail
+                            </label>
+                            <input type="file" id="videoThumbnailUpload" accept="image/*" style="display: none;" onchange="handleThumbnailUpload(this)">
+                            
+                            <div id="thumbnailUploadStatus" style="font-size: 13px; color: #64748b; text-align: center;">
+                                No file selected
+                            </div>
+                            
+                            <!-- New Thumbnail Preview -->
+                            <div id="newThumbnailPreview" style="display: none; text-align: center; background: white; border-radius: 8px; padding: 16px; border: 2px solid #10b981;">
+                                <div style="font-size: 12px; color: #10b981; font-weight: 600; margin-bottom: 8px;">
+                                    <i class="fas fa-check-circle"></i> New Thumbnail Preview:
+                                </div>
+                                <img id="newThumbnailImage" src="" alt="New Thumbnail" style="max-width: 100%; max-height: 200px; object-fit: contain; border-radius: 4px;">
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div style="display: flex; gap: 8px; justify-content: center;">
+                                <button type="button" onclick="saveThumbnail()" id="saveThumbnailBtn" style="display: none; background: #10b981; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                                    <i class="fas fa-save"></i> Save Thumbnail
+                                </button>
+                                <button type="button" onclick="cancelThumbnailUpload()" id="cancelThumbnailBtn" style="display: none; background: #6c757d; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                                <button type="button" onclick="removeThumbnail()" id="removeThumbnailBtn" style="display: none; background: #ef4444; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                                    <i class="fas fa-trash"></i> Remove Thumbnail
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="font-size: 12px; color: #64748b; margin-top: 16px; display: flex; align-items: center; gap: 6px; background: white; padding: 10px; border-radius: 6px;">
+                            <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                            Select a video from the carousel above to manage its thumbnail. Recommended size: 1280x720px (16:9 ratio)
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection Description -->
+                <div class="galphoto-form-group">
+                    <label for="editCollectionDesc">
+                        <i class="fas fa-align-left" style="margin-right: 6px; color: #3b82f6;"></i>
+                        Collection Description
+                    </label>
+                    <textarea style="font-family: 'Inter', sans-serif;" id="editCollectionDesc" name="description" placeholder="Brief description of this video collection" rows="3"></textarea>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 6px;">
+                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                        This description will help users understand what videos are in this collection.
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #e2e8f0;">
+                    <button type="button" onclick="closeEditCollectionModal()" style="padding: 12px 24px; background: #6c757d; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                        <i class="fas fa-times" style="margin-right: 6px;"></i> Cancel
+                    </button>
+                    <button type="button" onclick="saveEditCollectionInfo()" id="saveEditCollectionBtn" style="padding: 12px 24px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                        <i class="fas fa-save" style="margin-right: 6px;"></i> Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Individual Video Modal -->
+    <div id="editVideoModal" class="video-modal" style="display: none;">
+        <div class="video-modal-backdrop" onclick="closeEditVideoModal()"></div>
+        <div class="video-modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-edit" style="margin-right: 10px; color: #3b82f6;"></i>Edit Video</h3>
+                <button type="button" class="modal-close" onclick="closeEditVideoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="editVideoForm">
+                <input type="hidden" id="editVideoId" name="id">
+                
+                <!-- Video Title -->
+                <div class="galphoto-form-group">
+                    <label for="editVideoTitle">
+                        <i class="fas fa-heading" style="margin-right: 6px; color: #3b82f6;"></i>
+                        Video Title <span style="color: #e53935; font-weight: normal;">*required</span>
+                    </label>
+                    <input style="font-family: 'Inter', sans-serif;" type="text" id="editVideoTitle" name="title" placeholder="e.g., Opening Ceremony Highlights" required>
+                </div>
+                
+                <!-- Video Description -->
+                <div class="galphoto-form-group">
+                    <label for="editVideoDesc">
+                        <i class="fas fa-align-left" style="margin-right: 6px; color: #3b82f6;"></i>
+                        Video Description
+                    </label>
+                    <textarea style="font-family: 'Inter', sans-serif;" id="editVideoDesc" name="description" placeholder="Brief description of this video" rows="4"></textarea>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 6px;">
+                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                        Provide details about what this video shows.
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #e2e8f0;">
+                    <button type="button" onclick="closeEditVideoModal()" style="padding: 12px 24px; background: #6c757d; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                        <i class="fas fa-times" style="margin-right: 6px;"></i> Cancel
+                    </button>
+                    <button type="button" onclick="saveEditedVideo()" id="saveEditedVideoBtn" style="padding: 12px 24px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                        <i class="fas fa-save" style="margin-right: 6px;"></i> Save Changes
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -6260,11 +6581,24 @@ if ($debug_mode) {
         
         // Video Modal Functions
         function openVideoModal() {
+            console.log('openVideoModal called');
             const modal = document.getElementById('addVideoModal');
+            console.log('Video modal element:', modal);
             if (modal) {
                 resetVideoModal();
                 modal.classList.add('show');
                 modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Video modal should be visible now');
+                
+                // Add click outside to close
+                modal.onclick = function(e) {
+                    if (e.target === modal || e.target.classList.contains('video-modal-backdrop')) {
+                        closeVideoModal();
+                    }
+                };
+            } else {
+                console.error('Video modal not found!');
             }
         }
         
@@ -6273,6 +6607,8 @@ if ($debug_mode) {
             if (modal) {
                 modal.classList.remove('show');
                 modal.style.display = 'none';
+                document.body.style.overflow = '';
+                modal.onclick = null;
             }
         }
         
@@ -6284,6 +6620,9 @@ if ($debug_mode) {
             // Reset hidden fields
             document.getElementById('galleryVideoId').value = '';
             document.getElementById('currentGalleryVideoImage').value = '';
+            if (document.getElementById('galleryVideoCollectionId')) {
+                document.getElementById('galleryVideoCollectionId').value = '';
+            }
             
             // Reset video file status
             const videoStatus = document.getElementById('galleryVideoStatus');
@@ -6304,10 +6643,1183 @@ if ($debug_mode) {
             const title = document.querySelector('#addVideoModal .modal-title');
             const submitBtn = document.getElementById('submitGalleryVideoBtn');
             
-            if (title) title.textContent = 'Add New Video';
+            if (title) title.textContent = 'Add Videos to Collection';
             if (submitBtn) {
-                submitBtn.textContent = 'Add Video';
-                submitBtn.className = 'btn-submit';
+                submitBtn.textContent = 'Publish Videos';
+                submitBtn.className = 'galphoto-submit-btn';
+            }
+        }
+        
+        // Video Collection Modal Functions
+        function openVideoCollectionModal() {
+            console.log('openVideoCollectionModal called');
+            const modal = document.getElementById('addVideoCollectionModal');
+            console.log('Modal element:', modal);
+            if (modal) {
+                resetVideoCollectionModal();
+                modal.classList.add('show');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Modal should be visible now');
+                
+                // Initialize file handlers
+                initializeAddCollectionFileHandlers();
+                
+                // Add click outside to close
+                modal.onclick = function(e) {
+                    if (e.target === modal || e.target.classList.contains('video-modal-backdrop')) {
+                        closeVideoCollectionModal();
+                    }
+                };
+            } else {
+                console.error('Video collection modal not found!');
+            }
+        }
+        
+        function closeVideoCollectionModal() {
+            const modal = document.getElementById('addVideoCollectionModal');
+            if (modal) {
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+                modal.onclick = null;
+            }
+        }
+        
+        function resetVideoCollectionModal() {
+            const form = document.getElementById('videoCollectionForm');
+            if (form) form.reset();
+            
+            // Reset image upload
+            const imageStatus = document.getElementById('videoCollectionImageStatus');
+            const imagePreview = document.getElementById('videoCollectionImagePreview');
+            const deleteBtn = document.getElementById('deleteVideoCollectionImage');
+            
+            if (imageStatus) imageStatus.textContent = 'No file selected';
+            if (imagePreview) imagePreview.style.display = 'none';
+            if (deleteBtn) deleteBtn.style.display = 'none';
+        }
+        
+        function initializeAddCollectionFileHandlers() {
+            const imageInput = document.getElementById('videoCollectionImage');
+            const imageStatus = document.getElementById('videoCollectionImageStatus');
+            const imagePreview = document.getElementById('videoCollectionImagePreview');
+            const deleteBtn = document.getElementById('deleteVideoCollectionImage');
+            const browseBtn = document.querySelector('label[for="videoCollectionImage"]');
+            
+            if (imageInput && !imageInput.dataset.initialized) {
+                imageInput.dataset.initialized = 'true';
+                
+                if (browseBtn) {
+                    browseBtn.onclick = () => imageInput.click();
+                }
+                
+                imageInput.onchange = () => {
+                    if (imageInput.files && imageInput.files[0]) {
+                        const file = imageInput.files[0];
+                        imageStatus.textContent = file.name;
+                        deleteBtn.style.display = 'inline-block';
+                        
+                        // Show preview
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            imagePreview.querySelector('img').src = e.target.result;
+                            imagePreview.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                };
+                
+                if (deleteBtn) {
+                    deleteBtn.onclick = () => {
+                        imageInput.value = '';
+                        imageStatus.textContent = 'No file selected';
+                        deleteBtn.style.display = 'none';
+                        imagePreview.style.display = 'none';
+                    };
+                }
+            }
+        }
+        
+        // Existing Videos Carousel - Global Variables
+        let existingVideosArray = [];
+        let currentExistingVideoIndex = 0;
+        let existingVideosDirty = {}; // Track edited but unsaved videos
+        
+        // Collection Name Inline Editing Functions
+        function enableCollectionNameEdit() {
+            const display = document.getElementById('editCollectionNameDisplay');
+            const input = document.getElementById('editCollectionNameInput');
+            
+            if (display && input) {
+                display.style.display = 'none';
+                input.style.display = 'block';
+                input.value = display.textContent.trim();
+                input.focus();
+                input.select();
+            }
+        }
+        
+        function saveCollectionNameEdit() {
+            const display = document.getElementById('editCollectionNameDisplay');
+            const input = document.getElementById('editCollectionNameInput');
+            const hidden = document.getElementById('editCollectionName');
+            
+            if (display && input && hidden) {
+                const newName = input.value.trim();
+                if (newName) {
+                    display.textContent = newName;
+                    hidden.value = newName;
+                    display.style.background = '#10b98120';
+                    setTimeout(() => {
+                        display.style.background = '';
+                    }, 1000);
+                }
+                display.style.display = 'block';
+                input.style.display = 'none';
+            }
+        }
+        
+        function cancelCollectionNameEdit() {
+            const display = document.getElementById('editCollectionNameDisplay');
+            const input = document.getElementById('editCollectionNameInput');
+            
+            if (display && input) {
+                display.style.display = 'block';
+                input.style.display = 'none';
+            }
+        }
+        
+        // Edit Collection Modal Functions
+        function openEditCollectionModal(collectionId, collectionName, collectionDesc) {
+            console.log('✅ openEditCollectionModal called:', collectionId, collectionName, collectionDesc);
+            const modal = document.getElementById('editVideoCollectionModal');
+            console.log('Modal element:', modal);
+            
+            if (modal) {
+                // Populate form fields
+                document.getElementById('editCollectionId').value = collectionId;
+                document.getElementById('editCollectionName').value = collectionName || '';
+                document.getElementById('editCollectionDesc').value = collectionDesc || '';
+                
+                // Set the inline-editable collection name
+                const nameDisplay = document.getElementById('editCollectionNameDisplay');
+                if (nameDisplay) {
+                    nameDisplay.textContent = collectionName || 'Unnamed Collection';
+                }
+                
+                // Reset video upload
+                const videoInput = document.getElementById('editCollectionVideos');
+                const videoStatus = document.getElementById('editCollectionVideoStatus');
+                const videoPreview = document.getElementById('editCollectionVideoPreview');
+                const deleteBtn = document.getElementById('deleteEditCollectionVideos');
+                
+                if (videoInput) videoInput.value = '';
+                if (videoStatus) videoStatus.textContent = 'No files selected';
+                if (videoPreview) videoPreview.style.display = 'none';
+                if (deleteBtn) deleteBtn.style.display = 'none';
+                
+                // Load existing videos in collection
+                loadExistingVideos(collectionId);
+                
+                // Show modal
+                modal.classList.add('show');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                console.log('✅ Modal should be visible now');
+                
+                // Initialize file handlers
+                initializeEditCollectionFileHandlers();
+            } else {
+                console.error('❌ Edit collection modal not found!');
+                alert('Modal not found. Please refresh the page.');
+            }
+        }
+        
+        // Load existing videos from collection
+        function loadExistingVideos(collectionId) {
+            console.log('🔍 Loading existing videos for collection:', collectionId);
+            const fetchUrl = `handler/admin_gallery_video_handler.php?action=fetch_items&collection_id=${collectionId}`;
+            console.log('📡 Fetch URL:', fetchUrl);
+            
+            fetch(fetchUrl)
+                .then(r => {
+                    console.log('📦 Response received:', r);
+                    return r.json();
+                })
+                .then(d => {
+                    console.log('✅ Loaded existing videos response:', d);
+                    console.log('Videos array:', d.videos);
+                    console.log('Videos length:', d.videos ? d.videos.length : 0);
+                    
+                    if (d.success && d.videos && d.videos.length > 0) {
+                        existingVideosArray = d.videos;
+                        currentExistingVideoIndex = 0;
+                        existingVideosDirty = {};
+                        console.log('🎬 Displaying carousel with', existingVideosArray.length, 'videos');
+                        displayExistingVideosCarousel();
+                        updateThumbnailSection();
+                    } else {
+                        console.log('⚠️ No videos found or unsuccessful response');
+                        existingVideosArray = [];
+                        const carousel = document.getElementById('existingVideosCarousel');
+                        console.log('Carousel element:', carousel);
+                        if (carousel) {
+                            carousel.style.display = 'none';
+                            console.log('Hidden carousel - no videos');
+                        }
+                    }
+                })
+                .catch(e => {
+                    console.error('❌ Error loading existing videos:', e);
+                    existingVideosArray = [];
+                    const carousel = document.getElementById('existingVideosCarousel');
+                    if (carousel) carousel.style.display = 'none';
+                });
+        }
+        
+        // Display existing videos carousel
+        function displayExistingVideosCarousel() {
+            console.log('🎨 displayExistingVideosCarousel called');
+            const carousel = document.getElementById('existingVideosCarousel');
+            const counter = document.getElementById('existingVideoCounter');
+            const videoElement = document.getElementById('currentExistingVideoElement');
+            const titleInput = document.getElementById('currentVideoTitle');
+            const descInput = document.getElementById('currentVideoDesc');
+            const thumbnailsContainer = document.getElementById('existingVideoThumbnails');
+            
+            console.log('Carousel elements:', {
+                carousel: carousel ? 'Found' : 'NOT FOUND',
+                counter: counter ? 'Found' : 'NOT FOUND',
+                videoElement: videoElement ? 'Found' : 'NOT FOUND',
+                titleInput: titleInput ? 'Found' : 'NOT FOUND',
+                descInput: descInput ? 'Found' : 'NOT FOUND',
+                thumbnailsContainer: thumbnailsContainer ? 'Found' : 'NOT FOUND'
+            });
+            
+            if (!carousel) {
+                console.error('❌ Carousel container not found!');
+                return;
+            }
+            
+            if (existingVideosArray.length === 0) {
+                console.log('⚠️ No videos in array, hiding carousel');
+                carousel.style.display = 'none';
+                return;
+            }
+            
+            console.log('✅ Showing carousel with', existingVideosArray.length, 'videos');
+            carousel.style.display = 'block';
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            console.log('Current video:', currentVideo);
+            
+            // Update counter
+            if (counter) {
+                counter.textContent = `Video ${currentExistingVideoIndex + 1} of ${existingVideosArray.length}`;
+            }
+            
+            // Update video player
+            if (videoElement) {
+                // Clean up the path - if it already starts with ../, don't add another one
+                let videoPath = currentVideo.video_path;
+                if (videoPath.startsWith('../')) {
+                    videoElement.src = videoPath;
+                } else if (videoPath.startsWith('assets/')) {
+                    videoElement.src = '../' + videoPath;
+                } else {
+                    videoElement.src = videoPath;
+                }
+                videoElement.load();
+                console.log('Video loaded:', videoElement.src);
+            }
+            
+            // Update title and description inputs
+            if (titleInput) titleInput.value = currentVideo.title || '';
+            if (descInput) descInput.value = currentVideo.description || '';
+            
+            // Mark if this video has unsaved changes
+            if (existingVideosDirty[currentVideo.id]) {
+                if (titleInput) titleInput.style.borderColor = '#f59e0b';
+                if (descInput) descInput.style.borderColor = '#f59e0b';
+            } else {
+                if (titleInput) titleInput.style.borderColor = '#e2e8f0';
+                if (descInput) descInput.style.borderColor = '#e2e8f0';
+            }
+            
+            // Update thumbnails
+            if (thumbnailsContainer) {
+                thumbnailsContainer.innerHTML = '';
+                console.log('Creating', existingVideosArray.length, 'thumbnails');
+                existingVideosArray.forEach((video, index) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.style.cssText = `
+                        position: relative;
+                        flex-shrink: 0;
+                        width: 120px;
+                        height: 80px;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        cursor: pointer;
+                        border: ${index === currentExistingVideoIndex ? '3px solid #3b82f6' : '2px solid #e2e8f0'};
+                        transition: all 0.2s;
+                    `;
+                    
+                    thumbDiv.onclick = () => selectExistingVideo(index);
+                    
+                    // Clean up paths - don't double-add ../
+                    const coverPath = video.cover_path ? (video.cover_path.startsWith('../') ? video.cover_path : '../' + video.cover_path) : null;
+                    const videoPath = video.video_path.startsWith('../') ? video.video_path : '../' + video.video_path;
+                    
+                    // Use cover image if available, otherwise use video element
+                    if (video.cover_path && coverPath) {
+                        thumbDiv.innerHTML = `
+                            <img src="${coverPath}" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 4px; left: 4px; right: 4px; background: rgba(0,0,0,0.7); color: white; font-size: 10px; padding: 2px 4px; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                ${video.title || 'Untitled'}
+                            </div>
+                            ${existingVideosDirty[video.id] ? '<div style="position: absolute; top: 4px; right: 4px; background: #f59e0b; color: white; border-radius: 50%; width: 12px; height: 12px;"></div>' : ''}
+                        `;
+                    } else {
+                        thumbDiv.innerHTML = `
+                            <video src="${videoPath}" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                            <div style="position: absolute; bottom: 4px; left: 4px; right: 4px; background: rgba(0,0,0,0.7); color: white; font-size: 10px; padding: 2px 4px; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                ${video.title || 'Untitled'}
+                            </div>
+                            ${existingVideosDirty[video.id] ? '<div style="position: absolute; top: 4px; right: 4px; background: #f59e0b; color: white; border-radius: 50%; width: 12px; height: 12px;"></div>' : ''}
+                        `;
+                    }
+                    
+                    thumbnailsContainer.appendChild(thumbDiv);
+                });
+            }
+        }
+        
+        // Navigation functions
+        function previousExistingVideo() {
+            if (existingVideosArray.length === 0) return;
+            currentExistingVideoIndex = (currentExistingVideoIndex - 1 + existingVideosArray.length) % existingVideosArray.length;
+            displayExistingVideosCarousel();
+            updateThumbnailSection();
+        }
+        
+        function nextExistingVideo() {
+            if (existingVideosArray.length === 0) return;
+            currentExistingVideoIndex = (currentExistingVideoIndex + 1) % existingVideosArray.length;
+            displayExistingVideosCarousel();
+            updateThumbnailSection();
+        }
+        
+        function selectExistingVideo(index) {
+            currentExistingVideoIndex = index;
+            displayExistingVideosCarousel();
+            updateThumbnailSection();
+        }
+        
+        // Track changes to video info
+        function updateCurrentVideoTitle() {
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            const newTitle = document.getElementById('currentVideoTitle').value;
+            if (currentVideo && newTitle !== currentVideo.title) {
+                existingVideosDirty[currentVideo.id] = true;
+                document.getElementById('currentVideoTitle').style.borderColor = '#f59e0b';
+            }
+        }
+        
+        function updateCurrentVideoDesc() {
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            const newDesc = document.getElementById('currentVideoDesc').value;
+            if (currentVideo && newDesc !== currentVideo.description) {
+                existingVideosDirty[currentVideo.id] = true;
+                document.getElementById('currentVideoDesc').style.borderColor = '#f59e0b';
+            }
+        }
+        
+        // Save current video edits
+        function saveCurrentVideoEdit() {
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            if (!currentVideo) return;
+            
+            const title = document.getElementById('currentVideoTitle').value.trim();
+            const description = document.getElementById('currentVideoDesc').value.trim();
+            
+            if (!title) {
+                alert('Video title is required');
+                return;
+            }
+            
+            const fd = new FormData();
+            fd.append('action', 'update_video');
+            fd.append('id', currentVideo.id);
+            fd.append('title', title);
+            fd.append('description', description);
+            
+            fetch('handler/admin_gallery_video_handler.php', { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(d => {
+                    if (d.success) {
+                        // Update local data
+                        existingVideosArray[currentExistingVideoIndex].title = title;
+                        existingVideosArray[currentExistingVideoIndex].description = description;
+                        delete existingVideosDirty[currentVideo.id];
+                        
+                        // Update display
+                        document.getElementById('currentVideoTitle').style.borderColor = '#10b981';
+                        document.getElementById('currentVideoDesc').style.borderColor = '#10b981';
+                        
+                        setTimeout(() => {
+                            document.getElementById('currentVideoTitle').style.borderColor = '#e2e8f0';
+                            document.getElementById('currentVideoDesc').style.borderColor = '#e2e8f0';
+                        }, 1500);
+                        
+                        displayExistingVideosCarousel();
+                        alert('✅ Video information saved successfully!');
+                    } else {
+                        alert(d.message || 'Failed to update video');
+                    }
+                })
+                .catch(e => {
+                    console.error('Error updating video:', e);
+                    alert('Error updating video');
+                });
+        }
+        
+        // Delete current video
+        function deleteCurrentVideo() {
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            if (!currentVideo) return;
+            
+            if (!confirm(`Are you sure you want to delete "${currentVideo.title || 'this video'}"? This action cannot be undone.`)) {
+                return;
+            }
+            
+            const fd = new FormData();
+            fd.append('action', 'delete_video');
+            fd.append('id', currentVideo.id);
+            
+            fetch('handler/admin_gallery_video_handler.php', { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(d => {
+                    if (d.success) {
+                        alert('✅ Video deleted successfully!');
+                        
+                        // Remove from array
+                        existingVideosArray.splice(currentExistingVideoIndex, 1);
+                        delete existingVideosDirty[currentVideo.id];
+                        
+                        // Adjust index
+                        if (currentExistingVideoIndex >= existingVideosArray.length) {
+                            currentExistingVideoIndex = Math.max(0, existingVideosArray.length - 1);
+                        }
+                        
+                        // Refresh display
+                        if (existingVideosArray.length === 0) {
+                            document.getElementById('existingVideosCarousel').style.display = 'none';
+                        } else {
+                            displayExistingVideosCarousel();
+                        }
+                        
+                        // Reload published videos if function exists
+                        if (typeof window.loadPublishedVideos === 'function') {
+                            window.loadPublishedVideos();
+                        }
+                    } else {
+                        alert(d.message || 'Failed to delete video');
+                    }
+                })
+                .catch(e => {
+                    console.error('Error deleting video:', e);
+                    alert('Error deleting video');
+                });
+        }
+        
+        // Video Thumbnail Management Functions
+        let selectedThumbnailFile = null;
+        
+        function updateThumbnailSection() {
+            const thumbnailSection = document.getElementById('videoThumbnailSection');
+            const titleSpan = document.getElementById('thumbnailVideoTitle');
+            const infoDiv = document.getElementById('thumbnailVideoInfo');
+            const currentPreview = document.getElementById('currentThumbnailPreview');
+            const currentImage = document.getElementById('currentThumbnailImage');
+            const removeBtn = document.getElementById('removeThumbnailBtn');
+            
+            if (!existingVideosArray || existingVideosArray.length === 0) {
+                thumbnailSection.style.display = 'none';
+                return;
+            }
+            
+            thumbnailSection.style.display = 'block';
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            
+            // Update video info
+            titleSpan.textContent = currentVideo.title || 'Untitled Video';
+            infoDiv.textContent = `Video ID: ${currentVideo.id} | File: ${currentVideo.video_path.split('/').pop()}`;
+            
+            // Show/hide current thumbnail
+            if (currentVideo.cover_path && currentVideo.cover_path.trim()) {
+                currentPreview.style.display = 'block';
+                
+                // Smart path handling for thumbnail
+                let coverPath = currentVideo.cover_path;
+                if (coverPath.startsWith('../')) {
+                    currentImage.src = coverPath;
+                } else if (coverPath.startsWith('assets/')) {
+                    currentImage.src = '../' + coverPath;
+                } else {
+                    currentImage.src = coverPath;
+                }
+                
+                removeBtn.style.display = 'inline-block';
+            } else {
+                currentPreview.style.display = 'none';
+                removeBtn.style.display = 'none';
+            }
+            
+            // Reset upload state
+            cancelThumbnailUpload();
+        }
+        
+        function handleThumbnailUpload(input) {
+            if (input.files && input.files[0]) {
+                selectedThumbnailFile = input.files[0];
+                const statusDiv = document.getElementById('thumbnailUploadStatus');
+                const newPreview = document.getElementById('newThumbnailPreview');
+                const newImage = document.getElementById('newThumbnailImage');
+                const saveBtn = document.getElementById('saveThumbnailBtn');
+                const cancelBtn = document.getElementById('cancelThumbnailBtn');
+                
+                // Update status
+                statusDiv.textContent = `Selected: ${selectedThumbnailFile.name} (${(selectedThumbnailFile.size / 1024).toFixed(2)} KB)`;
+                statusDiv.style.color = '#10b981';
+                
+                // Show preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    newImage.src = e.target.result;
+                    newPreview.style.display = 'block';
+                    saveBtn.style.display = 'inline-block';
+                    cancelBtn.style.display = 'inline-block';
+                };
+                reader.readAsDataURL(selectedThumbnailFile);
+            }
+        }
+        
+        function saveThumbnail() {
+            if (!selectedThumbnailFile) {
+                alert('No thumbnail file selected');
+                return;
+            }
+            
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            if (!currentVideo) {
+                alert('No video selected');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('action', 'upload_video_thumbnail');
+            formData.append('video_id', currentVideo.id);
+            formData.append('thumbnail', selectedThumbnailFile);
+            
+            const saveBtn = document.getElementById('saveThumbnailBtn');
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+            saveBtn.disabled = true;
+            
+            fetch('handler/admin_gallery_video_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    // Update video object with new cover path
+                    currentVideo.cover_path = data.cover_path;
+                    
+                    // Flash green
+                    saveBtn.style.background = '#10b981';
+                    saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+                    
+                    setTimeout(() => {
+                        saveBtn.innerHTML = originalText;
+                        saveBtn.style.background = '#10b981';
+                        saveBtn.disabled = false;
+                        updateThumbnailSection();
+                        
+                        // Update thumbnail in carousel
+                        displayExistingVideosCarousel();
+                    }, 1000);
+                } else {
+                    alert(data.message || 'Failed to save thumbnail');
+                    saveBtn.innerHTML = originalText;
+                    saveBtn.disabled = false;
+                }
+            })
+            .catch(e => {
+                console.error('Error saving thumbnail:', e);
+                alert('Error saving thumbnail');
+                saveBtn.innerHTML = originalText;
+                saveBtn.disabled = false;
+            });
+        }
+        
+        function cancelThumbnailUpload() {
+            selectedThumbnailFile = null;
+            document.getElementById('videoThumbnailUpload').value = '';
+            document.getElementById('thumbnailUploadStatus').textContent = 'No file selected';
+            document.getElementById('thumbnailUploadStatus').style.color = '#64748b';
+            document.getElementById('newThumbnailPreview').style.display = 'none';
+            document.getElementById('saveThumbnailBtn').style.display = 'none';
+            document.getElementById('cancelThumbnailBtn').style.display = 'none';
+        }
+        
+        function removeThumbnail() {
+            const currentVideo = existingVideosArray[currentExistingVideoIndex];
+            if (!currentVideo) {
+                alert('No video selected');
+                return;
+            }
+            
+            if (!confirm(`Remove thumbnail from "${currentVideo.title || 'this video'}"?`)) {
+                return;
+            }
+            
+            const removeBtn = document.getElementById('removeThumbnailBtn');
+            const originalText = removeBtn.innerHTML;
+            removeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Removing...';
+            removeBtn.disabled = true;
+            
+            fetch('handler/admin_gallery_video_handler.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `action=remove_video_thumbnail&video_id=${currentVideo.id}`
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    // Update video object
+                    currentVideo.cover_path = '';
+                    
+                    // Flash green
+                    removeBtn.style.background = '#10b981';
+                    removeBtn.innerHTML = '<i class="fas fa-check"></i> Removed!';
+                    
+                    setTimeout(() => {
+                        removeBtn.innerHTML = originalText;
+                        removeBtn.style.background = '#ef4444';
+                        removeBtn.disabled = false;
+                        updateThumbnailSection();
+                        
+                        // Update carousel
+                        displayExistingVideosCarousel();
+                    }, 1000);
+                } else {
+                    alert(data.message || 'Failed to remove thumbnail');
+                    removeBtn.innerHTML = originalText;
+                    removeBtn.disabled = false;
+                }
+            })
+            .catch(e => {
+                console.error('Error removing thumbnail:', e);
+                alert('Error removing thumbnail');
+                removeBtn.innerHTML = originalText;
+                removeBtn.disabled = false;
+            });
+        }
+        
+        // Make all carousel functions globally accessible
+        window.enableCollectionNameEdit = enableCollectionNameEdit;
+        window.saveCollectionNameEdit = saveCollectionNameEdit;
+        window.handleThumbnailUpload = handleThumbnailUpload;
+        window.saveThumbnail = saveThumbnail;
+        window.cancelThumbnailUpload = cancelThumbnailUpload;
+        window.removeThumbnail = removeThumbnail;
+        window.cancelCollectionNameEdit = cancelCollectionNameEdit;
+        window.previousExistingVideo = previousExistingVideo;
+        window.nextExistingVideo = nextExistingVideo;
+        window.selectExistingVideo = selectExistingVideo;
+        window.updateCurrentVideoTitle = updateCurrentVideoTitle;
+        window.updateCurrentVideoDesc = updateCurrentVideoDesc;
+        window.saveCurrentVideoEdit = saveCurrentVideoEdit;
+        window.deleteCurrentVideo = deleteCurrentVideo;
+        
+        function closeEditCollectionModal() {
+            const modal = document.getElementById('editVideoCollectionModal');
+            if (modal) {
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Edit Video Modal Functions
+        function closeEditVideoModal() {
+            const modal = document.getElementById('editVideoModal');
+            if (modal) {
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function saveEditedVideo() {
+            const videoId = document.getElementById('editVideoId').value;
+            const title = document.getElementById('editVideoTitle').value.trim();
+            const description = document.getElementById('editVideoDesc').value.trim();
+            
+            if (!title) {
+                alert('Video title is required');
+                return;
+            }
+            
+            const saveBtn = document.getElementById('saveEditedVideoBtn');
+            const originalText = saveBtn.innerHTML;
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<i class=\"fas fa-spinner fa-spin\"></i> Saving...';
+            
+            const fd = new FormData();
+            fd.append('action', 'update_video');
+            fd.append('id', videoId);
+            fd.append('title', title);
+            fd.append('description', description);
+            
+            fetch('handler/admin_gallery_video_handler.php', { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(d => {
+                    saveBtn.disabled = false;
+                    saveBtn.innerHTML = originalText;
+                    
+                    console.log('Update video response:', d);
+                    
+                    if (d.success) {
+                        alert('Video updated successfully!');
+                        closeEditVideoModal();
+                        
+                        // Reload videos
+                        if (typeof window.loadPublishedVideos === 'function') {
+                            window.loadPublishedVideos();
+                        }
+                    } else {
+                        alert(d.message || 'Failed to update video');
+                    }
+                })
+                .catch(e => {
+                    console.error('Error updating video:', e);
+                    saveBtn.disabled = false;
+                    saveBtn.innerHTML = originalText;
+                    alert('Error updating video');
+                });
+        }
+        
+        function saveEditCollectionInfo() {
+            const collectionId = document.getElementById('editCollectionId').value;
+            const name = document.getElementById('editCollectionName').value.trim();
+            const description = document.getElementById('editCollectionDesc').value.trim();
+            const videoFiles = document.getElementById('editCollectionVideos').files;
+            
+            if (!name) {
+                alert('Collection name is required');
+                return;
+            }
+            
+            const saveBtn = document.getElementById('saveEditCollectionBtn');
+            const originalText = saveBtn.innerHTML;
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+            
+            const fd = new FormData();
+            fd.append('action', 'update_collection');
+            fd.append('id', collectionId);
+            fd.append('name', name);
+            fd.append('description', description);
+            
+            // Append all selected videos
+            if (videoFiles && videoFiles.length > 0) {
+                for (let i = 0; i < videoFiles.length; i++) {
+                    fd.append('videos[]', videoFiles[i]);
+                }
+            }
+            
+            // Use XMLHttpRequest for progress tracking
+            const xhr = new XMLHttpRequest();
+            xhr.upload.onprogress = (ev) => {
+                if (ev.lengthComputable) {
+                    const pct = Math.round((ev.loaded / ev.total) * 100);
+                    saveBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Uploading ${pct}%`;
+                }
+            };
+            
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    saveBtn.disabled = false;
+                    saveBtn.innerHTML = originalText;
+                    
+                    console.log('Raw response:', xhr.responseText);
+                    
+                    try {
+                        const d = JSON.parse(xhr.responseText);
+                        console.log('Parsed response:', d);
+                        if (d.debug) console.log('Debug info:', d.debug);
+                        if (d.upload_errors) console.log('Upload errors:', d.upload_errors);
+                        
+                        if (d.success) {
+                            let msg = 'Collection updated successfully!';
+                            if (d.uploaded_videos && d.uploaded_videos.length > 0) {
+                                msg += ` ${d.uploaded_videos.length} video(s) uploaded.`;
+                            }
+                            alert(msg);
+                            closeEditCollectionModal();
+                            
+                            // Reload videos
+                            if (typeof window.loadPublishedVideos === 'function') {
+                                window.loadPublishedVideos();
+                            }
+                            setTimeout(() => {
+                                if (typeof window.initializeVideoGallerySortable === 'function') {
+                                    window.initializeVideoGallerySortable();
+                                }
+                            }, 500);
+                        } else {
+                            alert(d.message || 'Failed to update collection');
+                        }
+                    } catch(e) {
+                        console.error('Parse error:', e);
+                        alert('Error: Invalid response from server');
+                    }
+                }
+            };
+            
+            xhr.open('POST', 'handler/admin_gallery_video_handler.php');
+            xhr.send(fd);
+        }
+        
+        function initializeEditCollectionFileHandlers() {
+            // Multiple video upload handler
+            const videoInput = document.getElementById('editCollectionVideos');
+            const videoStatus = document.getElementById('editCollectionVideoStatus');
+            const videoPreview = document.getElementById('editCollectionVideoPreview');
+            const videoList = document.getElementById('editCollectionVideoList');
+            const deleteBtn = document.getElementById('deleteEditCollectionVideos');
+            const browseBtn = document.querySelector('label[for="editCollectionVideos"]');
+            
+            if (videoInput && !videoInput.dataset.initialized) {
+                videoInput.dataset.initialized = 'true';
+                
+                if (browseBtn) {
+                    browseBtn.onclick = () => videoInput.click();
+                }
+                
+                videoInput.onchange = () => {
+                    if (videoInput.files && videoInput.files.length > 0) {
+                        const files = Array.from(videoInput.files);
+                        const count = files.length;
+                        const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+                        const sizeMB = (totalSize / (1024 * 1024)).toFixed(1);
+                        videoStatus.textContent = `${count} video(s) selected (${sizeMB} MB total)`;
+                        deleteBtn.style.display = 'inline-block';
+                        
+                        // Clear and show preview list
+                        videoList.innerHTML = '';
+                        videoPreview.style.display = 'block';
+                        
+                        files.forEach((file, index) => {
+                            const fileSize = (file.size / (1024 * 1024)).toFixed(1);
+                            const listItem = document.createElement('div');
+                            listItem.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: white; border-radius: 6px; border: 1px solid #e2e8f0;';
+                            listItem.innerHTML = `
+                                <i class="fas fa-video" style="color: #3b82f6; font-size: 20px;"></i>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div style="font-weight: 500; color: #1e293b; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${file.name}</div>
+                                    <div style="font-size: 12px; color: #64748b;">${fileSize} MB</div>
+                                </div>
+                                <span style="background: #dbeafe; color: #1d4ed8; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#${index + 1}</span>
+                            `;
+                            videoList.appendChild(listItem);
+                        });
+                    }
+                };
+                
+                if (deleteBtn) {
+                    deleteBtn.onclick = () => {
+                        videoInput.value = '';
+                        videoStatus.textContent = 'No files selected';
+                        deleteBtn.style.display = 'none';
+                        videoPreview.style.display = 'none';
+                        videoList.innerHTML = '';
+                    };
+                }
+            }
+        }
+        
+        function uploadVideosToCollection() {
+            const collectionId = document.getElementById('addVideoCollectionId').value;
+            const videoFiles = document.getElementById('collectionVideoFiles').files;
+            const coverFile = document.getElementById('collectionVideoCover').files[0];
+            const title = document.getElementById('collectionVideoTitle').value.trim();
+            const description = document.getElementById('collectionVideoDesc').value.trim();
+            
+            if (!videoFiles || videoFiles.length === 0) {
+                alert('Please select at least one video');
+                return;
+            }
+            
+            if (!coverFile) {
+                alert('Please select a cover image');
+                return;
+            }
+            
+            if (!title) {
+                alert('Please enter a video title');
+                return;
+            }
+            
+            const fd = new FormData();
+            fd.append('action', 'add_video');
+            fd.append('galleryVideoAlbum', collectionId);
+            fd.append('galleryVideoTitle', title);
+            fd.append('galleryVideoDesc', description);
+            
+            // Add all video files
+            for (let i = 0; i < videoFiles.length; i++) {
+                fd.append('galleryVideo[]', videoFiles[i]);
+            }
+            fd.append('galleryVideoImage', coverFile);
+            
+            const uploadBtn = document.getElementById('uploadVideosBtn');
+            const originalText = uploadBtn.innerHTML;
+            uploadBtn.disabled = true;
+            uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+            
+            const xhr = new XMLHttpRequest();
+            xhr.upload.onprogress = (ev) => {
+                if (ev.lengthComputable) {
+                    const pct = Math.round((ev.loaded / ev.total) * 100);
+                    uploadBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Uploading ${pct}%`;
+                }
+            };
+            
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    uploadBtn.disabled = false;
+                    uploadBtn.innerHTML = originalText;
+                    
+                    try {
+                        const d = JSON.parse(xhr.responseText);
+                        if (d.success) {
+                            alert('Videos uploaded successfully!');
+                            // Reset upload form
+                            document.getElementById('addVideosToCollectionForm').reset();
+                            document.getElementById('collectionVideoFilesStatus').textContent = 'No files selected';
+                            const preview = document.getElementById('collectionVideoCoverPreview');
+                            if (preview) preview.style.display = 'none';
+                            
+                            // Reload videos
+                            if (typeof window.loadPublishedVideos === 'function') {
+                                window.loadPublishedVideos();
+                            }
+                            setTimeout(() => {
+                                if (typeof window.initializeVideoGallerySortable === 'function') {
+                                    window.initializeVideoGallerySortable();
+                                }
+                            }, 500);
+                        } else {
+                            alert(d.message || 'Upload failed');
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        alert('Upload failed');
+                    }
+                }
+            };
+            
+            xhr.open('POST', 'handler/admin_gallery_video_handler.php', true);
+            xhr.send(fd);
+        }
+        
+        function initializeAddVideosToCollectionFileHandlers() {
+            // Video files handler for Add Videos form
+            const videoInput = document.getElementById('collectionVideoFiles');
+            const videoStatus = document.getElementById('collectionVideoFilesStatus');
+            const videoDeleteBtn = document.getElementById('deleteCollectionVideoFiles');
+            
+            if (videoInput && videoStatus && videoDeleteBtn) {
+                videoInput.addEventListener('change', function() {
+                    if (this.files && this.files.length > 0) {
+                        const fileNames = Array.from(this.files).map(f => f.name).join(', ');
+                        const totalSize = Array.from(this.files).reduce((sum, f) => sum + f.size, 0);
+                        videoStatus.textContent = `${this.files.length} file(s) selected (${(totalSize / 1048576).toFixed(2)} MB)`;
+                        videoDeleteBtn.style.display = 'inline-block';
+                    } else {
+                        videoStatus.textContent = 'No files selected';
+                        videoDeleteBtn.style.display = 'none';
+                    }
+                });
+                
+                videoDeleteBtn.addEventListener('click', function() {
+                    videoInput.value = '';
+                    videoStatus.textContent = 'No files selected';
+                    videoDeleteBtn.style.display = 'none';
+                });
+            }
+            
+            // Cover image handler
+            const coverInput = document.getElementById('collectionVideoCover');
+            const coverStatus = document.getElementById('collectionVideoCoverStatus');
+            const coverDeleteBtn = document.getElementById('deleteCollectionVideoCover');
+            const coverPreview = document.getElementById('collectionVideoCoverPreview');
+            
+            if (coverInput && coverStatus && coverDeleteBtn) {
+                coverInput.addEventListener('change', function() {
+                    if (this.files && this.files[0]) {
+                        const file = this.files[0];
+                        coverStatus.textContent = file.name;
+                        coverDeleteBtn.style.display = 'inline-block';
+                        
+                        // Show preview
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const img = coverPreview.querySelector('img');
+                            if (img) {
+                                img.src = e.target.result;
+                                coverPreview.style.display = 'block';
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        coverStatus.textContent = 'No file selected';
+                        coverDeleteBtn.style.display = 'none';
+                        coverPreview.style.display = 'none';
+                    }
+                });
+                
+                coverDeleteBtn.addEventListener('click', function() {
+                    coverInput.value = '';
+                    coverStatus.textContent = 'No file selected';
+                    coverDeleteBtn.style.display = 'none';
+                    coverPreview.style.display = 'none';
+                });
+            }
+        }
+        
+        // Make functions globally accessible
+        window.openEditCollectionModal = openEditCollectionModal;
+        window.closeEditCollectionModal = closeEditCollectionModal;
+        window.saveEditCollectionInfo = saveEditCollectionInfo;
+        
+        // Function to open video modal with pre-selected collection
+        function openVideoModalForCollection(collectionId) {
+            console.log('openVideoModalForCollection called with ID:', collectionId);
+            const modal = document.getElementById('addVideoModal');
+            console.log('Video modal element:', modal);
+            if (modal) {
+                resetVideoModal();
+                
+                // Pre-select the collection
+                const collectionSelect = document.getElementById('galleryVideoAlbum');
+                if (collectionSelect && collectionId) {
+                    collectionSelect.value = collectionId;
+                    const collectionIdField = document.getElementById('galleryVideoCollectionId');
+                    if (collectionIdField) {
+                        collectionIdField.value = collectionId;
+                    }
+                    console.log('Collection pre-selected:', collectionId);
+                }
+                
+                modal.classList.add('show');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Video modal opened with pre-selected collection');
+                
+                // Add click outside to close
+                modal.onclick = function(e) {
+                    if (e.target === modal || e.target.classList.contains('video-modal-backdrop')) {
+                        closeVideoModal();
+                    }
+                };
+            } else {
+                console.error('Video modal not found!');
+            }
+        }
+        
+        // Initialize video file input handlers
+        function initializeVideoFileHandlers() {
+            // Video file input handler
+            const videoInput = document.getElementById('galleryVideo');
+            if (videoInput) {
+                videoInput.addEventListener('change', function(e) {
+                    const files = e.target.files;
+                    const statusSpan = document.getElementById('galleryVideoStatus');
+                    const deleteBtn = document.getElementById('deleteGalleryVideoBtn');
+                    
+                    if (files && files.length > 0) {
+                        if (files.length === 1) {
+                            statusSpan.textContent = files[0].name;
+                        } else {
+                            statusSpan.textContent = files.length + ' videos selected';
+                        }
+                        deleteBtn.style.display = 'inline-block';
+                    } else {
+                        statusSpan.textContent = 'No file selected';
+                        deleteBtn.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Video delete button handler
+            const videoDeleteBtn = document.getElementById('deleteGalleryVideoBtn');
+            if (videoDeleteBtn) {
+                videoDeleteBtn.addEventListener('click', function() {
+                    const videoInput = document.getElementById('galleryVideo');
+                    const statusSpan = document.getElementById('galleryVideoStatus');
+                    
+                    if (videoInput) videoInput.value = '';
+                    statusSpan.textContent = 'No file selected';
+                    this.style.display = 'none';
+                });
+            }
+            
+            // Video cover image input handler
+            const imageInput = document.getElementById('galleryVideoImage');
+            if (imageInput) {
+                imageInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    const statusSpan = document.getElementById('galleryVideoImageStatus');
+                    const deleteBtn = document.getElementById('deleteGalleryVideoImageBtn');
+                    const preview = document.getElementById('galleryVideoImagePreview');
+                    
+                    if (file) {
+                        statusSpan.textContent = file.name;
+                        deleteBtn.style.display = 'inline-block';
+                        
+                        // Show preview
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            preview.src = e.target.result;
+                            preview.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        statusSpan.textContent = 'No file selected';
+                        deleteBtn.style.display = 'none';
+                        preview.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Video cover image delete button handler
+            const imageDeleteBtn = document.getElementById('deleteGalleryVideoImageBtn');
+            if (imageDeleteBtn) {
+                imageDeleteBtn.addEventListener('click', function() {
+                    const imageInput = document.getElementById('galleryVideoImage');
+                    const statusSpan = document.getElementById('galleryVideoImageStatus');
+                    const preview = document.getElementById('galleryVideoImagePreview');
+                    
+                    if (imageInput) imageInput.value = '';
+                    statusSpan.textContent = 'No file selected';
+                    preview.style.display = 'none';
+                    this.style.display = 'none';
+                });
             }
         }
         
@@ -7920,6 +9432,50 @@ if ($debug_mode) {
             // Load YAP preview on page load
             loadYapPreview();
             
+            // Initialize video file handlers
+            initializeVideoFileHandlers();
+            
+            // Handle Add Collection form submission
+            const videoCollectionForm = document.getElementById('videoCollectionForm');
+            if (videoCollectionForm) {
+                videoCollectionForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    
+                    fetch('handler/admin_gallery_video_handler.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(r => r.json())
+                    .then(d => {
+                        if (d.success) {
+                            alert('Collection created successfully!');
+                            closeVideoCollectionModal();
+                            // Reload collections and stay on video section
+                            if (typeof window.loadPublishedVideos === 'function') {
+                                window.loadPublishedVideos();
+                            }
+                            if (typeof window.populateVideoCollections === 'function') {
+                                window.populateVideoCollections();
+                            }
+                            // Initialize sortable after reload
+                            setTimeout(() => {
+                                if (typeof window.initializeVideoGallerySortable === 'function') {
+                                    window.initializeVideoGallerySortable();
+                                }
+                            }, 500);
+                        } else {
+                            alert(d.message || 'Failed to create collection');
+                        }
+                    })
+                    .catch(e => {
+                        console.error(e);
+                        alert('Error creating collection');
+                    });
+                });
+            }
+            
             const addNewsBtn = document.getElementById('addNewsBtn');
             if (addNewsBtn) {
                 addNewsBtn.addEventListener('click', function(e) {
@@ -7928,11 +9484,11 @@ if ($debug_mode) {
                 });
             }
             
-            const addVideoBtn = document.getElementById('addVideoBtn');
-            if (addVideoBtn) {
-                addVideoBtn.addEventListener('click', function(e) {
+            const addVideoCollectionBtn = document.getElementById('addVideoCollectionBtn');
+            if (addVideoCollectionBtn) {
+                addVideoCollectionBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    openVideoModal();
+                    openVideoCollectionModal();
                 });
             }
             

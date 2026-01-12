@@ -1,33 +1,21 @@
 // Initialize video gallery sortables
 function initializeVideoGallerySortable() {
-    console.log('Initializing video gallery sortable...');
+    console.log('✅ Initializing video gallery sortable (videos only, collections NOT sortable)...');
     
-    // Collection headers sortable
-    const collectionsContainer = document.getElementById('publishedGalleryVideo');
-    if (collectionsContainer) {
-        new Sortable(collectionsContainer, {
-            animation: 150,
-            handle: '.collection-header-drag-handle',
-            draggable: '.video-collection',
-            ghostClass: 'sortable-ghost',
-            chosenClass: 'sortable-chosen',
-            dragClass: 'sortable-drag',
-            onStart: function() {
-                collectionsContainer.classList.add('dragging');
-            },
-            onEnd: function(evt) {
-                collectionsContainer.classList.remove('dragging');
-                saveVideoCollectionOrder();
-            }
-        });
-    }
+    // NO collection-level sorting - collections are NOT draggable
+    // Only individual video items within collections are sortable
     
     // Individual video items sortable
     document.querySelectorAll('.video-items-grid').forEach(grid => {
-        new Sortable(grid, {
+        // Check if already initialized
+        if (grid.sortableInstance) return;
+        
+        grid.sortableInstance = new Sortable(grid, {
             animation: 150,
             handle: '.gallery-drag-handle',
             draggable: '.video-item',
+            filter: '.edit-btn, .delete-btn, button, a, input, select, textarea',
+            preventOnFilter: true,
             ghostClass: 'sortable-ghost',
             chosenClass: 'sortable-chosen',
             dragClass: 'sortable-drag',
@@ -41,6 +29,8 @@ function initializeVideoGallerySortable() {
             }
         });
     });
+    
+    console.log('✅ Video items sortable initialized for', document.querySelectorAll('.video-items-grid').length, 'collections');
 }
 
 function saveVideoCollectionOrder() {
@@ -71,4 +61,5 @@ function saveVideoOrder(collectionId) {
     });
 }
 
+// Call this after AJAX content load
 window.initializeVideoGallerySortable = initializeVideoGallerySortable;

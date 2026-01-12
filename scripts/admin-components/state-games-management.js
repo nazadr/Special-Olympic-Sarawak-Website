@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const existingStateGamesContainer = document.getElementById('existingStateGames');
     const stateGamesForm = document.getElementById('stateGamesForm');
+    const stateGamesImageInput = document.getElementById('stateGamesImage');
     
     let sortable;
     let allEvents = [];

@@ -171,6 +171,12 @@
                                     </div>`;
                                 const track = wrap.querySelector('.gallery-track');
                                 items.videos.forEach(v=>{
+                                    // Smart path handling for cover image
+                                    let coverSrc = v.cover_path || '../assets/videos/gallery_videos_upload/covers/default-video-thumb.svg';
+                                    if (coverSrc && !coverSrc.startsWith('http') && !coverSrc.startsWith('../')) {
+                                        coverSrc = '../' + coverSrc;
+                                    }
+                                    
                                     const card=document.createElement('div');
                                     card.className='cg-card videos';
                                     card.onclick = () => {
@@ -179,7 +185,7 @@
                                     };
                                     card.innerHTML = `
                                         <div class="cg-card-thumbnail">
-                                            <img src="${v.cover_path}" alt="${v.title}">
+                                            <img src="${coverSrc}" alt="${v.title}" onerror="this.src='../assets/videos/gallery_videos_upload/covers/default-video-thumb.svg'">
                                             <div class="video-play-overlay">
                                                 <i class="fas fa-play"></i>
                                             </div>

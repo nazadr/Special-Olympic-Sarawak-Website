@@ -54,22 +54,46 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 400px;
+            padding: 20px 0;
         }
         .video-container {
             width: 100%;
             max-width: 1065px;
             margin: 0 auto;
-            aspect-ratio: 16 / 9;
             display: flex;
             align-items: center;
             justify-content: center;
             background: black;
+            position: relative;
+        }
+        .video-container:not(.vertical) {
+            aspect-ratio: 16 / 9;
+        }
+        .video-container.vertical {
+            max-width: 600px;
+            max-height: 80vh;
+            aspect-ratio: auto;
         }
         .video-container video {
             width: 100%;
             height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             display: block;
+            margin: 0 auto;
+        }
+        .video-container.vertical video {
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+        }
+        /* Ensure Plyr wrapper doesn't break centering */
+        .video-container .plyr,
+        .video-container .plyr__video-wrapper {
+            width: 100%;
+            height: 100%;
         }
         .video-description {
             width: 1200px;
@@ -224,6 +248,7 @@
                 const videoElement = document.getElementById('player');
                 const videoPlayerContent = document.getElementById('video-player-content');
                 const loading = document.getElementById('loading');
+                const videoContainer = document.querySelector('.video-container');
                 
                 // Update page title
                 document.title = `${video.title} | Special Olympics Sarawak`;
@@ -236,6 +261,21 @@
                 
                 // Set video source
                 videoElement.innerHTML = `<source src="${video.video_path}" type="video/mp4">`;
+                
+                // Detect video orientation once metadata is loaded
+                videoElement.addEventListener('loadedmetadata', function() {
+                    const aspectRatio = this.videoWidth / this.videoHeight;
+                    console.log('Video dimensions:', this.videoWidth, 'x', this.videoHeight, 'Aspect ratio:', aspectRatio);
+                    
+                    // If height > width, it's vertical (portrait)
+                    if (aspectRatio < 1) {
+                        console.log('Vertical video detected');
+                        videoContainer.classList.add('vertical');
+                    } else {
+                        console.log('Horizontal video detected');
+                        videoContainer.classList.remove('vertical');
+                    }
+                });
                 
                 // Hide loading and show content
                 loading.style.display = 'none';

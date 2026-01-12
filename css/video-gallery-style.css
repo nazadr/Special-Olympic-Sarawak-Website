@@ -1,0 +1,412 @@
+/* ========================================
+   VIDEO GALLERY MANAGEMENT STYLES
+   ======================================== */
+
+/* Video Modal Styles */
+.video-modal {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.video-modal.show {
+    display: flex !important;
+}
+
+.video-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+.video-modal-content {
+    background: white !important;
+    border-radius: 12px !important;
+    width: 95% !important;
+    max-width: 600px !important;
+    max-height: 90vh !important;
+    overflow: hidden !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-modal-content .modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 20px 24px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    background: #f8fafc !important;
+    flex-shrink: 0;
+}
+
+.video-modal-content .modal-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    margin: 0 !important;
+}
+
+.video-modal-content .modal-close {
+    cursor: pointer !important;
+    font-size: 20px !important;
+    color: #64748b !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+    background: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal-content .modal-close:hover {
+    color: #e53935 !important;
+    background: rgba(229, 57, 53, 0.1) !important;
+}
+
+.video-modal-content form {
+    padding: 24px !important;
+    overflow-y: auto !important;
+    flex: 1;
+}
+
+/* Video Collection Container */
+.video-collection {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.video-collection:hover {
+    border-color: #e5e7eb;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Collection Header */
+.collection-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.collection-header-drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #f8fafc;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: grab;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+.collection-header-drag-handle:hover {
+    background: #e5e7eb;
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: scale(1.05);
+}
+
+.collection-header-drag-handle:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+    background: #cbd5e1;
+}
+
+.collection-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.collection-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.collection-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.collection-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.collection-actions .edit-btn,
+.collection-actions .delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 100 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+}
+
+.collection-actions .edit-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.collection-actions .edit-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.collection-actions .delete-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.collection-actions .delete-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Video Items Grid */
+.video-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    min-height: 100px;
+}
+
+/* Video Item */
+.video-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.video-item:hover {
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.video-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.video-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 16px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.video-item:hover .video-overlay {
+    transform: translateY(0);
+}
+
+.video-title {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.video-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    z-index: 100 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+}
+
+.video-actions button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.video-view-btn:hover {
+    background: rgba(59, 130, 246, 0.8) !important;
+}
+
+.video-delete-btn:hover {
+    background: rgba(239, 68, 68, 0.8) !important;
+}
+
+/* Drag Handle for Videos */
+.video-item .gallery-drag-handle {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    cursor: grab;
+    opacity: 0;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.video-item:hover .gallery-drag-handle {
+    opacity: 1;
+}
+
+.video-item .gallery-drag-handle:active {
+    cursor: grabbing;
+    transform: scale(0.9);
+}
+
+/* Sortable States */
+.video-collection.sortable-ghost {
+    opacity: 0.4;
+    border-color: #3b82f6;
+    border-style: dashed;
+}
+
+.video-collection.sortable-chosen {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+}
+
+.video-collection.sortable-drag {
+    transform: rotate(2deg);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+}
+
+.video-item.sortable-ghost {
+    opacity: 0.4;
+}
+
+.video-item.sortable-chosen {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+.video-item.sortable-drag {
+    transform: rotate(3deg);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Empty State */
+.video-items-grid p {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* Prevent text selection during drag */
+.video-collection.dragging,
+.video-item.dragging {
+    user-select: none;
+}
+
+/* Ensure buttons work during drag */
+.video-collection.dragging .edit-btn,
+.video-collection.dragging .delete-btn,
+.video-item.dragging .video-view-btn,
+.video-item.dragging .video-delete-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .video-items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .collection-header {
+        flex-wrap: wrap;
+    }
+    
+    .collection-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .video-items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+    
+    .video-item img {
+        height: 120px;
+    }
+}
