@@ -68,7 +68,6 @@ function openOtherSOModal(mode = 'add', id = null) {
                     document.getElementById('otherSOName').value = org.name;
                     document.getElementById('otherSOCategory').value = org.category;
                     document.getElementById('otherSOWebsite').value = org.website_url || '';
-                    document.getElementById('otherSOOrder').value = org.display_order;
                     document.getElementById('otherSOStatus').checked = org.is_active == 1;
                     
                     // Show current images

@@ -89,6 +89,45 @@
             width: auto;
             height: auto;
         }
+        /* Fullscreen handling */
+        .plyr--fullscreen.plyr--video,
+        .plyr:-webkit-full-screen,
+        .plyr:-moz-full-screen,
+        .plyr:-ms-fullscreen {
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+        }
+        .plyr--fullscreen.plyr--video .plyr__video-wrapper,
+        .plyr:-webkit-full-screen .plyr__video-wrapper,
+        .plyr:-moz-full-screen .plyr__video-wrapper,
+        .plyr:-ms-fullscreen .plyr__video-wrapper {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .plyr--fullscreen.plyr--video video,
+        .plyr:-webkit-full-screen video,
+        .plyr:-moz-full-screen video,
+        .plyr:-ms-fullscreen video {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+            object-fit: cover !important;
+        }
+        /* Vertical video fullscreen - fill height and center */
+        .video-container.vertical .plyr--fullscreen video,
+        .video-container.vertical .plyr:-webkit-full-screen video,
+        .video-container.vertical .plyr:-moz-full-screen video,
+        .video-container.vertical .plyr:-ms-fullscreen video {
+            width: auto !important;
+            height: 100vh !important;
+            max-width: none !important;
+            max-height: 100vh !important;
+            object-fit: contain !important;
+            margin: 0 auto !important;
+        }
         /* Ensure Plyr wrapper doesn't break centering */
         .video-container .plyr,
         .video-container .plyr__video-wrapper {
@@ -296,6 +335,7 @@
             
             function initializePlayer() {
                 const video = document.getElementById('player');
+                const videoContainer = document.querySelector('.video-container');
                 
                 const defaultOptions = {
                     controls: [
@@ -320,6 +360,43 @@
                 
                 // Initialize Plyr
                 const player = new Plyr(video, defaultOptions);
+                
+                // Handle fullscreen changes for vertical videos
+                player.on('enterfullscreen', () => {
+                    console.log('🖥️ Entering fullscreen...');
+                    const videoElement = document.getElementById('player');
+                    const aspectRatio = videoElement.videoWidth / videoElement.videoHeight;
+                    
+                    console.log('Fullscreen - Video dimensions:', videoElement.videoWidth, 'x', videoElement.videoHeight);
+                    console.log('Aspect ratio:', aspectRatio, '- Is vertical:', aspectRatio < 1);
+                    
+                    // Apply styles directly for vertical videos
+                    if (aspectRatio < 1) {
+                        console.log('✅ Applying vertical fullscreen styles');
+                        videoElement.style.width = 'auto';
+                        videoElement.style.height = '100vh';
+                        videoElement.style.maxWidth = 'none';
+                        videoElement.style.maxHeight = '100vh';
+                        videoElement.style.objectFit = 'contain';
+                        videoElement.style.margin = '0 auto';
+                    } else {
+                        console.log('Applying horizontal fullscreen styles');
+                        videoElement.style.width = '100%';
+                        videoElement.style.height = '100%';
+                        videoElement.style.objectFit = 'cover';
+                    }
+                });
+                
+                player.on('exitfullscreen', () => {
+                    console.log('📤 Exited fullscreen - resetting styles');
+                    const videoElement = document.getElementById('player');
+                    videoElement.style.width = '';
+                    videoElement.style.height = '';
+                    videoElement.style.maxWidth = '';
+                    videoElement.style.maxHeight = '';
+                    videoElement.style.objectFit = '';
+                    videoElement.style.margin = '';
+                });
                 
                 // Auto-focus for better UX
                 player.on('ready', () => {

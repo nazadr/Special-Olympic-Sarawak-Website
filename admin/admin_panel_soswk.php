@@ -3652,14 +3652,9 @@ if ($debug_mode) {
                             <textarea style="font-family: 'Inter', sans-serif;" id="sportDescription"
                                 name="sportDescription" placeholder="Enter sport description" required></textarea>
                         </div>
-                        <div class="sport-form-group">
-                            <label for="displayOrder">Display Order:</label>
-                            <input style="font-family: 'Inter', sans-serif;" type="number" id="displayOrder"
-                                name="displayOrder" placeholder="Order (optional)" min="1">
-                        </div>
-                                <button type="submit" class="sport-submit-btn" id="submitSportBtn">Add Sport</button>
-                                <button type="button" class="sport-submit-btn" id="cancelEditSportBtn"
-                                    style="display:none; background-color: #6c757d;">Cancel Edit</button>
+                        <button type="submit" class="sport-submit-btn" id="submitSportBtn">Add Sport</button>
+                        <button type="button" class="sport-submit-btn" id="cancelEditSportBtn"
+                            style="display:none; background-color: #6c757d;">Cancel Edit</button>
                             </form>
                         </div>
                     </div>
@@ -3772,11 +3767,6 @@ if ($debug_mode) {
                                     <div class="state-games-form-group">
                                         <label for="learnMoreLink">Learn More Link (optional)</label>
                                         <input type="url" id="learnMoreLink" name="learnMoreLink" placeholder="https://example.com">
-                                    </div>
-                                    
-                                    <div class="state-games-form-group">
-                                        <label for="stateGameDisplayOrder">Display Order</label>
-                                        <input type="number" id="stateGameDisplayOrder" name="displayOrder" placeholder="Order (optional)" min="1">
                                     </div>
                                     
                                     <div class="state-games-modal-actions">
@@ -4548,11 +4538,6 @@ if ($debug_mode) {
                                         <input type="url" id="hapLearnMoreLink" name="learnMoreLink" placeholder="https://example.com">
                                     </div>
                                     
-                                    <div class="hap-form-group">
-                                        <label for="hapDisplayOrder">Display Order</label>
-                                        <input type="number" id="hapDisplayOrder" name="displayOrder" placeholder="Order (optional)" min="1">
-                                    </div>
-                                    
                                     <div class="hap-modal-actions">
                                         <button type="button" class="btn-cancel" onclick="closeHapModal()">Cancel</button>
                                         <button type="submit" class="btn-submit" id="submitHapBtn">Add Article</button>
@@ -4615,11 +4600,6 @@ if ($debug_mode) {
                                     <div class="hap-form-group">
                                         <label for="editHapLearnMoreLink">Learn More Link (optional)</label>
                                         <input type="url" id="editHapLearnMoreLink" name="learnMoreLink" placeholder="https://example.com">
-                                    </div>
-                                    
-                                    <div class="hap-form-group">
-                                        <label for="editHapDisplayOrder">Display Order</label>
-                                        <input type="number" id="editHapDisplayOrder" name="displayOrder" placeholder="Order (optional)" min="1">
                                     </div>
                                     
                                     <div class="hap-modal-actions">
@@ -5333,11 +5313,6 @@ if ($debug_mode) {
                                 <div id="sponsorshipImagePreview" class="image-preview" style="display: none;">
                                     <img src="" alt="Preview" style="max-width: 150px; max-height: 100px; margin-top: 10px; border-radius: 8px; object-fit: contain;">
                                 </div>
-                            </div>
-                            
-                            <div class="sponsorship-form-group">
-                                <label for="sponsorshipOrder">Display Order</label>
-                                <input type="number" id="sponsorshipOrder" name="sponsorshipOrder" placeholder="Order (lower = first)" min="0" value="0">
                             </div>
                             
                             <div class="sponsorship-modal-actions">
@@ -6337,20 +6312,11 @@ if ($debug_mode) {
                         </div>
                     </div>
 
-                    <div class="other-so-form-row">
-                        <div class="other-so-form-group">
-                            <label for="otherSOOrder">Display Order</label>
-                            <input type="number" id="otherSOOrder" name="display_order" 
-                                   value="0" min="0" step="10">
-                            <small class="form-hint">Lower numbers appear first</small>
-                        </div>
-
-                        <div class="other-so-form-group">
-                            <label for="otherSOStatus">Status</label>
-                            <div class="checkbox-wrapper">
-                                <input type="checkbox" id="otherSOStatus" name="is_active" checked>
-                                <label for="otherSOStatus" class="checkbox-label">Active (Visible on website)</label>
-                            </div>
+                    <div class="other-so-form-group">
+                        <label for="otherSOStatus">Status</label>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="otherSOStatus" name="is_active" checked>
+                            <label for="otherSOStatus" class="checkbox-label">Active (Visible on website)</label>
                         </div>
                     </div>
 

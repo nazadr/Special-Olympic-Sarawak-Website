@@ -226,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('sportId').value = sport.id;
                     document.getElementById('sportTitle').value = sport.title;
                     document.getElementById('sportDescription').value = sport.description;
-                    document.getElementById('displayOrder').value = sport.display_order;
                     
                     // Handle image
                     if (sport.image_path && sport.image_path !== 'null') {

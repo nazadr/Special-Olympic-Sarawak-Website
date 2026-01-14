@@ -169,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.getElementById('editAlpCategory').value = article.category;
                         document.getElementById('editAlpDescription').value = article.description;
                         document.getElementById('editAlpLearnMoreLink').value = article.learn_more_link || '';
-                        document.getElementById('editAlpDisplayOrder').value = article.display_order || '';
                         document.getElementById('currentEditAlpImage').value = article.image_path || '';
                         
                         // Show current image if exists

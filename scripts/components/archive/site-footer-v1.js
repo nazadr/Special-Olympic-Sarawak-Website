@@ -122,6 +122,7 @@ document.writeln(`
                     <a href="#">Privacy Policy</a>
                     <a href="../src/disclaimer.html">Disclaimer</a>
                     <a href="#">Terms & Conditions</a>
+                    <a href="../src/sitemap.php">Sitemap</a>
                 </div>
             </div>
             <div class="developer-credit">

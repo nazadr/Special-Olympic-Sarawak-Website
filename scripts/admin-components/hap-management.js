@@ -181,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.getElementById('editHapCategory').value = article.category;
                         document.getElementById('editHapDescription').value = article.description;
                         document.getElementById('editHapLearnMoreLink').value = article.learn_more_link || '';
-                        document.getElementById('editHapDisplayOrder').value = article.display_order || '';
                         document.getElementById('currentEditHapImage').value = article.image_path || '';
                         
                         // Show current image if exists

@@ -349,7 +349,6 @@ window.editStateGamesEvent = function(id) {
                     document.getElementById('stateGameEventDate').value = event.event_date;
                     document.getElementById('stateGameEventDescription').value = event.event_description;
                     document.getElementById('learnMoreLink').value = event.learn_more_link || '';
-                    document.getElementById('stateGameDisplayOrder').value = event.display_order || '';
                     document.getElementById('currentStateGamesImage').value = event.image_path || '';
 
                     // Step 4: Show existing image if available

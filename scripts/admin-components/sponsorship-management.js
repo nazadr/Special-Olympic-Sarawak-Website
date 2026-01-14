@@ -455,8 +455,7 @@ if (window.sponsorshipManagementInitialized) {
                 }
                 return (sponsor.chapter_id === null || sponsor.chapter_id === undefined) ? '0' : String(sponsor.chapter_id);
             })(),
-            sponsorshipTier: sponsor.sponsor_tier || 'supporter',
-            sponsorshipOrder: sponsor.display_order || 0
+            sponsorshipTier: sponsor.sponsor_tier || 'supporter'
         };
 
         for (const [id, value] of Object.entries(fields)) {

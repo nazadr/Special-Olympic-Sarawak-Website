@@ -216,6 +216,7 @@
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="src/disclaimer.html" class="footer-link">Disclaimer</a>
                     <a href="#" class="footer-link">Terms & Condition</a>
+                    <a href="src/sitemap.php" class="footer-link">Sitemap</a>
                 </div>
             </div>
         </div>

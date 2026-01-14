@@ -32,7 +32,7 @@ $action = $_REQUEST['action'] ?? '';
 function safeName($n){ return preg_replace('/[^A-Za-z0-9._-]/','_', $n); }
 
 if ($action==='fetch_collections'){
-    $res = $conn->query("SELECT id,name,description FROM gallery_videos_collection ORDER BY name ASC");
+    $res = $conn->query("SELECT id,name,description FROM gallery_videos_collection ORDER BY display_order ASC, name ASC");
     echo json_encode(['success'=>true,'collections'=>$res->fetch_all(MYSQLI_ASSOC)]); exit;
 }
 
@@ -48,7 +48,7 @@ if ($action==='add_collection'){
 
 if ($action==='fetch_items'){
     $cid = (int)($_GET['collection_id'] ?? 0);
-    $stmt=$conn->prepare("SELECT id,video_path,cover_path,title,description FROM gallery_videos WHERE collection_id=? ORDER BY id ASC");
+    $stmt=$conn->prepare("SELECT id,video_path,cover_path,title,description FROM gallery_videos WHERE collection_id=? ORDER BY display_order ASC, id ASC");
     $stmt->bind_param('i',$cid); $stmt->execute();
     $res=$stmt->get_result();
     echo json_encode(['success'=>true,'videos'=>$res->fetch_all(MYSQLI_ASSOC)]); exit;
@@ -400,6 +400,67 @@ if ($action==='remove_video_thumbnail'){
         }
     } else {
         echo json_encode(['success'=>false,'message'=>'Video not found']); 
+    }
+    exit;
+}
+
+// Update video order within a collection (drag-and-drop)
+if ($action === 'update_video_order') {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+    
+    if (!isset($data['collection_id']) || !isset($data['order'])) {
+        echo json_encode(['success' => false, 'message' => 'Missing parameters']);
+        exit;
+    }
+    
+    $collectionId = (int)$data['collection_id'];
+    $order = $data['order'];
+    
+    $conn->begin_transaction();
+    try {
+        $stmt = $conn->prepare("UPDATE gallery_videos SET display_order = ? WHERE id = ? AND collection_id = ?");
+        foreach ($order as $item) {
+            $videoId = (int)$item['id'];
+            $displayOrder = (int)$item['order'];
+            $stmt->bind_param('iii', $displayOrder, $videoId, $collectionId);
+            $stmt->execute();
+        }
+        $conn->commit();
+        echo json_encode(['success' => true, 'message' => 'Video order updated']);
+    } catch (Exception $e) {
+        $conn->rollback();
+        echo json_encode(['success' => false, 'message' => 'Failed to update order: ' . $e->getMessage()]);
+    }
+    exit;
+}
+
+// Update collection order (drag-and-drop)
+if ($action === 'update_collection_order') {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+    
+    if (!isset($data['order'])) {
+        echo json_encode(['success' => false, 'message' => 'Missing order data']);
+        exit;
+    }
+    
+    $order = $data['order'];
+    
+    $conn->begin_transaction();
+    try {
+        $stmt = $conn->prepare("UPDATE gallery_videos_collection SET display_order = ? WHERE id = ?");
+        foreach ($order as $item) {
+            $collectionId = (int)$item['id'];
+            $displayOrder = (int)$item['order'];
+            $stmt->bind_param('ii', $displayOrder, $collectionId);
+            $stmt->execute();
+        }
+        $conn->commit();
+        echo json_encode(['success' => true, 'message' => 'Collection order updated']);
+    } catch (Exception $e) {
+        $conn->rollback();
+        echo json_encode(['success' => false, 'message' => 'Failed to update order: ' . $e->getMessage()]);
     }
     exit;
 }
