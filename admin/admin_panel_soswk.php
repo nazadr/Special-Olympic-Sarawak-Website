@@ -2040,7 +2040,7 @@ if ($debug_mode) {
 
         .card-drag-handle:active {
             cursor: grabbing;
-        }
+        }   
 
         .card-drag-handle i {
             font-size: 16px;

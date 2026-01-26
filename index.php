@@ -73,7 +73,7 @@
         
         .bg {
             animation: slide 3s ease-in-out infinite alternate;
-            background-image: linear-gradient(-60deg, rgba(0, 0, 0, 0.26) 50%, rgba(102, 7, 7, 0.16) 50%);
+            background-image: linear-gradient(-60deg, rgba(0, 0, 0, 0.36) 50%, rgba(36, 1, 1, 0.2) 50%);
             bottom: 0;
             left: -50%;
             opacity: 1;
@@ -115,12 +115,15 @@
             font-style: italic;
             color: #ffd400 !important;
             text-shadow: 
-                -2px -2px 0 #000,
-                2px -2px 0 #000,
-                -2px 2px 0 #000,
-                2px 2px 0 #000,
-                0 0 20px rgba(0, 0, 0, 0.9);
-            font-weight: 400;
+                -3px -3px 0 #000,
+                3px -3px 0 #000,
+                -3px 3px 0 #000,
+                3px 3px 0 #000,
+                -2px 0 0 #000,
+                2px 0 0 #000,
+                0 -2px 0 #000,
+                0 2px 0 #000;
+            font-weight: 700;
             font-family: 'Playfair Display', 'Georgia', 'Garamond', serif;
             margin: 0;
             text-align: center;
@@ -128,7 +131,7 @@
         }
         
         .oath-line-small {
-            font-size: 1.41075rem !important;
+            font-size: 1.881rem !important;
         }
         
         .oath-line-medium {
@@ -136,13 +139,13 @@
         }
         
         .oath-line-large {
-            font-size: 2.6334rem !important;
-            font-weight: 500;
+            font-size: 1.881rem !important;
+            font-weight: 700;
         }
         
         .oath-attribution {
             font-size: 1rem;
-            color: #ffd400;
+            color: ##e5A812;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
             margin-top: 0.5rem;
             font-style: italic;
