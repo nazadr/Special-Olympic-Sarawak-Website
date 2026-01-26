@@ -165,8 +165,8 @@ $admin_id = $_SESSION['admin_id'];
         }
         
         .modal-close:hover {
-            color: #e53935 !important;
-            background: rgba(229, 57, 53, 0.1) !important;
+            color: #FF0000 !important;
+            background: rgba(255, 0, 0, 0.1) !important;
         }
         
         /* Modal Body Styling */
@@ -1625,7 +1625,7 @@ $admin_id = $_SESSION['admin_id'];
                         <input type="hidden" id="currentGalleryPhotoImage" name="currentImage">
                         <div class="galphoto-form-group">
                             <label for="galleryPhotoImage">Upload Image: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <label for="galleryPhotoImage" class="custom-browse-btn">Browse</label>
                             <input type="file" id="galleryPhotoImage" name="galleryPhotoImage[]" accept="image/*" multiple
                                 style="display: none;">
@@ -1640,7 +1640,7 @@ $admin_id = $_SESSION['admin_id'];
                         </div>
                         <div class="galphoto-form-group">
                             <label for="galleryPhotoAlbum">Select Existing Collection: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <select style="font-family: 'Inter', sans-serif;" id="galleryPhotoAlbum"
                                 name="galleryPhotoAlbum">
                                 <option value="">Fetching data...</option>
@@ -1756,7 +1756,7 @@ $admin_id = $_SESSION['admin_id'];
                         <input type="hidden" id="currentGalleryVideoImage" name="currentImage">
                         <div class="galvideo-form-group">
                             <label for="galleryVideo">Upload Video: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <label for="galleryVideo" class="custom-browse-btn">Browse</label>
                             <input type="file" id="galleryVideo" name="galleryVideo" accept="video/mp4"
                                 style="display: none;">
@@ -1765,7 +1765,7 @@ $admin_id = $_SESSION['admin_id'];
                         </div>
                         <div class="galvideo-form-group">
                             <label for="galleryVideoImage">Video Cover: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <label for="galleryVideoImage" class="custom-browse-btn">Browse</label>
                             <input type="file" id="galleryVideoImage" name="galleryVideoImage" accept="image/*"
                                 style="display: none;">
@@ -1777,7 +1777,7 @@ $admin_id = $_SESSION['admin_id'];
                         </div>
                         <div class="galvideo-form-group">
                             <label for="galleryVideoTitle">Video Title: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryVideoTitle"
                                 name="galleryVideoTitle" required>
                         </div>
@@ -1789,7 +1789,7 @@ $admin_id = $_SESSION['admin_id'];
                         </div>
                         <div class="galvideo-form-group">
                             <label for="galleryVideoAlbum">Select Existing Collection: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <select id="galleryVideoAlbum" name="galleryVideoAlbum" required>
                                 <option value="">Fetching data...</option>
                             </select>

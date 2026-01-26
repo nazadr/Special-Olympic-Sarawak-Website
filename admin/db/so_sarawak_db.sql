@@ -313,7 +313,6 @@ CREATE TABLE `sarawak_chapters` (
   `chairman` varchar(255) DEFAULT NULL,
   `vice_chairman` varchar(255) DEFAULT NULL,
   `secretary` varchar(255) DEFAULT NULL,
-  `treasurer` varchar(255) DEFAULT NULL,
   `logo_path` varchar(255) NOT NULL COMMENT 'Hardcoded logo path - not editable via admin',
   `status` enum('active','upcoming','inactive') DEFAULT 'active',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -324,12 +323,12 @@ CREATE TABLE `sarawak_chapters` (
 -- Dumping data for table `sarawak_chapters`
 --
 
-INSERT INTO `sarawak_chapters` (`id`, `chapter_name`, `city`, `chairman`, `vice_chairman`, `secretary`, `treasurer`, `logo_path`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'SO Kuching Chapter', 'Kuching', 'Madam Liza Chai', 'Unknown', '', '', 'assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-17 00:36:33'),
-(2, 'SO Samarahan Chapter', 'Samarahan', 'TBD', 'TBD', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png', 'upcoming', '2025-12-01 01:53:08', '2025-12-02 07:06:57'),
-(3, 'SO Sibu Chapter', 'Sibu', 'Pemanca Datuk Jason Tai Hee', 'TBD', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:53:18'),
-(4, 'SO Bintulu Chapter', 'Bintulu', 'Dato Haji Ruslan Bin Abdul Ghani', 'TBD', 'Sabrina Cheong Oi Lin binti Abdullah', 'TBD', 'assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:53:36'),
-(5, 'SO Miri Chapter', 'Miri', 'Datin Dayang Mariani Abang Zain', 'TBD', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:59:07');
+INSERT INTO `sarawak_chapters` (`id`, `chapter_name`, `city`, `chairman`, `vice_chairman`, `secretary`, `logo_path`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'SO Kuching Chapter', 'Kuching', 'Madam Liza Chai', 'Unknown', '', 'assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-17 00:36:33'),
+(2, 'SO Samarahan Chapter', 'Samarahan', 'TBD', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png', 'upcoming', '2025-12-01 01:53:08', '2025-12-02 07:06:57'),
+(3, 'SO Sibu Chapter', 'Sibu', 'Pemanca Datuk Jason Tai Hee', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:53:18'),
+(4, 'SO Bintulu Chapter', 'Bintulu', 'Dato Haji Ruslan Bin Abdul Ghani', 'TBD', 'Sabrina Cheong Oi Lin binti Abdullah', 'assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:53:36'),
+(5, 'SO Miri Chapter', 'Miri', 'Datin Dayang Mariani Abang Zain', 'TBD', 'TBD', 'assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png', 'active', '2025-12-01 01:53:08', '2025-12-01 02:59:07');
 
 -- --------------------------------------------------------
 

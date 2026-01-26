@@ -44,12 +44,12 @@ switch($action) {
     case 'update_yap_content':
         try {
             $id = $_POST['yap_id'] ?? '';
-            $hero_title = $_POST['hero_title'] ?? 'Young Athletes Program (YAP)';
+            $hero_title = $_POST['hero_title'] ?? 'Young Athletes Program';
             $description_text = $_POST['description_text'] ?? '';
             $testimonial_text = $_POST['testimonial_text'] ?? '';
             $testimonial_author = $_POST['testimonial_author'] ?? '';
             $testimonial_location = $_POST['testimonial_location'] ?? '';
-            $resources_title = $_POST['resources_title'] ?? 'Resources for YAP';
+            $resources_title = $_POST['resources_title'] ?? 'Resources for Young Athletes Program';
             $resources_description = $_POST['resources_description'] ?? '';
             $resources_button_text = $_POST['resources_button_text'] ?? 'LEARN MORE';
             $resources_button_link = $_POST['resources_button_link'] ?? '../src/yap-lm.html';

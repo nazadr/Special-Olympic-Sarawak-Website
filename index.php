@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Olympics Sarawak</title>
     <link rel="shortcut icon" href="assets/images/master_logo_front.png"> <!-- 28/8/2025: This web icon previously was not added -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -16,8 +19,8 @@
 <body>
     
     <!-- Floating SONG 26 Nav Bubble -->
-    <a href="src/SONG 26.php" class="song26-nav-bubble" aria-label="Go to SONG 26">
-        <img src="assets/icons/bintulu-stork.png" alt="SONG 26" class="song26-bubble-icon">
+    <a href="src/SONG 26.php?standalone=1" target="_blank" class="song26-nav-bubble" aria-label="Go to SONG 26">
+        <img src="assets/images/SONG26_Logo.png" alt="SONG 26" class="song26-bubble-icon">
         <span class="song26-bubble-tooltip">SONG 2026 page</span>
     </a>
     <div class="video-background" style="position:relative;width:100vw;height:100vh;overflow:hidden;">
@@ -25,20 +28,47 @@
             style="width:100vw;height:100vh;object-fit:cover;position:fixed;top:0;left:0;z-index:1;">
             <!-- Replace with your video source -->
             <source src="assets/videos/soswk-index-datasaver.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video tag
         </video>
+        <!-- Dark overlay -->
+        <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:2;pointer-events:none;"></div>
+        <!-- Frequency Bars Visualizer -->
+        <div class="frequency-bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <!-- Clickable overlay for SONG 26 -->
-        <a href="src/SONG 26.php" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:2;display:block;text-decoration:none;cursor:pointer;" aria-label="Go to SONG 26"></a>
+        <a href="src/SONG 26.php?standalone=1" target="_blank" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:3;display:block;text-decoration:none;cursor:pointer;" aria-label="Go to SONG 26"></a>
         <!-- Welcome Section with Logo (now in front of video) -->
-        <section class="welcome-section" style="position:relative;z-index:3;">
-            <img src="assets/images/master_logo_front.png" alt="Special Olympics Sarawak Main Title">
+        <section class="welcome-section" style="position:relative;z-index:4;">
             <h1>
-                Welcome to Special Olympics Sarawak
+                Special Olympics Sarawak
             </h1>
-            <p>
-                Empowering athletes, building community, and celebrating abilities. Join us in making a difference through
-                sports and inclusion.
-            </p>
+            <img src="assets/images/master_logo_front.png" alt="Special Olympics Sarawak Main Title">
+            <div class="oath-pyramid">
+                <p class="oath-line oath-line-small">"Let me win,</p>
+                <p class="oath-line oath-line-medium">But if I cannot win,</p>
+                <p class="oath-line oath-line-large">Let me be brave in the attempt."</p>
+            </div>
+          
             <!-- Display horizontally below <p> -->
             <div class="socmed-bar mobile-only-flex">
                 <a href="https://www.facebook.com/SpecialOlympicsSarawak/" class="socmed-icon soc-facebook" title="Facebook"><i
@@ -57,6 +87,137 @@
     <script src="scripts/components/index/header-index.js"></script>
 
     <style>
+        /* Frequency Bars Visualizer */
+        .frequency-bars {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            gap: 1.5vw;
+            padding: 0 2vw;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .frequency-bars .bar {
+            flex: 1;
+            background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 0.15),
+                rgba(255, 255, 255, 0.02)
+            );
+            border-radius: 4px 4px 0 0;
+            min-height: 20px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            animation-duration: 0.8s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        
+        .frequency-bars .bar:nth-child(1) { animation-name: bar-1; animation-delay: 0s; }
+        .frequency-bars .bar:nth-child(2) { animation-name: bar-2; animation-delay: 0.1s; }
+        .frequency-bars .bar:nth-child(3) { animation-name: bar-3; animation-delay: 0.2s; }
+        .frequency-bars .bar:nth-child(4) { animation-name: bar-4; animation-delay: 0.3s; }
+        .frequency-bars .bar:nth-child(5) { animation-name: bar-5; animation-delay: 0.4s; }
+        .frequency-bars .bar:nth-child(6) { animation-name: bar-6; animation-delay: 0.5s; }
+        .frequency-bars .bar:nth-child(7) { animation-name: bar-7; animation-delay: 0.6s; }
+        .frequency-bars .bar:nth-child(8) { animation-name: bar-8; animation-delay: 0.7s; }
+        .frequency-bars .bar:nth-child(9) { animation-name: bar-9; animation-delay: 0.8s; }
+        .frequency-bars .bar:nth-child(10) { animation-name: bar-10; animation-delay: 0.9s; }
+        .frequency-bars .bar:nth-child(11) { animation-name: bar-11; animation-delay: 0s; }
+        .frequency-bars .bar:nth-child(12) { animation-name: bar-12; animation-delay: 0.1s; }
+        .frequency-bars .bar:nth-child(13) { animation-name: bar-13; animation-delay: 0.2s; }
+        .frequency-bars .bar:nth-child(14) { animation-name: bar-14; animation-delay: 0.3s; }
+        .frequency-bars .bar:nth-child(15) { animation-name: bar-15; animation-delay: 0.4s; }
+        .frequency-bars .bar:nth-child(16) { animation-name: bar-16; animation-delay: 0.5s; }
+        .frequency-bars .bar:nth-child(17) { animation-name: bar-17; animation-delay: 0.6s; }
+        .frequency-bars .bar:nth-child(18) { animation-name: bar-18; animation-delay: 0.7s; }
+        .frequency-bars .bar:nth-child(19) { animation-name: bar-19; animation-delay: 0.8s; }
+        .frequency-bars .bar:nth-child(20) { animation-name: bar-20; animation-delay: 0.9s; }
+        
+        @keyframes bar-1 { 0%, 100% { height: 15%; } 50% { height: 45%; } }
+        @keyframes bar-2 { 0%, 100% { height: 25%; } 50% { height: 60%; } }
+        @keyframes bar-3 { 0%, 100% { height: 35%; } 50% { height: 75%; } }
+        @keyframes bar-4 { 0%, 100% { height: 20%; } 50% { height: 55%; } }
+        @keyframes bar-5 { 0%, 100% { height: 30%; } 50% { height: 70%; } }
+        @keyframes bar-6 { 0%, 100% { height: 40%; } 50% { height: 80%; } }
+        @keyframes bar-7 { 0%, 100% { height: 35%; } 50% { height: 65%; } }
+        @keyframes bar-8 { 0%, 100% { height: 25%; } 50% { height: 50%; } }
+        @keyframes bar-9 { 0%, 100% { height: 20%; } 50% { height: 45%; } }
+        @keyframes bar-10 { 0%, 100% { height: 30%; } 50% { height: 60%; } }
+        @keyframes bar-11 { 0%, 100% { height: 35%; } 50% { height: 70%; } }
+        @keyframes bar-12 { 0%, 100% { height: 25%; } 50% { height: 55%; } }
+        @keyframes bar-13 { 0%, 100% { height: 40%; } 50% { height: 75%; } }
+        @keyframes bar-14 { 0%, 100% { height: 30%; } 50% { height: 65%; } }
+        @keyframes bar-15 { 0%, 100% { height: 20%; } 50% { height: 50%; } }
+        @keyframes bar-16 { 0%, 100% { height: 25%; } 50% { height: 60%; } }
+        @keyframes bar-17 { 0%, 100% { height: 35%; } 50% { height: 70%; } }
+        @keyframes bar-18 { 0%, 100% { height: 30%; } 50% { height: 55%; } }
+        @keyframes bar-19 { 0%, 100% { height: 20%; } 50% { height: 45%; } }
+        @keyframes bar-20 { 0%, 100% { height: 15%; } 50% { height: 40%; } }
+        
+        /* Special Olympics Oath Pyramid Styling */
+        .oath-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0.5rem 0 0.5rem 0;
+            gap: 0.3rem;
+        }
+        
+        .oath-line {
+            font-style: italic;
+            color: #ffd400 !important;
+            text-shadow: 
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                0 0 15px rgba(0, 0, 0, 0.8);
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Georgia', 'Garamond', serif;
+            margin: 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .oath-line-small {
+            font-size: 1.41075rem !important;
+        }
+        
+        .oath-line-medium {
+            font-size: 1.881rem !important;
+        }
+        
+        .oath-line-large {
+            font-size: 2.6334rem !important;
+            font-weight: 500;
+        }
+        
+        .oath-attribution {
+            font-size: 1rem;
+            color: #ffd400;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .oath-line-small {
+                font-size: 1.1rem;
+            }
+            .oath-line-medium {
+                font-size: 1.4rem;
+            }
+            .oath-line-large {
+                font-size: 1.8rem;
+            }
+        }
+        
         /* SONG 26 Nav Bubble Styles */
         .song26-nav-bubble {
             position: fixed;
@@ -64,9 +225,9 @@
             left: 32px;
             transform: translateY(-50%);
             z-index: 100;
-            width: 64px;
-            height: 64px;
-            background: #d90429;
+            width: 100px;
+            height: 100px;
+            background: #fff;
             border-radius: 50%;
             box-shadow: 0 4px 16px rgba(0,0,0,0.12);
             display: flex;
@@ -80,19 +241,18 @@
         }
         
         .song26-nav-bubble:hover {
-            background: #fff;
-            box-shadow: 0 8px 24px rgba(217,4,41,0.18);
+            background: #FF0000;
+            box-shadow: 0 8px 24px rgba(255, 0, 0,0.18);
         }
         
         .song26-bubble-icon {
-            width: 32px;
-            height: 32px;
-            filter: invert(1);
-            transition: filter 0.3s;
+            width: 70px;
+            height: 70px;
+            transition: all 0.3s;
         }
         
         .song26-nav-bubble:hover .song26-bubble-icon {
-            filter: invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%);
+            transform: scale(1.05);
         }
         
         .song26-bubble-tooltip {
@@ -100,7 +260,7 @@
             left: 80px;
             top: 50%;
             transform: translateY(-50%) scale(0.95);
-            background: #d90429;
+            background: #FF0000;
             color: #fff;
             padding: 8px 18px;
             border-radius: 24px;
@@ -117,13 +277,31 @@
             opacity: 1;
             transform: translateY(-50%) scale(1);
             background: #fff;
-            color: #d90429;
+            color: #FF0000;
         }
         
         @keyframes bubble-pop-in {
             0% { transform: scale(0.5) translateY(-50%); opacity: 0; }
             60% { transform: scale(1.1) translateY(-50%); opacity: 1; }
             100% { transform: scale(1) translateY(-50%); opacity: 1; }
+        }
+        
+        /* Bottom Nav Height Adjustment */
+        .bottom-nav {
+            height: 75px;
+        }
+        
+        .bottom-nav ul {
+            height: 100%;
+        }
+        
+        .bottom-nav .nav-btn {
+            height: 75px;
+            padding: 15px 30px;
+        }
+        
+        .bottom-nav .nav-btn span {
+            line-height: 1.3;
         }
     </style>
 
@@ -157,29 +335,22 @@
     <footer class="bottom-nav desktop-only">
         <ul>
             <li class="nav-item">
-                <button class="nav-btn"><span>What We Do?</span></button>
+                <button class="nav-btn"><span>News</span></button>
                 <div class="dropup-menu">
-                    <a href="src/getting_started.php">Getting Started</a>
-                    <a href="src/alp.php">Athlete Leadership Program (ALP)</a>
-                    <a href="src/yap.php">Young Athletes Program (YAP)</a>
+                    <a href="src/latest-news.php">In the News</a>
                 </div>
             </li>
             <li class="nav-item">
                 <button class="nav-btn"><span>Core Program</span></button>
                 <div class="dropup-menu">
-                    <a href="src/sohap.php">Healthy Athletes Program (HAP)</a>
+                    <a href="src/sohap.php">Healthy Athletes Program</a>
+                    <a href="src/yap.php">Young Athletes Program</a>
                 </div>
             </li>
             <li class="nav-item">
-                <button class="nav-btn"><span>Sports</span></button>
+                <button class="nav-btn"><span>National<br>Games 2026</span></button>
                 <div class="dropup-menu">
-                    <a href="src/sport.php">Our Sports</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <button class="nav-btn"><span>SONG 2026</span></button>
-                <div class="dropup-menu">
-                    <a href="src/SONG 26.php">SONG 26</a>
+                    <a href="src/SONG 26.php?standalone=1" target="_blank">National Games 2026</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -189,15 +360,7 @@
                     <a href="src/event_calendar.php">Events Calendar</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <button class="nav-btn"><span>Affiliate</span></button>
-                <div class="dropup-menu">
-                    <a href="src/sarawak-chapters.php">Sarawak Chapters</a>
-                    <a href="src/sponsorships.php">Sponsorships</a>
-                    <a href="src/other-so.php">Special Olympics Organization</a>
-                </div>
-            </li>
-            <li class="nav-item">
+             <li class="nav-item">
                 <button class="nav-btn"><span>Gallery</span></button>
                 <div class="dropup-menu">
                     <a href="src/gallery-photos.php">Photos</a>
@@ -211,10 +374,9 @@
     <footer class="site-footer">
         <div class="site-footer-content">
             <div class="footer-top">
-                <span class="copyright-text">© 2025 Special Olympics Sarawak. All rights reserved</span>
+                <span class="copyright-text">© 2026 Special Olympics Sarawak. All rights reserved</span>
                 <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="src/disclaimer.html" class="footer-link">Disclaimer</a>
                     <a href="#" class="footer-link">Terms & Condition</a>
                     <a href="src/sitemap.php" class="footer-link">Sitemap</a>
                 </div>

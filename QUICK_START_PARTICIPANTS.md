@@ -14,7 +14,6 @@
 Open PowerShell in your project directory:
 ```powershell
 cd c:\xampp\htdocs\Special-Olympic-Sarawak-Website-Staging-environment
-composer require phpoffice/phpspreadsheet
 ```
 
 If you don't have Composer, download from: https://getcomposer.org/download/

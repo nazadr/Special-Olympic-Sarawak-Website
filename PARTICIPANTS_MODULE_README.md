@@ -191,6 +191,7 @@ scripts/
    - Green: New records imported
    - Blue: Existing records updated
    - Red: Failed records (with error details)
+   (need to be connecte to the correct database)
 
 ### 2. Managing Participants
 
