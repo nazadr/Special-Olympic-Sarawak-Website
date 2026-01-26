@@ -104,7 +104,7 @@ document.writeln(`
                 <p>© 2026 Special Olympics Sarawak. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="src/privacy-policy.html">Privacy Policy</a>
-                    <a href="src/terms-and-conditions.html">Terms & Conditions</a>
+                    <a href="src/terms-and-conditions.php">Terms & Conditions</a>
                 </div>
             </div>
             <div class="developer-credit">

@@ -322,7 +322,7 @@
                 <span class="copyright-text">© 2026 Special Olympics Sarawak. All rights reserved</span>
                 <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms & Condition</a>
+                    <a href="src/terms-and-conditions.php" class="footer-link">Terms & Condition</a>
                     <a href="src/sitemap.php" class="footer-link">Sitemap</a>
                 </div>
             </div>
