@@ -65,6 +65,21 @@ $sportIcons = [
             overflow-x: hidden;
             overflow-y: auto;
         }
+
+        /* Program card hover effects */
+        a.program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15) !important;
+            cursor: pointer;
+        }
+
+        a.program-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        a.program-card:active {
+            transform: translateY(-4px);
+        }
     </style>
 </head>
 <body>
@@ -109,33 +124,33 @@ $sportIcons = [
         <div class="container">
             <h2 class="section-title">Programs</h2>
             <div class="programs-grid">
-                <div class="program-card">
+                <a href="sohap.php" class="program-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div class="program-image">
                         <img src="../assets/images/healthy_program_1.jpg" alt="Medical professionals conducting health screenings for Special Olympics athletes">
                     </div>
                     <div class="program-content">
-                        <h3 class="program-title"><span class="program-number">1</span>Special Olympics Healthy Athletes Program (SOHAP)</h3>
+                        <h3 class="program-title"><span class="program-number">1</span>Special Olympics Healthy Athletes Program</h3>
                         <p>The Special Olympics Healthy Athletes program offers health services and education to Special Olympics athletes and focuses on removing the barriers to care that people with intellectual disabilities face.</p>
                     </div>
-                </div>
-                <div class="program-card">
+                </a>
+                <a href="alp.php" class="program-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div class="program-image">
                         <img src="../assets/images/leadership_1.jpg" alt="Special Olympics athletes participating in leadership training sessions">
                     </div>
                     <div class="program-content">
-                        <h3 class="program-title"><span class="program-number">2</span>Special Olympics Athlete Leadership Program (ALPs)</h3>
+                        <h3 class="program-title"><span class="program-number">2</span>Special Olympics Athlete Leadership Program </h3>
                         <p>This program provides athletes with opportunities to take on leadership roles in the Special Olympics movement beyond the playing field. Athletes serve as coaches, officials, spokespeople, and board members.</p>
                     </div>
-                </div>
-                <div class="program-card">
+                </a>
+                <a href="yap.php" class="program-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div class="program-image">
                         <img src="../assets/images/young_athelte_1.jpg" alt="Young children with intellectual disabilities playing sports games with coaches">
                     </div>
                     <div class="program-content">
-                        <h3 class="program-title"><span class="program-number">3</span> Young Athletes Program (YAP)</h3>
+                        <h3 class="program-title"><span class="program-number">3</span> Young Athletes Program</h3>
                         <p>An innovative sports play program for children with intellectual disabilities ages 2-7 years old. The program introduces basic sports skills through fun activities that support developmental milestones.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>

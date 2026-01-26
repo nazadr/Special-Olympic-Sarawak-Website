@@ -19,7 +19,7 @@
             --special-dark: #333333;
             --special-accent: #0091d1;
             /* Event Type */
-            --event-special: #e51f3a;
+            --event-tournament: #e51f3a;
             --event-training: #4caf50;
             --event-fundraiser: #9c27b0;
             --event-social: #ff9800;
@@ -183,7 +183,7 @@
         }
 
         /* Event Type Legend */
-        .event.special {
+        .event.tournament {
             background-color: var(--special-red);
             font-weight: 600;
         }
@@ -215,7 +215,7 @@
         }
 
         /* Add a new class for calendar-day backgrounds by event type */
-        .calendar-day.bg-special {
+        .calendar-day.bg-tournament {
             background-color: var(--special-red);
             color: white;
         }
@@ -469,7 +469,7 @@
             <div class="event-legend-grid-mobile" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center;">
                 <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
                     <div style="width: 20px; height: 20px; background: var(--special-red); border-radius: 50%; margin-right: 12px;"></div>
-                    <span style="font-weight: 600;">Special Event</span>
+                    <span style="font-weight: 600;">Tournament</span>
                 </div>
                 <div style="display: flex; align-items: center; width: 100%; max-width: 200px; padding: 10px; background: #f9f9f9; border-radius: 6px;">
                     <div style="width: 20px; height: 20px; background: #4caf50; border-radius: 50%; margin-right: 12px;"></div>
@@ -854,7 +854,7 @@
 
             function getEventColor(type) {
                 const colors = {
-                    'special': 'var(--special-red)',
+                    'special': 'var(--special-red)', // Tournament
                     'training': '#4caf50',
                     'fundraiser': '#9c27b0',
                     'social': '#ff9800',

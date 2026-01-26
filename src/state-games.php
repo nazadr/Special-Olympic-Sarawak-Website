@@ -362,7 +362,7 @@ try {
             </div>
             <div class="sg-eligibility-card border-bottom">
                 <div class="sg-eligibility-content">
-                    <p style="color: #e53935; font-size: 0.9rem; font-weight: 600; margin: 0 0 4px 0;">GET INVOLVED</p>
+                    <p style="color: #FF0000; font-size: 0.9rem; font-weight: 600; margin: 0 0 4px 0;">GET INVOLVED</p>
                     <h3 style="margin-top: 0;">Volunteer Opportunities</h3>
                     <p>State Games rely on the support of dedicated volunteers to help with various aspects of the event, including athlete support, event logistics, and hospitality. Volunteers play a vital role in creating a positive and inclusive environment for athletes and are encouraged to participate in this rewarding experience. Training and orientation sessions will be provided for all volunteers prior to the event.</p>
                 </div>

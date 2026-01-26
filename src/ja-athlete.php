@@ -32,7 +32,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .form-container h2 {
-            color: #e53935;
+            color: #FF0000;
             text-align: center;
             margin-bottom: 20px;
             font-size: 2.2rem;
@@ -49,7 +49,7 @@
             color: #111827;
             margin-top: 30px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #e53935;
+            border-bottom: 2px solid #FF0000;
             padding-bottom: 10px;
         }
         .form-group {
@@ -149,11 +149,11 @@
             background-color: #5a6268;
         }
         .form-actions button[type="submit"] {
-            background-color: #e53935;
+            background-color: #FF0000;
             color: white;
         }
         .form-actions button[type="submit"]:hover {
-            background-color: #c62828;
+            background-color: #CC0000;
         }
 
         /* Dropdown Checkbox Styling */
@@ -224,11 +224,11 @@
         <form action="ja-athlete-submit-initial.html" method="POST">
             <div class="form-section-title">YOUR PERSONAL INFORMATION</div>
             <div class="form-group">
-                <label for="athlete_full_name">Full Name: <span style="color: #e53935">*</span></label>
+                <label for="athlete_full_name">Full Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="athlete_full_name" name="athlete_full_name" placeholder="John Mason" required>
             </div>
             <div class="form-group">
-                <label>Gender: <span style="color: #e53935">*</span></label>
+                <label>Gender: <span style="color: #FF0000">*</span></label>
                 <div class="radio-group">
                     <input type="radio" id="athlete_gender_m" name="athlete_gender" value="M" required>
                     <label for="athlete_gender_m">M</label>
@@ -237,36 +237,36 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="athlete_nric_passport">NRIC/Passport No.: <span style="color: #e53935">*</span></label>
+                <label for="athlete_nric_passport">NRIC/Passport No.: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="athlete_nric_passport" name="athlete_nric_passport" required>
             </div>
             <div class="form-group">
-                <label for="athlete_oku_card">OKU/PWD Card No.: <span style="color: #e53935">*</span></label>
+                <label for="athlete_oku_card">OKU/PWD Card No.: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="athlete_oku_card" name="athlete_oku_card">
             </div>
             <div class="form-group">
-                <label for="athlete_dob">Date of Birth: <span style="color: #e53935">*</span></label>
+                <label for="athlete_dob">Date of Birth: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="athlete_dob" name="athlete_dob" placeholder="DD/MM/YYYY" required>
             </div>
             <div class="form-group">
-                <label for="athlete_age">Age: <span style="color: #e53935">*</span></label>
+                <label for="athlete_age">Age: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="athlete_age" name="athlete_age" readonly>
             </div>
             <div class="form-group">
-                <label for="athlete_email">Email Address: <span style="color: #e53935">*</span></label>
+                <label for="athlete_email">Email Address: <span style="color: #FF0000">*</span></label>
                 <input type="email" id="athlete_email" name="athlete_email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
-                <label for="athlete_phone">Phone Number: <span style="color: #e53935">*</span></label>
+                <label for="athlete_phone">Phone Number: <span style="color: #FF0000">*</span></label>
                 <input type="tel" id="athlete_phone" name="athlete_phone" placeholder="+60 12-345 6789" required>
             </div>
             <div class="form-group">
-                <label for="athlete_mailing_address">Mailing Address: <span style="color: #e53935">*</span></label>
+                <label for="athlete_mailing_address">Mailing Address: <span style="color: #FF0000">*</span></label>
                 <textarea style="resize: none;" id="athlete_mailing_address" name="athlete_mailing_address" placeholder="No. 123, Taman Lorem Ipsum, Jalan Dolor Sit Amet, 96000 Sibu, Sarawak." required></textarea>
             </div>
             <!-- Active Sports Checkbox -->
             <div class="form-group">
-                <label>Preferred Sports <span style="color: #e53935">*</span></label>
+                <label>Preferred Sports <span style="color: #FF0000">*</span></label>
                 <div class="checkbox-group">
                     <div><input type="checkbox" id="athleteActiveSports" name="athlete_active_sports[]" value="Aquatics"><label for="aquatics">Aquatics</label></div>
                     <div><input type="checkbox" id="athleteActiveSports" name="athlete_active_sports[]" value="Athletes"><label for="athletes">Athletics</label></div>
@@ -293,7 +293,7 @@
                 </div>
             </div> -->
             <div class="form-group">
-                <label>Athlete with Intellectual Disabilities: <span style="color: #e53935">*</span></label>
+                <label>Athlete with Intellectual Disabilities: <span style="color: #FF0000">*</span></label>
                 <div class="radio-group">
                     <input type="radio" id="athlete_id_yes" name="athlete_intellectual_disabilities" value="Yes" required>
                     <label for="athlete_id_yes">Yes</label>
@@ -303,11 +303,11 @@
             </div>
             <!-- Event Interested Checkbox -->
             <div class="form-group">
-                <label>Event Interested in: <span style="color: #e53935">*</span></label>
+                <label>Event Interested in: <span style="color: #FF0000">*</span></label>
                 <div class="checkbox-group">
-                    <div><input type="checkbox" id="athleteEventInterested" name="athlete_event_interested[]" value="SOHAP"><label for="sohap">Healthy Athletes Program (SOHAP)</label></div>
-                    <div><input type="checkbox" id="athleteEventInterested" name="athlete_event_interested[]" value="ALPs"><label for="alp">Athletes Leadership Program (ALPs)</label></div>
-                    <div><input type="checkbox" id="athleteEventInterested" name="athlete_event_interested[]" value="YAP"><label for="yap">Young Athletes Program (YAP)</label></div>
+                    <div><input type="checkbox" id="athleteEventInterested" name="athlete_event_interested[]" value="SOHAP"><label for="sohap">Healthy Athletes Program</label></div>
+                    <div><input type="checkbox" id="athleteEventInterested" name="athlete_event_interested[]" value="ALP"><label for="alp">Athlete Leadership Program</label></div>
+                    <div><input type="checkbox" id="athleteEventInterested" name="athlete_event_interested[]" value="YAP"><label for="yap">Young Athletes Program</label></div>
                 </div>
             </div>
             <!-- <div class="form-group">
@@ -322,7 +322,7 @@
                 </div>
             </div> -->
             <div class="form-group">
-                <label for="athlete_registered_in">Athlete registered in: <span style="color: #e53935">*</span></label>
+                <label for="athlete_registered_in">Athlete registered in: <span style="color: #FF0000">*</span></label>
                 <select id="athlete_registered_in" name="athlete_registered_in" required>
                     <option value="">Select Location</option>
                     <option value="Bintulu">Bintulu</option>
@@ -334,11 +334,11 @@
 
             <div class="form-section-title">PARENT / GUARDIAN INFORMATION</div>
             <div class="form-group">
-                <label for="parent_guardian_name">Parent/Guardian's Full Name: <span style="color: #e53935">*</span></label>
+                <label for="parent_guardian_name">Parent/Guardian's Full Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="parent_guardian_name" name="parent_guardian_name" required>
             </div>
             <div class="form-group">
-                <label for="parent_guardian_relation">Relation with Athlete: <span style="color: #e53935">*</span></label>
+                <label for="parent_guardian_relation">Relation with Athlete: <span style="color: #FF0000">*</span></label>
                 <select id="parent_guardian_relation" name="parent_guardian_relation" required>
                     <option value="">Select Relation</option>
                     <option value="Aunt">Aunt</option>
@@ -351,13 +351,13 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="parent_guardian_phone">Parent/Guardian's Phone Number: <span style="color: #e53935">*</span></label>
+                <label for="parent_guardian_phone">Parent/Guardian's Phone Number: <span style="color: #FF0000">*</span></label>
                 <div style="display: flex;">
                     <input type="tel" id="parent_guardian_phone" name="parent_guardian_phone" placeholder="+60 12-345 6789" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="parent_guardian_email">Parent/Guardian's Email: <span style="color: #e53935">*</span></label>
+                <label for="parent_guardian_email">Parent/Guardian's Email: <span style="color: #FF0000">*</span></label>
                 <input type="email" id="parent_guardian_email" name="parent_guardian_email" required>
             </div>
 
@@ -383,7 +383,7 @@
                 <p>(This is a placeholder and is subject to change.)</p>
                 <div class="checkbox-container">
                     <input type="checkbox" id="athlete_agree" name="athlete_agree" required>
-                    <label for="athlete_agree">I AGREE <span style="color: #e53935">*</span></label>
+                    <label for="athlete_agree">I AGREE <span style="color: #FF0000">*</span></label>
                 </div>
                 <p>By submitting this form, I confirm that the information provided is accurate and true, read and AGREED to the terms.</p>
             </div>

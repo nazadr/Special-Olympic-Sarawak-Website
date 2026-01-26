@@ -6,6 +6,7 @@ document.writeln(`
         <div class="logo">
             <a href="index.php"><img src="assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img" style="margin-top: 4px;"></a>
             <img src="assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
+            <img src="assets/images/Malaysia_Flag_New.png" alt="Malaysia Flag" class="sarawak-flag-header" style="object-fit: contain;">
         </div>
 
         <!-- Hamburger Icon for Mobile -->
@@ -26,9 +27,23 @@ document.writeln(`
                     </ul>
                 </li>
                 <li class="dropdown mobile-dropdown-parent">
-                    <a href="#news">News <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="#whatwedo">What We Do? <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/latest-news.php">In the News</a></li>
+                        <li><a href="src/getting_started.php">Getting Started</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mobile-dropdown-parent">
+                    <a href="#affiliate">Affiliate <i class="fa-solid fa-angle-down"></i></a>
+                    <ul class="dropdown-menu mobile-dropdown-submenu">
+                        <li><a href="src/sarawak-chapters.php">Sarawak Chapters</a></li>
+                        <li><a href="src/sponsorships.php">Sponsorships</a></li>
+                        <li><a href="src/other-so.php">Special Olympics Organization</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mobile-dropdown-parent">
+                    <a href="#sports">Sports <i class="fa-solid fa-angle-down"></i></a>
+                    <ul class="dropdown-menu mobile-dropdown-submenu">
+                        <li><a href="src/sport.php">Our Sports</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-dropdown-parent">
@@ -47,29 +62,22 @@ document.writeln(`
                 </li>
                 <!-- Bottom Navigation items integrated here for mobile -->
                 <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">What We Do? <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="#">News <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/getting_started.php">Getting Started</a></li>
-                        <li><a href="src/alp.php">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
+                        <li><a href="src/latest-news.php">In the News</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Core Program <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sohap.php">Healthy Athletes Program (HAP)</a></li>
+                        <li><a href="src/sohap.php">Healthy Athletes Program</a></li>
+                        <li><a href="src/yap.php">Young Athletes Program</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">Sports <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="#">National Games 2026 <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/sport.php">Our Sports</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown mobile-only mobile-dropdown-parent">
-                    <a href="#">SONG 2026 <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="src/SONG 26.php">SONG 26</a></li>
+                        <li><a href="src/SONG 26.php?standalone=1" target="_blank">National Games 2026</a></li>
                     </ul>
                 </li>
                 <li class="dropdown mobile-only mobile-dropdown-parent">

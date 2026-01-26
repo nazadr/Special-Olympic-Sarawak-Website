@@ -31,7 +31,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .form-container h2 {
-            color: #e53935;
+            color: #FF0000;
             text-align: center;
             margin-bottom: 20px;
             font-size: 2.2rem;
@@ -48,7 +48,7 @@
             color: #111827;
             margin-top: 30px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #e53935;
+            border-bottom: 2px solid #FF0000;
             padding-bottom: 10px;
         }
         .form-group {
@@ -145,11 +145,11 @@
             background-color: #5a6268;
         }
         .form-actions button[type="submit"] {
-            background-color: #e53935;
+            background-color: #FF0000;
             color: white;
         }
         .form-actions button[type="submit"]:hover {
-            background-color: #c62828;
+            background-color: #CC0000;
         }
     </style>
 </head>
@@ -168,11 +168,11 @@
         <form action="ja-coach-submit-initial.html" method="POST">
             <div class="form-section-title">YOUR PERSONAL INFORMATION</div>
             <div class="form-group">
-                <label for="coach_full_name">Full Name: <span style="color: #e53935">*</span></label>
+                <label for="coach_full_name">Full Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="coach_full_name" name="coach_full_name" placeholder="John Mason" required>
             </div>
             <div class="form-group">
-                <label>Gender: <span style="color: #e53935">*</span></label>
+                <label>Gender: <span style="color: #FF0000">*</span></label>
                 <div class="radio-group">
                     <input type="radio" id="coach_gender_m" name="coach_gender" value="M" required>
                     <label for="coach_gender_m">M</label>
@@ -181,63 +181,63 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="coach_nric_passport">NRIC/Passport No.: <span style="color: #e53935">*</span></label>
+                <label for="coach_nric_passport">NRIC/Passport No.: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="coach_nric_passport" name="coach_nric_passport" required>
             </div>
             <div class="form-group">
-                <label for="coach_dob">Date of Birth: <span style="color: #e53935">*</span></label>
+                <label for="coach_dob">Date of Birth: <span style="color: #FF0000">*</span></label>
                 <input type="date" id="coach_dob" name="coach_dob" placeholder="DD/MM/YYYY">
             </div>
             <div class="form-group">
-                <label for="coach_age">Age: <span style="color: #e53935">*</span></label>
+                <label for="coach_age">Age: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="coach_age" name="coach_age" readonly>
             </div>
             <div class="form-group">
-                <label for="coach_email">Email Address: <span style="color: #e53935">*</span></label>
+                <label for="coach_email">Email Address: <span style="color: #FF0000">*</span></label>
                 <input type="email" id="coach_email" name="coach_email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
-                <label for="coach_phone">Phone Number: <span style="color: #e53935">*</span></label>
+                <label for="coach_phone">Phone Number: <span style="color: #FF0000">*</span></label>
                 <input type="tel" id="coach_phone" name="coach_phone" placeholder="+60 12-345 6789" required>
             </div>
             <div class="form-group">
-                <label for="coach_mailing_address">Mailing Address: <span style="color: #e53935">*</span></label>
+                <label for="coach_mailing_address">Mailing Address: <span style="color: #FF0000">*</span></label>
                 <textarea style="resize: none;" id="coach_mailing_address" name="coach_mailing_address" placeholder="No. 123, Taman Lorem Ipsum, Jalan Dolor Sit Amet, 96000 Sibu, Sarawak." required></textarea>
             </div>
 
             <div class="form-section-title">EXPERIENCE AND CERTIFICATION</div>
             <div class="form-group">
-                <label for="sport_coached">Sport Coached: <span style="color: #e53935">*</span></label>
+                <label for="sport_coached">Sport Coached: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="sport_coached" name="sport_coached">
             </div>
             <div class="form-group">
-                <label for="years_experience">Years of Experience: <span style="color: #e53935">*</span></label>
+                <label for="years_experience">Years of Experience: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="years_experience" name="years_experience">
             </div>
             <div class="form-group">
-                <label for="type_certification">Type of Certification: <span style="color: #e53935">*</span></label>
+                <label for="type_certification">Type of Certification: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="type_certification" name="type_certification">
             </div>
             <div class="form-group">
-                <label for="date_certification">Date of Certification: <span style="color: #e53935">*</span></label>
+                <label for="date_certification">Date of Certification: <span style="color: #FF0000">*</span></label>
                 <input type="date" id="date_certification" name="date_certification" placeholder="DD/MM/YYYY">
             </div>
 
             <div class="form-section-title">EMERGENCY CONTACT INFORMATION</div>
             <div class="form-group">
-                <label for="emergency_full_name">Full Name: <span style="color: #e53935">*</span></label>
+                <label for="emergency_full_name">Full Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="emergency_full_name" name="emergency_full_name" placeholder="Jane Doe" required>
             </div>
             <div class="form-group">
-                <label for="emergency_relationship">Relationship with the Coach: <span style="color: #e53935">*</span></label>
+                <label for="emergency_relationship">Relationship with the Coach: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="emergency_relationship" name="emergency_relationship" placeholder="Mother" required>
             </div>
             <div class="form-group">
-                <label for="emergency_phone">Phone Number: <span style="color: #e53935">*</span></label>
+                <label for="emergency_phone">Phone Number: <span style="color: #FF0000">*</span></label>
                 <input type="tel" id="emergency_phone" name="emergency_phone" placeholder="+60 12-345 6789" required>
             </div>
             <div class="form-group">
-                <label for="emergency_email">Email Address: <span style="color: #e53935">*</span></label>
+                <label for="emergency_email">Email Address: <span style="color: #FF0000">*</span></label>
                 <input type="email" id="emergency_email" name="emergency_email" placeholder="jane@example.com" required>
             </div>
 
@@ -258,7 +258,7 @@
                 <p>(This is a placeholder and is subject to change.)</p>
                 <div class="checkbox-container">
                     <input type="checkbox" id="coach_agree" name="coach_agree" required>
-                    <label for="coach_agree">I AGREE <span style="color: #e53935">*</span></label>
+                    <label for="coach_agree">I AGREE <span style="color: #FF0000">*</span></label>
                 </div>
                 <p>By submitting this form, I confirm that the information provided is accurate and true, read and AGREED to the terms.</p>
             </div>

@@ -43,9 +43,9 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>Programs <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="src/sohap.php">Healthy Athletes Program (SOHAP)</a></li>
-                        <li><a href="src/alp.php">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="src/yap.php">Young Athletes Program (YAP)</a></li>
+                        <li><a href="src/sohap.php">Healthy Athletes Program</a></li>
+                        <li><a href="src/alp.php">Athlete Leadership Program</a></li>
+                        <li><a href="src/yap.php">Young Athletes Program</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -101,10 +101,9 @@ document.writeln(`
         </div>
         <div class="footer-bottom">
             <div class="copyright-links">
-                <p>© 2025 Special Olympics Sarawak. All rights reserved.</p>
+                <p>© 2026 Special Olympics Sarawak. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="src/privacy-policy.html">Privacy Policy</a>
-                    <a href="src/disclaimer.html">Disclaimer</a>
                     <a href="src/terms-and-conditions.html">Terms & Conditions</a>
                 </div>
             </div>

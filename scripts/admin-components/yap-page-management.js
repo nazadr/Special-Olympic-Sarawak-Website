@@ -3,6 +3,7 @@
 // Global variable to store the current hero image path
 let currentYapHeroImagePath = '';
 let currentYapResourcesImagePath = '';
+let currentYapContentId = null;
 
 // Format text in the YAP description editor
 function formatYapText(command, value = null) {
@@ -114,8 +115,11 @@ function loadYapPageSettings() {
             if (data.success && data.data) {
                 const yapData = data.data;
                 
+                // Store the content ID for updates
+                currentYapContentId = yapData.id;
+                
                 // Populate hero section
-                document.getElementById('yapHeroTitle').value = yapData.hero_title || 'Young Athletes Program (YAP)';
+                document.getElementById('yapHeroTitle').value = yapData.hero_title || 'Young Athletes Program';
                 
                 // Set hero image
                 if (yapData.hero_image) {
@@ -129,7 +133,7 @@ function loadYapPageSettings() {
                 // Update hero title in preview
                 const currentHeroTitle = document.getElementById('currentYapHeroTitle');
                 if (currentHeroTitle) {
-                    currentHeroTitle.textContent = yapData.hero_title || 'Young Athletes Program (YAP)';
+                    currentHeroTitle.textContent = yapData.hero_title || 'Young Athletes Program';
                 }
                 
                 // Populate description content (RTE)
@@ -201,6 +205,7 @@ function saveYapPageSettings() {
     // Create FormData object
     const formData = new FormData();
     formData.append('action', 'update_yap_content');
+    formData.append('yap_id', currentYapContentId || '');
     formData.append('hero_title', heroTitle);
     formData.append('description_text', descriptionContent);
     formData.append('testimonial_text', testimonialText);

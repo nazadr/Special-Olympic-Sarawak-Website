@@ -6,21 +6,21 @@
     // Configurable options
     var bubbleConfig = {
         link: 'SONG 26.php',
-        icon: "assets/icons/bintulu-stork.png", // Use relative path from main pages
+        icon: "assets/images/SONG26_Logo.png", // Use relative path from main pages
         tooltip: 'SONG 2026 page',
-        bubbleColor: '#d90429',
-        iconColor: 'invert(1)', // white
-        hoverBubbleColor: '#fff',
-        hoverIconColor: 'invert(16%) sepia(99%) saturate(7490%) hue-rotate(-5deg) brightness(97%) contrast(119%)', // red
-        size: 74,
-        iconSize: 36,
+        bubbleColor: '#fff',
+        iconColor: 'none', // natural colors
+        hoverBubbleColor: '#FF0000',
+        hoverIconColor: 'none', // natural colors
+        size: 110,
+        iconSize: 70,
         left: 12,
         zIndex: 100
     };
 
     // Detect if current page is in src/ folder
     var isSrcPage = window.location.pathname.match(/\/src\//);
-    bubbleConfig.icon = isSrcPage ? '../assets/icons/bintulu-stork.png' : 'assets/icons/bintulu-stork.png';
+    bubbleConfig.icon = isSrcPage ? '../assets/images/SONG26_Logo.png' : 'assets/images/SONG26_Logo.png';
 
     // Robust path detection for SONG 26.php (no src/ in link, only for logo if needed)
     var songPage = 'SONG 26.php';
@@ -75,7 +75,7 @@
         icon.style.width = config.iconSize + 'px';
         icon.style.height = config.iconSize + 'px';
         icon.style.filter = config.iconColor;
-        icon.style.transition = 'filter 0.3s';
+        icon.style.transition = 'transform 0.3s';
         bubble.appendChild(icon);
 
         // Tooltip
@@ -102,8 +102,8 @@
         // Hover effect
         bubble.addEventListener('mouseenter', function() {
             bubble.style.background = config.hoverBubbleColor;
-            bubble.style.boxShadow = '0 8px 24px rgba(217,4,41,0.18)';
-            icon.style.filter = config.hoverIconColor;
+            bubble.style.boxShadow = '0 8px 24px rgba(255, 0, 0,0.18)';
+            icon.style.transform = 'scale(1.05)';
             tooltip.style.opacity = '1';
             tooltip.style.transform = 'translateY(-50%) scale(1)';
             tooltip.style.background = config.hoverBubbleColor;
@@ -112,7 +112,7 @@
         bubble.addEventListener('mouseleave', function() {
             bubble.style.background = config.bubbleColor;
             bubble.style.boxShadow = '0 4px 16px rgba(0,0,0,0.12)';
-            icon.style.filter = config.iconColor;
+            icon.style.transform = 'scale(1)';
             tooltip.style.opacity = '0';
             tooltip.style.transform = 'translateY(-50%) scale(0.95)';
             tooltip.style.background = config.bubbleColor;

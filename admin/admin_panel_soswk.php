@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 
 // Debug: Show session status (remove in production)
@@ -579,8 +579,8 @@ if ($debug_mode) {
         }
         
         .modal-close:hover {
-            color: #e53935 !important;
-            background: rgba(229, 57, 53, 0.1) !important;
+            color: #FF0000 !important;
+            background: rgba(255, 0, 0, 0.1) !important;
         }
         
         /* Modal Body Styling */
@@ -2255,6 +2255,53 @@ if ($debug_mode) {
             cursor: pointer;
         }
 
+        /* Upload Excel Modal Specific Styles */
+        #uploadExcelModal .column-list {
+            margin: 0;
+            padding-left: 24px;
+            list-style: decimal;
+        }
+
+        #uploadExcelModal .column-list li {
+            margin-bottom: 4px;
+            line-height: 1.6;
+        }
+
+        #uploadExcelModal .modal-footer {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            z-index: 10;
+        }
+
+        #uploadExcelModal .news-modal-content {
+            overflow: hidden;
+        }
+
+        #uploadExcelModal .modal-body {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        #uploadExcelModal .modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #uploadExcelModal .modal-body::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        #uploadExcelModal .modal-body::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        #selectedFileName {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .image-preview {
             margin-top: 10px;
         }
@@ -2276,6 +2323,65 @@ if ($debug_mode) {
         .image-preview-item small {
             color: #64748b;
             font-size: 12px;
+        }
+
+        /* Form Group Styles for Modals */
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1e293b;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
         }
 
         /* Loading & Empty States */
@@ -2746,6 +2852,169 @@ if ($debug_mode) {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* ========================================
+           DOCUMENTS SECTION STYLES
+           ======================================== */
+        
+        .view-toggle-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .view-toggle-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .view-toggle-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .view-toggle-btn i {
+            font-size: 14px;
+        }
+
+        #docsGridView {
+            display: none;
+        }
+
+        #docsListView {
+            display: block;
+        }
+
+        /* Document Grid Cards */
+        .docs-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .docs-grid-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .docs-grid-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .docs-file-icon {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .docs-file-icon i {
+            font-size: 48px;
+            color: white;
+        }
+
+        .docs-file-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 14px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .docs-file-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .docs-stats-box {
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .docs-stats-label {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .docs-stats-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .docs-stats-breakdown {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .docs-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .docs-action-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .docs-download-btn {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .docs-download-btn:hover {
+            background: #2563eb;
+        }
+
+        .docs-delete-btn {
+            background: white;
+            border: 1px solid #fecaca;
+            color: #ef4444;
+        }
+
+        .docs-delete-btn:hover {
+            background: #fef2f2;
+        }
+
+        @media (max-width: 768px) {
+            .docs-grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2951,7 +3220,7 @@ if ($debug_mode) {
                                 <h4 class="stat-value" id="totalAthletes">-</h4>
                                 <p class="stat-label">Athletes</p>
                                 <div class="stat-breakdown">
-                                    <span id="athletesMale">-</span> Male • <span id="athletesFemale">-</span> Female
+                                    <span id="athletesMale">-</span> Male � <span id="athletesFemale">-</span> Female
                                 </div>
                             </div>
                         </div>
@@ -2964,7 +3233,7 @@ if ($debug_mode) {
                                 <h4 class="stat-value" id="totalVolunteers">-</h4>
                                 <p class="stat-label">Volunteers</p>
                                 <div class="stat-breakdown">
-                                    <span id="volunteersMale">-</span> Male • <span id="volunteersFemale">-</span> Female
+                                    <span id="volunteersMale">-</span> Male � <span id="volunteersFemale">-</span> Female
                                 </div>
                             </div>
                         </div>
@@ -2977,7 +3246,7 @@ if ($debug_mode) {
                                 <h4 class="stat-value" id="totalCoaches">-</h4>
                                 <p class="stat-label">Coaches</p>
                                 <div class="stat-breakdown">
-                                    <span id="coachesMale">-</span> Male • <span id="coachesFemale">-</span> Female
+                                    <span id="coachesMale">-</span> Male � <span id="coachesFemale">-</span> Female
                                 </div>
                             </div>
                         </div>
@@ -3014,7 +3283,7 @@ if ($debug_mode) {
                     <div class="dashboard-card">
                         <div class="dashboard-card-header">
                             <h3><i class="fas fa-calendar-alt"></i> Events</h3>
-                            <a href="#" onclick="navigateToSection('events'); return false;" class="view-all-link">View All →</a>
+                            <a href="#" onclick="navigateToSection('events'); return false;" class="view-all-link">View All ?</a>
                         </div>
                         <div class="dashboard-card-body">
                             <div class="mini-stats-grid">
@@ -3413,7 +3682,7 @@ if ($debug_mode) {
                         </div>
                         <div class="events-stat-content">
                             <h4 class="events-stat-value" id="specialEventsCount">0</h4>
-                            <p class="events-stat-label">Special Events</p>
+                            <p class="events-stat-label">Tournaments</p>
                         </div>
                     </div>
                     <div class="events-stat-card">
@@ -3445,7 +3714,7 @@ if ($debug_mode) {
                             </label>
                             <select id="filterEventType" class="events-filter-select">
                                 <option value="all">All Events</option>
-                                <option value="special">Special Event</option>
+                                <option value="special">Tournament</option>
                                 <option value="training">Training</option>
                                 <option value="fundraiser">Fundraiser</option>
                                 <option value="social">Social</option>
@@ -3548,7 +3817,7 @@ if ($debug_mode) {
                             <label for="eventType">Type:</label>
                             <select style="font-family: 'Inter', sans-serif;" id="eventType" name="eventType" required>
                                 <option value="">Select Event Type</option>
-                                <option value="special">Special Event</option>
+                                <option value="special">Tournament</option>
                                 <option value="training">Training</option>
                                 <option value="fundraiser">Fundraiser</option>
                                 <option value="social">Social</option>
@@ -3807,8 +4076,8 @@ if ($debug_mode) {
 
             <!-- Athletes Section -->
             <div class="content-section" id="athletes">
-                <div class="section-header">
-                    <div class="section-header-content">
+                <div class="section-header" style="flex-direction: column; align-items: flex-end; gap: 16px;">
+                    <div class="section-header-content" style="width: 100%;">
                         <div class="section-icon participants">
                             <i class="fas fa-running"></i>
                         </div>
@@ -3817,9 +4086,14 @@ if ($debug_mode) {
                             <p class="section-subtitle">Manage athlete registrations and data from Microsoft Forms</p>
                         </div>
                     </div>
-                    <button class="add-news-btn" onclick="openUploadModal('athletes')">
-                        <i class="fas fa-file-upload"></i> Upload Excel File
-                    </button>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="add-news-btn" onclick="openAddParticipantModal('athletes')" style="background: #10b981;">
+                            <i class="fas fa-user-plus"></i> Add New Athlete
+                        </button>
+                        <button class="add-news-btn" onclick="openUploadModal('athletes')">
+                            <i class="fas fa-file-upload"></i> Upload Excel File
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Athletes Statistics Overview -->
@@ -3940,8 +4214,8 @@ if ($debug_mode) {
 
             <!-- Coaches Section -->
             <div class="content-section" id="coaches">
-                <div class="section-header">
-                    <div class="section-header-content">
+                <div class="section-header" style="flex-direction: column; align-items: flex-end; gap: 16px;">
+                    <div class="section-header-content" style="width: 100%;">
                         <div class="section-icon participants">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
@@ -3950,9 +4224,14 @@ if ($debug_mode) {
                             <p class="section-subtitle">Manage coach registrations and data from Microsoft Forms</p>
                         </div>
                     </div>
-                    <button class="add-news-btn" onclick="openUploadModal('coaches')">
-                        <i class="fas fa-file-upload"></i> Upload Excel File
-                    </button>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="add-news-btn" onclick="openAddParticipantModal('coaches')" style="background: #10b981;">
+                            <i class="fas fa-user-plus"></i> Add New Coach
+                        </button>
+                        <button class="add-news-btn" onclick="openUploadModal('coaches')">
+                            <i class="fas fa-file-upload"></i> Upload Excel File
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Coaches Statistics Overview -->
@@ -4073,8 +4352,8 @@ if ($debug_mode) {
 
             <!-- Volunteers Section -->
             <div class="content-section" id="volunteers">
-                <div class="section-header">
-                    <div class="section-header-content">
+                <div class="section-header" style="flex-direction: column; align-items: flex-end; gap: 16px;">
+                    <div class="section-header-content" style="width: 100%;">
                         <div class="section-icon participants">
                             <i class="fas fa-hands-helping"></i>
                         </div>
@@ -4083,9 +4362,14 @@ if ($debug_mode) {
                             <p class="section-subtitle">Manage volunteer registrations and data from Microsoft Forms</p>
                         </div>
                     </div>
-                    <button class="add-news-btn" onclick="openUploadModal('volunteers')">
-                        <i class="fas fa-file-upload"></i> Upload Excel File
-                    </button>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="add-news-btn" onclick="openAddParticipantModal('volunteers')" style="background: #10b981;">
+                            <i class="fas fa-user-plus"></i> Add New Volunteer
+                        </button>
+                        <button class="add-news-btn" onclick="openUploadModal('volunteers')">
+                            <i class="fas fa-file-upload"></i> Upload Excel File
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Volunteers Statistics Overview -->
@@ -4474,7 +4758,7 @@ if ($debug_mode) {
                         </div>
                         <div>
                             <h2 class="section-title">Healthy Athletes Program</h2>
-                            <p class="section-subtitle">Manage health screenings, wellness programs, and community impact articles for SOHAP</p>
+                            <p class="section-subtitle">Manage health screenings, wellness programs, and community impact articles for Healthy Athletes Program</p>
                         </div>
                     </div>
                     <button class="add-hap-btn" onclick="openHapModal()">
@@ -4639,7 +4923,7 @@ if ($debug_mode) {
                         <div class="published-title">
                             <div>
                                 <h3>Published Articles</h3>
-                                <p>Drag to reorder • Click to edit</p>
+                                <p>Drag to reorder � Click to edit</p>
                             </div>
                             <div class="hap-view-controls">
                                 <button class="view-toggle-btn active" data-view="grid" onclick="toggleHapView('grid')">
@@ -4677,8 +4961,8 @@ if ($debug_mode) {
                             <i class="fas fa-child"></i>
                         </div>
                         <div class="section-text">
-                            <h2 class="section-title">Young Athletes Program (YAP) Page</h2>
-                            <p class="section-subtitle">Manage hero section image and description content for the YAP page</p>
+                            <h2 class="section-title">Young Athletes Program Page</h2>
+                            <p class="section-subtitle">Manage hero section image and description content for the Young Athletes Program page</p>
                         </div>
                     </div>
                 </div>
@@ -4694,13 +4978,13 @@ if ($debug_mode) {
                             <div class="current-hero-preview" id="currentYapHeroPreview">
                                 <img src="" alt="Current Hero Image" id="currentYapHeroImage">
                                 <div class="hero-overlay">
-                                    <h1 id="currentYapHeroTitle">Young Athletes Program (YAP)</h1>
+                                    <h1 id="currentYapHeroTitle">Young Athletes Program</h1>
                                 </div>
                             </div>
                             
                             <div class="yap-form-group">
                                 <label for="yapHeroTitle">Hero Title</label>
-                                <input type="text" id="yapHeroTitle" placeholder="Young Athletes Program (YAP)" maxlength="100">
+                                <input type="text" id="yapHeroTitle" placeholder="Young Athletes Program" maxlength="100">
                             </div>
 
                             <div class="yap-form-group">
@@ -4759,7 +5043,7 @@ if ($debug_mode) {
                                         <span class="editor-separator"></span>
                                         
                                         <select class="editor-btn" onchange="formatYapText('formatBlock', this.value); this.selectedIndex=0;" title="Paragraph Style">
-                                            <option value="">¶ Style</option>
+                                            <option value="">� Style</option>
                                             <option value="p">Paragraph</option>
                                             <option value="h1">Heading 1</option>
                                             <option value="h2">Heading 2</option>
@@ -4891,14 +5175,129 @@ if ($debug_mode) {
             <!-- Documents Section -->
             <div class="content-section" id="documents">
                 <div class="section-header">
-                    <h2 class="section-title">Documents Management</h2>
-                    <p class="section-subtitle">Upload and manage documents</p>
+                    <div class="section-header-content">
+                        <div class="section-icon participants">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="section-text">
+                            <h2 class="section-title">Participants Documents</h2>
+                            <p class="section-subtitle">Excel upload history and document management</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="content-placeholder">
-                    <i class="fas fa-file-alt"></i>
-                    <h3>Documents Content</h3>
-                    <p>Add your documents management interface here</p>
+                <!-- Document Stats Overview -->
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="docsTotalCount">0</h4>
+                            <p class="stat-label">Total Uploads</p>
+                            <span class="stat-subtitle">All Excel files</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="docsAthletesCount">0</h4>
+                            <p class="stat-label">Athletes Files</p>
+                            <span class="stat-subtitle">Excel uploads</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="docsCoachesCount">0</h4>
+                            <p class="stat-label">Coaches Files</p>
+                            <span class="stat-subtitle">Excel uploads</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h4 class="stat-value" id="docsVolunteersCount">0</h4>
+                            <p class="stat-label">Volunteers Files</p>
+                            <span class="stat-subtitle">Excel uploads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Explorer Controls -->
+                <div class="docs-explorer-controls" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                        <div class="search-bar" style="flex: 1; max-width: 400px;">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="docsSearchInput" placeholder="Search files by name or uploader...">
+                        </div>
+
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <select id="docsTypeFilter" style="padding: 10px 16px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; cursor: pointer;">
+                                <option value="all">All Types</option>
+                                <option value="athlete">Athletes</option>
+                                <option value="coach">Coaches</option>
+                                <option value="volunteer">Volunteers</option>
+                            </select>
+
+                            <select id="docsSortBy" style="padding: 10px 16px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; cursor: pointer;">
+                                <option value="date-desc">Newest First</option>
+                                <option value="date-asc">Oldest First</option>
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="size-desc">Largest Files</option>
+                                <option value="size-asc">Smallest Files</option>
+                            </select>
+
+                            <button class="filter-btn" onclick="toggleDocView('grid')" id="gridViewBtn" style="padding: 10px 16px;">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="filter-btn active" onclick="toggleDocView('list')" id="listViewBtn" style="padding: 10px 16px;">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Grid/List View -->
+                <div id="docsGridView" class="docs-grid-container" style="display: none;">
+                    <!-- Grid view will be populated by JavaScript -->
+                </div>
+
+                <!-- Documents List View (Default) -->
+                <div id="docsListView" class="docs-list-container" style="background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                    <table class="docs-table" style="width: 100%; border-collapse: collapse;">
+                        <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                            <tr>
+                                <th style="padding: 16px 12px; text-align: left; font-weight: 600; font-size: 13px;">
+                                    <i class="fas fa-file-excel"></i> File Name
+                                </th>
+                                <th style="padding: 16px 12px; text-align: left;">Type</th>
+                                <th style="padding: 16px 12px; text-align: left;">Uploaded</th>
+                                <th style="padding: 16px 12px; text-align: left;">Uploaded By</th>
+                                <th style="padding: 16px 12px; text-align: center;">Records</th>
+                                <th style="padding: 16px 12px; text-align: center;">Status</th>
+                                <th style="padding: 16px 12px; text-align: right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="docsTableBody">
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 60px 20px;">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: #667eea; margin-bottom: 16px;"></i>
+                                    <p style="color: #64748b; font-size: 16px;">Loading documents...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -4935,7 +5334,7 @@ if ($debug_mode) {
                         <input type="hidden" id="currentGalleryPhotoImage" name="currentImage">
                         <div class="galphoto-form-group">
                             <label for="galleryPhotoImage">Upload Image: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <label for="galleryPhotoImage" class="custom-browse-btn">Browse</label>
                             <input type="file" id="galleryPhotoImage" name="galleryPhotoImage[]" accept="image/*" multiple
                                 style="display: none;">
@@ -4950,7 +5349,7 @@ if ($debug_mode) {
                         </div>
                         <div class="galphoto-form-group">
                             <label for="galleryPhotoAlbum">Select Existing Collection: <span
-                                    style="color: #e53935;">*required</span></label>
+                                    style="color: #FF0000;">*required</span></label>
                             <select style="font-family: 'Inter', sans-serif;" id="galleryPhotoAlbum"
                                 name="galleryPhotoAlbum">
                                 <option value="">Fetching data...</option>
@@ -4977,7 +5376,7 @@ if ($debug_mode) {
                     <div class="gallery-admin-container">
                         <div class="gallery-admin-title">
                             <h3>Published Photos</h3>
-                            <small style="color: #6b7280; margin-left: 10px;">💡 Drag gallery headers to reorder collections, drag photos to reorder within collections</small>
+                            <small style="color: #6b7280; margin-left: 10px;">?? Drag gallery headers to reorder collections, drag photos to reorder within collections</small>
                         </div>
                         <!-- Fetch the published collections from the database -->
                         <!-- Below is just a hard-coded structure sample, not connected to the database -->
@@ -5055,7 +5454,7 @@ if ($debug_mode) {
                         <div class="section-text">
                             <h2 class="section-title">Video Management</h2>
                             <p class="section-subtitle">Upload and manage videos in the gallery. The recommended maximum
-                        video resolution is <strong>1920×1080</strong>, with a <strong>video bitrate between 2–6
+                        video resolution is <strong>1920�1080</strong>, with a <strong>video bitrate between 2�6
                             Mbps</strong> and an <strong>audio bitrate of 128 kbps (AAC)</strong> to help prevent
                         buffering issues. Since the admin webmaster does <strong>not support automatic video
                             compression</strong> like most streaming platforms, you'll need to <strong>manually compress
@@ -5072,7 +5471,7 @@ if ($debug_mode) {
                     <div class="gallery-admin-container">
                         <div class="gallery-admin-title">
                             <h3>Published Videos</h3>
-                            <small style="color: #6b7280; margin-left: 10px;">💡 Drag gallery headers to reorder collections, drag videos to reorder within collections</small>
+                            <small style="color: #6b7280; margin-left: 10px;">?? Drag gallery headers to reorder collections, drag videos to reorder within collections</small>
                         </div>
                         <div id="publishedGalleryVideo">
                             <!-- Published videos will be loaded here via AJAX -->
@@ -5576,12 +5975,12 @@ if ($debug_mode) {
     <!-- Upload Excel Modal for Participants (Athletes, Coaches, Volunteers) -->
     <div id="uploadExcelModal" class="news-modal" style="display: none;">
         <div class="news-modal-backdrop" onclick="closeUploadModal()"></div>
-        <div class="news-modal-content" style="max-width: 600px;">
-            <div class="modal-header">
+        <div class="news-modal-content" style="max-width: 600px; max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="modal-header" style="flex-shrink: 0;">
                 <h3 class="modal-title" id="uploadModalTitle">Upload Excel File</h3>
                 <button class="modal-close" onclick="closeUploadModal()">&times;</button>
             </div>
-            <div class="modal-body" style="padding: 32px;">
+            <div class="modal-body" style="padding: 32px; overflow-y: auto; flex-grow: 1;">
                 <div class="upload-instructions" style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 16px; margin-bottom: 24px; border-radius: 8px;">
                     <h4 style="margin: 0 0 8px 0; color: #1e293b; font-size: 14px; font-weight: 600;">
                         <i class="fas fa-info-circle" style="color: #3b82f6; margin-right: 8px;"></i>
@@ -5642,11 +6041,11 @@ if ($debug_mode) {
                         <div id="columnMappingGuide" style="font-size: 12px; color: #78350f; line-height: 1.6;"></div>
                     </div>
 
-                    <div class="modal-footer" style="margin-top: 24px;">
-                        <button type="button" class="btn-cancel" onclick="closeUploadModal()">
+                    <div class="modal-footer" style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; padding: 16px 0; border-top: 1px solid #e2e8f0; flex-shrink: 0;">
+                        <button type="button" class="btn-cancel" onclick="closeUploadModal()" style="padding: 10px 24px;">
                             Cancel
                         </button>
-                        <button type="submit" class="btn-submit">
+                        <button type="submit" class="btn-submit" style="padding: 10px 24px;">
                             <i class="fas fa-upload"></i> Upload & Process
                         </button>
                     </div>
@@ -5666,6 +6065,145 @@ if ($debug_mode) {
                 </div>
 
                 <div id="uploadResults" style="display: none; margin-top: 20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Participant Modal (Athletes, Coaches, Volunteers) -->
+    <div id="addParticipantModal" class="news-modal" style="display: none;">
+        <div class="news-modal-backdrop" onclick="closeAddParticipantModal()"></div>
+        <div class="news-modal-content" style="max-width: 700px; max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="modal-header" style="flex-shrink: 0;">
+                <h3 class="modal-title" id="addParticipantModalTitle">Add New Participant</h3>
+                <button class="modal-close" onclick="closeAddParticipantModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 24px; overflow-y: auto; flex-grow: 1;">
+                <form id="addParticipantForm">
+                    <input type="hidden" id="addParticipantType" name="participantType">
+                    
+                    <!-- Basic Information -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="participantFullName">Full Name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="participantFullName" name="full_name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="participantEmail">Email</label>
+                            <input type="email" id="participantEmail" name="email" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="participantPhone">Phone</label>
+                            <input type="tel" id="participantPhone" name="phone" placeholder="0123456789">
+                        </div>
+                        <div class="form-group">
+                            <label for="participantDOB">Date of Birth</label>
+                            <input type="date" id="participantDOB" name="date_of_birth">
+                        </div>
+                        <div class="form-group">
+                            <label for="participantGender">Gender</label>
+                            <select id="participantGender" name="gender">
+                                <option value="">Select...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Chapter Selection -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="participantChapter">Chapter</label>
+                        <select id="participantChapter" name="chapter">
+                            <option value="">Select Chapter...</option>
+                            <option value="Kuching">Kuching</option>
+                            <option value="Miri">Miri</option>
+                            <option value="Sibu">Sibu</option>
+                            <option value="Bintulu">Bintulu</option>
+                            <option value="Samarahan">Samarahan</option>
+                        </select>
+                    </div>
+
+                    <!-- Type-specific fields (shown/hidden based on participant type) -->
+                    <div id="athleteSpecificFields" style="display: none;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="athleteSports">Sports Interested</label>
+                            <textarea id="athleteSports" name="sports_interested" rows="2" placeholder="e.g., Swimming, Athletics, Basketball"></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="athleteMedical">Medical Conditions</label>
+                            <textarea id="athleteMedical" name="medical_conditions" rows="2" placeholder="Any medical conditions or allergies"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="coachSpecificFields" style="display: none;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                            <div class="form-group">
+                                <label for="coachSports">Sports Expertise</label>
+                                <input type="text" id="coachSports" name="sports_expertise" placeholder="e.g., Swimming, Basketball">
+                            </div>
+                            <div class="form-group">
+                                <label for="coachExperience">Years of Experience</label>
+                                <input type="number" id="coachExperience" name="experience_years" min="0" placeholder="5">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="coachCertifications">Certifications</label>
+                            <textarea id="coachCertifications" name="certifications" rows="2" placeholder="List certifications"></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="coachAvailability">Availability</label>
+                            <textarea id="coachAvailability" name="availability" rows="2" placeholder="e.g., Weekends, Evenings"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="volunteerSpecificFields" style="display: none;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="volunteerRole">Volunteer Role</label>
+                            <input type="text" id="volunteerRole" name="volunteer_role" placeholder="e.g., Event Coordinator, Helper">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="volunteerSkills">Skills</label>
+                            <textarea id="volunteerSkills" name="skills" rows="2" placeholder="List relevant skills"></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="volunteerAvailability">Availability</label>
+                            <textarea id="volunteerAvailability" name="availability" rows="2" placeholder="e.g., Weekends, Evenings"></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="volunteerExperience">Previous Volunteer Experience</label>
+                            <textarea id="volunteerExperience" name="previous_experience" rows="2" placeholder="Describe previous experience"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div style="border-top: 2px solid #e2e8f0; padding-top: 20px; margin-top: 20px;">
+                        <h4 style="margin: 0 0 16px 0; color: #1e293b; font-size: 16px;">
+                            <i class="fas fa-phone"></i> Emergency Contact
+                        </h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label for="emergencyName">Contact Name</label>
+                                <input type="text" id="emergencyName" name="emergency_contact_name" placeholder="Emergency contact name">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyPhone">Contact Phone</label>
+                                <input type="tel" id="emergencyPhone" name="emergency_contact_phone" placeholder="Emergency contact phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer" style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; padding: 16px 0; border-top: 1px solid #e2e8f0; flex-shrink: 0;">
+                        <button type="button" class="btn-cancel" onclick="closeAddParticipantModal()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-submit" style="background: #10b981;">
+                            <i class="fas fa-user-plus"></i> Add Participant
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -5731,7 +6269,7 @@ if ($debug_mode) {
                 <input type="hidden" id="galleryVideoCollectionId" name="collectionId">
                 
                 <div class="galphoto-form-group">
-                    <label for="galleryVideoAlbum">Collection <span style="color: #e53935;">*required</span></label>
+                    <label for="galleryVideoAlbum">Collection <span style="color: #FF0000;">*required</span></label>
                     <select style="font-family: 'Inter', sans-serif;" id="galleryVideoAlbum" name="galleryVideoAlbum" required>
                         <option value="">Select a collection...</option>
                     </select>
@@ -5741,18 +6279,18 @@ if ($debug_mode) {
                 </div>
                 
                 <div class="galphoto-form-group">
-                    <label for="galleryVideo">Upload Videos <span style="color: #e53935;">*required</span></label>
+                    <label for="galleryVideo">Upload Videos <span style="color: #FF0000;">*required</span></label>
                     <label for="galleryVideo" class="custom-browse-btn">Browse</label>
                     <input type="file" id="galleryVideo" name="galleryVideo[]" accept="video/mp4" multiple style="display: none;">
                     <button type="button" id="deleteGalleryVideoBtn" class="custom-delete-btn" style="display: none;">Delete</button>
                     <span style="font-size: 14px;" id="galleryVideoStatus">No file selected</span>
                     <div style="font-size: 12px; color: #666; margin-top: 5px;">
-                        <i class="fa-solid fa-info-circle"></i> Select multiple videos to upload in batch. Max resolution <strong>1920×1080</strong>, bitrate <strong>2-5 Mbps</strong>, audio <strong>128 kbps (AAC)</strong>.
+                        <i class="fa-solid fa-info-circle"></i> Select multiple videos to upload in batch. Max resolution <strong>1920�1080</strong>, bitrate <strong>2-5 Mbps</strong>, audio <strong>128 kbps (AAC)</strong>.
                     </div>
                 </div>
                 
                 <div class="galphoto-form-group">
-                    <label for="galleryVideoImage">Video Cover Image <span style="color: #e53935;">*required</span></label>
+                    <label for="galleryVideoImage">Video Cover Image <span style="color: #FF0000;">*required</span></label>
                     <label for="galleryVideoImage" class="custom-browse-btn">Browse</label>
                     <input type="file" id="galleryVideoImage" name="galleryVideoImage" accept="image/*" style="display: none;">
                     <button type="button" id="deleteGalleryVideoImageBtn" class="custom-delete-btn" style="display: none;">Delete</button>
@@ -5764,7 +6302,7 @@ if ($debug_mode) {
                 </div>
                 
                 <div class="galphoto-form-group">
-                    <label for="galleryVideoTitle">Video Title <span style="color: #e53935;">*required</span></label>
+                    <label for="galleryVideoTitle">Video Title <span style="color: #FF0000;">*required</span></label>
                     <input style="font-family: 'Inter', sans-serif;" type="text" id="galleryVideoTitle" name="galleryVideoTitle" placeholder="Enter video title" required>
                 </div>
                 
@@ -5806,7 +6344,7 @@ if ($debug_mode) {
                 </div>
                 
                 <div class="galphoto-form-group">
-                    <label for="videoCollectionName">Collection Name <span style="color: #e53935;">*required</span></label>
+                    <label for="videoCollectionName">Collection Name <span style="color: #FF0000;">*required</span></label>
                     <input style="font-family: 'Inter', sans-serif;" type="text" id="videoCollectionName" name="name" placeholder="e.g., Healthy Athletes Program" required>
                 </div>
                 
@@ -6047,7 +6585,7 @@ if ($debug_mode) {
                 <div class="galphoto-form-group">
                     <label for="editVideoTitle">
                         <i class="fas fa-heading" style="margin-right: 6px; color: #3b82f6;"></i>
-                        Video Title <span style="color: #e53935; font-weight: normal;">*required</span>
+                        Video Title <span style="color: #FF0000; font-weight: normal;">*required</span>
                     </label>
                     <input style="font-family: 'Inter', sans-serif;" type="text" id="editVideoTitle" name="title" placeholder="e.g., Opening Ceremony Highlights" required>
                 </div>
@@ -6127,7 +6665,7 @@ if ($debug_mode) {
                                 </button>
                                 <div class="editor-separator"></div>
                                 <select class="editor-btn" onchange="formatText('formatBlock', this.value); this.selectedIndex=0;" title="Paragraph Style">
-                                    <option value="">¶ Style</option>
+                                    <option value="">� Style</option>
                                     <option value="p">Paragraph</option>
                                     <option value="h1">Heading 1</option>
                                     <option value="h2">Heading 2</option>
@@ -6233,7 +6771,7 @@ if ($debug_mode) {
         <div class="chapter-modal-content">
             <div class="chapter-modal-header">
                 <h3>Edit Chapter Information</h3>
-                <span class="chapter-modal-close" onclick="closeChapterModal()">×</span>
+                <span class="chapter-modal-close" onclick="closeChapterModal()">�</span>
             </div>
             <div class="chapter-modal-body">
                 <form id="chapterForm">
@@ -6254,11 +6792,6 @@ if ($debug_mode) {
                     <div class="form-group">
                         <label for="editSecretary">Secretary <span class="required">*</span></label>
                         <input type="text" id="editSecretary" name="secretary" placeholder="Enter secretary name">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="editTreasurer">Treasurer <span class="required">*</span></label>
-                        <input type="text" id="editTreasurer" name="treasurer" placeholder="Enter treasurer name">
                     </div>
                     
                     <div class="form-group">
@@ -6758,7 +7291,7 @@ if ($debug_mode) {
         
         // Edit Collection Modal Functions
         function openEditCollectionModal(collectionId, collectionName, collectionDesc) {
-            console.log('✅ openEditCollectionModal called:', collectionId, collectionName, collectionDesc);
+            console.log('? openEditCollectionModal called:', collectionId, collectionName, collectionDesc);
             const modal = document.getElementById('editVideoCollectionModal');
             console.log('Modal element:', modal);
             
@@ -6793,29 +7326,29 @@ if ($debug_mode) {
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 
-                console.log('✅ Modal should be visible now');
+                console.log('? Modal should be visible now');
                 
                 // Initialize file handlers
                 initializeEditCollectionFileHandlers();
             } else {
-                console.error('❌ Edit collection modal not found!');
+                console.error('? Edit collection modal not found!');
                 alert('Modal not found. Please refresh the page.');
             }
         }
         
         // Load existing videos from collection
         function loadExistingVideos(collectionId) {
-            console.log('🔍 Loading existing videos for collection:', collectionId);
+            console.log('?? Loading existing videos for collection:', collectionId);
             const fetchUrl = `handler/admin_gallery_video_handler.php?action=fetch_items&collection_id=${collectionId}`;
-            console.log('📡 Fetch URL:', fetchUrl);
+            console.log('?? Fetch URL:', fetchUrl);
             
             fetch(fetchUrl)
                 .then(r => {
-                    console.log('📦 Response received:', r);
+                    console.log('?? Response received:', r);
                     return r.json();
                 })
                 .then(d => {
-                    console.log('✅ Loaded existing videos response:', d);
+                    console.log('? Loaded existing videos response:', d);
                     console.log('Videos array:', d.videos);
                     console.log('Videos length:', d.videos ? d.videos.length : 0);
                     
@@ -6823,11 +7356,11 @@ if ($debug_mode) {
                         existingVideosArray = d.videos;
                         currentExistingVideoIndex = 0;
                         existingVideosDirty = {};
-                        console.log('🎬 Displaying carousel with', existingVideosArray.length, 'videos');
+                        console.log('?? Displaying carousel with', existingVideosArray.length, 'videos');
                         displayExistingVideosCarousel();
                         updateThumbnailSection();
                     } else {
-                        console.log('⚠️ No videos found or unsuccessful response');
+                        console.log('?? No videos found or unsuccessful response');
                         existingVideosArray = [];
                         const carousel = document.getElementById('existingVideosCarousel');
                         console.log('Carousel element:', carousel);
@@ -6838,7 +7371,7 @@ if ($debug_mode) {
                     }
                 })
                 .catch(e => {
-                    console.error('❌ Error loading existing videos:', e);
+                    console.error('? Error loading existing videos:', e);
                     existingVideosArray = [];
                     const carousel = document.getElementById('existingVideosCarousel');
                     if (carousel) carousel.style.display = 'none';
@@ -6847,7 +7380,7 @@ if ($debug_mode) {
         
         // Display existing videos carousel
         function displayExistingVideosCarousel() {
-            console.log('🎨 displayExistingVideosCarousel called');
+            console.log('?? displayExistingVideosCarousel called');
             const carousel = document.getElementById('existingVideosCarousel');
             const counter = document.getElementById('existingVideoCounter');
             const videoElement = document.getElementById('currentExistingVideoElement');
@@ -6865,17 +7398,17 @@ if ($debug_mode) {
             });
             
             if (!carousel) {
-                console.error('❌ Carousel container not found!');
+                console.error('? Carousel container not found!');
                 return;
             }
             
             if (existingVideosArray.length === 0) {
-                console.log('⚠️ No videos in array, hiding carousel');
+                console.log('?? No videos in array, hiding carousel');
                 carousel.style.display = 'none';
                 return;
             }
             
-            console.log('✅ Showing carousel with', existingVideosArray.length, 'videos');
+            console.log('? Showing carousel with', existingVideosArray.length, 'videos');
             carousel.style.display = 'block';
             const currentVideo = existingVideosArray[currentExistingVideoIndex];
             console.log('Current video:', currentVideo);
@@ -7039,7 +7572,7 @@ if ($debug_mode) {
                         }, 1500);
                         
                         displayExistingVideosCarousel();
-                        alert('✅ Video information saved successfully!');
+                        alert('? Video information saved successfully!');
                     } else {
                         alert(d.message || 'Failed to update video');
                     }
@@ -7067,7 +7600,7 @@ if ($debug_mode) {
                 .then(r => r.json())
                 .then(d => {
                     if (d.success) {
-                        alert('✅ Video deleted successfully!');
+                        alert('? Video deleted successfully!');
                         
                         // Remove from array
                         existingVideosArray.splice(currentExistingVideoIndex, 1);
@@ -8295,7 +8828,7 @@ if ($debug_mode) {
                             <span class="chapter-total">${chapter.total_participants}</span>
                         </div>
                         <div class="chapter-details">
-                            Athletes: ${chapter.athletes_total} • Coaches: ${chapter.coaches_total} • Volunteers: ${chapter.volunteers_total}
+                            Athletes: ${chapter.athletes_total} � Coaches: ${chapter.coaches_total} � Volunteers: ${chapter.volunteers_total}
                         </div>
                     </div>
                 `).join('');
@@ -8550,7 +9083,7 @@ if ($debug_mode) {
                                 <div class="chapter-comparison-fill" style="width: ${percentage}%"></div>
                             </div>
                             <div class="chapter-comparison-details">
-                                A: ${chapter.athletes_total} • C: ${chapter.coaches_total} • V: ${chapter.volunteers_total}
+                                A: ${chapter.athletes_total} � C: ${chapter.coaches_total} � V: ${chapter.volunteers_total}
                             </div>
                         </div>
                     `;
@@ -9803,10 +10336,10 @@ if ($debug_mode) {
                 return response.json();
             })
             .then(data => {
-                result.innerHTML = '<span style="color: green;">✅ Handler works: ' + JSON.stringify(data).substring(0, 100) + '...</span>';
+                result.innerHTML = '<span style="color: green;">? Handler works: ' + JSON.stringify(data).substring(0, 100) + '...</span>';
             })
             .catch(error => {
-                result.innerHTML = '<span style="color: red;">❌ Handler failed: ' + error.message + '</span>';
+                result.innerHTML = '<span style="color: red;">? Handler failed: ' + error.message + '</span>';
             });
     }
     
@@ -9866,13 +10399,13 @@ if ($debug_mode) {
         // Function to load profile data from server
         function loadProfileData() {
             console.log('==============================================');
-            console.log('🔵 loadProfileData() CALLED');
+            console.log('?? loadProfileData() CALLED');
             console.log('==============================================');
             
             // Check if we're in the right section
             const profileSection = document.getElementById('profile');
             if (!profileSection) {
-                console.error('✗ Profile section element not found in DOM');
+                console.error('? Profile section element not found in DOM');
                 return;
             }
             
@@ -9880,15 +10413,15 @@ if ($debug_mode) {
             const isActive = profileSection.classList.contains('active');
             const displayStyle = window.getComputedStyle(profileSection).display;
             console.log('Profile Section Status:');
-            console.log('  - Has "active" class:', isActive ? '✓ Yes' : '✗ No');
+            console.log('  - Has "active" class:', isActive ? '? Yes' : '? No');
             console.log('  - Display style:', displayStyle);
-            console.log('  - Is visible:', displayStyle !== 'none' ? '✓ Yes' : '✗ No');
+            console.log('  - Is visible:', displayStyle !== 'none' ? '? Yes' : '? No');
             
             if (!isActive) {
-                console.warn('⚠️ Profile section exists but is NOT active - data will load anyway');
+                console.warn('?? Profile section exists but is NOT active - data will load anyway');
             }
             
-            console.log('🌐 Making fetch request to handler/admin_profile_handler.php...');
+            console.log('?? Making fetch request to handler/admin_profile_handler.php...');
             
             fetch('handler/admin_profile_handler.php', {
                 method: 'POST',
@@ -9898,9 +10431,9 @@ if ($debug_mode) {
                 body: 'action=get_profile_data'
             })
             .then(response => {
-                console.log('📡 Response received:');
+                console.log('?? Response received:');
                 console.log('  - Status:', response.status, response.statusText);
-                console.log('  - OK:', response.ok ? '✓ Yes' : '✗ No');
+                console.log('  - OK:', response.ok ? '? Yes' : '? No');
                 console.log('  - Headers:', {
                     'content-type': response.headers.get('content-type'),
                     'content-length': response.headers.get('content-length')
@@ -9912,7 +10445,7 @@ if ($debug_mode) {
                 return response.json();
             })
             .then(data => {
-                console.log('📦 JSON parsed successfully');
+                console.log('?? JSON parsed successfully');
                 console.log('  - Response structure:', {
                     success: data.success,
                     hasData: !!data.data,
@@ -9923,7 +10456,7 @@ if ($debug_mode) {
                 if (data.success && data.data) {
                     const profile = data.data;
                     
-                    console.log('✓ API returned profile data:', profile);
+                    console.log('? API returned profile data:', profile);
                     console.log('=== Starting Field Population ===');
                     
                     // Check if form elements exist before updating
@@ -9934,33 +10467,33 @@ if ($debug_mode) {
                     const bioEl = document.getElementById('profileBio');
                     
                     console.log('Field Elements Found:');
-                    console.log('  - profileFullName:', fullNameEl ? '✓ Found' : '✗ NOT FOUND');
-                    console.log('  - profileEmail:', emailEl ? '✓ Found' : '✗ NOT FOUND');
-                    console.log('  - profilePhone:', phoneEl ? '✓ Found' : '✗ NOT FOUND');
-                    console.log('  - profilePosition:', positionEl ? '✓ Found' : '✗ NOT FOUND');
-                    console.log('  - profileBio:', bioEl ? '✓ Found' : '✗ NOT FOUND');
+                    console.log('  - profileFullName:', fullNameEl ? '? Found' : '? NOT FOUND');
+                    console.log('  - profileEmail:', emailEl ? '? Found' : '? NOT FOUND');
+                    console.log('  - profilePhone:', phoneEl ? '? Found' : '? NOT FOUND');
+                    console.log('  - profilePosition:', positionEl ? '? Found' : '? NOT FOUND');
+                    console.log('  - profileBio:', bioEl ? '? Found' : '? NOT FOUND');
                     
                     // Update fields with detailed logging
                     if (fullNameEl) {
-                        console.log(`Updating fullname: "${fullNameEl.value}" → "${profile.fullname || ''}"`);
+                        console.log(`Updating fullname: "${fullNameEl.value}" ? "${profile.fullname || ''}"`);
                         fullNameEl.value = profile.fullname || '';
                     }
                     if (emailEl) {
-                        console.log(`Updating email: "${emailEl.value}" → "${profile.email || ''}"`);
+                        console.log(`Updating email: "${emailEl.value}" ? "${profile.email || ''}"`);
                         emailEl.value = profile.email || '';
                     }
                     if (phoneEl) {
-                        console.log(`Updating phone: "${phoneEl.value}" → "${profile.phone || ''}"`);
+                        console.log(`Updating phone: "${phoneEl.value}" ? "${profile.phone || ''}"`);
                         phoneEl.value = profile.phone || '';
                     }
                     if (positionEl) {
-                        console.log(`Updating position: "${positionEl.value}" → "${profile.position || ''}"`);
+                        console.log(`Updating position: "${positionEl.value}" ? "${profile.position || ''}"`);
                         positionEl.value = profile.position || '';
                     }
                     if (bioEl) {
                         const oldBio = bioEl.value.substring(0, 50) + '...';
                         const newBio = (profile.bio || '').substring(0, 50) + '...';
-                        console.log(`Updating bio: "${oldBio}" → "${newBio}"`);
+                        console.log(`Updating bio: "${oldBio}" ? "${newBio}"`);
                         bioEl.value = profile.bio || '';
                     }
                     
@@ -9969,15 +10502,15 @@ if ($debug_mode) {
                     const displayPositionEl = document.getElementById('profileDisplayPosition');
                     
                     console.log('Display Elements Found:');
-                    console.log('  - profileDisplayName:', displayNameEl ? '✓ Found' : '✗ NOT FOUND');
-                    console.log('  - profileDisplayPosition:', displayPositionEl ? '✓ Found' : '✗ NOT FOUND');
+                    console.log('  - profileDisplayName:', displayNameEl ? '? Found' : '? NOT FOUND');
+                    console.log('  - profileDisplayPosition:', displayPositionEl ? '? Found' : '? NOT FOUND');
                     
                     if (displayNameEl) {
-                        console.log(`Updating display name: "${displayNameEl.textContent}" → "${profile.fullname || '(No name)'}"`);
+                        console.log(`Updating display name: "${displayNameEl.textContent}" ? "${profile.fullname || '(No name)'}"`);
                         displayNameEl.textContent = profile.fullname || '(No name)';
                     }
                     if (displayPositionEl) {
-                        console.log(`Updating display position: "${displayPositionEl.textContent}" → "${profile.position || '(No position)'}"`);
+                        console.log(`Updating display position: "${displayPositionEl.textContent}" ? "${profile.position || '(No position)'}"`);
                         displayPositionEl.textContent = profile.position || '(No position)';
                     }
                     
@@ -9985,15 +10518,15 @@ if ($debug_mode) {
                     const headerNameEl = document.getElementById('headerUserName');
                     const headerRoleEl = document.getElementById('headerUserRole');
                     if (headerNameEl) {
-                        console.log(`Updating header name: "${headerNameEl.textContent}" → "${profile.fullname}"`);
+                        console.log(`Updating header name: "${headerNameEl.textContent}" ? "${profile.fullname}"`);
                         headerNameEl.textContent = profile.fullname || 'User';
                     }
                     if (headerRoleEl && profile.position) {
-                        console.log(`Updating header role: "${headerRoleEl.textContent}" → "${profile.position}"`);
+                        console.log(`Updating header role: "${headerRoleEl.textContent}" ? "${profile.position}"`);
                         headerRoleEl.textContent = profile.position;
                     }
                     
-                    console.log('✓✓✓ Profile data loaded and populated successfully ✓✓✓');
+                    console.log('??? Profile data loaded and populated successfully ???');
                 } else {
                     console.error('Failed to load profile data:', data.message);
                     
@@ -10246,5 +10779,6 @@ if ($debug_mode) {
     <script src="../scripts/admin-components/athletes-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/coaches-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
     <script src="../scripts/admin-components/volunteers-management.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
+    <script src="../scripts/admin-components/participants-documents.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
 </body>
 </html>

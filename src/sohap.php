@@ -24,7 +24,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthy Athletes Program (SOHAP) | Special Olympics Sarawak</title>
+    <title>Healthy Athletes Program | Special Olympics Sarawak</title>
     <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
     <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -102,7 +102,7 @@ try {
         .sohap-more-afterline {
             width: 60px;
             height: 3px;
-            background-color: #e30613;
+            background-color: #FF0000;
             margin: 0 auto 60px auto;
             display: block;
         }
@@ -337,11 +337,11 @@ try {
     <div class="header-space"></div>
 
     <section class="sohap-hero">
-        <h1>Healthy Athletes Program (SOHAP)</h1>
+        <h1>Healthy Athletes Program</h1>
     </section>
 
     <section class="sohap-desc-section">
-        <p>The Healthy Athletes Program (SOHAP) at Special Olympics Sarawak is dedicated to improving the health and well-being of athletes by providing access to essential health services, education, and screenings. The program aims to promote overall physical health, prevent potential health issues, and educate athletes on maintaining healthy lifestyles both on and off the field. By offering free health screenings and partnering with healthcare professionals, Healthy Athletes Program ensures that athletes have the tools and resources to perform at their best while living a healthy and active life. The key features of this program are:</p>
+        <p>The Healthy Athletes Program at Special Olympics Sarawak is dedicated to improving the health and well-being of athletes by providing access to essential health services, education, and screenings. The program aims to promote overall physical health, prevent potential health issues, and educate athletes on maintaining healthy lifestyles both on and off the field. By offering free health screenings and partnering with healthcare professionals, Healthy Athletes Program ensures that athletes have the tools and resources to perform at their best while living a healthy and active life. The key features of this program are:</p>
         <ul>
             <li><strong>Free Health Screenings:</strong> Athletes have access to a wide range of free health screenings, including vision, hearing, dental, and fitness assessments, ensuring they receive early detection and appropriate care.</li>
             <li><strong>Comprehensive Health Education:</strong> We provides educational resources on topics like nutrition, fitness, hydration, and healthy habits, empowering athletes to make informed choices about their health.</li>

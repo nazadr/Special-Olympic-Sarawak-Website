@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
 /* ========================================
    VIDEO GALLERY MANAGEMENT STYLES
    ======================================== */
@@ -75,8 +77,8 @@
 }
 
 .video-modal-content .modal-close:hover {
-    color: #e53935 !important;
-    background: rgba(229, 57, 53, 0.1) !important;
+    color: #FF0000 !important;
+    background: rgba(255, 0, 0, 0.1) !important;
 }
 
 .video-modal-content form {

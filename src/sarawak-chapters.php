@@ -44,7 +44,7 @@
             margin-bottom: 30px;
             position: relative;
             color: white;
-            border-bottom: 3px solid #e30613;
+            border-bottom: 3px solid #FF0000;
 
         }
               
@@ -125,7 +125,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background-color: #e30613;
+            background-color: #FF0000;
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -156,7 +156,7 @@
         }
         
         .affiliate-details h3 {
-            color: #e30613;
+            color: #FF0000;
             margin-bottom: 10px;
             transition: color 0.3s ease;
         }
@@ -175,7 +175,7 @@
             display: inline-block;
             margin-top: 15px;
             padding: 8px 15px;
-            background-color: #e30613;
+            background-color: #FF0000;
             color: white;
             text-decoration: none;
             border-radius: 4px;
@@ -230,7 +230,7 @@
         }
 
         .map-section h2 {
-            color: #e30613;
+            color: #FF0000;
             font-size: 2.5rem;
             margin-bottom: 40px;
             position: relative;
@@ -242,7 +242,7 @@
             position: absolute;
             width: 60px;
             height: 3px;
-            background-color: #e30613;
+            background-color: #FF0000;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
@@ -271,7 +271,7 @@
             position: absolute;
             width: 30px;
             height: 30px;
-            background-color: #e30613;
+            background-color: #FF0000;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -340,7 +340,7 @@
         }
 
         .pinpoint-info h4 {
-            color: #e30613;
+            color: #FF0000;
             margin-top: 0;
             /* Reduced margin-bottom */
             margin-bottom: 8px; /* Was 10px */
@@ -381,7 +381,7 @@
 
         .pinpoint-stats i {
             margin-right: 5px;
-            color: #e30613;
+            color: #FF0000;
         }
 
         /* Draggable pinpoint styles */
@@ -413,7 +413,7 @@
         }
 
         .chapter-overview-section h2 {
-            color: #e30613;
+            color: #FF0000;
             font-size: 2.5rem;
             margin-bottom: 40px;
             position: relative;
@@ -425,7 +425,7 @@
             position: absolute;
             width: 60px;
             height: 3px;
-            background-color: #e30613;
+            background-color: #FF0000;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
@@ -462,7 +462,7 @@
             margin: 0
         }
         .chapter-overall-card h3 {
-            color: #e30613;
+            color: #FF0000;
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 1.2rem;
@@ -500,13 +500,13 @@
             align-items: flex-start;
             gap: 15px;
             transition: all 0.3s ease;
-            border-top: 5px solid #e30613;
+            border-top: 5px solid #FF0000;
             min-height: 120px;
         }
 
         .chapter-card h3 {
             display: none; /* block for mobile */
-            color: #e30613;
+            color: #FF0000;
             margin: 0 0 10px 0;
             font-size: 1.6rem;
         }
@@ -614,7 +614,7 @@
             }
             .mobile-pinpoint-buttons button.active,
             .mobile-pinpoint-buttons button:focus {
-                background: #e53935;
+                background: #FF0000;
                 color: #fff;
             }
             .mobile-pinpoint-card {
@@ -705,22 +705,11 @@
             <!-- Placeholder card for adding affiliates -->
             <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png" alt="SO Miri Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png" alt="SO Kuching Chapter" />
                 </div>
                 <div class="affiliate-details">
-                    <h3>SO Miri Chapter</h3>
-                    <p>Newest chapter; growing fast and set to host the next state games in 2027.</p>
-                    <a href="#" class="affiliate-link">Learn More</a>
-                </div>
-            </div>
-            
-            <div class="affiliate-card">
-                <div class="affiliate-image">
-                    <img src="../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png" alt="SO Bintulu Chapter" />
-                </div>
-                <div class="affiliate-details">
-                    <h3>SO Bintulu Chapter</h3>
-                    <p>Main chapter and 2025 state games champion; very active with many athletes and programs.</p>
+                    <h3>SO Kuching Chapter</h3>
+                    <p>Runs training, health screenings, and inclusive sports with 100+ volunteers.</p>
                     <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
@@ -735,7 +724,7 @@
                     <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
-
+            
             <div class="affiliate-card">
                 <div class="affiliate-image">
                     <img src="../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png" alt="SO Sibu Chapter" />
@@ -747,13 +736,24 @@
                 </div>
             </div>
 
-             <div class="affiliate-card">
+            <div class="affiliate-card">
                 <div class="affiliate-image">
-                    <img src="../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png" alt="SO Kuching Chapter" />
+                    <img src="../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png" alt="SO Bintulu Chapter" />
                 </div>
                 <div class="affiliate-details">
-                    <h3>SO Kuching Chapter</h3>
-                    <p>Runs training, health screenings, and inclusive sports with 100+ volunteers.</p>
+                    <h3>SO Bintulu Chapter</h3>
+                    <p>Main chapter and 2025 state games champion; very active with many athletes and programs.</p>
+                    <a href="#" class="affiliate-link">Learn More</a>
+                </div>
+            </div>
+
+             <div class="affiliate-card">
+                <div class="affiliate-image">
+                    <img src="../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png" alt="SO Miri Chapter" />
+                </div>
+                <div class="affiliate-details">
+                    <h3>SO Miri Chapter</h3>
+                    <p>Newest chapter; growing fast and set to host the next state games in 2027.</p>
                     <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
@@ -796,7 +796,7 @@
                 <!-- Dynamic detailed participant tables will be loaded here -->
                 <p style="text-align: center; color: #666;">Loading detailed participant data...</p>
             </div>
-        <p><span style="color: #e53935;">* </span><strong>M</strong> = Male | <strong>F</strong> = Female</p>
+        <p><span style="color: #FF0000;">* </span><strong>M</strong> = Male | <strong>F</strong> = Female</p>
         </div>
     </div>
     
@@ -826,9 +826,7 @@
                             vice_chairman: chapter.vice_chairman,
                             // DATA POINT 3: Secretary name
                             secretary: chapter.secretary,
-                            // DATA POINT 4: Treasurer name
-                            treasurer: chapter.treasurer,
-                            // DATA POINT 5: Participant statistics (Athletes, Coaches, Volunteers)
+                            // DATA POINT 4: Participant statistics (Athletes, Coaches, Volunteers)
                             athletes: chapter.total_athletes,
                             coaches: chapter.total_coaches,
                             volunteers: chapter.total_volunteers,
@@ -892,7 +890,7 @@
                     id: 'miri',
                     name: 'SO Miri Chapter',
                     logo: '../assets/images/Remake/SO Sarawak Miri Chapter BG - Official logo.png',
-                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Madam Liza Chai</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>',
+                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Madam Liza Chai</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</p>',
                     top: '59%', // Original: 37%
                     left: '67%',
                     athletes: 120,
@@ -903,7 +901,7 @@
                     id: 'bintulu',
                     name: 'SO Bintulu Chapter',
                     logo: '../assets/images/Remake/SO Sarawak Bintulu Chapter BG - Official logo.png',
-                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Dato Haji Ruslan Bin Abdul Ghani</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">Sabrina Cheong Oi Lin binti Abdullah</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
+                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Dato Haji Ruslan Bin Abdul Ghani</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">Sabrina Cheong Oi Lin binti Abdullah</p>',
                     top: '70%', // Original: 55%
                     left: '56%',
                     athletes: 250,
@@ -914,7 +912,7 @@
                     id: 'sarawak-sibu',
                     name: 'SO Sarawak/Sibu Chapter',
                     logo: '../assets/images/Remake/SO Sarawak Sibu Chapter BG - Official logo.png',
-                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Pemanca Datuk Jason Tai Hee</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
+                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Pemanca Datuk Jason Tai Hee</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '79%', // Original: 68%
                     left: '39%',
                     athletes: 180,
@@ -925,7 +923,7 @@
                     id: 'kuching',
                     name: 'SO Kuching Chapter',
                     logo: '../assets/images/Remake/SO Sarawak Kuching Chapter BG - Official logo.png',
-                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Datin Dayang Mariani Abang Zain</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
+                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Datin Dayang Mariani Abang Zain</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '86%', // Original: 80%
                     left: '20%',
                     athletes: 300,
@@ -936,7 +934,7 @@
                     id: 'samarahan',
                     name: 'SO Samarahan Chapter (Upcoming)',
                     logo: '../assets/images/Remake/SO Sarawak Samarahan Chapter BG - Official logo.png',
-                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Mr. Sarahandi Api Abdullah</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Treasurer:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
+                    description: 'Chairman: <p style="margin: 0 0 10px 0; font-weight: 600;">Mr. Sarahandi Api Abdullah</p><p style="margin: 0;">Vice Chairman:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p><p style="margin: 10px 0 0 0;">Secretary:</p><p style="margin-top: 0; font-weight: 600;">(Unknown)</p>',
                     top: '87%', // Original: 81%
                     left: '24%',
                     athletes: 50,
@@ -1022,7 +1020,6 @@
                     <p><strong>Chairman:</strong><br>${data.chairman}</p>
                     <p><strong>Vice Chairman:</strong><br>${data.vice_chairman}</p>
                     <p><strong>Secretary:</strong><br>${data.secretary}</p>
-                    <p><strong>Treasurer:</strong><br>${data.treasurer}</p>
                     <div class="pinpoint-stats">
                         <div><i class="fa-solid fa-person-running" style="margin: 0 6px 0 2px;"></i> Athletes: ${data.athletes}</div>
                         <div><i class="fa-solid fa-user-tie" style="margin: 0 6px 0 2px;"></i> Coaches: ${data.coaches}</div>
@@ -1035,7 +1032,7 @@
             }
 
             // Pinpoint hover as card for mobile
-            function showMobilePinpointBar(show, selectedId = 'kuching') {
+            function showMobilePinpointBar(show, selectedId = 'miri') {
                 const bar = document.getElementById('mobilePinpointBar');
                 const card = document.getElementById('mobilePinpointCard');
                 bar.style.display = show ? 'block' : 'none';
@@ -1073,7 +1070,7 @@
                 <div style="text-align:center;">
                     <img src="${data.logo}" alt="${data.name} Logo" style="max-width:160px; margin-bottom:10px;">
                 </div>
-                <h4 style="color:#e30613; margin-top:0; font-size: 1.2rem;">${data.name}</h4>
+                <h4 style="color:#FF0000; margin-top:0; font-size: 1.2rem;">${data.name}</h4>
                 <div style="margin-bottom:10px;">${data.description}</div>
                 <div class="pinpoint-stats" style="font-size: 1rem; font-weight: 600;">
                     <div><i class="fa-solid fa-person-running" style="margin: 0 6px 0 3px;"></i> Athletes: ${data.athletes}</div>

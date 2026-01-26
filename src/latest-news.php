@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --so-red: #e53935;
+            --so-red: #e21b23;
             --so-white: #ffffff;
             --so-dark: #1a1a1a;
             --so-gray: #666;
-            --shadow-sm: 0 2px 10px rgba(229, 57, 53, 0.08);
-            --shadow-md: 0 4px 20px rgba(229, 57, 53, 0.12);
+            --shadow-sm: 0 2px 10px rgba(255, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(255, 0, 0, 0.12);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Hero Section - Inspired by SONG 26 */
         .news-hero {
-            background: linear-gradient(135deg, var(--so-red) 0%, #c62828 100%);
+            background: linear-gradient(135deg, var(--so-red) 0%, #CC0000 100%);
             min-height: 50vh;
             display: flex;
             flex-direction: column;

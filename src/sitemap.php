@@ -380,15 +380,12 @@
                 <div class="sitemap-category">
                     <a href="#"><i class="fas fa-bullseye"></i> What We Do?</a>
                     <ul class="sitemap-subcategory">
-                        <li><a href="getting_started.php"><i class="fas fa-play-circle"></i> Getting Started</a></li>
                         <li>
-                            <a href="alp.php"><i class="fas fa-medal"></i> Athlete Leadership Program (ALP)</a>
-                        </li>
-                        <li>
-                            <a href="yap.php"><i class="fas fa-child"></i> Young Athletes Program (YAP)</a>
+                            <a href="getting_started.php"><i class="fas fa-play-circle"></i> Getting Started</a>
                             <ul class="sitemap-nested">
-                                <li><a href="yap-lm.html"><i class="fas fa-book-open"></i> YAP Learn More</a></li>
-                                <li><a href="yap-lm-brochure.html"><i class="fas fa-file-alt"></i> YAP Brochure</a></li>
+                                <li><a href="sohap.php"><i class="fas fa-stethoscope"></i> Healthy Athletes Program</a></li>
+                                <li><a href="alp.php"><i class="fas fa-medal"></i> Athlete Leadership Program </a></li>
+                                <li><a href="yap.php"><i class="fas fa-child"></i> Young Athletes Program</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -402,8 +399,14 @@
                 <div class="sitemap-category">
                     <a href="#"><i class="fas fa-heartbeat"></i> Core Programs</a>
                     <ul class="sitemap-subcategory">
-                        <li><a href="sohap.php"><i class="fas fa-stethoscope"></i> Healthy Athletes Program (HAP)</a></li>
-                        <li><a href="unified-sports.html"><i class="fas fa-users"></i> Unified Sports</a></li>
+                        <li><a href="sohap.php"><i class="fas fa-stethoscope"></i> Healthy Athletes Program</a></li>
+                        <li>
+                            <a href="yap.php"><i class="fas fa-child"></i> Young Athletes Program</a>
+                            <ul class="sitemap-nested">
+                                <li><a href="yap-lm.html"><i class="fas fa-book-open"></i> Young Athletes Program Learn More</a></li>
+                                <li><a href="yap-lm-brochure.html"><i class="fas fa-file-alt"></i> Young Athletes Program Brochure</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -558,7 +561,6 @@
                     <ul class="sitemap-subcategory">
                         <li><a href="terms-and-conditions.php"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
                         <li><a href="privacy-policy.html"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-                        <li><a href="disclaimer.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
                     </ul>
                 </div>
             </div>

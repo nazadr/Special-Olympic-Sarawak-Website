@@ -1,12 +1,14 @@
 /* Live Version -- Made for any webpages except the home page */
 /* Last checkpoint: 1 Oct 2025 */
 
-/* Segoe UI font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* Ubuntu font */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Segoe UI', sans-serif; /* Added fallback fonts */
+  font-family: 'Ubuntu', sans-serif; /* Added fallback fonts */
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
@@ -20,18 +22,18 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e53935;
+  background: #FF0000;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c62828;
+  background: #CC0000;
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #e53935 #f1f1f1;
+  scrollbar-color: #FF0000 #f1f1f1;
 }
 
 /* ---------- REUSABLE STYLES ---------- */
@@ -40,7 +42,7 @@ body, html {
 .so-afterline-60w {
   width: 60px;
   height: 3px;
-  background-color: #e30613;
+  background-color: #FF0000;
   margin: 0 auto 80px auto;
   display: block;
 }
@@ -48,7 +50,7 @@ body, html {
 .so-afterline-60w-mb40 {
   width: 60px;
   height: 3px;
-  background-color: #e30613;
+  background-color: #FF0000;
   margin: 0 auto 40px auto;
   display: block;
 }
@@ -56,7 +58,7 @@ body, html {
 .so-afterline-120w {
   width: 120px;
   height: 3px;
-  background-color: #e30613;
+  background-color: #FF0000;
   margin: 0 auto 80px auto;
   display: block;
 }
@@ -81,7 +83,7 @@ body, html {
   align-items: center;
   padding: 0 40px;
   background: rgba(255, 255, 255, 0.95);
-  border-bottom: 2px solid #e53935;
+  border-bottom: 2px solid #FF0000;
   z-index: 1000;
   height: 70px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -118,11 +120,16 @@ body, html {
 }
 .sarawak-flag-header {
   /* Recently added: Previously on HTML */
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background: none;
   box-shadow: none;
+  object-fit: contain;
+}
+.sarawak-flag-header[alt="Malaysia Flag"] {
+  height: 44px;
+  width: 44px;
 }
 .nav-menu {
   display: flex;
@@ -137,7 +144,7 @@ body, html {
 }
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: #636359;
   font-size: 1.1rem;
   padding: 20px 10px;
   transition: all 0.3s ease;
@@ -147,7 +154,7 @@ body, html {
 }
 
 .nav-menu a:hover {
-  color: #e53935;
+  color: #FF0000;
   transform: translateY(-2px) rotateX(5deg) rotateY(2deg);
   text-shadow:
     1px 1px 0 #ccc,
@@ -189,13 +196,13 @@ body, html {
 }
 .dropdown-menu a {
   padding: 12px 20px;
-  color: #333;
+  color: #636359;
   transition: all 0.3s ease;
   white-space: nowrap; /* Prevent text wrapping */
 }
 .dropdown-menu a:hover {
   background: #ffe6e6;
-  color: #e53935;
+  color: #FF0000;
   transform: translateX(4px);
 }
 /* Optional bounce effect */
@@ -215,7 +222,7 @@ body, html {
 }
 
 .donate-btn {
-    background-color: #e53935;
+    background-color: #FF0000;
     color: white !important; /* Ensure text color is white */
     padding: 20px 25px !important;
     border: none;
@@ -235,7 +242,7 @@ body, html {
 }
 
 .donate-btn:hover {
-    background-color: #c62828;
+    background-color: #CC0000;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
@@ -286,8 +293,8 @@ body, html {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .search-input:focus {
-  border-color: #e53935;
-  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.2);
+  border-color: #FF0000;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
 }
 .search-button {
   position: absolute;
@@ -299,20 +306,20 @@ body, html {
   border: none;
   border-radius: 0 25px 25px 0;
   cursor: pointer;
-  color: #e53935;
+  color: #FF0000;
   transition: all 0.3s ease;
 }
 
 .search-button:hover {
-  color: #c62828;
-  background: rgba(229, 57, 53, 0.1);
+  color: #CC0000;
+  background: rgba(255, 0, 0, 0.1);
   transform:
     scale(1.1)
     rotate(8deg);
   /* Pulsing glow effect */
   box-shadow:
-    0 0 0 4px rgba(229, 57, 53, 0.3),
-    0 0 12px rgba(229, 57, 53, 0.4);
+    0 0 0 4px rgba(255, 0, 0, 0.3),
+    0 0 12px rgba(255, 0, 0, 0.4);
 }
 
 /* ----- Social media Bar Style ----- */
@@ -333,7 +340,7 @@ body, html {
   height: 48px;
   border-radius: 50%;
   background: white;
-  color: #e53935;
+  color: #FF0000;
   font-size: 20px;
   text-decoration: none;
   display: flex;
@@ -423,20 +430,21 @@ body, html {
 .nav-btn {
   position: relative;
   overflow: hidden;
-  padding: 14px 0;
+  padding: 15px 30px;
+  height: 75px;
   width: 169px; /* Originally: 200px */
   font-size: 1em;
   font-weight: 600;
   text-align: center;
   background: linear-gradient(to top, #ffffff, #ffe6e6);
-  color: #e53935;
+  color: #FF0000;
   border: none;
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.1),
-    0 8px 16px rgba(229, 57, 53, 0.3),
+    0 8px 16px rgba(255, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.7); /* inner bevel effect */
   z-index: 1;
 }
@@ -444,7 +452,7 @@ body, html {
   transform: translateY(-3px);
   box-shadow:
     0 6px 12px rgba(0, 0, 0, 0.2),
-    0 12px 24px rgba(229, 57, 53, 0.4),
+    0 12px 24px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -452,6 +460,7 @@ body, html {
   position: relative;
   z-index: 2;
   transition: color 0.3s ease;
+  line-height: 1.3;
 }
 .nav-btn::before {
   content: "";
@@ -460,7 +469,7 @@ body, html {
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: #e53935;
+  background-color: #FF0000;
   z-index: 1;
   transition: left 0.6s ease;
 }
@@ -522,7 +531,7 @@ body, html {
   display: block;
   position: relative;
   padding: 14px 20px;
-  color: #333;
+  color: #636359;
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
@@ -546,7 +555,7 @@ body, html {
 }
 
 .dropup-menu a:hover {
-  color: #b71c1c;
+  color: #CC0000;
   transform: translateY(-3px) translateZ(20px);
   box-shadow: 
     0 5px 15px rgba(0,0,0,0.1),
@@ -565,8 +574,8 @@ body, html {
 :root {
   --color-footer-bg: #303030;
   --color-text: #fff;
-  --color-link: #e53935;
-  --color-link-hover: #e53935;
+  --color-link: #FF0000;
+  --color-link-hover: #FF0000;
   --font-family: 'Segoe UI', sans-serif;
   --btn-bg: #484444;
   --btn-text: #fff;
@@ -811,7 +820,7 @@ body, html {
 }
 
 .intl-link {
-  color: #e53935 !important;
+  color: #FF0000 !important;
   font-weight: bold;
   font-size: 20px;
   display: inline-flex; /* to align text and icon nicely */
@@ -935,13 +944,13 @@ body, html {
     margin-top: 4px; /* mt-1 */
     font-size: 1.875rem; /* text-3xl */
     font-weight: 700; /* font-bold */
-    color: #111827; /* text-gray-900 */
+    color: #636359; /* text-gray-900 */
     line-height: 1.25; /* leading-tight */
 }
 
 .intro-hero-description {
     margin-top: 16px; /* mt-4 */
-    color: #4b5563; /* text-gray-600 */
+    color: #636359; /* text-gray-600 */
     line-height: 1.625; /* leading-relaxed */
 }
 
@@ -963,7 +972,7 @@ body, html {
 .question-card h3 {
     font-size: 1.25rem; /* text-xl */
     font-weight: 700; /* font-bold */
-    color: #111827; /* text-gray-900 */
+    color: #636359; /* text-gray-900 */
     margin-bottom: 12px; /* mb-3 */
 }
 
@@ -976,7 +985,7 @@ body, html {
 }
 
 .question-card-answer {
-    color: #4b5563; /* text-gray-600 */
+    color: #636359; /* text-gray-600 */
     background-color: #f9fafb; /* bg-gray-50 */
     padding: 16px; /* p-4 */
     border-radius: 8px; /* rounded-lg */
@@ -1001,7 +1010,7 @@ body, html {
 .intro-infographic-title {
     font-size: 1.5rem; /* text-2xl */
     font-weight: 700; /* font-bold */
-    color: #111827; /* text-gray-900 */
+    color: #636359; /* text-gray-900 */
     padding-left: 16px; /* px-4 */
     padding-right: 16px; /* px-4 */
 }
@@ -1280,7 +1289,7 @@ body, html {
 }
 .news-title {
   font-size: 2.5rem;
-  color: #e53935;
+  color: #FF0000;
   margin-bottom: 40px;
   text-align: center;
   letter-spacing: 1px;
@@ -1295,7 +1304,7 @@ body, html {
 .news-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(229,57,53,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 6px 24px rgba(255, 0, 0,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.08);
   overflow: hidden;
   width: 340px;
   display: flex;
@@ -1304,7 +1313,7 @@ body, html {
 }
 .news-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 32px rgba(229,57,53,0.18), 0 2px 12px 0 rgba(0,0,0,0.10);
+  box-shadow: 0 12px 32px rgba(255, 0, 0,0.18), 0 2px 12px 0 rgba(0,0,0,0.10);
 }
 .news-image {
   width: 100%;
@@ -1320,7 +1329,7 @@ body, html {
 }
 .news-headline {
   font-size: 1.25rem;
-  color: #e53935;
+  color: #FF0000;
   margin: 0 0 6px 0;
   font-weight: 700;
 }
@@ -1589,7 +1598,7 @@ body, html {
   font-size: 1.1rem;
   font-weight: 550;
   text-align: center;
-  color: #333;
+  color: #636359;
   margin: 0
 }
 
@@ -1598,7 +1607,7 @@ body, html {
   font-size: 1.2rem;
   font-weight: 500;
   text-align: left;
-  color: #333;
+  color: #636359;
   margin: 0;
 }
 
@@ -1627,7 +1636,7 @@ body, html {
 .donation-card .donate-amount {
   font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: #636359;
   margin: 20px 0;
 }
 
@@ -1706,7 +1715,7 @@ body, html {
 .donate-amount-btn {
   background: white;
   border: 2px solid #ddd;
-  color: #333;
+  color: #636359;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
@@ -1846,7 +1855,7 @@ input[type="number"] {
 
 .donate-testimonial-card .author {
   font-weight: bold;
-  color: #333;
+  color: #636359;
 }
 
 /* ----- GETTING STARTED ----- */
@@ -2097,7 +2106,7 @@ input[type="number"] {
   border-radius: 50px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   font-weight: bold;
-  color: #333;
+  color: #636359;
   border: 2px solid #cc0000;
   transition: all 0.3s ease;
 }
@@ -2170,13 +2179,13 @@ input[type="number"] {
 .cg-container h2 {
   text-align: left;
   margin-bottom: 1rem;
-  color: #333;
+  color: #636359;
   font-size: 1.6rem;
 }
 .cg-container p {
   text-align: left;
   margin-bottom: 2rem;
-  color: #333;
+  color: #636359;
   font-size: 1.1rem;
 }
 .lg-desc h2 {
@@ -2189,7 +2198,7 @@ input[type="number"] {
 .lg-desc p {
   text-align: left;
   margin-bottom: 40px;
-  color: #333;
+  color: #636359;
   font-size: 1.1rem;
   position: relative;
 }
@@ -2409,7 +2418,7 @@ input[type="number"] {
 .our-chapter-desc p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #333;
+  color: #636359;
   max-width: 800px;
   margin: 0 auto 40px;
 }
@@ -2463,7 +2472,7 @@ input[type="number"] {
   color: #000;
 }
 .our-chapter-sosmed-card.x-card .ocsc-button:hover, .our-chapter-sosmed-card.tiktok-card .ocsc-button:hover {
-  box-shadow: 0 8px 32px rgba(229, 57, 53, 0.18), 0 3px 12px 0 rgba(0,0,0,0.12), 0 0 16px 2px rgba(255,255,255,0.35);
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.18), 0 3px 12px 0 rgba(0,0,0,0.12), 0 0 16px 2px rgba(255,255,255,0.35);
 }
 /* Instagram gradient or solid color */
 .our-chapter-sosmed-card.instagram-card {
@@ -2537,7 +2546,7 @@ input[type="number"] {
 
 .ocsc-button {
   background-color: #fff;
-  color: #333;
+  color: #636359;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 12px;
@@ -2557,7 +2566,7 @@ input[type="number"] {
 }
 
 .ocsc-button:hover {
-  box-shadow: 0 8px 32px rgba(229, 57, 53, 0.18), 0 3px 12px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.18), 0 3px 12px 0 rgba(0,0,0,0.12);
   transition: all 0.3s ease;
 }
 
@@ -2603,7 +2612,7 @@ input[type="number"] {
 }
 
 .our-chapter-contact p {
-  color: #333;
+  color: #636359;
   font-size: 1.2rem;
   text-align: center;
   padding: 0 20px;
@@ -2636,7 +2645,7 @@ input[type="number"] {
 }
 
 .our-chapter-contact-card h3 {
-  color: #333;
+  color: #636359;
   font-size: 1.1rem;
   font-weight: 700;
   text-align: center;
@@ -2738,7 +2747,7 @@ input[type="number"] {
   }
 
   .nav-menu a:hover {
-    color: #333;
+    color: #636359;
     transform: none;
     text-shadow: none;
   }
@@ -2855,7 +2864,7 @@ input[type="number"] {
   .hamburger .bar {
     width: 100%;
     height: 3px;
-    background-color: #e53935; /* Red color for the bars */
+    background-color: #FF0000; /* Red color for the bars */
     transition: all 0.3s ease; /* Smooth transition for animation */
   }
   /* Hamburger animation for 'open' state (when menu is active) */

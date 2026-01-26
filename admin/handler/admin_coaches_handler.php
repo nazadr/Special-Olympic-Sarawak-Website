@@ -1,9 +1,33 @@
 <?php
+// Prevent any HTML output
+ob_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // Don't display errors to output
+
 session_start();
+
+// Catch any PHP errors/warnings and convert to JSON
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    ob_clean();
+    echo json_encode(['success' => false, 'message' => "PHP Error: $errstr in $errfile on line $errline"]);
+    exit();
+});
+
 header('Content-Type: application/json');
 
 // Database connection
-require_once '../../db_connection.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "so_sarawak_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die(json_encode(['success' => false, 'message' => 'Connection failed: ' . $conn->connect_error]));
+}
 
 // Ensure only authenticated users can access
 if (!isset($_SESSION['admin_id']) && !isset($_SESSION['user'])) {
@@ -25,6 +49,10 @@ try {
         
         case 'upload':
             uploadExcel($conn);
+            break;
+        
+        case 'add':
+            addCoach($conn);
             break;
         
         case 'updateStatus':
@@ -167,6 +195,67 @@ function fetchCoachesStats($conn) {
         'recent_count' => $recentCount,
         'last_upload' => $lastUpload
     ]);
+}
+
+// Add a single coach
+function addCoach($conn) {
+    // Get form data
+    $full_name = $_POST['full_name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $date_of_birth = $_POST['date_of_birth'] ?? null;
+    $gender = $_POST['gender'] ?? '';
+    $chapter = $_POST['chapter'] ?? '';
+    $sports_expertise = $_POST['sports_expertise'] ?? '';
+    $experience_years = $_POST['experience_years'] ?? null;
+    $certifications = $_POST['certifications'] ?? '';
+    $availability = $_POST['availability'] ?? '';
+    $emergency_contact_name = $_POST['emergency_contact_name'] ?? '';
+    $emergency_contact_phone = $_POST['emergency_contact_phone'] ?? '';
+    
+    // Validation
+    if (empty($full_name)) {
+        echo json_encode(['success' => false, 'message' => 'Full name is required']);
+        return;
+    }
+    
+    // Check for duplicate email
+    if (!empty($email)) {
+        $checkQuery = "SELECT id FROM coaches WHERE email = ?";
+        $checkStmt = $conn->prepare($checkQuery);
+        $checkStmt->bind_param('s', $email);
+        $checkStmt->execute();
+        $checkResult = $checkStmt->get_result();
+        
+        if ($checkResult->num_rows > 0) {
+            echo json_encode(['success' => false, 'message' => 'A coach with this email already exists']);
+            return;
+        }
+    }
+    
+    // Insert into database
+    $query = "INSERT INTO coaches (
+        full_name, email, phone, date_of_birth, gender, chapter,
+        sports_expertise, experience_years, certifications, availability, emergency_contact_name, emergency_contact_phone,
+        status, created_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active', NOW())";
+    
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param(
+        'sssssssissss',
+        $full_name, $email, $phone, $date_of_birth, $gender, $chapter,
+        $sports_expertise, $experience_years, $certifications, $availability, $emergency_contact_name, $emergency_contact_phone
+    );
+    
+    if ($stmt->execute()) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'Coach added successfully',
+            'coach_id' => $conn->insert_id
+        ]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Failed to add coach: ' . $stmt->error]);
+    }
 }
 
 function uploadExcel($conn) {

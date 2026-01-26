@@ -1,9 +1,11 @@
-/* Apply Segoe UI font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* Apply Ubuntu font */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
@@ -17,18 +19,18 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e53935;
+  background: #FF0000;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c62828;
+  background: #CC0000;
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #e53935 #f1f1f1;
+  scrollbar-color: #FF0000 #f1f1f1;
 }
 
 /* ---------- DESKTOP STYLES ---------- */
@@ -48,7 +50,7 @@ body, html {
   align-items: center;
   padding: 0 40px;
   background: rgba(255, 255, 255, 0.95);
-  border-bottom: 2px solid #e53935;
+  border-bottom: 2px solid #FF0000;
   z-index: 1000;
   height: 70px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -57,6 +59,18 @@ body, html {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.mobile-only {
+    display: none; /* Hide mobile-only elements on desktop */
+}
+
+.mobile-only-block {
+    display: none; /* Hide these elements on desktop */
+}
+
+.desktop-only {
+    display: block; /* Ensure desktop-only elements are visible */
 }
 
 .logo {
@@ -70,11 +84,16 @@ body, html {
   object-fit: contain;
 }
 .sarawak-flag-header {
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background: none;
   box-shadow: none;
+  object-fit: contain;
+}
+.sarawak-flag-header[alt="Malaysia Flag"] {
+  height: 44px;
+  width: 44px;
 }
 .nav-menu {
   display: flex;
@@ -89,7 +108,7 @@ body, html {
 }
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: #636359;
   font-size: 1.1rem;
   padding: 20px 10px;
   transition: all 0.3s ease;
@@ -99,7 +118,7 @@ body, html {
 }
 
 .nav-menu a:hover {
-  color: #e53935;
+  color: #FF0000;
   transform: translateY(-2px) rotateX(5deg) rotateY(2deg);
   text-shadow:
     1px 1px 0 #ccc,
@@ -141,13 +160,13 @@ body, html {
 }
 .dropdown-menu a {
   padding: 12px 20px;
-  color: #333;
+  color: #636359;
   transition: all 0.3s ease;
   white-space: nowrap; /* Prevent text wrapping */
 }
 .dropdown-menu a:hover {
   background: #ffe6e6;
-  color: #e53935;
+  color: #FF0000;
   transform: translateX(4px);
 }
 /* Optional bounce effect */
@@ -162,21 +181,17 @@ body, html {
 
 /* --- Donation Button Styles --- */
 .donation-button-container {
-  padding-left: 0px;
-  width: 200px;
-  margin-top: 0;
-  display: inline-flex;
-  gap: 0px;
-  align-items: center;
+    padding-left: 20px;
+    margin-top: 4px;
 }
 
 .donate-btn {
-    background-color: #e53935;
+    background-color: #FF0000;
     color: white !important; /* Ensure text color is white */
-    padding: 10px 24px !important;
+    padding: 20px 25px !important;
     border: none;
     border-radius: 25px;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 600; /* Make font bold */
     text-align: center;
     cursor: pointer;
@@ -187,12 +202,11 @@ body, html {
     display: inline-block !important;
     text-decoration: none;
     outline: none;
-    line-height: 1.2;
-    white-space: nowrap;
+    line-height: 0.3;
 }
 
 .donate-btn:hover {
-    background-color: #c62828;
+    background-color: #CC0000;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
@@ -243,8 +257,8 @@ body, html {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .search-input:focus {
-  border-color: #e53935;
-  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.2);
+  border-color: #FF0000;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
 }
 .search-button {
   position: absolute;
@@ -256,20 +270,20 @@ body, html {
   border: none;
   border-radius: 0 25px 25px 0;
   cursor: pointer;
-  color: #e53935;
+  color: #FF0000;
   transition: all 0.3s ease;
 }
 
 .search-button:hover {
-  color: #c62828;
-  background: rgba(229, 57, 53, 0.1);
+  color: #CC0000;
+  background: rgba(255, 0, 0, 0.1);
   transform:
     scale(1.1)
     rotate(8deg);
   /* Pulsing glow effect */
   box-shadow:
-    0 0 0 4px rgba(229, 57, 53, 0.3),
-    0 0 12px rgba(229, 57, 53, 0.4);
+    0 0 0 4px rgba(255, 0, 0, 0.3),
+    0 0 12px rgba(255, 0, 0, 0.4);
 }
 
 /* ----- Main Content (Welcome Section) ----- */
@@ -394,7 +408,7 @@ body, html {
   height: 48px;
   border-radius: 50%;
   background: white;
-  color: #e53935;
+  color: #FF0000;
   font-size: 20px;
   text-decoration: none;
   display: flex;
@@ -485,14 +499,14 @@ body, html {
   font-weight: 600;
   text-align: center;
   background: linear-gradient(to top, #ffffff, #ffe6e6);
-  color: #e53935;
+  color: #FF0000;
   border: none;
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.1),
-    0 8px 16px rgba(229, 57, 53, 0.3),
+    0 8px 16px rgba(255, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.7); /* inner bevel effect */
   z-index: 1;
 }
@@ -500,7 +514,7 @@ body, html {
   transform: translateY(-3px);
   box-shadow:
     0 6px 12px rgba(0, 0, 0, 0.2),
-    0 12px 24px rgba(229, 57, 53, 0.4),
+    0 12px 24px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -516,7 +530,7 @@ body, html {
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: #e53935;
+  background-color: #FF0000;
   z-index: 1;
   transition: left 0.6s ease;
 }
@@ -580,7 +594,7 @@ body, html {
   display: block;
   position: relative;
   padding: 14px 20px;
-  color: #333;
+  color: #636359;
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
@@ -604,7 +618,7 @@ body, html {
 }
 
 .dropup-menu a:hover {
-  color: #b71c1c;
+  color: #CC0000;
   transform: translateY(-3px) translateZ(20px);
   box-shadow: 
     0 5px 15px rgba(0,0,0,0.1),
@@ -678,7 +692,7 @@ body, html {
     left: 0; /* Full width */
     bottom: 0; /* Stick to bottom */
     width: 100%; /* Full width */
-    box-shadow: 0 -2px 12px rgba(229, 57, 53, 0.12); /* Subtle shadow on top */
+    box-shadow: 0 -2px 12px rgba(255, 0, 0, 0.12); /* Subtle shadow on top */
     display: flex; /* Flexbox for layout */
     min-height: 30px; /* Minimum height for better appearance */
     align-items: center; /* Center items vertically */
@@ -725,7 +739,7 @@ body, html {
 
 .footer-link:hover {
   background: #fff;  
-  color: #e53935;
+  color: #FF0000;
 }
 
 .footer-social-icons {
@@ -748,7 +762,7 @@ body, html {
 }
 
 .footer-social-icons .icon:hover {
-    background: #e53935;
+    background: #FF0000;
     transform: translateY(-3px);
 }
 
@@ -962,7 +976,7 @@ body, html {
   .hamburger .bar {
     width: 100%;
     height: 3px;
-    background-color: #e53935; /* Red color for the bars */
+    background-color: #FF0000; /* Red color for the bars */
     transition: all 0.3s ease; /* Smooth transition for animation */
   }
   /* Hamburger animation for 'open' state (when menu is active) */

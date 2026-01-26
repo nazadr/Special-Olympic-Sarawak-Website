@@ -301,7 +301,7 @@ if (window.sponsorshipManagementInitialized) {
                 <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #64748b;">
                     <i class="fas fa-handshake" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
                     <p>No sponsors found for this category.</p>
-                    <button onclick="openSponsorshipModal()" style="margin-top: 16px; padding: 10px 20px; background: #e53935; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    <button onclick="openSponsorshipModal()" style="margin-top: 16px; padding: 10px 20px; background: #FF0000; color: white; border: none; border-radius: 8px; cursor: pointer;">
                         <i class="fas fa-plus"></i> Add First Sponsor
                     </button>
                 </div>

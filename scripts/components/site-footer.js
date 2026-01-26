@@ -14,6 +14,15 @@ document.writeln(`
         <div class="footer-middle-content">
             <nav class="footer-navigation">
                 <div class="nav-group">
+                    <h3>About <i class="fa-solid fa-caret-right"></i></h3>
+                    <ul class="nav-group-dropdown">
+                        <li><a href="../src/introduction-1.html">Introduction</a></li>
+                        <!-- <li><a href="../src/dev.html">Organization Overview</a></li> -->
+                        <li><a href="../src/brochure.html">SO Brochure</a></li>
+                        <li><a href="../src/how_can_you_help.html">How Can You Help?</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
                     <h3>What We Do? <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
                         <li><a href="../src/getting_started.php">Getting Started</a></li>
@@ -22,12 +31,11 @@ document.writeln(`
                     </ul>
                 </div>
                 <div class="nav-group">
-                    <h3>About <i class="fa-solid fa-caret-right"></i></h3>
+                    <h3>Affiliate <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="../src/introduction-1.html">Introduction</a></li>
-                        <!-- <li><a href="../src/dev.html">Organization Overview</a></li> -->
-                        <li><a href="../src/brochure.html">SO Brochure</a></li>
-                        <li><a href="../src/how_can_you_help.html">How Can You Help?</a></li>
+                        <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
+                        <li><a href="../src/sponsorships.html">Sponsorships</a></li>
+                        <li><a href="../src/other-so.html">Special Olympics Organization</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -43,17 +51,9 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>Programs <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="../src/sohap.html">Healthy Athletes Program (SOHAP)</a></li>
-                        <li><a href="../src/alp.html">Athlete Leadership Program (ALP)</a></li>
-                        <li><a href="../src/yap.html">Young Athletes Program (YAP)</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>Affiliate <i class="fa-solid fa-caret-right"></i></h3>
-                    <ul class="nav-group-dropdown">
-                        <li><a href="../src/sarawak-chapters.php">Sarawak Chapters</a></li>
-                        <li><a href="../src/sponsorships.html">Sponsorships</a></li>
-                        <li><a href="../src/other-so.html">Special Olympics Organization</a></li>
+                        <li><a href="../src/sohap.html">Healthy Athletes Program</a></li>
+                        <li><a href="../src/alp.php">Athlete Leadership Program</a></li>
+                        <li><a href="../src/yap.html">Young Athletes Program</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
@@ -101,10 +101,9 @@ document.writeln(`
         </div>
         <div class="footer-bottom">
             <div class="copyright-links">
-                <p>© 2025 Special Olympics Sarawak. All rights reserved.</p>
+                <p>© 2026 Special Olympics Sarawak. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="../src/privacy-policy.html">Privacy Policy</a>
-                    <a href="../src/disclaimer.html">Disclaimer</a>
                     <a href="../src/terms-and-conditions.html">Terms & Conditions</a>
                     <a href="../src/sitemap.php">Sitemap</a>
                 </div>

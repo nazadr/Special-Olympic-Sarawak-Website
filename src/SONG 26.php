@@ -1,13 +1,16 @@
 <?php
 // Placeholder for future database integration
 $song26Data = [];
+
+// Check if page is in standalone mode (opened from index as special event page)
+$isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Sarawak — 6th National Games | SONG 26</title>
+    <title>Special Olympics Malaysia — 6th National Games | SONG 26</title>
     <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
     <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -15,14 +18,14 @@ $song26Data = [];
     <style>
         /* Local style within this HTML */
         :root {
-            --so-red: #D90429;
+            --so-red: #FF0000;
             --so-white: #ffffff;
             --so-dark: #1a1a1a;
             --so-gray: #666;
             --so-light-gray: #f5f5f5;
-            --shadow-sm: 0 2px 10px rgba(217, 4, 41, 0.08);
-            --shadow-md: 0 4px 20px rgba(217, 4, 41, 0.12);
-            --shadow-lg: 0 8px 30px rgba(217, 4, 41, 0.15);
+            --shadow-sm: 0 2px 10px rgba(255, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(255, 0, 0, 0.12);
+            --shadow-lg: 0 8px 30px rgba(255, 0, 0, 0.15);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -85,8 +88,8 @@ $song26Data = [];
         }
 
         .song26-hero-logo {
-            width: 140px;
-            height: 140px;
+            width: 280px;
+            height: 280px;
             margin-bottom: 30px;
             filter: brightness(0) invert(1) drop-shadow(0 4px 20px rgba(0,0,0,0.2));
             animation: floatLogo 3s ease-in-out infinite;
@@ -252,7 +255,7 @@ $song26Data = [];
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(217, 4, 41, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
             transition: var(--transition);
         }
 
@@ -314,6 +317,7 @@ $song26Data = [];
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-bottom: 60px;
         }
 
         .song26-motto-section::before {
@@ -492,14 +496,14 @@ $song26Data = [];
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 4px solid rgba(217, 4, 41, 0.1);
+            border: 4px solid rgba(255, 0, 0, 0.1);
             transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(217, 4, 41, 0.2);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
         }
 
         .song26-committee-card:hover .song26-committee-photo {
             transform: scale(1.08);
-            box-shadow: 0 12px 35px rgba(217, 4, 41, 0.3);
+            box-shadow: 0 12px 35px rgba(255, 0, 0, 0.3);
         }
 
         .song26-committee-photo i {
@@ -645,6 +649,228 @@ $song26Data = [];
             font-weight: 600;
         }
 
+        /* Sport Tabs - Bookmark Style */
+        .song26-sport-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 3px solid var(--so-light-gray);
+            padding-bottom: 0;
+        }
+
+        .song26-sport-tab {
+            padding: 15px 25px;
+            background: var(--so-light-gray);
+            border: none;
+            border-radius: 12px 12px 0 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--so-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            border-bottom: 3px solid transparent;
+        }
+
+        .song26-sport-tab:hover {
+            background: rgba(255, 0, 0, 0.1);
+            color: var(--so-red);
+        }
+
+        .song26-sport-tab.active {
+            background: var(--so-white);
+            color: var(--so-red);
+            border-bottom: 3px solid var(--so-red);
+            box-shadow: 0 -3px 10px rgba(255, 0, 0, 0.1);
+        }
+
+        /* Standings Container */
+        .song26-standings-container {
+            margin-bottom: 40px;
+        }
+
+        .song26-standings-table {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .song26-standings-table.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Table Wrapper */
+        .song26-table-wrapper {
+            background: var(--so-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            border: 2px solid var(--so-light-gray);
+        }
+
+        /* Table Styles */
+        .song26-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .song26-table thead {
+            background: linear-gradient(135deg, var(--so-red) 0%, #8b0000 100%);
+            color: var(--so-white);
+        }
+
+        .song26-table thead th {
+            padding: 20px 15px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .song26-table thead th.text-center {
+            text-align: center;
+        }
+
+        .song26-table tbody tr {
+            border-bottom: 1px solid var(--so-light-gray);
+            transition: var(--transition);
+        }
+
+        .song26-table tbody tr:hover {
+            background: rgba(255, 0, 0, 0.05);
+        }
+
+        .song26-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .song26-table tbody td {
+            padding: 18px 15px;
+            font-size: 1.05rem;
+            color: var(--so-dark);
+        }
+
+        .song26-table tbody td:first-child {
+            font-weight: 700;
+            color: var(--so-red);
+            font-size: 1.1rem;
+        }
+
+        .song26-table .text-center {
+            text-align: center;
+        }
+
+        /* Rank Badges */
+        .song26-table .rank-1,
+        .song26-table .rank-2,
+        .song26-table .rank-3 {
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 25px;
+            display: inline-block;
+            color: var(--so-white);
+            font-size: 1rem;
+        }
+
+        .song26-table .rank-1 {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .song26-table .rank-2 {
+            background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%);
+            box-shadow: 0 4px 12px rgba(192, 192, 192, 0.3);
+        }
+
+        .song26-table .rank-3 {
+            background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%);
+            box-shadow: 0 4px 12px rgba(205, 127, 50, 0.3);
+        }
+
+        /* Medal Table Specific Styles */
+        .song26-medal-standings {
+            margin-top: 40px;
+        }
+
+        .song26-medal-table thead th {
+            padding: 20px 12px;
+        }
+
+        .song26-medal-table .medal-col i {
+            margin-right: 5px;
+            font-size: 1rem;
+        }
+
+        .song26-medal-table .gold-col {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .song26-medal-table .silver-col {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .song26-medal-table .bronze-col {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .song26-medal-table .total-col {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 800;
+        }
+
+        .song26-medal-table tbody .medal-count,
+        .song26-medal-table tbody .total-count {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .song26-medal-table tbody .gold-count {
+            color: #B8860B;
+            font-weight: 700;
+        }
+
+        .song26-medal-table tbody .silver-count {
+            color: #6B7280;
+            font-weight: 700;
+        }
+
+        .song26-medal-table tbody .bronze-count {
+            color: #92400E;
+            font-weight: 700;
+        }
+
+        .song26-medal-table tbody .total-count {
+            color: var(--so-red);
+            font-size: 1.25rem;
+        }
+
+        .song26-medal-table tbody .state-cell {
+            font-weight: 600;
+        }
+
+        .song26-medal-table tbody .rank-1-row {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+        }
+
+        .song26-medal-table tbody .rank-2-row {
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.1) 0%, transparent 100%);
+        }
+
+        .song26-medal-table tbody .rank-3-row {
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.1) 0%, transparent 100%);
+        }
+
+        .song26-medal-table tbody .rank-cell {
+            font-size: 1.2rem;
+        }
+
         /* Logo Section */
         .song26-logo-section {
             text-align: center;
@@ -660,6 +886,376 @@ $song26Data = [];
 
         .song26-logo-placeholder {
             display: none;
+        }
+
+        /* Side Navigation Bar - Futuristic Left Side */
+        .song26-side-nav {
+            position: fixed;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(249, 249, 255, 0.95));
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 25px 20px;
+            box-shadow: 
+                0 20px 60px rgba(255, 0, 0, 0.12),
+                0 0 0 1px rgba(255, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: navFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes navFloat {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(3px); }
+        }
+
+        .song26-side-nav::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--so-red), #ff4d6d, var(--so-red));
+            background-size: 200% 200%;
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .song26-side-nav:hover {
+            box-shadow: 
+                0 25px 80px rgba(255, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.02);
+            animation: none;
+        }
+
+        .song26-side-nav:hover::before {
+            opacity: 0.15;
+        }
+
+        .song26-nav-items {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .song26-nav-item {
+            position: relative;
+        }
+
+        .song26-nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-decoration: none;
+            color: var(--so-gray);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .song26-nav-link::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, var(--so-red), #ff4d6d);
+            border-radius: 3px;
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .song26-nav-link:hover {
+            color: var(--so-red);
+            transform: translateX(3px);
+        }
+
+        .song26-nav-link:hover::before {
+            height: 100%;
+            opacity: 1;
+        }
+
+        .song26-nav-link.active {
+            color: var(--so-red);
+        }
+
+        .song26-nav-link.active::before {
+            height: 100%;
+            opacity: 1;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .song26-nav-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ddd, #bbb);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            margin-right: 15px;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .song26-nav-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .song26-nav-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--so-red);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .song26-nav-link:hover .song26-nav-dot {
+            background: linear-gradient(135deg, #ff4d6d, var(--so-red));
+            transform: scale(1.2);
+            box-shadow: 
+                0 0 15px rgba(255, 0, 0, 0.5),
+                0 4px 12px rgba(255, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+        }
+
+        .song26-nav-link:hover .song26-nav-dot::before {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .song26-nav-link.active .song26-nav-dot {
+            background: linear-gradient(135deg, var(--so-red), #8b0000);
+            transform: scale(1.3);
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.6),
+                0 0 0 4px rgba(255, 0, 0, 0.2),
+                0 5px 15px rgba(255, 0, 0, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 0 4px rgba(255, 0, 0, 0.2), 0 5px 15px rgba(255, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 0 6px rgba(255, 0, 0, 0.3), 0 5px 15px rgba(255, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3); }
+        }
+
+        .song26-nav-link.active .song26-nav-dot::before {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .song26-nav-link.active .song26-nav-dot::after {
+            opacity: 1;
+            animation: dotRing 2s ease-in-out infinite;
+        }
+
+        @keyframes dotRing {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+
+        .song26-nav-label {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            left: 45px;
+            background: linear-gradient(135deg, var(--so-red), #8b0000);
+            color: var(--so-white);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            box-shadow: 
+                0 8px 25px rgba(255, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transform: translateX(-10px);
+        }
+
+        .song26-nav-label::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--so-red), #ff4d6d);
+            background-size: 200% 200%;
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .song26-nav-label::after {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 8px solid var(--so-red);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            filter: drop-shadow(-2px 0 3px rgba(0, 0, 0, 0.1));
+        }
+
+        .song26-nav-link:hover .song26-nav-label,
+        .song26-nav-link.active .song26-nav-label {
+            opacity: 1;
+            visibility: visible;
+            left: 50px;
+            transform: translateX(0);
+        }
+
+        .song26-nav-link:hover .song26-nav-label::before {
+            opacity: 1;
+        }
+
+        .song26-nav-link.active .song26-nav-label {
+            background: linear-gradient(135deg, #ff4d6d, var(--so-red));
+            box-shadow: 
+                0 10px 30px rgba(255, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile Navigation Toggle - Futuristic Button */
+        .song26-nav-toggle {
+            display: none;
+            position: fixed;
+            left: 20px;
+            bottom: 30px;
+            z-index: 1001;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--so-red) 0%, #8b0000 100%);
+            border-radius: 50%;
+            border: none;
+            color: var(--so-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 
+                0 10px 35px rgba(255, 0, 0, 0.5),
+                0 0 0 4px rgba(255, 0, 0, 0.1),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .song26-nav-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+        }
+
+        .song26-nav-toggle:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .song26-nav-toggle::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(45deg, var(--so-red), #ff4d6d, var(--so-red));
+            background-size: 200% 200%;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            animation: gradientShift 3s ease infinite;
+            transition: opacity 0.4s ease;
+        }
+
+        .song26-nav-toggle:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 15px 45px rgba(255, 0, 0, 0.6),
+                0 0 0 6px rgba(255, 0, 0, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .song26-nav-toggle:hover::after {
+            opacity: 1;
+        }
+
+        .song26-nav-toggle:active {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .song26-nav-toggle i {
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .song26-nav-toggle.active {
+            transform: rotate(90deg);
+            background: linear-gradient(135deg, #ff4d6d 0%, var(--so-red) 100%);
+        }
+
+        .song26-nav-toggle.active i {
+            transform: rotate(90deg);
+        }
+
+        /* Hide navigation in portrait mobile view - Only show in landscape */\n        @media (max-width: 768px) and (orientation: portrait) {
+            .song26-side-nav,
+            .song26-nav-toggle {
+                display: none !important;
+            }
         }
 
         /* Responsive Design */
@@ -738,6 +1334,115 @@ $song26Data = [];
                 grid-template-columns: 1fr;
             }
 
+            .song26-sport-tabs {
+                gap: 5px;
+            }
+
+            .song26-sport-tab {
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+
+            .song26-table-wrapper {
+                overflow-x: auto;
+            }
+
+            .song26-table {
+                min-width: 600px;
+            }
+
+            .song26-table thead th {
+                padding: 15px 10px;
+                font-size: 0.95rem;
+            }
+
+            .song26-table tbody td {
+                padding: 15px 10px;
+                font-size: 0.95rem;
+            }
+
+            .song26-medal-table .medal-col i {
+                display: none;
+            }
+
+            /* Mobile Navigation - Left Side */
+            .song26-side-nav {
+                left: -320px;
+                top: auto;
+                bottom: 110px;
+                transform: none;
+                border-radius: 0 25px 25px 0;
+                padding: 35px 30px;
+                transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                animation: none;
+                width: 280px;
+                max-width: 85vw;
+            }
+
+            .song26-side-nav.active {
+                left: 0;
+                box-shadow: 
+                    5px 0 40px rgba(255, 0, 0, 0.25),
+                    0 0 0 1px rgba(255, 0, 0, 0.15);
+            }
+
+            .song26-nav-items {
+                gap: 22px;
+            }
+
+            .song26-nav-link {
+                flex-direction: row;
+                justify-content: flex-start;
+                font-size: 1.05rem;
+                padding: 12px 0;
+            }
+
+            .song26-nav-link::before {
+                left: -20px;
+            }
+
+            .song26-nav-dot {
+                margin-right: 18px;
+                margin-left: 0;
+                width: 16px;
+                height: 16px;
+            }
+
+            .song26-nav-label {
+                opacity: 1;
+                visibility: visible;
+                position: relative;
+                left: auto;
+                background: transparent;
+                color: var(--so-gray);
+                padding: 0;
+                box-shadow: none;
+                pointer-events: auto;
+                transform: none;
+                font-size: 1rem;
+                text-transform: none;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+            }
+
+            .song26-nav-label::before,
+            .song26-nav-label::after {
+                display: none;
+            }
+
+            .song26-nav-link:hover .song26-nav-label,
+            .song26-nav-link.active .song26-nav-label {
+                color: var(--so-red);
+                left: auto;
+                transform: none;
+            }
+
+            .song26-nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             .song26-committee-section {
                 padding: 50px 0;
             }
@@ -779,21 +1484,74 @@ $song26Data = [];
     <!-- Header Space for Navigation Bar -->
     <div class="header-space"></div>
 
+    <!-- Side Navigation -->
+    <nav class="song26-side-nav" id="sideNav">
+        <ul class="song26-nav-items">
+            <li class="song26-nav-item">
+                <a href="#home" class="song26-nav-link active" data-section="home">
+                    <span class="song26-nav-label">Home</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#about" class="song26-nav-link" data-section="about">
+                    <span class="song26-nav-label">About</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#sports" class="song26-nav-link" data-section="sports">
+                    <span class="song26-nav-label">Sports</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#standings" class="song26-nav-link" data-section="standings">
+                    <span class="song26-nav-label">Standings</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#partners" class="song26-nav-link" data-section="partners">
+                    <span class="song26-nav-label">Partners</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#sponsors" class="song26-nav-link" data-section="sponsors">
+                    <span class="song26-nav-label">Sponsors</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#oath" class="song26-nav-link" data-section="oath">
+                    <span class="song26-nav-label">SO Oath</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="song26-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <!-- Hero Section -->
-    <section class="song26-hero">
+    <section class="song26-hero" id="home">
         <div class="song26-hero-content">
-            <img src="../assets/icons/bintulu-stork.png" alt="SONG 26 Logo" class="song26-hero-logo">
-            <div class="song26-hero-location">Bintulu, Sarawak</div>
+            <img src="../assets/images/SONG26_Logo.png" alt="SONG 26 Logo" class="song26-hero-logo">
+            <h1>Special Olympics Malaysia</h1>
             <div class="song26-hero-subtitle">6th National Games</div>
-            <h1>Special Olympics Sarawak</h1>
-            <div class="song26-hero-date">24 - 26 April 2026</div>
+            <div class="song26-hero-location">Bintulu</div>
+            <div class="song26-hero-date">25 - 26 April 2026</div>
         </div>
     </section>
 
     <!-- Main Content -->
     <div class="song26-main-content">
         <!-- About Section -->
-        <section class="song26-full-section white-bg">
+        <section class="song26-full-section white-bg" id="about">
             <div class="song26-container">
                 <div class="song26-section-title">
                     <h2>SONG 2026</h2>
@@ -803,8 +1561,8 @@ $song26Data = [];
                 <!-- Logo Display -->
                 <div class="song26-logo-section">
                     <div class="song26-logo-card">
-                        <div aria-hidden="false" role="img" aria-label="Special Olympics Sarawak logo" style="width:74px;height:74px;background:#d90429;border-radius:50%;box-shadow:0 4px 16px rgba(217,4,41,0.12);display:flex;align-items:center;justify-content:center;">
-                            <img src="../assets/icons/bintulu-stork.png" alt="Special Olympics Sarawak logo" style="width:36px;height:36px;display:block;object-fit:contain;filter:brightness(0) invert(1);" aria-hidden="false">
+                        <div aria-hidden="false" role="img" aria-label="Special Olympics Sarawak logo" style="width:110px;height:110px;background:#FF0000;border-radius:50%;box-shadow:0 4px 16px rgba(255, 0, 0,0.12);display:flex;align-items:center;justify-content:center;">
+                            <img src="../assets/images/SONG26_Logo.png" alt="SONG 26 Logo" style="width:90px;height:auto;display:block;object-fit:contain;" aria-hidden="false">
                         </div>
                     </div>
                 </div>
@@ -827,7 +1585,7 @@ $song26Data = [];
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <h3>Date</h3>
-                        <p>24 - 26 April 2026<br>Three Days of Competition & Unity</p>
+                        <p>25 - 26 April 2026<br>Two Days of Competition & Unity</p>
                     </div>
                     <div class="song26-info-card">
                         <div class="song26-icon-wrapper">
@@ -840,126 +1598,471 @@ $song26Data = [];
             </div>
         </section>
 
-        <!-- Purpose Section -->
-        <section class="song26-full-section white-bg">
-            <div class="song26-container">
-                <div class="song26-content-section">
-                    <div class="song26-content-box">
-                        <h3>Purpose & Impact</h3>
-                        <p>The Games focus on inclusion, skill development and community empowerment. They create opportunities for athletes to compete in a safe, supportive environment while fostering volunteerism, local engagement and lasting improvements to sports access across the state.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Motto Section -->
-        <section class="song26-motto-section">
-            <div class="song26-motto-content">
-                <h3>Special Olympic Oath</h3>
-                <p>Let me win. But if I cannot win, let me be brave in the attempt.</p>
-            </div>
-        </section>
-
-        <!-- Values Section -->
-        <section class="song26-full-section white-bg">
-            <div class="song26-container">
-                <div class="song26-content-section">
-                    <div class="song26-content-box">
-                        <h3>Values & Legacy</h3>
-                        <p>The event champions respect, courage and teamwork. Its legacy includes improved community programmes, trained volunteers, upgraded local facilities and greater public awareness about the abilities of people with intellectual disabilities.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Participation Section -->
-        <section class="song26-full-section gray-bg">
+        <!-- Sports Competitions Section -->
+        <section class="song26-full-section gray-bg" id="sports">
             <div class="song26-container">
                 <div class="song26-section-title">
                     <h2>Sports Competitions</h2>
                     <p>Multiple sporting events organized to provide classification-appropriate competition and promote athlete development</p>
                 </div>
                 <div class="song26-participation-grid">
-                    <div class="song26-sport-card">Athletics</div>
                     <div class="song26-sport-card">Aquatics</div>
-                    <div class="song26-sport-card">Bocce</div>
+                    <div class="song26-sport-card">Athletics</div>
                     <div class="song26-sport-card">Badminton</div>
+                    <div class="song26-sport-card">Basketball</div>
+                    <div class="song26-sport-card">Bocce</div>
+                    <div class="song26-sport-card">Bowling</div>
                     <div class="song26-sport-card">Football 5-a-Side</div>
                     <div class="song26-sport-card">Table Tennis</div>
-                    <div class="song26-sport-card">Basketball</div>
-                    <div class="song26-sport-card">Unified Sports</div>
                 </div>
             </div>
         </section>
 
-        <!-- Get Involved Section --> 
-         <!-- Part tok mun possible engkah link untuk forms mun sik just for informatics --> 
-        <section class="song26-full-section white-bg">
+        <!-- Standings Section -->
+        <section class="song26-full-section white-bg" id="standings">
             <div class="song26-container">
                 <div class="song26-section-title">
-                    <h2>Get Involved</h2>
-                    <p>Be part of something bigger – join us in celebrating inclusion and athletic excellence</p>
+                    <h2>Overall Medal Standings</h2>
+                    <p>Combined medal count across all sports competitions</p>
                 </div>
-                <div class="song26-involvement-grid">
-                    <div class="song26-involvement-card">
-                        <h4>Volunteer</h4>
-                        <p>Support athletes, assist with logistics, and help create an unforgettable experience. Your time and energy make a real difference in our community programmes.</p>
+
+                <div class="song26-medal-standings">
+                    <div class="song26-table-wrapper">
+                        <table class="song26-table song26-medal-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>State</th>
+                                    <th class="text-center medal-col gold-col"><i class="fas fa-medal"></i> Gold</th>
+                                    <th class="text-center medal-col silver-col"><i class="fas fa-medal"></i> Silver</th>
+                                    <th class="text-center medal-col bronze-col"><i class="fas fa-medal"></i> Bronze</th>
+                                    <th class="text-center total-col"><i class="fas fa-trophy"></i> Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="rank-1-row">
+                                    <td class="rank-cell">1</td>
+                                    <td class="state-cell"><strong>Sarawak</strong></td>
+                                    <td class="text-center medal-count gold-count">15</td>
+                                    <td class="text-center medal-count silver-count">12</td>
+                                    <td class="text-center medal-count bronze-count">10</td>
+                                    <td class="text-center total-count"><strong>37</strong></td>
+                                </tr>
+                                <tr class="rank-2-row">
+                                    <td class="rank-cell">2</td>
+                                    <td class="state-cell"><strong>Selangor</strong></td>
+                                    <td class="text-center medal-count gold-count">14</td>
+                                    <td class="text-center medal-count silver-count">11</td>
+                                    <td class="text-center medal-count bronze-count">9</td>
+                                    <td class="text-center total-count"><strong>34</strong></td>
+                                </tr>
+                                <tr class="rank-3-row">
+                                    <td class="rank-cell">3</td>
+                                    <td class="state-cell"><strong>Johor</strong></td>
+                                    <td class="text-center medal-count gold-count">12</td>
+                                    <td class="text-center medal-count silver-count">10</td>
+                                    <td class="text-center medal-count bronze-count">11</td>
+                                    <td class="text-center total-count"><strong>33</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">4</td>
+                                    <td class="state-cell">Penang</td>
+                                    <td class="text-center medal-count gold-count">11</td>
+                                    <td class="text-center medal-count silver-count">9</td>
+                                    <td class="text-center medal-count bronze-count">8</td>
+                                    <td class="text-center total-count">28</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">5</td>
+                                    <td class="state-cell">Sabah</td>
+                                    <td class="text-center medal-count gold-count">9</td>
+                                    <td class="text-center medal-count silver-count">10</td>
+                                    <td class="text-center medal-count bronze-count">7</td>
+                                    <td class="text-center total-count">26</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">6</td>
+                                    <td class="state-cell">Perak</td>
+                                    <td class="text-center medal-count gold-count">8</td>
+                                    <td class="text-center medal-count silver-count">7</td>
+                                    <td class="text-center medal-count bronze-count">9</td>
+                                    <td class="text-center total-count">24</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">7</td>
+                                    <td class="state-cell">Kedah</td>
+                                    <td class="text-center medal-count gold-count">6</td>
+                                    <td class="text-center medal-count silver-count">8</td>
+                                    <td class="text-center medal-count bronze-count">6</td>
+                                    <td class="text-center total-count">20</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">8</td>
+                                    <td class="state-cell">Kelantan</td>
+                                    <td class="text-center medal-count gold-count">5</td>
+                                    <td class="text-center medal-count silver-count">6</td>
+                                    <td class="text-center medal-count bronze-count">7</td>
+                                    <td class="text-center total-count">18</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">9</td>
+                                    <td class="state-cell">Terengganu</td>
+                                    <td class="text-center medal-count gold-count">4</td>
+                                    <td class="text-center medal-count silver-count">5</td>
+                                    <td class="text-center medal-count bronze-count">6</td>
+                                    <td class="text-center total-count">15</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">10</td>
+                                    <td class="state-cell">Pahang</td>
+                                    <td class="text-center medal-count gold-count">3</td>
+                                    <td class="text-center medal-count silver-count">4</td>
+                                    <td class="text-center medal-count bronze-count">5</td>
+                                    <td class="text-center total-count">12</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">11</td>
+                                    <td class="state-cell">Melaka</td>
+                                    <td class="text-center medal-count gold-count">2</td>
+                                    <td class="text-center medal-count silver-count">3</td>
+                                    <td class="text-center medal-count bronze-count">4</td>
+                                    <td class="text-center total-count">9</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">12</td>
+                                    <td class="state-cell">Negeri Sembilan</td>
+                                    <td class="text-center medal-count gold-count">2</td>
+                                    <td class="text-center medal-count silver-count">2</td>
+                                    <td class="text-center medal-count bronze-count">3</td>
+                                    <td class="text-center total-count">7</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">13</td>
+                                    <td class="state-cell">Perlis</td>
+                                    <td class="text-center medal-count gold-count">1</td>
+                                    <td class="text-center medal-count silver-count">2</td>
+                                    <td class="text-center medal-count bronze-count">2</td>
+                                    <td class="text-center total-count">5</td>
+                                </tr>
+                                <tr>
+                                    <td class="rank-cell">14</td>
+                                    <td class="state-cell">Kuala Lumpur</td>
+                                    <td class="text-center medal-count gold-count">1</td>
+                                    <td class="text-center medal-count silver-count">1</td>
+                                    <td class="text-center medal-count bronze-count">1</td>
+                                    <td class="text-center total-count">3</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="song26-involvement-card">
-                        <h4>Coach or Unified Partner</h4>
-                        <p>Participate alongside athletes to promote inclusion. Share your skills and passion for sports while building meaningful connections.</p>
+                </div>
+
+                <!-- Competition Standings -->
+                <div class="song26-section-title" style="margin-top: 80px;">
+                    <h2>Competition Standings</h2>
+                    <p>Live rankings and medal standings for all participating states</p>
+                </div>
+
+                <!-- Sport Tabs (Bookmark Style) -->
+                <div class="song26-sport-tabs">
+                    <button class="song26-sport-tab active" data-sport="aquatics">Aquatics</button>
+                    <button class="song26-sport-tab" data-sport="athletics">Athletics</button>
+                    <button class="song26-sport-tab" data-sport="badminton">Badminton</button>
+                    <button class="song26-sport-tab" data-sport="basketball">Basketball</button>
+                    <button class="song26-sport-tab" data-sport="bocce">Bocce</button>
+                    <button class="song26-sport-tab" data-sport="bowling">Bowling</button>
+                    <button class="song26-sport-tab" data-sport="football">Football 5-a-Side</button>
+                    <button class="song26-sport-tab" data-sport="tabletennis">Table Tennis</button>
+                </div>
+
+                <!-- State Standings Table Container -->
+                <div class="song26-standings-container">
+                    <!-- Aquatics -->
+                    <div class="song26-standings-table active" id="standings-aquatics">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Sarawak</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Johor</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Penang</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class="song26-involvement-card">
-                        <h4>Sponsor or Donation</h4>
-                        <p>Support the Games financially and be recognized as an official sponsor. Your contribution helps provide equipment, facilities, and opportunities for our athletes.</p>
+
+                    <!-- Athletics -->
+                    <div class="song26-standings-table" id="standings-athletics">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Selangor</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sarawak</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sabah</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Johor</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Penang</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Badminton -->
+                    <div class="song26-standings-table" id="standings-badminton">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Penang</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sarawak</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Johor</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Basketball -->
+                    <div class="song26-standings-table" id="standings-basketball">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Johor</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sarawak</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Selangor</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Penang</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bocce -->
+                    <div class="song26-standings-table" id="standings-bocce">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Sabah</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sarawak</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Penang</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Selangor</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Johor</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bowling -->
+                    <div class="song26-standings-table" id="standings-bowling">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Selangor</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Johor</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sarawak</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Penang</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Football -->
+                    <div class="song26-standings-table" id="standings-football">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Sarawak</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sabah</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Johor</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Selangor</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Penang</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Table Tennis -->
+                    <div class="song26-standings-table" id="standings-tabletennis">
+                        <div class="song26-table-wrapper">
+                            <table class="song26-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>State</th>
+                                        <th class="text-center">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Penang</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sarawak</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Johor</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
+                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Organizing Committee Section (To be branched and put in trees + To be added the photos of commitee-->
-        <section class="song26-committee-section">
+        <!-- Organizing Companies Section -->
+        <section class="song26-committee-section" id="partners">
             <div class="song26-container">
-                <h2 class="song26-committee-title">Organising Committee</h2>
+                <h2 class="song26-committee-title">Organizing Partners</h2>
                 <div class="song26-committee-grid">
                     <div class="song26-committee-card">
                         <div class="song26-committee-photo">
-                            <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <div class="song26-committee-role">Chairman</div>
-                        <div class="song26-committee-name">Dato Haji Ruslan Bin Abdul Ghani</div>
-                        <div class="song26-committee-position">Chairman</div>
+                        <div class="song26-committee-name">Organization Logo</div>
                     </div>
                     <div class="song26-committee-card">
                         <div class="song26-committee-photo">
-                            <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <div class="song26-committee-role">Vice Chairman</div>
-                        <div class="song26-committee-name">TBD</div>
-                        <div class="song26-committee-position">Vice Chairman</div>
+                        <div class="song26-committee-name">Organization Logo</div>
                     </div>
                     <div class="song26-committee-card">
                         <div class="song26-committee-photo">
-                            <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <div class="song26-committee-role">Secretary</div>
-                        <div class="song26-committee-name">Sabrina Cheong Oi Lin binti Abdullah</div>
-                        <div class="song26-committee-position">Secretary</div>
+                        <div class="song26-committee-name">Organization Logo</div>
                     </div>
                     <div class="song26-committee-card">
                         <div class="song26-committee-photo">
-                            <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <div class="song26-committee-role">Treasurer</div>
-                        <div class="song26-committee-name">TBD</div>
-                        <div class="song26-committee-position">Treasurer</div>
+                        <div class="song26-committee-name">Organization Logo</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Sponsors Section -->
-        <section class="song26-sponsors-section">
+        <section class="song26-sponsors-section" id="sponsors">
             <div class="song26-container">
                 <h2 class="song26-sponsors-title">Our Sponsors</h2>
                 <p class="song26-sponsors-subtitle">We extend our gratitude to our valued sponsors who make SONG 2026 possible</p>
@@ -1025,17 +2128,251 @@ $song26Data = [];
                 </div>
             </div>
         </section>
+
+        <!-- Special Olympic Oath Section -->
+        <section class="song26-motto-section" id="oath">
+            <div class="song26-motto-content">
+                <h3>Special Olympics Oath</h3>
+                <p>"Let me win.<br>But if I cannot win,<br>let me be brave in the attempt."</p>
+            </div>
+        </section>
     </div>
 
     <!-- Section Divider -->
     <div class="section-divider"></div>
     
+    <?php if (!$isStandalone): ?>
     <!-- Bottom Navigation -->
     <script src="../scripts/components/bottom-nav.js"></script>
 
     <!-- Site footer -->
     <script src="../scripts/components/site-footer.js"></script>
+    <?php endif; ?>
 
     <script src="../scripts/script.js"></script>
+
+    <!-- Sport Tabs Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sportTabs = document.querySelectorAll('.song26-sport-tab');
+            const standingsTables = document.querySelectorAll('.song26-standings-table');
+
+            sportTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Get the sport data attribute
+                    const sport = this.getAttribute('data-sport');
+
+                    // Remove active class from all tabs and tables
+                    sportTabs.forEach(t => t.classList.remove('active'));
+                    standingsTables.forEach(table => table.classList.remove('active'));
+
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+
+                    // Show corresponding table
+                    const targetTable = document.getElementById('standings-' + sport);
+                    if (targetTable) {
+                        targetTable.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Side Navigation Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.song26-nav-link');
+            const navToggle = document.getElementById('navToggle');
+            const sideNav = document.getElementById('sideNav');
+            const sections = document.querySelectorAll('section[id]');
+            
+            // Debug: Log found sections
+            console.log('Found sections:', sections.length);
+            sections.forEach(s => console.log('Section:', s.id, 'offsetTop:', s.offsetTop));
+            
+            // Configuration: Set to false to disable auto-highlighting on scroll
+            const AUTO_HIGHLIGHT_ENABLED = true;
+            let isScrolling = false;
+            let scrollEndTimer;
+
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        // Mark as user-initiated scroll
+                        isScrolling = true;
+                        
+                        // Immediately update active state
+                        updateActiveNav(targetId);
+                        
+                        const offsetTop = targetSection.offsetTop - 70;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Reset after scroll completes
+                        setTimeout(() => {
+                            isScrolling = false;
+                        }, 1000);
+
+                        // Close mobile nav after clicking (landscape only)
+                        if (window.innerWidth <= 768 && window.innerHeight < window.innerWidth) {
+                            sideNav.classList.remove('active');
+                            navToggle.classList.remove('active');
+                            const icon = navToggle.querySelector('i');
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+
+            // Mobile navigation toggle
+            navToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                sideNav.classList.toggle('active');
+                this.classList.toggle('active');
+                
+                // Change icon
+                const icon = this.querySelector('i');
+                if (this.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Highlight active section on scroll - Fixed accurate detection
+            let currentActiveSection = 'home';
+            
+            function highlightNavOnScroll() {
+                const scrollY = window.scrollY || window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+                
+                // Debug
+                // console.log('Scroll Y:', scrollY);
+                
+                // At very top - always home
+                if (scrollY < 100) {
+                    updateActiveNav('home');
+                    return;
+                }
+                
+                // At bottom of page - activate last section
+                if (scrollY + windowHeight >= docHeight - 100) {
+                    const lastSection = sections[sections.length - 1];
+                    if (lastSection) {
+                        updateActiveNav(lastSection.getAttribute('id'));
+                    }
+                    return;
+                }
+                
+                // Find which section is currently in view
+                const triggerPoint = scrollY + (windowHeight * 0.35);
+                let activeSection = null;
+                
+                // Loop through sections to find active one
+                for (let i = 0; i < sections.length; i++) {
+                    const section = sections[i];
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (triggerPoint >= sectionTop && triggerPoint < sectionBottom) {
+                        activeSection = section.getAttribute('id');
+                        break;
+                    }
+                }
+                
+                // Fallback: find the section we've scrolled past
+                if (!activeSection) {
+                    for (let i = sections.length - 1; i >= 0; i--) {
+                        const section = sections[i];
+                        if (scrollY >= section.offsetTop - 150) {
+                            activeSection = section.getAttribute('id');
+                            break;
+                        }
+                    }
+                }
+                
+                if (activeSection) {
+                    updateActiveNav(activeSection);
+                }
+            }
+            
+            function updateActiveNav(sectionId) {
+                if (sectionId === currentActiveSection) return;
+                
+                // console.log('Updating active to:', sectionId);
+                currentActiveSection = sectionId;
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // Scroll event - direct, no debounce for responsiveness
+            window.addEventListener('scroll', function() {
+                if (!isScrolling && AUTO_HIGHLIGHT_ENABLED) {
+                    highlightNavOnScroll();
+                }
+            }, { passive: true });
+
+            // Initial check
+            highlightNavOnScroll();
+            
+            // Also check after a short delay (in case sections load late)
+            setTimeout(highlightNavOnScroll, 500);
+
+            // Auto-hide mobile nav button when scrolling down, show when scrolling up (landscape only)
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                // Only work in landscape mobile view
+                if (window.innerWidth <= 768 && window.innerHeight < window.innerWidth) {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > lastScrollTop && scrollTop > 200) {
+                        // Scrolling down
+                        navToggle.style.transform = 'translateY(150%)';
+                    } else {
+                        // Scrolling up
+                        navToggle.style.transform = 'translateY(0)';
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                }
+            });
+
+            // Prevent nav from closing when clicking inside
+            sideNav.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Close mobile nav when clicking outside (landscape only)
+            document.addEventListener('click', function(e) {
+                // Only work in landscape mobile view
+                if (window.innerWidth <= 768 && window.innerHeight < window.innerWidth) {
+                    if (!sideNav.contains(e.target) && !navToggle.contains(e.target)) {
+                        sideNav.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        const icon = navToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

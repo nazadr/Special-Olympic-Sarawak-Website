@@ -32,7 +32,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .form-container h2 {
-            color: #e53935;
+            color: #FF0000;
             text-align: center;
             margin-bottom: 20px;
             font-size: 2.2rem;
@@ -49,7 +49,7 @@
             color: #111827;
             margin-top: 30px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #e53935;
+            border-bottom: 2px solid #FF0000;
             padding-bottom: 10px;
         }
         .form-group {
@@ -149,11 +149,11 @@
             background-color: #5a6268;
         }
         .form-actions button[type="submit"] {
-            background-color: #e53935;
+            background-color: #FF0000;
             color: white;
         }
         .form-actions button[type="submit"]:hover {
-            background-color: #c62828;
+            background-color: #CC0000;
         }
         .form-group button a {
             color: white;
@@ -173,14 +173,14 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            background-color: #e53935;
+            background-color: #FF0000;
             color: white;
             margin-right: 12px;
             text-align: center;
             display: inline-block !important;
         }
         .form-upload-btn:hover {
-            background-color: #c62828;
+            background-color: #CC0000;
         }
     </style>
 </head>
@@ -201,11 +201,11 @@
         <form action="ja-nationalgames-submit-initial.html" method="POST">
             <div class="form-section-title">TEAM INFORMATION</div>
             <div class="form-group">
-                <label for="nationalgames_team_name">Team Name: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_team_name">Team Name: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="nationalgames_team_name" name="nationalgames_team_name" required>
             </div>
             <div class="form-group">
-                <label for="nationalgames_sport">Sport: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_sport">Sport: <span style="color: #FF0000;">*</span></label>
                 <select id="nationalgames_sport" name="nationalgames_sport" required>
                     <option value="">Select Sport</option>
                     <option value="Athletics">Athletics</option>
@@ -224,7 +224,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="nationalgames_city_chapter">City Chapter: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_city_chapter">City Chapter: <span style="color: #FF0000;">*</span></label>
                 <select id="nationalgames_city_chapter" name="nationalgames_city_chapter" required>
                     <option value="">Select City</option>
                     <option value="Bintulu">Bintulu</option>
@@ -235,7 +235,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="nationalgames_division">Division/Category: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_division">Division/Category: <span style="color: #FF0000;">*</span></label>
                 <select id="nationalgames_division" name="nationalgames_division" required>
                     <option value="">Select Division or Category</option>
                     <option value="Traditional">Traditional</option>
@@ -246,17 +246,17 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="nationalgames_team_members">Number of Team Members: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_team_members">Number of Team Members: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="nationalgames_team_members" name="nationalgames_team_members" required>
             </div>
 
             <div class="form-section-title">TEAM LEADER INFORMATION</div>
             <div class="form-group">
-                <label for="nationalgames_leader_name">Leader's Full Name: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_leader_name">Leader's Full Name: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="nationalgames_leader_name" name="nationalgames_leader_name" required>
             </div>
             <div class="form-group">
-                <label for="nationalgames_leader_role">Role: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_leader_role">Role: <span style="color: #FF0000;">*</span></label>
                 <select id="nationalgames_leader_role" name="nationalgames_leader_role" required>
                     <option value="">Select Role</option>
                     <option value="Team Leader">Team Leader</option>
@@ -264,11 +264,11 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="nationalgames_leader_email">Email Address: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_leader_email">Email Address: <span style="color: #FF0000;">*</span></label>
                 <input type="email" id="nationalgames_leader_email" name="nationalgames_leader_email" required>
             </div>
             <div class="form-group">
-                <label for="nationalgames_leader_phone">Phone Number: <span style="color: #e53935;">*</span></label>
+                <label for="nationalgames_leader_phone">Phone Number: <span style="color: #FF0000;">*</span></label>
                 <input type="tel" id="nationalgames_leader_phone" name="nationalgames_leader_phone" required>
             </div>
             
@@ -278,7 +278,7 @@
                 <button type="download"><a href="../assets/sheets/Team Members Template for the National Games.xlsx">Download Excel</a></button>
             </div>
             <div class="form-group">
-                <label>Upload the filled information: <span style="color: #e53935;">*</span></label>
+                <label>Upload the filled information: <span style="color: #FF0000;">*</span></label>
                 <label for="nationalgames_upload" class="form-upload-btn" style="color: white;">Upload</label>
                 <input type="file" id="nationalgames_upload" name="nationalgames_upload" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none;" required>
                 <span id="nationalgames_upload_status" style="font-size: 14px;">No file selected.</span>
@@ -294,7 +294,7 @@
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="athlete_agree" name="athlete_agree" required>
-                    <label for="athlete_agree">I AGREE <span style="color: #e53935">*</span></label>
+                    <label for="athlete_agree">I AGREE <span style="color: #FF0000">*</span></label>
                 </div>
                 <p>By submitting this form, I confirm that the information provided is accurate and true, read and AGREED to the terms.</p>
             </div>

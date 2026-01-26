@@ -8,14 +8,13 @@ document.writeln(`
       <button class="nav-btn"><span>What We Do?</span></button>
       <div class="dropup-menu">
         <a href="../src/getting_started.php">Getting Started</a>
-        <a href="../src/alp.php">Athlete Leadership Program (ALP)</a>
-        <a href="../src/yap.php">Young Athletes Program (YAP)</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Core Program</span></button>
       <div class="dropup-menu">
-        <a href="../src/sohap.php">Healthy Athletes Program (HAP)</a>
+        <a href="../src/sohap.php">Healthy Athletes Program</a>
+        <a href="../src/yap.php">Young Athletes Program</a>
       </div>
     </li>
     <li class="nav-item">
@@ -25,9 +24,9 @@ document.writeln(`
       </div>
     </li>
      <li class="nav-item">
-      <button class="nav-btn"><span>SONG 2026</span></button>
+      <button class="nav-btn"><span>National Games 2026</span></button>
       <div class="dropup-menu">
-        <a href="../src/SONG 26.php">SONG 2026</a>
+        <a href="../src/SONG 26.php">National Games 2026</a>
       </div>
     </li>
     <li class="nav-item">

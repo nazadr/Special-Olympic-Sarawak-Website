@@ -33,7 +33,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .form-container h2 {
-            color: #e53935;
+            color: #FF0000;
             text-align: center;
             margin-bottom: 20px;
             font-size: 2.2rem;
@@ -50,7 +50,7 @@
             color: #111827;
             margin-top: 30px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #e53935;
+            border-bottom: 2px solid #FF0000;
             padding-bottom: 10px;
         }
         .form-group {
@@ -150,11 +150,11 @@
             background-color: #5a6268;
         }
         .form-actions button[type="submit"] {
-            background-color: #e53935;
+            background-color: #FF0000;
             color: white;
         }
         .form-actions button[type="submit"]:hover {
-            background-color: #c62828;
+            background-color: #CC0000;
         }
     </style>
 </head>
@@ -173,11 +173,11 @@
         <form action="ja-volunteer-submit-initial.html" method="POST">
             <div class="form-section-title">PERSONAL PARTICULARS</div>
             <div class="form-group">
-                <label for="volunteer_full_name">Full Name: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_full_name">Full Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="volunteer_full_name" name="volunteer_full_name" placeholder="John Mason" required>
             </div>
             <div class="form-group">
-                <label>Gender: <span style="color: #e53935">*</span></label>
+                <label>Gender: <span style="color: #FF0000">*</span></label>
                 <div class="radio-group">
                     <input type="radio" id="volunteer_gender_m" name="volunteer_gender" value="M" required>
                     <label for="volunteer_gender_m">M</label>
@@ -186,50 +186,50 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="volunteer_dob">Date of Birth: <span style="color: #e53935">*</label>
+                <label for="volunteer_dob">Date of Birth: <span style="color: #FF0000">*</label>
                 <input type="date" id="volunteer_dob" name="volunteer_dob" placeholder="DD/MM/YYYY">
             </div>
             <div class="form-group">
-                <label for="volunteer_age">Age: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_age">Age: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="volunteer_age" name="volunteer_age" readonly>
             </div>
             <div class="form-group">
-                <label for="volunteer_nric_passport">NRIC/Passport Number: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_nric_passport">NRIC/Passport Number: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="volunteer_nric_passport" name="volunteer_nric_passport" required>
             </div>
             <div class="form-group">
-                <label for="volunteer_welfare_card">Welfare Card No.: <span style="color: #e53935;">*</span></label>
+                <label for="volunteer_welfare_card">Welfare Card No.: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="volunteer_welfare_card" name="volunteer_welfare_card" required>
             </div>
             <div class="form-group">
-                <label for="volunteer_school">School: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_school">School: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="volunteer_school" name="volunteer_school" placeholder="SMK Lorem Ipsum" required>
             </div>
             <div class="form-group">
-                <label for="volunteer_email">Email Address: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_email">Email Address: <span style="color: #FF0000">*</span></label>
                 <input type="email" id="volunteer_email" name="volunteer_email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
-                <label for="volunteer_phone">Phone Number: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_phone">Phone Number: <span style="color: #FF0000">*</span></label>
                 <input type="tel" id="volunteer_phone" name="volunteer_phone" placeholder="+60 12-345 6789" required>
             </div>
             <div class="form-group">
-                <label for="volunteer_mailing_address">Mailing Address: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_mailing_address">Mailing Address: <span style="color: #FF0000">*</span></label>
                 <textarea style="resize: none;" id="volunteer_mailing_address" name="volunteer_mailing_address" placeholder="No. 123, Taman Lorem Ipsum, Jalan Dolor Sit Amet, 96000 Sibu, Sarawak." required></textarea>
             </div>
             <div class="form-group">
-                <label for="volunteer_attached_org">Attached Organization (compulsory): <span style="color: #e53935;">*</span></label>
+                <label for="volunteer_attached_org">Attached Organization (compulsory): <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="volunteer_attached_org" name="volunteer_attached_org" placeholder="" required>
             </div>
 
             <div class="form-section-title">QUALIFICATION AND EXPERIENCE</div>
             <div class="form-group">
-                <label for="volunteer_academic">Academic: <span style="color: #e53935;">*</span></label>
+                <label for="volunteer_academic">Academic: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="volunteer_academic" name="volunteer_academic" required>
             </div>
             <!-- Continue from here -->
             <div class="form-group">
-                <label>Sports: <span style="color: #e53935">*</span></label>
+                <label>Sports: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="volunteer_sports" name="volunteer_sports" required>
                 <div style="margin-top: 12px;" class="checkbox-group">
                     <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Corporate/NGO/Govt"><label for="v_qne-corporate">Corporate/NGO/Government</label></div>
@@ -237,8 +237,8 @@
                     <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Leader"><label for="v_qne-leader">Leader</label></div>
                     <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Official"><label for="v_qne-official">Official</label></div>
                     <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Volunteer"><label for="v_qne-volunteer">Volunteer</label></div>
-                    <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Coach"><label for="v_qne-coach">Coach <span style="color: #e53935;">*</span></label></div>
-                    <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Unified Parner"><label for="v_qne-unified">Unified Partner <span style="color: #e53935;">*</span></label></div>
+                    <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Coach"><label for="v_qne-coach">Coach <span style="color: #FF0000;">*</span></label></div>
+                    <div><input type="checkbox" id="volunteer_qne" name="volunteer_qne[]" value="Unified Parner"><label for="v_qne-unified">Unified Partner <span style="color: #FF0000;">*</span></label></div>
                 </div>
             </div>
 
@@ -260,7 +260,7 @@
                     <div><input type="checkbox" id="volunteer_sport" name="volunteer_sport[]" value="Other Sports"><label for="v_othersports">Other Sports*</label></div>
                 </div>
                 <div style="margin-top: 12px;" class="form-group">
-                    <label>Other Sports (if selected): <span style="color: #e53935;">*</span></label>
+                    <label>Other Sports (if selected): <span style="color: #FF0000;">*</span></label>
                     <input type="text" id="volunteer_other_sports" name="volunteer_other_sports" placeholder="Please specify if 'Other Sports' is selected above.">
                 </div>
             </div>
@@ -282,7 +282,7 @@
                 <p>(This is a placeholder and is subject to change.)</p>
                 <div class="checkbox-container">
                     <input type="checkbox" id="volunteer_agree" name="volunteer_agree" required>
-                    <label for="volunteer_agree">I AGREE <span style="color: #e53935">*</span></label>
+                    <label for="volunteer_agree">I AGREE <span style="color: #FF0000">*</span></label>
                 </div>
                 <p>By submitting this form, I confirm that the information provided is accurate and true, read and AGREED to the terms.</p>
             </div>

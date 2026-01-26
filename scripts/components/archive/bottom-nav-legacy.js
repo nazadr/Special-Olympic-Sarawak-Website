@@ -22,9 +22,9 @@ document.writeln(`
     <li class="nav-item">
       <button class="nav-btn"><span>Events</span></button>
       <div class="dropup-menu">
-        <a href="../src/sohap.php">Healthy Athletes Program (SOHAP)</a>
-        <a href="../src/alp.php">Athlete Leadership Program (ALP)</a>
-        <a href="../src/yap.php">Young Athletes Program (YAP)</a>
+        <a href="../src/sohap.php">Healthy Athletes Program</a>
+        <a href="../src/alp.php">Athlete Leadership Program</a>
+        <a href="../src/yap.php">Young Athletes Program</a>
         <a href="../src/state-games.php">State Games</a>
         <a href="../src/event_calendar.php">Events Calendar</a>
       </div>

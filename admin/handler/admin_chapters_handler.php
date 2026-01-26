@@ -40,7 +40,7 @@ try {
     
     // CHAPTER MANAGEMENT ACTIONS
     case 'fetch_chapters':
-        $sql = "SELECT id, chapter_name, city, chairman, vice_chairman, secretary, treasurer, logo_path, status FROM sarawak_chapters ORDER BY id ASC";
+        $sql = "SELECT id, chapter_name, city, chairman, vice_chairman, secretary, logo_path, status FROM sarawak_chapters ORDER BY id ASC";
         $result = $conn->query($sql);
 
         $chapters = [];
@@ -66,12 +66,11 @@ try {
         $chairman = $_POST['chairman'] ?? '';
         $vice_chairman = $_POST['vice_chairman'] ?? '';
         $secretary = $_POST['secretary'] ?? '';
-        $treasurer = $_POST['treasurer'] ?? '';
         $status = $_POST['status'] ?? 'active';
 
         if ($id && $chairman) {
-            $stmt = $conn->prepare("UPDATE sarawak_chapters SET chairman = ?, vice_chairman = ?, secretary = ?, treasurer = ?, status = ? WHERE id = ?");
-            $stmt->bind_param("sssssi", $chairman, $vice_chairman, $secretary, $treasurer, $status, $id);
+            $stmt = $conn->prepare("UPDATE sarawak_chapters SET chairman = ?, vice_chairman = ?, secretary = ?, status = ? WHERE id = ?");
+            $stmt->bind_param("ssssi", $chairman, $vice_chairman, $secretary, $status, $id);
 
             if ($stmt->execute()) {
                 $response = ['success' => true, 'message' => 'Chapter updated successfully!'];
@@ -87,7 +86,7 @@ try {
     case 'fetch_single_chapter':
         $id = $_GET['id'] ?? '';
         if ($id) {
-            $stmt = $conn->prepare("SELECT id, chapter_name, city, chairman, vice_chairman, secretary, treasurer, status FROM sarawak_chapters WHERE id = ?");
+            $stmt = $conn->prepare("SELECT id, chapter_name, city, chairman, vice_chairman, secretary, status FROM sarawak_chapters WHERE id = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -254,7 +253,7 @@ try {
         $year_row = $year_result->fetch_assoc();
         $year = $year_row['latest_year'] ?? date('Y');
         
-        $sql = "SELECT sc.id, sc.chapter_name, sc.city, sc.chairman, sc.vice_chairman, sc.secretary, sc.treasurer, sc.logo_path, sc.status,
+        $sql = "SELECT sc.id, sc.chapter_name, sc.city, sc.chairman, sc.vice_chairman, sc.secretary, sc.logo_path, sc.status,
                        COALESCE(cp.athletes_male, 0) as athletes_male,
                        COALESCE(cp.athletes_female, 0) as athletes_female,
                        COALESCE(cp.coaches_male, 0) as coaches_male,
@@ -290,7 +289,6 @@ try {
                     'chairman' => $row['chairman'],
                     'vice_chairman' => $row['vice_chairman'],
                     'secretary' => $row['secretary'],
-                    'treasurer' => $row['treasurer'],
                     'logo_path' => $logo_path,
                     'status' => $row['status'],
                     'athletes_male' => (int)$row['athletes_male'],

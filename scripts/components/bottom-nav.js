@@ -1,33 +1,26 @@
 // Reusable HTML Element written in JavaScript.
-// Last updated on 23 Oct 2025
+// Last updated on 19 Jan 2026
 
 document.writeln(`
     <footer class="bottom-nav-legacy desktop-only">
   <ul>
     <li class="nav-item">
-      <button class="nav-btn"><span>What We Do?</span></button>
+      <button class="nav-btn"><span>News</span></button>
       <div class="dropup-menu">
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/getting_started.php">Getting Started</a>
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/alp.php">Athlete Leadership Program (ALP)</a>
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/yap.php">Young Athletes Program (YAP)</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/latest-news.php">In the News</a>
       </div>
     </li>
     <li class="nav-item">
       <button class="nav-btn"><span>Core Program</span></button>
       <div class="dropup-menu">
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sohap.php">Healthy Athletes Program (HAP)</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sohap.php">Healthy Athletes Program</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/yap.php">Young Athletes Program</a>
       </div>
     </li>
     <li class="nav-item">
-      <button class="nav-btn"><span>Sports</span></button>
+      <button class="nav-btn"><span>National<br>Games 2026</span></button>
       <div class="dropup-menu">
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sport.php">Our Sports</a>
-      </div>
-    </li>
-     <li class="nav-item">
-      <button class="nav-btn"><span>SONG 2026</span></button>
-      <div class="dropup-menu">
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/SONG 26.php">SONG 2026</a>
+        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/SONG 26.php?standalone=1" target="_blank">National Games 2026</a>
       </div>
     </li>
     <li class="nav-item">
@@ -35,14 +28,6 @@ document.writeln(`
       <div class="dropup-menu">
         <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/state-games.php">State Games</a>
         <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/event_calendar.php">Events Calendar</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <button class="nav-btn"><span>Affiliate</span></button>
-      <div class="dropup-menu">
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sarawak-chapters.php">Sarawak Chapters</a>
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/sponsorships.php">Sponsorships</a>
-        <a href="/Special-Olympic-Sarawak-Website-Staging-environment/src/other-so.php">Special Olympics Organization</a>
       </div>
     </li>
     <li class="nav-item">

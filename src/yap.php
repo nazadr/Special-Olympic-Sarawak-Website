@@ -18,12 +18,12 @@ try {
     // Fallback data if database connection fails
     $yapContent = [
         'hero_image' => '../assets/images/yap-hero.jpg',
-        'hero_title' => 'Young Athletes Program (YAP)',
+        'hero_title' => 'Young Athletes Program',
         'description_text' => 'Special Olympics Young Athletes is an early childhood play program for children with and without intellectual disabilities, ages 2 to 7 years old. Young Athletes introduces basic sport skills, like running, kicking and throwing.',
         'testimonial_text' => '"When my baby was born and I learned he had an intellectual disability, I felt lost, unsure of what the future would hold. But at Young Athletes Program, I see him so full of joy — running, laughing, and connecting with others. It\'s such a beautiful sight to witness, and it fills me with hope, reminding me that one day, he might just be able to stand on his own, stronger than I could have ever imagined."',
         'testimonial_author' => 'SARAH, MOTHER OF A YOUNG ATHLETES IN KUCHING',
         'testimonial_location' => 'KUCHING',
-        'resources_title' => 'Resources for YAP',
+        'resources_title' => 'Resources for Young Athletes Program',
         'resources_description' => 'We provides an introductory information of this program and resources to run Young Athletes Program in schools, communities and homes.',
         'resources_button_text' => 'LEARN MORE',
         'resources_button_link' => '../src/yap-lm.html',
@@ -36,7 +36,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Young Athletes Program (YAP) | Special Olympics Sarawak</title>
+    <title>Young Athletes Program | Special Olympics Sarawak</title>
     <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
     <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">

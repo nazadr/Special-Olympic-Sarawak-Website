@@ -13,7 +13,7 @@
     <style>
         /* Plyr custom style */
         :root {
-            --plyr-color-main: #e53935;
+            --plyr-color-main: #FF0000;
         }
         .plyr--video {
             width: 100%;
@@ -161,7 +161,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #e53935;
+            background: #FF0000;
             color: white;
             padding: 12px 24px;
             border-radius: 6px;
@@ -171,7 +171,7 @@
             transition: background 0.3s ease;
         }
         .back-to-gallery:hover {
-            background: #c62828;
+            background: #CC0000;
         }
         .loading-message {
             text-align: center;
@@ -181,7 +181,7 @@
         .error-message {
             text-align: center;
             padding: 40px;
-            color: #e53935;
+            color: #FF0000;
         }
         @media (max-width: 768px) {
             .video-play-section {

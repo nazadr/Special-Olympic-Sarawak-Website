@@ -69,10 +69,6 @@ window.loadChapters = function() {
                                         <strong>Secretary:</strong> 
                                         <span class="secretary-text">${chapter.secretary || 'TBD'}</span>
                                     </div>
-                                    <div class="leadership-row">
-                                        <strong>Treasurer:</strong> 
-                                        <span class="treasurer-text">${chapter.treasurer || 'TBD'}</span>
-                                    </div>
                                 </div>
                             </div>
                             
@@ -111,7 +107,6 @@ function countLeaders(chapter) {
     if (chapter.chairman) count++;
     if (chapter.vice_chairman) count++;
     if (chapter.secretary) count++;
-    if (chapter.treasurer) count++;
     return count;
 }
 
@@ -315,7 +310,6 @@ function editChapterByElement(chapterElement, chapterId) {
     const chairmanElement = chapterElement.querySelector('.chairman-text');
     const viceChairmanElement = chapterElement.querySelector('.vice-chairman-text');
     const secretaryElement = chapterElement.querySelector('.secretary-text');
-    const treasurerElement = chapterElement.querySelector('.treasurer-text');
     const statusElement = chapterElement.querySelector('.chapter-status-badge');
     
     const chapterData = {
@@ -325,7 +319,6 @@ function editChapterByElement(chapterElement, chapterId) {
         chairman: chairmanElement ? chairmanElement.textContent.trim() : '',
         vice_chairman: viceChairmanElement ? viceChairmanElement.textContent.trim() : '',
         secretary: secretaryElement ? secretaryElement.textContent.trim() : '',
-        treasurer: treasurerElement ? treasurerElement.textContent.trim() : '',
         status: statusElement && statusElement.classList.contains('upcoming') ? 'upcoming' : 
                 statusElement && statusElement.classList.contains('inactive') ? 'inactive' : 'active'
     };
@@ -346,7 +339,6 @@ function editChapterByElement(chapterElement, chapterId) {
     const editChairman = document.getElementById('editChairman');
     const editViceChairman = document.getElementById('editViceChairman');
     const editSecretary = document.getElementById('editSecretary');
-    const editTreasurer = document.getElementById('editTreasurer');
     const editStatus = document.getElementById('editStatus');
     
     if (modalLogo && chapterData.logo) {
@@ -356,7 +348,6 @@ function editChapterByElement(chapterElement, chapterId) {
     if (editChairman) editChairman.value = chapterData.chairman === 'TBD' ? '' : chapterData.chairman;
     if (editViceChairman) editViceChairman.value = chapterData.vice_chairman === 'TBD' ? '' : chapterData.vice_chairman;
     if (editSecretary) editSecretary.value = chapterData.secretary === 'TBD' ? '' : chapterData.secretary;
-    if (editTreasurer) editTreasurer.value = chapterData.treasurer === 'TBD' ? '' : chapterData.treasurer;
     if (editStatus) editStatus.value = chapterData.status;
     
     // Store chapter ID
@@ -411,11 +402,6 @@ window.createChapterModalDynamic = function createChapterModalDynamic() {
                         </div>
                         
                         <div class="form-group">
-                            <label for="editTreasurer">Treasurer <span class="required">*</span></label>
-                            <input type="text" id="editTreasurer" name="treasurer" placeholder="Enter treasurer name">
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="editStatus">Status <span class="required">*</span></label>
                             <select id="editStatus" name="status">
                                 <option value="active">Active</option>
@@ -457,7 +443,6 @@ window.saveChapterChanges = function saveChapterChanges() {
     formData.append('chairman', document.getElementById('editChairman').value);
     formData.append('vice_chairman', document.getElementById('editViceChairman').value);
     formData.append('secretary', document.getElementById('editSecretary').value);
-    formData.append('treasurer', document.getElementById('editTreasurer').value);
     formData.append('status', document.getElementById('editStatus').value);
 
     fetch('handler/admin_chapters_handler.php', {

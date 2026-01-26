@@ -304,3 +304,97 @@ function escapeHtml(text) {
     };
     return text.toString().replace(/[&<>"']/g, m => map[m]);
 }
+
+// Open Add Participant Modal
+function openAddParticipantModal(type) {
+    currentParticipantType = type;
+    document.getElementById('addParticipantType').value = type;
+    
+    // Update modal title
+    const titles = {
+        'athletes': 'Add New Athlete',
+        'coaches': 'Add New Coach',
+        'volunteers': 'Add New Volunteer'
+    };
+    document.getElementById('addParticipantModalTitle').textContent = titles[type];
+    
+    // Show/hide type-specific fields
+    document.getElementById('athleteSpecificFields').style.display = type === 'athletes' ? 'block' : 'none';
+    document.getElementById('coachSpecificFields').style.display = type === 'coaches' ? 'block' : 'none';
+    document.getElementById('volunteerSpecificFields').style.display = type === 'volunteers' ? 'block' : 'none';
+    
+    // Show modal
+    document.getElementById('addParticipantModal').style.display = 'flex';
+    
+    // Reset form
+    document.getElementById('addParticipantForm').reset();
+}
+
+// Close Add Participant Modal
+function closeAddParticipantModal() {
+    document.getElementById('addParticipantModal').style.display = 'none';
+    document.getElementById('addParticipantForm').reset();
+    currentParticipantType = '';
+}
+
+// Submit Add Participant Form
+document.addEventListener('DOMContentLoaded', function() {
+    const addForm = document.getElementById('addParticipantForm');
+    if (addForm) {
+        addForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitAddParticipant();
+        });
+    }
+});
+
+function submitAddParticipant() {
+    const formData = new FormData(document.getElementById('addParticipantForm'));
+    formData.append('action', 'add');
+    
+    // Determine handler based on participant type
+    const handlers = {
+        'athletes': 'handler/admin_athletes_handler.php',
+        'coaches': 'handler/admin_coaches_handler.php',
+        'volunteers': 'handler/admin_volunteers_handler.php'
+    };
+    
+    const handlerUrl = handlers[currentParticipantType];
+    
+    // Disable submit button
+    const submitBtn = document.querySelector('#addParticipantForm button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+    
+    fetch(handlerUrl, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification(data.message || 'Participant added successfully!', 'success');
+            closeAddParticipantModal();
+            
+            // Auto-refresh data
+            if (currentParticipantType === 'athletes') {
+                loadAthletesData();
+            } else if (currentParticipantType === 'coaches') {
+                loadCoachesData();
+            } else if (currentParticipantType === 'volunteers') {
+                loadVolunteersData();
+            }
+        } else {
+            showNotification(data.message || 'Failed to add participant', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('An error occurred. Please try again.', 'error');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+    });
+}

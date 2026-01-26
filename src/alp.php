@@ -55,7 +55,7 @@ try {
         .alp-afterline {
             width: 60px;
             height: 3px;
-            background-color: #e30613;
+            background-color: #FF0000;
             margin: 0 auto 80px auto;
             display: block;
         }

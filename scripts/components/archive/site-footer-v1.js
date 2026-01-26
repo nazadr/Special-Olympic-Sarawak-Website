@@ -67,9 +67,9 @@ document.writeln(`
                 <div class="nav-group">
                     <h3>Events <i class="fa-solid fa-caret-right"></i></h3>
                     <ul class="nav-group-dropdown">
-                        <li><a href="#">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="#">Healthy Athletes Program</a></li>
                         <li><a href="#">Athletes Leadership Program (ALPs)</a></li>
-                        <li><a href="#">Young Athletes Program (YAP)</a></li>
+                        <li><a href="#">Young Athletes Program</a></li>
                         <li><a href="#">States Game</a></li>
                         <li><a href="../src/event_celender.php">Event’s Calendar</a></li>
                     </ul>
@@ -117,7 +117,7 @@ document.writeln(`
         </div>
         <div class="footer-bottom">
             <div class="copyright-links">
-                <p>© 2025 Special Olympics Sarawak. All rights reserved.</p>
+                <p>© 2026 Special Olympics Sarawak. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="../src/disclaimer.html">Disclaimer</a>

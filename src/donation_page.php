@@ -24,6 +24,145 @@
             line-height: 1.6;
             overflow-y: auto;
         }
+
+        /* Chapter QR Donation Section */
+        .chapter-qr-section {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .chapter-qr-section h2 {
+            text-align: center;
+            color: #FF0000;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .chapter-qr-section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: #FF0000;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .chapter-qr-section > p {
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 30px auto 40px auto;
+            font-size: 1.1rem;
+        }
+
+        .chapter-qr-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .chapter-qr-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+            padding: 20px 15px;
+            border-top: 4px solid #FF0000;
+        }
+
+        .chapter-qr-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(227, 6, 19, 0.15);
+        }
+
+        .chapter-qr-card .chapter-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin: 0 auto 12px auto;
+            display: block;
+        }
+
+        .chapter-qr-card h3 {
+            color: #FF0000;
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+
+        .chapter-qr-card .qr-code {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 8px;
+            background: #fff;
+        }
+
+        .chapter-qr-card .chapter-location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        .chapter-qr-card .chapter-location i {
+            color: #FF0000;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Styles for Chapter QR Grid */
+        @media (max-width: 1100px) {
+            .chapter-qr-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 700px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .chapter-qr-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 450px;
+            }
+            
+            .chapter-qr-card .qr-code {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .chapter-qr-card .chapter-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-qr-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+            }
+            
+            .chapter-qr-section h2 {
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -57,53 +196,75 @@
             <div class="donation-card-qr">
                 <!-- <img src="../assets/images/donate-qr-2.png" alt="SO Sarawak Touch 'n Go QR"> -->
                 <h3>You can fund transfer donation to our account as follow:</h3>
-                <p><strong>Bank: </strong>Lorem Ipsum Bank Berhad</p>
+                <p><strong>Bank: </strong>RHB Bank Berhad</p>
                 <p><strong>Account Number: </strong>1234-5678-901234</p>
                 <p style="margin-bottom: 20px;"><strong>Account Name: </strong>Special Olympics Sarawak</p>
             </div>
         </div>
-        <!-- <h2>Donate via FPX</h2>
-        <div class="donation-options">
-            <div class="donation-card">
-                <h3>Champion</h3>
-                <div class="donate-amount">RM 100.00</div>
-                <div class="donate-impact">Provides sports equipment for one athlete for a season</div>
-                <a href="#" class="donate-btn-page">Donate RM 100.00</a>
+    </div>
+
+    <!-- Chapter QR Donation Section -->
+    <section class="chapter-qr-section">
+        <h2>Donate to Our Chapters</h2>
+        <p>Support your local Special Olympics chapter directly. Scan the QR code of your preferred chapter to make a donation.</p>
+        
+        <div class="chapter-qr-grid">
+            <!-- Kuching Chapter -->
+            <div class="chapter-qr-card">
+                <img src="../assets/images/SO_Kuching_chapter.png" alt="SO Kuching Chapter" class="chapter-logo">
+                <h3>SO Kuching Chapter</h3>
+                <img src="../assets/images/malaysia-national-qr.png" alt="Kuching Chapter QR" class="qr-code">
+                <div class="chapter-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kuching, Sarawak</span>
+                </div>
             </div>
-            
-            <div class="donation-card">
-                <h3>Advocate</h3>
-                <div class="donate-amount">RM 500.00</div>
-                <div class="donate-impact">Covers the cost of training for two athletes</div>
-                <a href="#" class="donate-btn-page">Donate RM 500.00</a>
+
+            <!-- Samarahan Chapter -->
+            <div class="chapter-qr-card">
+                <img src="../assets/images/SO_Samarahan_chapter.png" alt="SO Samarahan Chapter" class="chapter-logo">
+                <h3>SO Samarahan Chapter</h3>
+                <img src="../assets/images/malaysia-national-qr.png" alt="Samarahan Chapter QR" class="qr-code">
+                <div class="chapter-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Samarahan, Sarawak</span>
+                </div>
             </div>
-            
-            <div class="donation-card">
-                <h3>Leader</h3>
-                <div class="donate-amount">RM 1,000.00</div>
-                <div class="donate-impact">Sponsors an athlete for an entire year</div>
-                <a href="#" class="donate-btn-page">Donate RM 1,000.00</a>
+
+            <!-- Sibu Chapter -->
+            <div class="chapter-qr-card">
+                <img src="../assets/images/SO_Sibu_Chapter.png" alt="SO Sibu Chapter" class="chapter-logo">
+                <h3>SO Sibu Chapter</h3>
+                <img src="../assets/images/malaysia-national-qr.png" alt="Sibu Chapter QR" class="qr-code">
+                <div class="chapter-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sibu, Sarawak</span>
+                </div>
             </div>
-            
-            <div class="donation-card">
-                <h3>Visionary</h3>
-                <div class="donate-amount">RM 5,000.00</div>
-                <div class="donate-impact">Supports an entire team's participation in local competitions</div>
-                <a href="#" class="donate-btn-page">Donate RM 5,000.00</a>
+
+            <!-- Bintulu Chapter -->
+            <div class="chapter-qr-card">
+                <img src="../assets/images/SO_Bintulu_chapter.png" alt="SO Bintulu Chapter" class="chapter-logo">
+                <h3>SO Bintulu Chapter</h3>
+                <img src="../assets/images/malaysia-national-qr.png" alt="Bintulu Chapter QR" class="qr-code">
+                <div class="chapter-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bintulu, Sarawak</span>
+                </div>
+            </div>
+
+            <!-- Miri Chapter -->
+            <div class="chapter-qr-card">
+                <img src="../assets/images/SO_Miri_chapter.png" alt="SO Miri Chapter" class="chapter-logo">
+                <h3>SO Miri Chapter</h3>
+                <img src="../assets/images/malaysia-national-qr.png" alt="Miri Chapter QR" class="qr-code">
+                <div class="chapter-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Miri, Sarawak</span>
+                </div>
             </div>
         </div>
-        
-        <div id="donate" class="custom-donation">
-            <h2>Make a Custom Donation</h2>
-            <form class="donation-form">        
-                <div class="donate-custom-amount">
-                    <span>RM</span>
-                    <input type="number" placeholder="Other amount" min="1">
-                </div>
-                <button type="submit" class="donate-btn-page-2">Pay via FPX</button>
-            </form>
-        </div> -->
-    </div>
+    </section>
     
     <section class="donate-impact-section">
         <h2>Your Impact</h2>

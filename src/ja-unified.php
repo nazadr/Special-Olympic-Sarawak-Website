@@ -31,7 +31,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .form-container h2 {
-            color: #e53935;
+            color: #FF0000;
             text-align: center;
             margin-bottom: 20px;
             font-size: 2.2rem;
@@ -48,7 +48,7 @@
             color: #111827;
             margin-top: 30px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #e53935;
+            border-bottom: 2px solid #FF0000;
             padding-bottom: 10px;
         }
         .form-group {
@@ -148,11 +148,11 @@
             background-color: #5a6268;
         }
         .form-actions button[type="submit"] {
-            background-color: #e53935;
+            background-color: #FF0000;
             color: white;
         }
         .form-actions button[type="submit"]:hover {
-            background-color: #c62828;
+            background-color: #CC0000;
         }
     </style>
 </head>
@@ -171,15 +171,15 @@
         <form action="ja-unified-submit-initial.html" method="POST">
             <div class="form-section-title">PERSONAL PARTICULARS</div>
             <div class="form-group">
-                <label for="unified_full_name">Full Name: <span style="color: #e53935">*</span></label>
+                <label for="unified_full_name">Full Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="unified_full_name" name="unified_full_name" required>
             </div>
             <div class="form-group">
-                <label for="unified_nick_name">Nick Name: <span style="color: #e53935">*</span></label>
+                <label for="unified_nick_name">Nick Name: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="unified_nick_name" name="unified_nick_name" required>
             </div>
             <div class="form-group">
-                <label>Gender: <span style="color: #e53935;">*</span></label>
+                <label>Gender: <span style="color: #FF0000;">*</span></label>
                 <div class="radio-group">
                     <input type="radio" id="unified_gender_m" name="unified_gender" value="M" required>
                     <label for="unified_gender_m">M</label>
@@ -188,37 +188,37 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="unified_dob">Date of Birth: <span style="color: #e53935">*</label>
+                <label for="unified_dob">Date of Birth: <span style="color: #FF0000">*</label>
                 <input type="date" id="unified_dob" name="unified_dob" placeholder="DD/MM/YYYY">
             </div>
             <div class="form-group">
-                <label for="volunteer_age">Age: <span style="color: #e53935">*</span></label>
+                <label for="volunteer_age">Age: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="volunteer_age" name="volunteer_age" readonly>
             </div>
             <div class="form-group">
-                <label for="unified_nric_passport">NRIC/Birth Number/Passport Number: <span style="color: #e53935">*</span></label>
+                <label for="unified_nric_passport">NRIC/Birth Number/Passport Number: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="unified_nric_passport" name="unified_nric_passport" required>
             </div>
             <div class="form-group">
-                <label for="unified_school">School: <span style="color: #e53935">*</span></label>
+                <label for="unified_school">School: <span style="color: #FF0000">*</span></label>
                 <input type="text" id="unified_school" name="unified_school" required>
             </div>
             <div class="form-group">
-                <label for="unified_email">Email Address: <span style="color: #e53935">*</span></label>
+                <label for="unified_email">Email Address: <span style="color: #FF0000">*</span></label>
                 <input type="email" id="unified_email" name="unified_email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
-                <label for="unified_phone">Phone Number: <span style="color: #e53935">*</span></label>
+                <label for="unified_phone">Phone Number: <span style="color: #FF0000">*</span></label>
                 <input type="tel" id="unified_phone" name="unified_phone" placeholder="+60 12-345 6789" required>
             </div>
             <div class="form-group">
-                <label for="unified_mailing_address">Mailing Address: <span style="color: #e53935">*</span></label>
+                <label for="unified_mailing_address">Mailing Address: <span style="color: #FF0000">*</span></label>
                 <textarea style="resize: none;" id="unified_mailing_address" name="unified_mailing_address" placeholder="No. 123, Taman Lorem Ipsum, Jalan Dolor Sit Amet, 96000 Sibu, Sarawak." required></textarea>
             </div>
 
             <div class="form-section-title">UNIFIED SPORTS</div>
             <div class="form-group">
-                <label>Unified Sports: <span style="color: #e53935;">*</span></label>
+                <label>Unified Sports: <span style="color: #FF0000;">*</span></label>
                 <div style="margin-top: 12px;" class="checkbox-group">
                     <div><input type="checkbox" id="unified_usports" name="unified_usports[]" value="Unified Badminton"><label for="unified_usports-badmintion">Unified Badminton</label></div>
                     <div><input type="checkbox" id="unified_usports" name="unified_usports[]" value="Unified Basketball"><label for="unified_usports-basketball">Unified Basketball</label></div>
@@ -234,11 +234,11 @@
 
             <div class="form-section-title">UNIFIED PARTNER, PARENTS OR GUARDIANS RELEASE</div>
             <div class="form-group">
-                <label>Parent's/Guardian's Full Name: <span style="color: #e53935;">*</span></label>
+                <label>Parent's/Guardian's Full Name: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="unified_pgfn" name="unified_pgfn" required>
             </div>
             <div class="form-group">
-                <label>Parent's/Guardian's NRIC/Birth Number/Passport Number: <span style="color: #e53935;">*</span></label>
+                <label>Parent's/Guardian's NRIC/Birth Number/Passport Number: <span style="color: #FF0000;">*</span></label>
                 <input type="text" id="unified_pgic" name="unified_pgic" required>
             </div>
             <div class="acknowledgement">
@@ -246,7 +246,7 @@
                 <p style="margin-bottom: 30px;">On behalf of the Unified Partner and myself, I acknowledge that he/she will be using facilities at his/her own risk and I, on my own behalf, hereby release, discharge and indemnify Special Olympics Sarawak from all liability for injury to person or damage to property of myself or entrant. In permitting the Unified Partner to participate, I am granting permission to you to use the likeness, voice and words of the Unified Partner in television, radio, films, newspaper, magazine and other media for the purpose of advertising and communicating the purpose and activities of Special Olympics Sarawak and in appealing for funds to support such activities. If I am not personally at the Special Olympics activities in which Unified Partner is to compete, so as to be consulted in case of necessity, you are authorised on my behalf and at my account to take such measures and arrange for such medical and hospital treatment that you may deem advisable for health and well-being of the Unified Partner.</p>
                 <div class="checkbox-container">
                     <input type="checkbox" id="unified_agree" name="unified_agree" required>
-                    <label for="unified_agree">I AGREE <span style="color: #e53935">*</span></label>
+                    <label for="unified_agree">I AGREE <span style="color: #FF0000">*</span></label>
                 </div>
                 <p>By submitting this form, I confirm that the information provided is accurate and true, read and AGREED to the terms.</p>
             </div>

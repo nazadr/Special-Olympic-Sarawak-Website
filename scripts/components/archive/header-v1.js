@@ -5,6 +5,7 @@ document.writeln(`
     <nav class="top-nav">
         <div class="logo">
             <img src="../assets/images/Special_olympic_sarawak_Logo_new.png" alt="Logo" class="logo-img">
+            <img src="../assets/images/Malaysia_Flag_Circle.svg" alt="Malaysia Flag" class="sarawak-flag-header">
             <img src="../assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
         </div>
 
@@ -74,9 +75,9 @@ document.writeln(`
                 <li class="dropdown mobile-only mobile-dropdown-parent">
                     <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
                     <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="#photos">Healthy Athletes Program (SOHAP)</a></li>
+                        <li><a href="#photos">Healthy Athletes Program</a></li>
                         <li><a href="#photos">Athletes Leadership Program (ALPs)</a></li>
-                        <li><a href="#photos">Young Athletes Program (YAP)</a></li>
+                        <li><a href="#photos">Young Athletes Program</a></li>
                         <li><a href="#photos">States Game</a></li>
                         <li><a href="../src/event_celender.php">Event's Calander</a></li>
                     </ul>
