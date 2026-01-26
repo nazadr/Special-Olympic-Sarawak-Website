@@ -30,31 +30,10 @@
             <source src="assets/videos/soswk-index-datasaver.mp4" type="video/mp4">
             Your browser does not support the video tag
         </video>
-        <!-- Dark overlay -->
-        <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:2;pointer-events:none;"></div>
-        <!-- Frequency Bars Visualizer -->
-        <div class="frequency-bars">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+        <!-- Animated gradient backgrounds -->
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
         <!-- Clickable overlay for SONG 26 -->
         <a href="src/SONG 26.php?standalone=1" target="_blank" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:3;display:block;text-decoration:none;cursor:pointer;" aria-label="Go to SONG 26"></a>
         <!-- Welcome Section with Logo (now in front of video) -->
@@ -87,78 +66,41 @@
     <script src="scripts/components/index/header-index.js"></script>
 
     <style>
-        /* Frequency Bars Visualizer */
-        .frequency-bars {
-            position: fixed;
+        /* Animated Gradient Background */
+        html {
+            height: 100%;
+        }
+        
+        .bg {
+            animation: slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, rgba(255, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 50%);
             bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-evenly;
-            gap: 1.5vw;
-            padding: 0 2vw;
+            left: -50%;
+            opacity: 1;
+            position: fixed;
+            right: -50%;
+            top: 0;
             z-index: 2;
             pointer-events: none;
         }
         
-        .frequency-bars .bar {
-            flex: 1;
-            background: linear-gradient(
-                to top,
-                rgba(255, 255, 255, 0.15),
-                rgba(255, 255, 255, 0.02)
-            );
-            border-radius: 4px 4px 0 0;
-            min-height: 20px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-            animation-duration: 0.8s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
+        .bg2 {
+            animation-direction: alternate-reverse;
+            animation-duration: 4s;
         }
         
-        .frequency-bars .bar:nth-child(1) { animation-name: bar-1; animation-delay: 0s; }
-        .frequency-bars .bar:nth-child(2) { animation-name: bar-2; animation-delay: 0.1s; }
-        .frequency-bars .bar:nth-child(3) { animation-name: bar-3; animation-delay: 0.2s; }
-        .frequency-bars .bar:nth-child(4) { animation-name: bar-4; animation-delay: 0.3s; }
-        .frequency-bars .bar:nth-child(5) { animation-name: bar-5; animation-delay: 0.4s; }
-        .frequency-bars .bar:nth-child(6) { animation-name: bar-6; animation-delay: 0.5s; }
-        .frequency-bars .bar:nth-child(7) { animation-name: bar-7; animation-delay: 0.6s; }
-        .frequency-bars .bar:nth-child(8) { animation-name: bar-8; animation-delay: 0.7s; }
-        .frequency-bars .bar:nth-child(9) { animation-name: bar-9; animation-delay: 0.8s; }
-        .frequency-bars .bar:nth-child(10) { animation-name: bar-10; animation-delay: 0.9s; }
-        .frequency-bars .bar:nth-child(11) { animation-name: bar-11; animation-delay: 0s; }
-        .frequency-bars .bar:nth-child(12) { animation-name: bar-12; animation-delay: 0.1s; }
-        .frequency-bars .bar:nth-child(13) { animation-name: bar-13; animation-delay: 0.2s; }
-        .frequency-bars .bar:nth-child(14) { animation-name: bar-14; animation-delay: 0.3s; }
-        .frequency-bars .bar:nth-child(15) { animation-name: bar-15; animation-delay: 0.4s; }
-        .frequency-bars .bar:nth-child(16) { animation-name: bar-16; animation-delay: 0.5s; }
-        .frequency-bars .bar:nth-child(17) { animation-name: bar-17; animation-delay: 0.6s; }
-        .frequency-bars .bar:nth-child(18) { animation-name: bar-18; animation-delay: 0.7s; }
-        .frequency-bars .bar:nth-child(19) { animation-name: bar-19; animation-delay: 0.8s; }
-        .frequency-bars .bar:nth-child(20) { animation-name: bar-20; animation-delay: 0.9s; }
+        .bg3 {
+            animation-duration: 5s;
+        }
         
-        @keyframes bar-1 { 0%, 100% { height: 15%; } 50% { height: 45%; } }
-        @keyframes bar-2 { 0%, 100% { height: 25%; } 50% { height: 60%; } }
-        @keyframes bar-3 { 0%, 100% { height: 35%; } 50% { height: 75%; } }
-        @keyframes bar-4 { 0%, 100% { height: 20%; } 50% { height: 55%; } }
-        @keyframes bar-5 { 0%, 100% { height: 30%; } 50% { height: 70%; } }
-        @keyframes bar-6 { 0%, 100% { height: 40%; } 50% { height: 80%; } }
-        @keyframes bar-7 { 0%, 100% { height: 35%; } 50% { height: 65%; } }
-        @keyframes bar-8 { 0%, 100% { height: 25%; } 50% { height: 50%; } }
-        @keyframes bar-9 { 0%, 100% { height: 20%; } 50% { height: 45%; } }
-        @keyframes bar-10 { 0%, 100% { height: 30%; } 50% { height: 60%; } }
-        @keyframes bar-11 { 0%, 100% { height: 35%; } 50% { height: 70%; } }
-        @keyframes bar-12 { 0%, 100% { height: 25%; } 50% { height: 55%; } }
-        @keyframes bar-13 { 0%, 100% { height: 40%; } 50% { height: 75%; } }
-        @keyframes bar-14 { 0%, 100% { height: 30%; } 50% { height: 65%; } }
-        @keyframes bar-15 { 0%, 100% { height: 20%; } 50% { height: 50%; } }
-        @keyframes bar-16 { 0%, 100% { height: 25%; } 50% { height: 60%; } }
-        @keyframes bar-17 { 0%, 100% { height: 35%; } 50% { height: 70%; } }
-        @keyframes bar-18 { 0%, 100% { height: 30%; } 50% { height: 55%; } }
-        @keyframes bar-19 { 0%, 100% { height: 20%; } 50% { height: 45%; } }
-        @keyframes bar-20 { 0%, 100% { height: 15%; } 50% { height: 40%; } }
+        @keyframes slide {
+            0% {
+                transform: translateX(-25%);
+            }
+            100% {
+                transform: translateX(25%);
+            }
+        }
         
         /* Special Olympics Oath Pyramid Styling */
         .oath-pyramid {
