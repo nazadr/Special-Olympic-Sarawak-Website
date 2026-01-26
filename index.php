@@ -73,7 +73,7 @@
         
         .bg {
             animation: slide 3s ease-in-out infinite alternate;
-            background-image: linear-gradient(-60deg, rgba(255, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 50%);
+            background-image: linear-gradient(-60deg, rgba(0, 0, 0, 0.26) 50%, rgba(102, 7, 7, 0.16) 50%);
             bottom: 0;
             left: -50%;
             opacity: 1;
@@ -119,7 +119,7 @@
                 2px -2px 0 #000,
                 -2px 2px 0 #000,
                 2px 2px 0 #000,
-                0 0 15px rgba(0, 0, 0, 0.8);
+                0 0 20px rgba(0, 0, 0, 0.9);
             font-weight: 400;
             font-family: 'Playfair Display', 'Georgia', 'Garamond', serif;
             margin: 0;
