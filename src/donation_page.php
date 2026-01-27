@@ -64,9 +64,9 @@
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
-            justify-content: center;
+            padding: 0 20px;
         }
 
         .chapter-qr-card {
@@ -87,8 +87,8 @@
         }
 
         .chapter-qr-card .chapter-logo {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
             margin: 0 auto 12px auto;
             display: block;
@@ -96,20 +96,20 @@
 
         .chapter-qr-card h3 {
             color: #FF0000;
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin: 0 0 15px 0;
             font-weight: 600;
         }
 
         .chapter-qr-card .qr-code {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             object-fit: contain;
             margin: 0 auto;
             display: block;
             border: 2px solid #f0f0f0;
             border-radius: 8px;
-            padding: 8px;
+            padding: 12px;
             background: #fff;
         }
 
@@ -119,20 +119,21 @@
             justify-content: center;
             gap: 5px;
             color: #888;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             margin-top: 12px;
         }
 
         .chapter-qr-card .chapter-location i {
             color: #FF0000;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
         /* Responsive Styles for Chapter QR Grid */
         @media (max-width: 1100px) {
             .chapter-qr-grid {
                 grid-template-columns: repeat(3, 1fr);
-                max-width: 700px;
+                max-width: 900px;
+                gap: 25px;
             }
         }
 
@@ -143,13 +144,13 @@
             }
             
             .chapter-qr-card .qr-code {
-                width: 100px;
-                height: 100px;
+                width: 140px;
+                height: 140px;
             }
             
             .chapter-qr-card .chapter-logo {
-                width: 60px;
-                height: 60px;
+                width: 80px;
+                height: 80px;
             }
         }
 

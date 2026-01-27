@@ -6,8 +6,8 @@ document.writeln(`
     <nav class="top-nav">
         <div class="logo">
             <a href="../index.php"><img src="../assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img" style="margin-top: 4px;"></a>
-            <img src="../assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
             <img src="../assets/images/Malaysia_Flag_New.png" alt="Malaysia Flag" class="sarawak-flag-header" style="object-fit: contain;">
+            <img src="../assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
         </div>
 
         <!-- Hamburger Icon for Mobile -->

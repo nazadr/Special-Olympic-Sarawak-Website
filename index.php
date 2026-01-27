@@ -23,9 +23,9 @@
         <img src="assets/images/SONG26_Logo.png" alt="SONG 26" class="song26-bubble-icon">
         <span class="song26-bubble-tooltip">SONG 2026 page</span>
     </a>
-    <div class="video-background" style="position:relative;width:100vw;height:100vh;overflow:hidden;">
+    <div class="video-background" style="position:relative;width:100vw;height:100vh;overflow:hidden;margin:0;padding:0;">
         <video autoplay loop muted playsinline
-            style="width:100vw;height:100vh;object-fit:cover;position:fixed;top:0;left:0;z-index:1;">
+            style="width:100%;height:100%;object-fit:cover;position:fixed;top:0;left:0;z-index:1;">
             <!-- Replace with your video source -->
             <source src="assets/videos/SO website bg.mp4" type="video/mp4">
             Your browser does not support the video tag
