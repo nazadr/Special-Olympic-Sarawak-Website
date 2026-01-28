@@ -154,21 +154,25 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             color: rgba(255,255,255,0.95);
         }
 
+        /* Swapped visual weight: make subtitle the prominent headline */
         .song26-hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            letter-spacing: -1px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.15;
+            letter-spacing: 0.2px;
+            text-transform: none;
+            opacity: 0.95;
         }
 
         .song26-hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 15px;
-            opacity: 0.95;
-            letter-spacing: 2px;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 18px;
+            opacity: 1;
+            letter-spacing: -1px;
             text-transform: uppercase;
+            line-height: 1.05;
         }
 
         .song26-hero-date {
@@ -265,6 +269,20 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             letter-spacing: 1px;
             padding-left: 4px;
             margin-bottom: 4px;
+        }
+
+        /* Color-code each tier inside the hero sponsors card */
+        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(2) .song26-hero-sponsor-tier-label {
+            /* Platinum - light metallic */
+            color: #666161c4;
+        }
+        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(3) .song26-hero-sponsor-tier-label {
+            /* Gold */
+            color: #D4AF37;
+        }
+        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(4) .song26-hero-sponsor-tier-label {
+            /* Silver */
+            color: #B0B0B0;
         }
 
         .song26-hero-sponsor-logos {
@@ -679,6 +697,30 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             color: var(--so-white);
         }
 
+        .song26-committee-photo img {
+            width: 82%;
+            height: 82%;
+            object-fit: contain;
+            border-radius: 6px;
+            background: white;
+            padding: 6px;
+            display: block;
+        }
+
+        /* When there's no uploaded logo, remove the red bubble and heavy shadow */
+        .song26-committee-photo.no-logo {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+        }
+
+        .song26-committee-photo.no-logo i {
+            font-size: 1.6rem;
+            color: var(--so-dark);
+            background: transparent;
+            box-shadow: none;
+        }
+
         .song26-committee-role {
             font-size: 0.95rem;
             color: var(--so-red);
@@ -925,10 +967,18 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             color: var(--so-dark);
         }
 
+        /* Ensure state names in tables are fully capitalized */
+        .song26-table .state-cell,
+        .song26-table tbody td:nth-child(2) {
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
         .song26-table tbody td:first-child {
             font-weight: 700;
             color: var(--so-red);
             font-size: 1.1rem;
+            text-align: center;
         }
 
         .song26-table .text-center {
@@ -1979,7 +2029,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 <!-- Competition Standings -->
                 <div class="song26-section-title" id="games-standings" style="margin-top: 80px;">
                     <h2>Games Standings</h2>
-                    <p>Live rankings and medal standings for all participating states</p>
+                    <p>Live rankings and medal standings for all participating SO states</p>
                 </div>
 
                 <!-- Sport Tabs (Bookmark Style) -->
@@ -2253,10 +2303,16 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 <h2 class="song26-committee-title">Organizing Partners</h2>
                 <div class="song26-committee-grid">
                     <div class="song26-committee-card">
-                        <div class="song26-committee-photo">
-                            <i class="fas fa-building"></i>
+                        <div class="song26-committee-photo no-logo">
+                            <img src="../assets/images/kpwk.png" alt="Kementerian Pembangunan Wanita">
                         </div>
-                        <div class="song26-committee-name">Organization Logo</div>
+                        <div class="song26-committee-name ">Kementerian Pembangunan Wanita, Kanak-Kanak dan Kesejahteraan Komuniti</div>
+                    </div>
+                    <div class="song26-committee-card">
+                        <div class="song26-committee-photo no-logo">
+                            <img src="../assets/images/jkms.png" alt="Jabatan Kebajikan Masyarakat">
+                        </div>
+                        <div class="song26-committee-name">Jabatan Kebajikan Masyarakat</div>
                     </div>
                     <div class="song26-committee-card">
                         <div class="song26-committee-photo">
@@ -2265,16 +2321,10 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                         <div class="song26-committee-name">Organization Logo</div>
                     </div>
                     <div class="song26-committee-card">
-                        <div class="song26-committee-photo">
-                            <i class="fas fa-building"></i>
+                        <div class="song26-committee-photo no-logo">
+                            <img src="../assets/images/bintuluport_logo.png" alt="Bintulu Port">
                         </div>
-                        <div class="song26-committee-name">Organization Logo</div>
-                    </div>
-                    <div class="song26-committee-card">
-                        <div class="song26-committee-photo">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div class="song26-committee-name">Organization Logo</div>
+                        <div class="song26-committee-name">Bintulu Port</div>
                     </div>
                 </div>
             </div>

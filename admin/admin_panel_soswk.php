@@ -45,6 +45,22 @@ if ($debug_mode) {
     <link rel="stylesheet" href="../css/video-gallery-style.css?v=<?php echo time(); ?>">
 
     <style>
+                .favourite-star {
+                    margin-left: 8px;
+                    color: #fbbf24;
+                    cursor: pointer;
+                    transition: color 0.2s;
+                }
+                .favourite-star.favourited i {
+                    color: #f59e42;
+                    font-weight: bold;
+                }
+                .favourite-star i {
+                    pointer-events: none;
+                }
+                .nav-item .favourite-star:hover i {
+                    color: #f59e42;
+                }
         * {
             margin: 0;
             padding: 0;
@@ -3042,15 +3058,17 @@ if ($debug_mode) {
 
             <!-- Managements -->
             <div class="nav-section">
-                <div class="nav-section-title">Managements</div>
+                <div class="nav-section-title">Application</div>
                 <a href="#" class="nav-item" data-section="events">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Events Calendar</span>
+                    <span class="favourite-star" title="Mark as Favourite"><i class="fa-regular fa-star"></i></span>
                 </a>
 
                 <a href="#" class="nav-item" data-section="sports">
                     <i class="fa-solid fa-futbol"></i>
                     <span>Sports</span>
+                    <span class="favourite-star" title="Mark as Favourite"><i class="fa-regular fa-star"></i></span>
                 </a>
                 <a href="#" class="nav-item" data-section="athletes">
                     <i class="fas fa-users"></i>
@@ -3097,10 +3115,12 @@ if ($debug_mode) {
                 <a href="#" class="nav-item" data-section="photos">
                     <i class="fas fa-images"></i>
                     <span>Photos</span>
+                    <span class="favourite-star" title="Mark as Favourite"><i class="fa-regular fa-star"></i></span>
                 </a>
                 <a href="#" class="nav-item" data-section="videos">
                     <i class="fa-solid fa-video"></i>
                     <span>Videos</span>
+                    <span class="favourite-star" title="Mark as Favourite"><i class="fa-regular fa-star"></i></span>
                 </a>
                 <a href="#" class="nav-item" data-section="documents">
                     <i class="fas fa-file-alt"></i>
@@ -3119,6 +3139,7 @@ if ($debug_mode) {
                 <a href="#" class="nav-item" data-section="sponsorships">
                     <i class="fa-solid fa-hand-holding-heart"></i>
                     <span>Sponsorships</span>
+                    <span class="favourite-star" title="Mark as Favourite"><i class="fa-regular fa-star"></i></span>
                 </a>
                 <a href="#" class="nav-item" data-section="other-special-olympics">
                     <i class="fa-solid fa-globe"></i>
@@ -3179,6 +3200,19 @@ if ($debug_mode) {
 
         <!-- Content Area -->
         <main class="content-area">
+
+            <!-- Settings: Export Database Button -->
+            <div class="content-section" id="settings-export-db" style="display:none;">
+                <div style="padding:32px;max-width:600px;margin:auto;">
+                    <h2>Export Database</h2>
+                    <p>Click the button below to export the current database as a SQL file.</p>
+                    <form method="post" action="export_db.php">
+                        <button type="submit" class="btn-submit" style="padding:12px 32px;font-size:16px;">
+                            <i class="fas fa-download"></i> Export Database
+                        </button>
+                    </form>
+                </div>
+            </div>
 
 
             <!-- Dashboard Section -->
@@ -3397,7 +3431,7 @@ if ($debug_mode) {
                         </div>
                         <div class="section-text">
                             <h2 class="section-title">Analytics & Insights</h2>
-                            <p class="section-subtitle">Comprehensive data analysis and performance metrics</p>
+                            <p class="section-subtitle">Comprehensive data analysis and metrics</p>
                         </div>
                     </div>
                 </div>
@@ -3535,7 +3569,7 @@ if ($debug_mode) {
 
                     <div class="analytics-card">
                         <div class="analytics-card-header">
-                            <h3><i class="fas fa-chart-bar"></i> Chapter Performance Comparison</h3>
+                            <h3><i class="fas fa-chart-bar"></i> Chapter Data Comparison</h3>
                         </div>
                         <div class="analytics-card-body">
                             <div class="chapter-comparison" id="chapterComparison">
@@ -5820,17 +5854,44 @@ if ($debug_mode) {
                         </div>
                         <div class="section-text">
                             <h2 class="section-title">Settings</h2>
-                            <p class="section-subtitle">Configure your admin panel settings</p>
+                            <p class="section-subtitle">Configure your admin panel settings *The current settings is still in its final development</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="content-placeholder">
-                    <i class="fas fa-cog"></i>
-                    <h3>Settings Content</h3>
-                    <p>Add your settings interface </p>
-                </div>
-            </div>
+                <div class="content-placeholder" style="display:flex;justify-content:center;">
+    <div style="
+        margin-top:32px;
+        width:100%;
+        max-width:800px;
+        background:#ffffff;
+        padding:40px;
+        border-radius:12px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        text-align:center;
+    ">
+        <h2 style="margin-bottom:12px;">Export Database</h2>
+        <p style="margin-bottom:24px;color:#555;">
+            Click the button below to export the current database as a SQL file.
+        </p>
+
+        <form method="post" action="export_db.php">
+            <button type="submit" class="btn-submit" style="
+                padding:14px 40px;
+                font-size:16px;
+                border-radius:8px;
+                display:inline-flex;
+                align-items:center;
+                gap:10px;
+                cursor:pointer;
+            ">
+                <i class="fas fa-download"></i>
+                Export Database
+            </button>
+        </form>
+    </div>
+</div>
+
 
             <!-- Profile Section -->
             <div class="content-section" id="profile">
@@ -6909,6 +6970,44 @@ if ($debug_mode) {
     
     <!-- Modal Functionality Script -->
     <script>
+                // --- Favourites Marking Logic ---
+                document.addEventListener('DOMContentLoaded', function() {
+                    const FAV_KEY = 'soswk_admin_favourites';
+                    function getFavourites() {
+                        try {
+                            return JSON.parse(localStorage.getItem(FAV_KEY) || '{}');
+                        } catch { return {}; }
+                    }
+                    function setFavourites(favs) {
+                        localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+                    }
+                    function updateStarIcons() {
+                        const favs = getFavourites();
+                        document.querySelectorAll('.nav-item .favourite-star').forEach(star => {
+                            const section = star.closest('.nav-item').getAttribute('data-section');
+                            if (favs[section]) {
+                                star.classList.add('favourited');
+                                star.querySelector('i').classList.remove('fa-regular');
+                                star.querySelector('i').classList.add('fa-solid');
+                            } else {
+                                star.classList.remove('favourited');
+                                star.querySelector('i').classList.remove('fa-solid');
+                                star.querySelector('i').classList.add('fa-regular');
+                            }
+                        });
+                    }
+                    document.querySelectorAll('.nav-item .favourite-star').forEach(star => {
+                        star.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            const section = star.closest('.nav-item').getAttribute('data-section');
+                            const favs = getFavourites();
+                            favs[section] = !favs[section];
+                            setFavourites(favs);
+                            updateStarIcons();
+                        });
+                    });
+                    updateStarIcons();
+                });
         // Global modal functions
         function openNewsModal() {
             const modal = document.getElementById('addNewsModal');

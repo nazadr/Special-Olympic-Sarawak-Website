@@ -34,8 +34,6 @@
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
-        <!-- Clickable overlay for SONG 26 -->
-        <a href="src/SONG 26.php?standalone=1" target="_blank" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:3;display:block;text-decoration:none;cursor:pointer;" aria-label="Go to SONG 26"></a>
         <!-- Welcome Section with Logo (now in front of video) -->
         <section class="welcome-section" style="position:relative;z-index:4;">
             <h1>
@@ -319,7 +317,7 @@
     <footer class="site-footer">
         <div class="site-footer-content">
             <div class="footer-top">
-                <span class="copyright-text">© 2026 Special Olympics Sarawak. All rights reserved</span>
+                <span class="copyright-text">© 2026 Special Olympics Sarawak. All rights reserved.</span>
                 <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="src/terms-and-conditions.php" class="footer-link">Terms & Condition</a>
