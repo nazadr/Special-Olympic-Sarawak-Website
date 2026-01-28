@@ -142,6 +142,129 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             display: none;
         }
 
+        /* Hero Sponsor Showcase - Desktop Only */
+        .song26-hero-sponsors {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 25px 20px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 0, 0, 0.15);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 0, 0, 0.08);
+            width: 240px;
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            animation: fadeInRight 1s ease 0.3s backwards;
+        }
+        
+        .song26-hero-sponsors::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .song26-hero-sponsors::-webkit-scrollbar-track {
+            background: rgba(255, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+        
+        .song26-hero-sponsors::-webkit-scrollbar-thumb {
+            background: var(--so-red);
+            border-radius: 3px;
+        }
+        
+        .song26-hero-sponsors::-webkit-scrollbar-thumb:hover {
+            background: #cc0000;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .song26-hero-sponsors-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--so-red);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 0, 0, 0.15);
+        }
+
+        .song26-hero-sponsor-tier {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .song26-hero-sponsor-tier-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--so-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-left: 4px;
+            margin-bottom: 4px;
+        }
+
+        .song26-hero-sponsor-logos {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .song26-hero-sponsor-item {
+            background: var(--so-light-gray);
+            border-radius: 8px;
+            padding: 12px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .song26-hero-sponsor-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15);
+            border-color: var(--so-red);
+            background: var(--so-white);
+        }
+
+        .song26-hero-sponsor-item-small {
+            padding: 10px 8px;
+        }
+
+        .song26-hero-sponsor-placeholder {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--so-red);
+            text-align: center;
+        }
+
+        /* Hide sponsors on mobile/tablet */
+        @media (max-width: 1200px) {
+            .song26-hero-sponsors {
+                display: none;
+            }
+        }
+
         /* Main Content Container - Full Width Sections */
         .song26-main-content {
             background: var(--so-white);
@@ -1463,9 +1586,6 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
     <!-- Navigation Bar (Loaded via JS) -->
     <script src="../scripts/components/header.js"></script>
 
-    <!-- Social Media Bar (Loaded via JS) -->
-    <script src="../scripts/components/socmed-bar.js"></script>
-
     <!-- Header Space for Navigation Bar -->
     <div class="header-space"></div>
 
@@ -1536,6 +1656,50 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             <div class="song26-hero-subtitle">6th National Games</div>
             <div class="song26-hero-location">Bintulu</div>
             <div class="song26-hero-date">24 - 26 April 2026</div>
+        </div>
+        
+        <!-- Sponsor Showcase - Desktop Only -->
+        <div class="song26-hero-sponsors">
+            <div class="song26-hero-sponsors-title">Proudly Supported By</div>
+            
+            <div class="song26-hero-sponsor-tier">
+                <div class="song26-hero-sponsor-tier-label">Platinum</div>
+                <div class="song26-hero-sponsor-logos">
+                    <div class="song26-hero-sponsor-item">
+                        <div class="song26-hero-sponsor-placeholder">Platinum 1</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item">
+                        <div class="song26-hero-sponsor-placeholder">Platinum 2</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item">
+                        <div class="song26-hero-sponsor-placeholder">Platinum 3</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song26-hero-sponsor-tier">
+                <div class="song26-hero-sponsor-tier-label">Gold</div>
+                <div class="song26-hero-sponsor-logos">
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Gold 1</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Gold 2</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song26-hero-sponsor-tier">
+                <div class="song26-hero-sponsor-tier-label">Silver</div>
+                <div class="song26-hero-sponsor-logos">
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 1</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 2</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
