@@ -95,6 +95,51 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             animation: floatLogo 3s ease-in-out infinite;
         }
 
+        /* Countdown Clock Styles (inverted colors: white card, red text) */
+        .song26-countdown {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0 22px;
+            z-index: 3;
+        }
+        .song26-countdown-part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.98);
+            border-radius: 10px;
+            padding: 8px 14px;
+            min-width: 72px;
+            border: 1px solid rgba(255,0,0,0.10);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            color: var(--so-red);
+        }
+        .song26-countdown-part span {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--so-red);
+            line-height: 1;
+            letter-spacing: 0.5px;
+            transition: transform 220ms ease, color 200ms ease;
+        }
+        .song26-countdown-label {
+            font-size: 0.82rem;
+            color: var(--so-red);
+            opacity: 0.95;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 640px) {
+            .song26-countdown { gap: 8px; }
+            .song26-countdown-part { padding: 6px 8px; min-width: 48px; }
+            .song26-countdown-part span { font-size: 1.1rem; }
+            .song26-countdown-label { font-size: 0.65rem; }
+        }
+
         @keyframes floatLogo {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -1652,6 +1697,25 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
     <section class="song26-hero" id="home">
         <div class="song26-hero-content">
             <img src="../assets/images/SONG26_Logo.png" alt="SONG 26 Logo" class="song26-hero-logo">
+                    <!-- Countdown Clock -->
+                    <div class="song26-countdown" id="song26-countdown">
+                        <div class="song26-countdown-part">
+                            <span id="countdown-days">00</span>
+                            <div class="song26-countdown-label">Days</div>
+                        </div>
+                        <div class="song26-countdown-part">
+                            <span id="countdown-hours">00</span>
+                            <div class="song26-countdown-label">Hours</div>
+                        </div>
+                        <div class="song26-countdown-part">
+                            <span id="countdown-minutes">00</span>
+                            <div class="song26-countdown-label">Minutes</div>
+                        </div>
+                        <div class="song26-countdown-part">
+                            <span id="countdown-seconds">00</span>
+                            <div class="song26-countdown-label">Seconds</div>
+                        </div>
+                    </div>
             <h1>Special Olympics Malaysia</h1>
             <div class="song26-hero-subtitle">6th National Games</div>
             <div class="song26-hero-location">Bintulu</div>
@@ -2305,6 +2369,39 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
     <?php endif; ?>
 
     <script src="../scripts/script.js"></script>
+
+    <!-- Countdown Clock Script -->
+    <script>
+    // Countdown target: 24 April 2026, 12:00 a.m. (midnight)
+    const countdownTarget = new Date(2026, 3, 24, 0, 0, 0).getTime(); // Month is 0-indexed
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = countdownTarget - now;
+        const daysEl = document.getElementById('countdown-days');
+        const hoursEl = document.getElementById('countdown-hours');
+        const minutesEl = document.getElementById('countdown-minutes');
+        const secondsEl = document.getElementById('countdown-seconds');
+        if (diff <= 0) {
+            daysEl.textContent = '00';
+            hoursEl.textContent = '00';
+            minutesEl.textContent = '00';
+            secondsEl.textContent = '00';
+            return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    });
+    </script>
 
     <!-- Sport Tabs Toggle Script -->
     <script>
