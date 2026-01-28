@@ -1544,7 +1544,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             <h1>Special Olympics Malaysia</h1>
             <div class="song26-hero-subtitle">6th National Games</div>
             <div class="song26-hero-location">Bintulu</div>
-            <div class="song26-hero-date">25 - 26 April 2026</div>
+            <div class="song26-hero-date">24 - 26 April 2026</div>
         </div>
     </section>
 
@@ -1578,14 +1578,14 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h3>Venue</h3> 
-                        <p>Bintulu, Sarawak<br>Energy Town of Sarawak</p>
+                        <p>Bintulu, Sarawak<br>Clean Green Energy Hub Of Malaysia</p>
                     </div>
                     <div class="song26-info-card">
                         <div class="song26-icon-wrapper">
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <h3>Date</h3>
-                        <p>25 - 26 April 2026<br>Two Days of Competition & Unity</p>
+                        <p>24 - 26 April 2026<br>Three Days of Competition & Unity</p>
                     </div>
                     <div class="song26-info-card">
                         <div class="song26-icon-wrapper">
@@ -1759,7 +1759,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 
                 <!-- Competition Standings -->
                 <div class="song26-section-title" style="margin-top: 80px;">
-                    <h2>Competition Standings</h2>
+                    <h2>Games Standings</h2>
                     <p>Live rankings and medal standings for all participating states</p>
                 </div>
 
