@@ -888,45 +888,46 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             display: none;
         }
 
-        /* Side Navigation Bar - Futuristic Left Side */
+        /* Side Navigation Bar - Dynamic Animated Desktop Only */
         .song26-side-nav {
             position: fixed;
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(249, 249, 255, 0.95));
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 25px 20px;
+            left: 30px;
+            top: 270px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 25px 22px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(249, 249, 255, 0.94));
+            border-radius: 14px;
+            border: 1px solid rgba(226, 27, 35, 0.12);
+            backdrop-filter: blur(12px);
             box-shadow: 
-                0 20px 60px rgba(255, 0, 0, 0.12),
-                0 0 0 1px rgba(255, 0, 0, 0.08),
+                0 8px 32px rgba(226, 27, 35, 0.08),
+                0 0 0 1px rgba(226, 27, 35, 0.05),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 0, 0, 0.15);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: navFloat 6s ease-in-out infinite;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: navSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+
+        @keyframes navSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         @keyframes navFloat {
-            0%, 100% { transform: translateY(-50%) translateX(0); }
-            50% { transform: translateY(-50%) translateX(3px); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
         }
 
         .song26-side-nav::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--so-red), #ff4d6d, var(--so-red));
-            background-size: 200% 200%;
-            border-radius: 30px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            animation: gradientShift 3s ease infinite;
+            display: none;
         }
 
         @keyframes gradientShift {
@@ -936,21 +937,22 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 
         .song26-side-nav:hover {
             box-shadow: 
-                0 25px 80px rgba(255, 0, 0, 0.25),
-                0 0 0 1px rgba(255, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 1);
-            transform: translateY(-50%) scale(1.02);
-            animation: none;
+                0 16px 48px rgba(226, 27, 35, 0.15),
+                0 0 0 1px rgba(226, 27, 35, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border-color: rgba(226, 27, 35, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 248, 0.96));
+            animation: navFloat 4s ease-in-out infinite;
         }
 
         .song26-side-nav:hover::before {
-            opacity: 0.15;
+            display: none;
         }
 
         .song26-nav-items {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 10px;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -958,6 +960,26 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 
         .song26-nav-item {
             position: relative;
+            animation: itemFadeIn 0.5s ease backwards;
+        }
+
+        .song26-nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .song26-nav-item:nth-child(2) { animation-delay: 0.15s; }
+        .song26-nav-item:nth-child(3) { animation-delay: 0.2s; }
+        .song26-nav-item:nth-child(4) { animation-delay: 0.25s; }
+        .song26-nav-item:nth-child(5) { animation-delay: 0.3s; }
+        .song26-nav-item:nth-child(6) { animation-delay: 0.35s; }
+        .song26-nav-item:nth-child(7) { animation-delay: 0.4s; }
+
+        @keyframes itemFadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .song26-nav-link {
@@ -965,205 +987,161 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             align-items: center;
             justify-content: flex-start;
             text-decoration: none;
-            color: var(--so-gray);
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 10px 0;
+            color: #666;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.35px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 10px;
+            margin: 0 -10px;
             position: relative;
+            gap: 11px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .song26-nav-link::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(226, 27, 35, 0.03), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .song26-nav-link::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 0;
-            background: linear-gradient(180deg, var(--so-red), #ff4d6d);
-            border-radius: 3px;
-            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
+            content: '•';
+            color: var(--so-red);
+            font-size: 1.4rem;
+            line-height: 1;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-weight: 700;
+            text-shadow: 0 0 0 rgba(226, 27, 35, 0);
         }
 
         .song26-nav-link:hover {
             color: var(--so-red);
-            transform: translateX(3px);
+            transform: translateX(6px);
+            background: linear-gradient(135deg, rgba(226, 27, 35, 0.06), rgba(226, 27, 35, 0.02));
+        }
+
+        .song26-nav-link:hover::after {
+            opacity: 1;
         }
 
         .song26-nav-link:hover::before {
-            height: 100%;
-            opacity: 1;
+            transform: scale(1.25) rotate(15deg);
+            text-shadow: 0 0 12px rgba(226, 27, 35, 0.4);
         }
 
         .song26-nav-link.active {
             color: var(--so-red);
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(226, 27, 35, 0.08), rgba(226, 27, 35, 0.04));
+            box-shadow: inset 0 0 12px rgba(226, 27, 35, 0.08);
         }
 
         .song26-nav-link.active::before {
-            height: 100%;
-            opacity: 1;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            transform: scale(1.3);
+            text-shadow: 0 0 16px rgba(226, 27, 35, 0.5);
+            animation: bulletPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes bulletPulse {
+            0%, 100% { transform: scale(1.3); }
+            50% { transform: scale(1.45); }
         }
 
         .song26-nav-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ddd, #bbb);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            margin-right: 15px;
-            box-shadow: 
-                0 2px 8px rgba(0, 0, 0, 0.1),
-                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            display: none;
         }
 
         .song26-nav-dot::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transition: all 0.4s ease;
+            display: none;
         }
 
         .song26-nav-dot::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid var(--so-red);
-            opacity: 0;
-            transition: all 0.4s ease;
+            display: none;
         }
 
         .song26-nav-link:hover .song26-nav-dot {
-            background: linear-gradient(135deg, #ff4d6d, var(--so-red));
-            transform: scale(1.2);
-            box-shadow: 
-                0 0 15px rgba(255, 0, 0, 0.5),
-                0 4px 12px rgba(255, 0, 0, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            display: none;
         }
 
         .song26-nav-link:hover .song26-nav-dot::before {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.8);
+            display: none;
         }
 
         .song26-nav-link.active .song26-nav-dot {
-            background: linear-gradient(135deg, var(--so-red), #8b0000);
-            transform: scale(1.3);
-            box-shadow: 
-                0 0 20px rgba(255, 0, 0, 0.6),
-                0 0 0 4px rgba(255, 0, 0, 0.2),
-                0 5px 15px rgba(255, 0, 0, 0.4),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
-            animation: dotPulse 2s ease-in-out infinite;
+            display: none;
         }
 
         @keyframes dotPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 0 4px rgba(255, 0, 0, 0.2), 0 5px 15px rgba(255, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 0 6px rgba(255, 0, 0, 0.3), 0 5px 15px rgba(255, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 1; }
         }
 
         .song26-nav-link.active .song26-nav-dot::before {
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.9);
+            display: none;
         }
 
         .song26-nav-link.active .song26-nav-dot::after {
-            opacity: 1;
-            animation: dotRing 2s ease-in-out infinite;
+            display: none;
         }
 
         @keyframes dotRing {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+            0% { opacity: 0; }
+            100% { opacity: 0; }
         }
 
         .song26-nav-label {
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            left: 45px;
-            background: linear-gradient(135deg, var(--so-red), #8b0000);
-            color: var(--so-white);
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 700;
+            opacity: 1;
+            visibility: visible;
+            position: static;
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
             white-space: nowrap;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-            box-shadow: 
-                0 8px 25px rgba(255, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transform: translateX(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: auto;
+            box-shadow: none;
+            letter-spacing: 0.35px;
+            text-transform: none;
+            transform: none;
         }
 
         .song26-nav-label::before {
-            content: '';
-            position: absolute;
-            left: -2px;
-            top: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--so-red), #ff4d6d);
-            background-size: 200% 200%;
-            border-radius: 12px;
-            z-index: -1;
-            opacity: 0;
-            animation: gradientShift 3s ease infinite;
+            display: none;
         }
 
         .song26-nav-label::after {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-right: 8px solid var(--so-red);
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            filter: drop-shadow(-2px 0 3px rgba(0, 0, 0, 0.1));
+            display: none;
         }
 
         .song26-nav-link:hover .song26-nav-label,
         .song26-nav-link.active .song26-nav-label {
             opacity: 1;
             visibility: visible;
-            left: 50px;
-            transform: translateX(0);
+            position: static;
+            transform: none;
         }
 
         .song26-nav-link:hover .song26-nav-label::before {
-            opacity: 1;
+            display: none;
         }
 
         .song26-nav-link.active .song26-nav-label {
-            background: linear-gradient(135deg, #ff4d6d, var(--so-red));
-            box-shadow: 
-                0 10px 30px rgba(255, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            background: transparent;
+            box-shadow: none;
+            color: var(--so-red);
+            font-weight: 600;
+            letter-spacing: 0.4px;
         }
 
         /* Mobile Navigation Toggle - Futuristic Button */
@@ -1251,7 +1229,14 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             transform: rotate(90deg);
         }
 
-        /* Hide navigation in portrait mobile view - Only show in landscape */\n        @media (max-width: 768px) and (orientation: portrait) {
+        /* Desktop Only - Hide navigation on all mobile/tablet views */
+        @media (max-width: 1200px) {
+            .song26-side-nav {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
             .song26-side-nav,
             .song26-nav-toggle {
                 display: none !important;
@@ -1506,8 +1491,14 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 </a>
             </li>
             <li class="song26-nav-item">
-                <a href="#standings" class="song26-nav-link" data-section="standings">
-                    <span class="song26-nav-label">Standings</span>
+                <a href="#medal-standings" class="song26-nav-link" data-section="medal-standings">
+                    <span class="song26-nav-label">Medal Standings</span>
+                    <span class="song26-nav-dot"></span>
+                </a>
+            </li>
+            <li class="song26-nav-item">
+                <a href="#games-standings" class="song26-nav-link" data-section="games-standings">
+                    <span class="song26-nav-label">Games Standings</span>
                     <span class="song26-nav-dot"></span>
                 </a>
             </li>
@@ -1561,7 +1552,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 <!-- Logo Display -->
                 <div class="song26-logo-section">
                     <div class="song26-logo-card">
-                        <div aria-hidden="false" role="img" aria-label="Special Olympics Sarawak logo" style="width:110px;height:110px;background:#FF0000;border-radius:50%;box-shadow:0 4px 16px rgba(255, 0, 0,0.12);display:flex;align-items:center;justify-content:center;">
+                        <div aria-hidden="false" role="img" aria-label="Special Olympics Sarawak logo" style="width:110px;height:110px;background:#FFFFFF;border-radius:50%;box-shadow:0 4px 16px rgba(255, 0, 0,0.12);display:flex;align-items:center;justify-content:center;">
                             <img src="../assets/images/SONG26_Logo.png" alt="SONG 26 Logo" style="width:90px;height:auto;display:block;object-fit:contain;" aria-hidden="false">
                         </div>
                     </div>
@@ -1619,7 +1610,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         </section>
 
         <!-- Standings Section -->
-        <section class="song26-full-section white-bg" id="standings">
+        <section class="song26-full-section white-bg" id="medal-standings">
             <div class="song26-container">
                 <div class="song26-section-title">
                     <h2>Overall Medal Standings</h2>
@@ -1758,7 +1749,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 </div>
 
                 <!-- Competition Standings -->
-                <div class="song26-section-title" style="margin-top: 80px;">
+                <div class="song26-section-title" id="games-standings" style="margin-top: 80px;">
                     <h2>Games Standings</h2>
                     <p>Live rankings and medal standings for all participating states</p>
                 </div>
@@ -2374,5 +2365,100 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = Array.from(document.querySelectorAll('.song26-nav-link'));
+            if (!navLinks.length) return;
+
+            // Map links to sections by data-section -> element id
+            const linkToSection = navLinks.reduce((acc, link) => {
+                const id = link.dataset.section;
+                if (id) {
+                    const el = document.getElementById(id);
+                    if (el) acc[id] = { link, el };
+                }
+                return acc;
+            }, {});
+
+            let activeLink = document.querySelector('.song26-nav-link.active') || null;
+
+            // IntersectionObserver to detect section entering viewport
+            // rootMargin tuned to trigger when section top reaches ~40% of viewport
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50% 0px',
+                threshold: [0, 0.15, 0.3, 0.6]
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.target.id) return;
+                    const id = entry.target.id;
+                    const mapping = linkToSection[id];
+                    if (!mapping) return;
+
+                    // Mark link active when intersecting enough
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.12) {
+                        const newLink = mapping.link;
+                        if (newLink !== activeLink) {
+                            if (activeLink) activeLink.classList.remove('active');
+                            newLink.classList.add('active');
+                            activeLink = newLink;
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            Object.values(linkToSection).forEach(({ el }) => observer.observe(el));
+
+            // Smooth scrolling for clicks (offset adjusts for header height)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.dataset.section;
+                    const target = document.getElementById(id);
+                    if (!target) return;
+                    const headerOffset = 80; // adjust if your header height differs
+                    const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = Math.max(elementPosition - headerOffset, 0);
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                });
+            });
+
+            // Optional: Update active class on load if section already in view
+            window.setTimeout(() => {
+                // If we're at the very top, ensure Home is active
+                if (window.scrollY <= 60 && linkToSection.home && linkToSection.home.link) {
+                    if (activeLink) activeLink.classList.remove('active');
+                    linkToSection.home.link.classList.add('active');
+                    activeLink = linkToSection.home.link;
+                    return;
+                }
+
+                // Fallback: pick a section roughly in view
+                const inView = Object.values(linkToSection).find(({ el }) => {
+                    const rect = el.getBoundingClientRect();
+                    return rect.top <= window.innerHeight * 0.6 && rect.bottom >= window.innerHeight * 0.1;
+                });
+                if (inView && inView.link) {
+                    if (activeLink) activeLink.classList.remove('active');
+                    inView.link.classList.add('active');
+                    activeLink = inView.link;
+                }
+            }, 120);
+
+            // Ensure Home becomes active when scrolled to very top (works during fast scrolls)
+            window.addEventListener('scroll', () => {
+                if (window.scrollY <= 60 && linkToSection.home && linkToSection.home.link) {
+                    if (activeLink !== linkToSection.home.link) {
+                        if (activeLink) activeLink.classList.remove('active');
+                        linkToSection.home.link.classList.add('active');
+                        activeLink = linkToSection.home.link;
+                    }
+                }
+            }, { passive: true });
+        });
+    </script>
+
 </body>
 </html>
