@@ -1875,8 +1875,8 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                     <p>Multiple sporting events organized to provide classification-appropriate competition and promote athlete development</p>
                 </div>
                 <div class="song26-participation-grid">
-                    <div class="song26-sport-card">Aquatics</div>
                     <div class="song26-sport-card">Athletics</div>
+                    <div class="song26-sport-card">Aquatics</div>
                     <div class="song26-sport-card">Badminton</div>
                     <div class="song26-sport-card">Basketball</div>
                     <div class="song26-sport-card">Bocce</div>
