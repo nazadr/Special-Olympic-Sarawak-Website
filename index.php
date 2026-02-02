@@ -262,18 +262,7 @@
             title="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
 
-    <!-- Chatbot Section (optional remove if not needed and remove the javascript event listener)-->
-    <div class="chatbot-container">
-        <button class="chatbot-toggle">💬</button>
-        <div class="chatbot-window" id="chatbot-window">
-            <div class="chatbot-header">Chat Assistant</div>
-            <div class="chatbot-messages" id="chat-messages">
-                <p class="bot-msg">Hi there! How can I help you?</p>
-            </div>
-            <input type="text" id="chat-input" class="chatbot-input" placeholder="Type your message...">
-        </div>
-    </div>
-
+   
     <!-- The original bottom navigation will be hidden on mobile -->
     <footer class="bottom-nav desktop-only">
         <ul>
