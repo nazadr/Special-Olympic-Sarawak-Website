@@ -5,7 +5,9 @@
 document.writeln(`
     <nav class="top-nav">
         <div class="logo">
-            <a href="../index.php"><img src="../assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="Logo" class="logo-img" style="margin-top: 4px;"></a>
+            <a href="../index.php" style="display: flex; align-items: center;"><img src="../assets/images/SO Malaysia.png" alt="SO Malaysia Logo" class="logo-img"></a>
+            <span style="color: #999; font-size: 28px; font-weight: 300; margin: 0 8px; line-height: 1;">|</span>
+            <a href="../index.php" style="display: flex; align-items: center;"><img src="../assets/images/Remake/SO Sarawak horizontal logo BG.png" alt="SO Sarawak Logo" class="logo-img" style="height: 42px;"></a>
             <img src="../assets/images/Malaysia_Flag_New.png" alt="Malaysia Flag" class="sarawak-flag-header" style="object-fit: contain;">
             <img src="../assets/images/Sarawak_Flag.png" alt="Sarawak Flag" class="sarawak-flag-header">
         </div>
