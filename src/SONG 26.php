@@ -1705,6 +1705,368 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 padding: 0 20px;
             }
         }
+
+        /* Sport Venue Details Styles */
+        .song26-sport-card-wrapper {
+            grid-column: span 1;
+        }
+
+        .song26-sport-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+        }
+
+        .song26-sport-card.active {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Desktop: Hide inline venue details */
+        .song26-venue-details {
+            display: none;
+        }
+
+        /* Desktop: Shared Bubble Card */
+        .song26-shared-venue-bubble {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .song26-shared-venue-bubble.active {
+            max-height: 2000px;
+            margin-top: 50px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .song26-venue-bubble-card {
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.15),
+                0 10px 30px rgba(231, 76, 60, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            padding: 50px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .song26-venue-bubble-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b, #e74c3c);
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .song26-venue-bubble-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .song26-venue-content {
+            padding: 30px;
+        }
+
+        .song26-venue-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        .song26-venue-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+        }
+
+        .song26-venue-title h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .song26-venue-title p {
+            margin: 5px 0 0 0;
+            color: #7f8c8d;
+            font-size: 15px;
+        }
+
+        .song26-venue-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .song26-venue-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .song26-venue-section h4 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .song26-venue-section h4 i {
+            color: #e74c3c;
+        }
+
+        .song26-venue-map {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Carousel Container */
+        .song26-venue-photo-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f8f9fa;
+            padding: 15px;
+            height: 260px;
+        }
+
+        .song26-venue-photos {
+            display: flex;
+            gap: 0;
+            height: 100%;
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+
+        .song26-venue-photo {
+            min-width: 100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            flex-shrink: 0;
+        }
+
+        /* Carousel Navigation Buttons */
+        .song26-carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(231, 76, 60, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .song26-carousel-nav:hover {
+            background: rgba(192, 57, 43, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .song26-carousel-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .song26-carousel-prev {
+            left: 10px;
+        }
+
+        .song26-carousel-next {
+            right: 10px;
+        }
+
+        .song26-venue-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .song26-venue-info p {
+            margin: 8px 0;
+            color: #555;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .song26-venue-info i {
+            color: #e74c3c;
+            width: 20px;
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile: Hide shared bubble, show inline details */
+            .song26-shared-venue-bubble {
+                display: none !important;
+            }
+
+            .song26-venue-details {
+                display: block;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-out;
+                background: #ffffff;
+                margin-top: 0;
+            }
+
+            .song26-venue-details.active {
+                max-height: 1500px;
+                margin-top: 20px;
+                border-radius: 15px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+
+            .song26-venue-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .song26-venue-section {
+                padding: 15px;
+            }
+
+            .song26-venue-photo-carousel {
+                height: 200px;
+                padding: 10px;
+            }
+
+            .song26-venue-photo {
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            .song26-carousel-nav {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+
+            .song26-carousel-prev {
+                left: 5px;
+            }
+
+            .song26-carousel-next {
+                right: 5px;
+            }
+
+            .song26-venue-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding-bottom: 15px;
+            }
+
+            .song26-venue-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .song26-venue-title h3 {
+                font-size: 22px;
+            }
+
+            .song26-venue-title p {
+                font-size: 14px;
+            }
+
+            .song26-venue-info {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .song26-venue-info p {
+                font-size: 14px;
+            }
+
+            .song26-venue-map {
+                height: 250px;
+                border-radius: 8px;
+            }
+
+            .song26-venue-section h4 {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+
+            .song26-venue-content {
+                padding: 20px;
+            }
+
+            /* Mobile: Show arrows on sport cards */
+            .song26-sport-card::after {
+                content: '\f078';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0.6;
+                transition: all 0.3s ease;
+                font-size: 14px;
+            }
+
+            .song26-sport-card.active::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            .song26-sport-card.active {
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body class="body">
@@ -1938,17 +2300,463 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             <div class="song26-container">
                 <div class="song26-section-title">
                     <h2>Sports Competitions</h2>
-                    <p>Multiple sporting events organized to provide classification-appropriate competition and promote athlete development</p>
+                    <p>Click on any sport to view venue details and location</p>
                 </div>
                 <div class="song26-participation-grid">
-                    <div class="song26-sport-card">Athletics</div>
-                    <div class="song26-sport-card">Aquatics</div>
-                    <div class="song26-sport-card">Badminton</div>
-                    <div class="song26-sport-card">Basketball</div>
-                    <div class="song26-sport-card">Bocce</div>
-                    <div class="song26-sport-card">Bowling</div>
-                    <div class="song26-sport-card">Football 5-a-Side</div>
-                    <div class="song26-sport-card">Table Tennis</div>
+                    <!-- Athletics -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="athletics">Athletics</div>
+                        <div class="song26-venue-details" id="venue-athletics">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-running"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Athletics</h3>
+                                        <p>Stadium Bintulu</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Stadium Bintulu, Jalan Kidurong, 97000 Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Main athletic stadium with track and field facilities</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.558537844736!2d113.05260097567584!3d3.2099442527744677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc170ce21d4fd%3A0x1c1fdd6349140015!2sStadium%20Bintulu%20(Athletic%2C%20Soccer)!5e0!3m2!1sen!2smy!4v1770103108574!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">
+                                                    <img src="../assets/images/Stadium_BTU1.jpg" alt="Stadium Bintulu Front View" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+                                                </div>
+                                                <div class="song26-venue-photo">
+                                                    <img src="../assets/images/Stadium_BTU2.jpg" alt="Stadium Bintulu Aerial View" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+                                                </div>
+                                                <div class="song26-venue-photo">
+                                                    <img src="../assets/images/Stadium_BTU3.jpg" alt="Stadium Bintulu Track" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+                                                </div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aquatics -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="aquatics">Aquatics</div>
+                        <div class="song26-venue-details" id="venue-aquatics">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-swimmer"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Aquatics</h3>
+                                        <p>Kolam Renang Awam BDA</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Kolam Renang Awam BDA, Bintulu Development Authority, 97000 Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Public swimming pool with Olympic-standard facilities</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0638867764335!2d113.04647537496553!3d3.176395996864427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d570f51e4a4a5%3A0x5c6d7e8f9a0b1c2d!2sBintulu%20Development%20Authority%20Swimming%20Complex!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badminton -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="badminton">Badminton</div>
+                        <div class="song26-venue-details" id="venue-badminton">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-baseball-ball"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Badminton</h3>
+                                        <p>B&G Badminton Centre</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> B&G Badminton Centre, Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Professional badminton facility with multiple courts</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.1238568456784!2d113.04014567496546!3d3.1643936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d571234567890%3A0x1a2b3c4d5e6f7a8b!2sB%26G%20Badminton%20Centre!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Basketball -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="basketball">Basketball</div>
+                        <div class="song26-venue-details" id="venue-basketball">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-basketball-ball"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Basketball</h3>
+                                        <p>Dewan Bola Kerajang Bintulu</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Dewan Bola Kerajang Bintulu, 97000 Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Basketball hall with standard competition courts</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0956789456784!2d113.05458967496546!3d3.1678936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d57123456789a%3A0x2b3c4d5e6f7a8b9c!2sBintulu%20Basketball%20Court!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bocce -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="bocce">Bocce</div>
+                        <div class="song26-venue-details" id="venue-bocce">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Bocce</h3>
+                                        <p>Stadium Muhibah</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Stadium Muhibah, 97000 Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Multi-purpose stadium with bocce facilities</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0456789456784!2d113.03778767496546!3d3.1798936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d570abcdefabc%3A0x3c4d5e6f7a8b9c0d!2sStadium%20Muhibah!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bowling -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="bowling">Bowling</div>
+                        <div class="song26-venue-details" id="venue-bowling">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-bowling-ball"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Ten-Pin Bowling</h3>
+                                        <p>Megaland Bowling Centre Bintulu</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Megaland Bowling Centre, Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Modern bowling alley with professional lanes</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.1123456789014!2d113.04236787496546!3d3.1656936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d571fedcba987%3A0x4d5e6f7a8b9c0d1e!2sMegalanes%20Bowling%20Centre!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Football 5-a-Side -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="football">Football 5-a-Side</div>
+                        <div class="song26-venue-details" id="venue-football">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-futbol"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Unified Football 5-A-Side</h3>
+                                        <p>Kelab Kidurong Bintulu</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Kelab Kidurong, Kidurong, 97000 Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Sports club with futsal and football facilities</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.2345678901234!2d113.06903457496546!3d3.1512936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d5623456789ab%3A0x5e6f7a8b9c0d1e2f!2sKelab%20Sukan%20Kidurong!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table Tennis -->
+                    <div class="song26-sport-card-wrapper">
+                        <div class="song26-sport-card" data-sport="tabletennis">Table Tennis</div>
+                        <div class="song26-venue-details" id="venue-tabletennis">
+                            <div class="song26-venue-content">
+                                <div class="song26-venue-header">
+                                    <div class="song26-venue-icon">
+                                        <i class="fas fa-table-tennis"></i>
+                                    </div>
+                                    <div class="song26-venue-title">
+                                        <h3>Table Tennis</h3>
+                                        <p>Dinner World Restaurant (Ground Floor)</p>
+                                    </div>
+                                </div>
+                                <div class="song26-venue-info">
+                                    <p><i class="fas fa-map-marker-alt"></i> Dinner World Restaurant, Ground Floor, Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Indoor venue with table tennis facilities</p>
+                                </div>
+                                <div class="song26-venue-grid">
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-map"></i> Location Map</h4>
+                                        <iframe 
+                                            class="song26-venue-map"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0876543210984!2d113.04347897496546!3d3.1734936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d571abcd12345%3A0x6f7a8b9c0d1e2f3a!2sDinner%20World%20Restaurant!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                    <div class="song26-venue-section">
+                                        <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                        <div class="song26-venue-photo-carousel">
+                                            <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <div class="song26-venue-photos">
+                                                <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                                <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                            </div>
+                                            <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shared Venue Bubble (Desktop Only) -->
+                <div class="song26-shared-venue-bubble" id="sharedVenueBubble">
+                    <div class="song26-venue-bubble-card">
+                        <div class="song26-venue-content">
+                            <div class="song26-venue-header">
+                                <div class="song26-venue-icon" id="bubbleIcon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <div class="song26-venue-title">
+                                    <h3 id="bubbleSportName">Athletics</h3>
+                                    <p id="bubbleVenueName">Stadium Bintulu</p>
+                                </div>
+                            </div>
+                            <div class="song26-venue-info" id="bubbleVenueInfo">
+                                <p><i class="fas fa-map-marker-alt"></i> <span id="bubbleAddress">Stadium Bintulu, Jalan Kidurong, 97000 Bintulu, Sarawak</span></p>
+                                <p><i class="fas fa-info-circle"></i> <span id="bubbleDescription">Main athletic stadium with track and field facilities</span></p>
+                            </div>
+                            <div class="song26-venue-grid">
+                                <div class="song26-venue-section">
+                                    <h4><i class="fas fa-map"></i> Location Map</h4>
+                                    <iframe 
+                                        id="bubbleMap"
+                                        class="song26-venue-map"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.558537844736!2d113.05260097567584!3d3.2099442527744677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc170ce21d4fd%3A0x1c1fdd6349140015!2sStadium%20Bintulu%20(Athletic%2C%20Soccer)!5e0!3m2!1sen!2smy!4v1770103108574!5m2!1sen!2smy"
+                                        allowfullscreen="" 
+                                        loading="lazy">
+                                    </iframe>
+                                </div>
+                                <div class="song26-venue-section">
+                                    <h4><i class="fas fa-camera"></i> Venue Photos</h4>
+                                    <div class="song26-venue-photo-carousel">
+                                        <button class="song26-carousel-nav song26-carousel-prev" aria-label="Previous photo">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </button>
+                                        <div class="song26-venue-photos">
+                                            <div class="song26-venue-photo">Photo 1<br>Coming Soon</div>
+                                            <div class="song26-venue-photo">Photo 2<br>Coming Soon</div>
+                                            <div class="song26-venue-photo">Photo 3<br>Coming Soon</div>
+                                            <div class="song26-venue-photo">Photo 4<br>Coming Soon</div>
+                                        </div>
+                                        <button class="song26-carousel-nav song26-carousel-next" aria-label="Next photo">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2543,6 +3351,217 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                         targetTable.classList.add('active');
                     }
                 });
+            });
+        });
+    </script>
+
+    <!-- Sport Venue Details Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sportCards = document.querySelectorAll('.song26-sport-card');
+            const sharedBubble = document.getElementById('sharedVenueBubble');
+            const isMobile = window.innerWidth <= 768;
+            
+            // Venue data object
+            const venueData = {
+                athletics: {
+                    name: 'Athletics',
+                    venue: 'Stadium Bintulu',
+                    icon: 'fa-running',
+                    address: 'Stadium Bintulu, Jalan Kidurong, 97000 Bintulu, Sarawak',
+                    description: 'Main athletic stadium with track and field facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.558537844736!2d113.05260097567584!3d3.2099442527744677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc170ce21d4fd%3A0x1c1fdd6349140015!2sStadium%20Bintulu%20(Athletic%2C%20Soccer)!5e0!3m2!1sen!2smy!4v1770103108574!5m2!1sen!2smy'
+                },
+                aquatics: {
+                    name: 'Aquatics',
+                    venue: 'Kolam Renang Awam BDA',
+                    icon: 'fa-swimmer',
+                    address: 'Kolam Renang Awam BDA, Bintulu Development Authority, 97000 Bintulu, Sarawak',
+                    description: 'Public swimming pool with Olympic-standard facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.674603832099!2d113.04201477567604!3d3.180038652960533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc0541f25afa5%3A0xa24e1c63fc7e736b!2sPublic%20Swimming%20Pool%20Bintulu!5e0!3m2!1sen!2smy!4v1770103133657!5m2!1sen!2smy'
+                },
+                badminton: {
+                    name: 'Badminton',
+                    venue: 'B&G Badminton Centre',
+                    icon: 'fa-baseball-ball',
+                    address: 'B&G Badminton Centre, Bintulu, Sarawak',
+                    description: 'Professional badminton facility with multiple courts',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.6795732643714!2d113.03932307567591!3d3.178751952968484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc051476ca661%3A0x6345af03f5c41354!2sB%20%26%20G%20Sport%20Centre!5e0!3m2!1sen!2smy!4v1770103153963!5m2!1sen!2smy'
+                },
+                basketball: {
+                    name: 'Basketball',
+                    venue: 'Dewan Bola Kerajang Bintulu',
+                    icon: 'fa-basketball-ball',
+                    address: 'Dewan Bola Kerajang Bintulu, 97000 Bintulu, Sarawak',
+                    description: 'Basketball hall with standard competition courts',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31869.43510340652!2d113.02129839942762!3d3.178799950712159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc1d635010f99%3A0xf7a19303993dfe6a!2sBasketball%20Association%20Bintulu%20Stadium!5e0!3m2!1sen!2smy!4v1770103193043!5m2!1sen!2smy'
+                },
+                bocce: {
+                    name: 'Bocce',
+                    venue: 'Kelab Kidurong Bintulu',
+                    icon: 'fa-circle',
+                    address: 'Kelab Kidurong, Kidurong, 97000 Bintulu, Sarawak',
+                    description: 'Sports club with bocce facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5110367035927!2d113.05786167567597!3d3.222103452698371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc12e7c119201%3A0x4d236df68bfa9d58!2sKelab%20Kidurong%20Bintulu!5e0!3m2!1sen!2smy!4v1770103213555!5m2!1sen!2smy'
+                },
+                bowling: {
+                    name: 'Ten-Pin Bowling',
+                    venue: 'Megaland Bowling Centre Bintulu',
+                    icon: 'fa-bowling-ball',
+                    address: 'Megaland Bowling Centre, Bintulu, Sarawak',
+                    description: 'Modern bowling alley with professional lanes',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2040073.110922797!2d110.82716738036058!3d2.953715278091896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc1965be6bea7%3A0xda08bfaa12acd132!2sMegalanes%20Bintulu!5e0!3m2!1sen!2smy!4v1770103265303!5m2!1sen!2smy'
+                },
+                football: {
+                    name: 'Unified Football 5-A-Side',
+                    venue: 'Stadium Muhibbah',
+                    icon: 'fa-futbol',
+                    address: 'Stadium Muhibbah, 97000 Bintulu, Sarawak',
+                    description: 'Indoor stadium with futsal and football facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5483282507394!2d113.05480387567599!3d3.2125615527581304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc17a7c7ffeb9%3A0xf7ce3c468f0e60d!2sStadium%20Muhibah(Indoor)!5e0!3m2!1sen!2smy!4v1770103238486!5m2!1sen!2smy'
+                },
+                tabletennis: {
+                    name: 'Table Tennis',
+                    venue: 'Dinner World Restaurant (Ground Floor)',
+                    icon: 'fa-table-tennis',
+                    address: 'Dinner World Restaurant, Ground Floor, Bintulu, Sarawak',
+                    description: 'Indoor venue with table tennis facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5841482317765!2d113.05852547567581!3d3.2033694528155046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc172aa8304ab%3A0xf6614b9214f516d9!2sDinner%20World%20Restaurant%20By%20Highlands%20Seafood!5e0!3m2!1sen!2smy!4v1770103301292!5m2!1sen!2smy'
+                }
+            };
+            
+            sportCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const sport = this.getAttribute('data-sport');
+                    const venueDetails = document.getElementById('venue-' + sport);
+                    const isActive = this.classList.contains('active');
+                    
+                    if (window.innerWidth > 768) {
+                        // Desktop: Use shared bubble
+                        if (isActive) {
+                            // Close if clicking the same sport
+                            this.classList.remove('active');
+                            sharedBubble.classList.remove('active');
+                        } else {
+                            // Close all other cards
+                            document.querySelectorAll('.song26-sport-card').forEach(c => {
+                                c.classList.remove('active');
+                            });
+                            
+                            // Activate clicked card
+                            this.classList.add('active');
+                            
+                            // Update bubble content
+                            const data = venueData[sport];
+                            document.getElementById('bubbleIcon').innerHTML = '<i class="fas ' + data.icon + '"></i>';
+                            document.getElementById('bubbleSportName').textContent = data.name;
+                            document.getElementById('bubbleVenueName').textContent = data.venue;
+                            document.getElementById('bubbleAddress').textContent = data.address;
+                            document.getElementById('bubbleDescription').textContent = data.description;
+                            document.getElementById('bubbleMap').src = data.mapUrl;
+                            
+                            // Show bubble
+                            sharedBubble.classList.add('active');
+                            
+                            // Smooth scroll to bubble after animation
+                            setTimeout(() => {
+                                sharedBubble.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'nearest'
+                                });
+                            }, 300);
+                        }
+                    } else {
+                        // Mobile: Use inline details (original behavior)
+                        // Close all other venue details
+                        document.querySelectorAll('.song26-venue-details').forEach(detail => {
+                            detail.classList.remove('active');
+                        });
+                        document.querySelectorAll('.song26-sport-card').forEach(c => {
+                            c.classList.remove('active');
+                        });
+                        
+                        // Toggle the clicked venue
+                        if (!isActive) {
+                            venueDetails.classList.add('active');
+                            this.classList.add('active');
+                            
+                            // Smooth scroll to the venue details
+                            setTimeout(() => {
+                                const cardRect = this.getBoundingClientRect();
+                                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                                const targetPosition = cardRect.top + scrollTop - 100;
+                                
+                                window.scrollTo({
+                                    top: targetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, 300);
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Close all active states on resize
+                    document.querySelectorAll('.song26-sport-card').forEach(c => {
+                        c.classList.remove('active');
+                    });
+                    document.querySelectorAll('.song26-venue-details').forEach(d => {
+                        d.classList.remove('active');
+                    });
+                    if (sharedBubble) {
+                        sharedBubble.classList.remove('active');
+                    }
+                }, 250);
+            });
+        });
+    </script>
+
+    <!-- Carousel Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all carousels
+            const carousels = document.querySelectorAll('.song26-venue-photo-carousel');
+            
+            carousels.forEach(carousel => {
+                const prevBtn = carousel.querySelector('.song26-carousel-prev');
+                const nextBtn = carousel.querySelector('.song26-carousel-next');
+                const photosContainer = carousel.querySelector('.song26-venue-photos');
+                const photos = carousel.querySelectorAll('.song26-venue-photo');
+                
+                if (!prevBtn || !nextBtn || !photosContainer || photos.length === 0) return;
+                
+                let currentIndex = 0;
+                const totalPhotos = photos.length;
+                
+                function updateCarousel() {
+                    const offset = -currentIndex * 100;
+                    photosContainer.style.transform = `translateX(${offset}%)`;
+                }
+                
+                // Next button - loop to start
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    currentIndex = (currentIndex + 1) % totalPhotos;
+                    updateCarousel();
+                });
+                
+                // Previous button - loop to end
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    currentIndex = (currentIndex - 1 + totalPhotos) % totalPhotos;
+                    updateCarousel();
+                });
+                
+                // Initial position
+                updateCarousel();
             });
         });
     </script>
