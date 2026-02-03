@@ -209,28 +209,58 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 0 12px 40px rgba(0, 0, 0, 0.25),
                 0 0 0 1px rgba(255, 0, 0, 0.08);
             width: 240px;
-            max-height: 70vh;
+            max-height: 60vh;
             overflow-y: auto;
             overflow-x: hidden;
             animation: fadeInRight 1s ease 0.3s backwards;
+            scrollbar-width: thin;
+            scrollbar-color: var(--so-red) rgba(255, 0, 0, 0.05);
+            scroll-behavior: smooth;
         }
         
         .song26-hero-sponsors::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
         
         .song26-hero-sponsors::-webkit-scrollbar-track {
             background: rgba(255, 0, 0, 0.05);
-            border-radius: 3px;
+            border-radius: 4px;
+            margin: 8px 0;
         }
         
         .song26-hero-sponsors::-webkit-scrollbar-thumb {
             background: var(--so-red);
-            border-radius: 3px;
+            border-radius: 4px;
+            transition: background 0.2s ease;
         }
         
         .song26-hero-sponsors::-webkit-scrollbar-thumb:hover {
             background: #cc0000;
+        }
+
+        /* Gradient fade effect at top and bottom */
+        .song26-hero-sponsors::before {
+            content: '';
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .song26-hero-sponsors::after {
+            content: '';
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         @keyframes fadeInRight {
@@ -674,8 +704,8 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         }
 
         .song26-committee-photo {
-            width: 110px;
-            height: 110px;
+            width: 160px;
+            height: 160px;
             margin: 0 auto 25px;
             background: linear-gradient(135deg, var(--so-red) 0%, #8b0000 100%);
             border-radius: 50%;
@@ -1788,6 +1818,12 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                     <div class="song26-hero-sponsor-item">
                         <div class="song26-hero-sponsor-placeholder">Platinum 3</div>
                     </div>
+                    <div class="song26-hero-sponsor-item">
+                        <div class="song26-hero-sponsor-placeholder">Platinum 4</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item">
+                        <div class="song26-hero-sponsor-placeholder">Platinum 5</div>
+                    </div>
                 </div>
             </div>
             
@@ -1800,6 +1836,18 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                     <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
                         <div class="song26-hero-sponsor-placeholder">Gold 2</div>
                     </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Gold 3</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Gold 4</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Gold 5</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Gold 6</div>
+                    </div>
                 </div>
             </div>
             
@@ -1811,6 +1859,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                     </div>
                     <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
                         <div class="song26-hero-sponsor-placeholder">Silver 2</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 3</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 4</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 5</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 6</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 7</div>
+                    </div>
+                    <div class="song26-hero-sponsor-item song26-hero-sponsor-item-small">
+                        <div class="song26-hero-sponsor-placeholder">Silver 8</div>
                     </div>
                 </div>
             </div>
