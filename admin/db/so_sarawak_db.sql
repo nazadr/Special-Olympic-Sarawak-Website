@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2026 at 03:38 AM
+-- Generation Time: Feb 03, 2026 at 02:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -184,8 +184,10 @@ INSERT INTO `events` (`id`, `title`, `description`, `location`, `city`, `event_d
 (10, 'Bintulu Marathon', '1122', 'Stadium Bintulu', 'Bintulu', '2025-10-20', '9:00 AM - 3:00 PM', 'special', '../assets/images/events/68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg'),
 (15, 'Young Athlete Program', 'Young Athlete Program', 'Lasar Kenyalang', 'Bintulu', '2025-11-29', '8.00 P.M - 12.00 P.M', 'special', 'assets/images/events/6927c69f94de5_yap-gal-3.jpg'),
 (18, 'Bintulu Ultra Marathon', 'Bintulu Ultra Marathon', 'Tanjung Batu', 'Bintulu', '2025-12-05', '8.00 A.M - 12.00 P.M', 'special', 'assets/images/events/692ce1c87e7f6_68f5857e22783_70d51a4e6014c4ffa71909d9ea0c816d.jpg'),
-(23, 'Special Olympics Malaysia 6th National Games', 'Bintulu Sarawak', 'Dewan Suarah', 'Bintulu', '2026-04-25', '8.00 a.m - 5.00 p.m', 'special', 'assets/images/events/697331bf2a235_profile_2_1764641692.png'),
-(24, 'SONG26 Syndication Meeting with YBDS', 'SONG26 Syndication Meeting with YBDS', 'Kuching', 'Kuching', '2026-01-30', '9:00 AM - 12:00 PM', 'meeting', NULL);
+(23, 'Special Olympics Malaysia 6th National Games', '1st day', 'Stadium Bintulu', 'Bintulu', '2026-04-24', '8.00 a.m - 5.00 p.m', 'special', 'assets/images/events/697331bf2a235_profile_2_1764641692.png'),
+(24, 'SONG26 Syndication Meeting with YBDS', 'SONG26 Syndication Meeting with YBDS', 'Kuching', 'Kuching', '2026-01-30', '9:00 AM - 12:00 PM', 'meeting', NULL),
+(25, 'Special Olympics Malaysia 6th National Games', '2nd day', 'Stadium Bintulu', 'Bintulu', '2026-04-25', '8.00 a.m - 5.00 p.m', 'special', NULL),
+(26, 'Special Olympics Malaysia 6th National Games', '3rd day', 'Stadium Bintulu', 'Bintulu', '2026-04-26', '8.00 a.m - 5.00 p.m', 'special', 'assets/images/events/698151fb566e1_SO Malaysia.png');
 
 -- --------------------------------------------------------
 
@@ -421,8 +423,7 @@ INSERT INTO `participant_excel_uploads` (`id`, `participant_type`, `filename`, `
 (11, 'volunteer', 'volunteers_20260123_014627.xlsx', 'volunteers_20260123_014627.xlsx', 'uploads/participants/volunteers/volunteers_20260123_014627.xlsx', 0, 0, 0, 1, 'failed', 'No records found in database. File may have been uploaded but import failed.', '2026-01-23 00:46:27'),
 (12, 'volunteer', 'volunteers_20260123_032829.xlsx', 'volunteers_20260123_032829.xlsx', 'uploads/participants/volunteers/volunteers_20260123_032829.xlsx', 5, 0, 0, 1, 'success', '', '2026-01-23 02:28:29'),
 (13, 'coach', 'coaches_20260123_041537.xlsx', 'coaches.xlsx', '../../uploads/participants/coaches/coaches_20260123_041537.xlsx', 5, 0, 0, 1, 'success', NULL, '2026-01-23 03:15:37'),
-(14, 'athlete', 'athletes_20260123_093348.xlsx', 'Athletes_Template.xlsx', '../../uploads/participants/athletes/athletes_20260123_093348.xlsx', 0, 5, 0, 1, 'success', NULL, '2026-01-23 08:33:48'),
-(15, 'athlete', 'athletes_20260125_084943.xlsx', 'Athletes_Template.xlsx', '../../uploads/participants/athletes/athletes_20260125_084943.xlsx', 5, 0, 0, 1, 'success', NULL, '2026-01-25 07:49:43');
+(14, 'athlete', 'athletes_20260123_093348.xlsx', 'Athletes_Template.xlsx', '../../uploads/participants/athletes/athletes_20260123_093348.xlsx', 0, 5, 0, 1, 'success', NULL, '2026-01-23 08:33:48');
 
 -- --------------------------------------------------------
 
@@ -838,7 +839,7 @@ ALTER TABLE `coaches`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `gallery_photos`
