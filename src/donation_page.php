@@ -164,6 +164,33 @@
                 font-size: 1.6rem;
             }
         }
+
+        /* Account Information Alignment */
+        .account-info {
+            text-align: left;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .account-info p {
+            display: flex;
+            margin: 8px 0;
+            font-size: 1rem;
+        }
+
+        .account-info p strong {
+            width: 160px;
+            flex-shrink: 0;
+            text-align: left;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .account-info p strong::after {
+            content: ':';
+            position: absolute;
+            right: 8px;
+        }
     </style>
 </head>
 <body>
@@ -197,9 +224,11 @@
             <div class="donation-card-qr">
                 <!-- <img src="../assets/images/donate-qr-2.png" alt="SO Sarawak Touch 'n Go QR"> -->
                 <h3>You can fund transfer donation to our account as follow:</h3>
-                <p><strong>Bank: </strong>RHB Bank Berhad</p>
-                <p><strong>Account Number: </strong>1234-5678-901234</p>
-                <p style="margin-bottom: 20px;"><strong>Account Name: </strong>Special Olympics Sarawak</p>
+                <div class="account-info">
+                    <p><strong>Bank</strong> RHB Bank Berhad</p>
+                    <p><strong>Account Number</strong> 1234-5678-901234</p>
+                    <p style="margin-bottom: 20px;"><strong>Account Name</strong> Special Olympics Sarawak</p>
+                </div>
             </div>
         </div>
     </div>

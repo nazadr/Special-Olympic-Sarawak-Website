@@ -99,7 +99,6 @@ $sportIcons = [
         <div class="hero-content">
             <h1 class="hero-title">Special Olympics Sarawak</h1>
             <p class="hero-subtitle">Empowering athletes with intellectual disabilities through sports</p>
-            <a href="#about" class="cta-button">Learn More</a>
         </div>
     </section>
     

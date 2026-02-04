@@ -710,7 +710,6 @@
                 <div class="affiliate-details">
                     <h3>SO Kuching Chapter</h3>
                     <p>Runs training, health screenings, and inclusive sports with 100+ volunteers.</p>
-                    <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
             
@@ -721,7 +720,6 @@
                 <div class="affiliate-details">
                     <h3>SO Samarahan Chapter</h3>
                     <p>An upcoming chapter; strong participation and hosts regular activities.</p>
-                    <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
             
@@ -732,7 +730,6 @@
                 <div class="affiliate-details">
                     <h3>SO Sibu Chapter</h3>
                     <p>First branch, leads unified sports and coach training.</p>
-                    <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
 
@@ -743,7 +740,6 @@
                 <div class="affiliate-details">
                     <h3>SO Bintulu Chapter</h3>
                     <p>Main chapter and 2025 state games champion; very active with many athletes and programs.</p>
-                    <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
 
@@ -754,7 +750,6 @@
                 <div class="affiliate-details">
                     <h3>SO Miri Chapter</h3>
                     <p>Newest chapter; growing fast and set to host the next state games in 2027.</p>
-                    <a href="#" class="affiliate-link">Learn More</a>
                 </div>
             </div>
 

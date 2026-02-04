@@ -1,6 +1,6 @@
 // Reusable HTML Element written in JavaScript.
 // Created on 8 Sep 2025
-// Updated on 19 Jan 2026
+// Updated on 4 Feb 2026 - Removed dropdowns for What We Do and Sports
 
 document.writeln(`
     <nav class="top-nav">
@@ -29,11 +29,8 @@ document.writeln(`
                         <li><a href="../src/how_can_you_help.html">How can you help?</a></li>
                     </ul>
                 </li>
-                <li class="dropdown mobile-dropdown-parent">
-                    <a href="#whatwedo">What We Do? <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/getting_started.php">Getting Started</a></li>
-                    </ul>
+                <li>
+                    <a href="../src/getting_started.php">What We Do?</a>
                 </li>
                 <li class="dropdown mobile-dropdown-parent">
                     <a href="#affiliate">Affiliate <i class="fa-solid fa-angle-down"></i></a>
@@ -43,11 +40,8 @@ document.writeln(`
                         <li><a href="../src/other-so.php">Special Olympics Organization</a></li>
                     </ul>
                 </li>
-                <li class="dropdown mobile-dropdown-parent">
-                    <a href="#sports">Sports <i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mobile-dropdown-submenu">
-                        <li><a href="../src/sport.php">Our Sports</a></li>
-                    </ul>
+                <li>
+                    <a href="../src/sport.php">Sports</a>
                 </li>
                 <li class="dropdown mobile-dropdown-parent">
                     <a href="#contact">Contact Us <i class="fa-solid fa-angle-down"></i></a>

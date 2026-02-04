@@ -53,7 +53,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             color: white;
             position: relative;
             overflow: hidden;
-            padding: 10px 20px 80px;
+            padding: 20px 20px 80px;33 
         }
 
         .song26-hero::before {
@@ -2111,7 +2111,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             </li>
             <li class="song26-nav-item">
                 <a href="#partners" class="song26-nav-link" data-section="partners">
-                    <span class="song26-nav-label">Partners</span>
+                    <span class="song26-nav-label">Organizing Members</span>
                     <span class="song26-nav-dot"></span>
                 </a>
             </li>
@@ -2290,7 +2290,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>Participants</h3>
-                        <p>Athletes, unified partners, coaches and delegations from all across Malaysia</p>
+                        <p>Athletes, Unified Partners, Coaches and Delegations from all across Malaysia</p>
                     </div>
                 </div>
             </div>
@@ -3175,7 +3175,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         <!-- Organizing Companies Section -->
         <section class="song26-committee-section" id="partners">
             <div class="song26-container">
-                <h2 class="song26-committee-title">Organizing Partners</h2>
+                <h2 class="song26-committee-title">Organizing Members</h2>
                 <div class="song26-committee-grid">
                     <div class="song26-committee-card">
                         <div class="song26-committee-photo no-logo">
