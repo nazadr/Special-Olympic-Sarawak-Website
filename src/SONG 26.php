@@ -53,7 +53,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             color: white;
             position: relative;
             overflow: hidden;
-            padding: 80px 20px;
+            padding: 10px 20px 80px;
         }
 
         .song26-hero::before {
@@ -90,7 +90,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         .song26-hero-logo {
             width: 280px;
             height: 280px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             filter: brightness(0) invert(1) drop-shadow(0 4px 20px rgba(0,0,0,0.2));
             animation: floatLogo 3s ease-in-out infinite;
         }
@@ -146,7 +146,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         }
 
         .song26-hero-location {
-            font-size: 1.3rem;
+            font-size: 2rem;
             font-weight: 600;
             margin-bottom: 10px;
             opacity: 0.9;
@@ -154,15 +154,15 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             color: rgba(255,255,255,0.95);
         }
 
-        /* Swapped visual weight: make subtitle the prominent headline */
+        /* Both titles with prominent headline style */
         .song26-hero h1 {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 3.2rem;
+            font-weight: 900;
             margin-bottom: 6px;
-            line-height: 1.15;
-            letter-spacing: 0.2px;
-            text-transform: none;
-            opacity: 0.95;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            opacity: 1;
         }
 
         .song26-hero-subtitle {
@@ -2161,6 +2161,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             <h1>Special Olympics Malaysia</h1>
             <div class="song26-hero-subtitle">6th National Games</div>
             <div class="song26-hero-location">Bintulu</div>
+            <div class="song26-hero-location">Sarawak</div>
             <div class="song26-hero-date">24 - 26 April 2026</div>
         </div>
         
