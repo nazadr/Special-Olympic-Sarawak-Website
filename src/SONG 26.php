@@ -1820,12 +1820,20 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-top: 25px;
+            width: 100%;
+            visibility: visible !important;
         }
 
         .song26-venue-section {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 12px;
+            width: 100%;
+            max-width: 100%;
+            display: block !important;
+            visibility: visible !important;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         .song26-venue-section h4 {
@@ -1856,16 +1864,25 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             overflow: hidden;
             border-radius: 12px;
             background: #f8f9fa;
-            padding: 15px;
-            height: 260px;
+            padding: 10px 15px 10px 10px;
+            height: 240px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            display: block !important;
+            visibility: visible !important;
         }
 
         .song26-venue-photos {
-            display: flex;
+            display: flex !important;
             gap: 0;
             height: 100%;
+            width: 100%;
+            max-width: 100%;
             transition: transform 0.5s ease;
             position: relative;
+            visibility: visible !important;
+            box-sizing: border-box;
         }
 
         .song26-venue-photo {
@@ -1874,16 +1891,27 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             height: 100%;
             background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
             border-radius: 10px;
-            display: flex;
+            display: flex !important;
             align-items: center;
             justify-content: center;
             color: #7f8c8d;
             font-size: 14px;
             font-weight: 500;
             text-align: center;
-            padding: 15px;
+            padding: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             flex-shrink: 0;
+            visibility: visible !important;
+            overflow: hidden;
+        }
+
+        .song26-venue-photo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
         }
 
         /* Carousel Navigation Buttons */
@@ -1979,12 +2007,21 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 
             .song26-venue-photo-carousel {
                 height: 200px;
-                padding: 10px;
+                padding: 8px 12px 8px 8px;
+                max-width: 100%;
             }
 
             .song26-venue-photo {
                 font-size: 13px;
-                padding: 10px;
+                padding: 6px;
+            }
+
+            .song26-venue-photo img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: contain;
             }
 
             .song26-carousel-nav {
@@ -3452,6 +3489,15 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                             document.getElementById('bubbleAddress').textContent = data.address;
                             document.getElementById('bubbleDescription').textContent = data.description;
                             document.getElementById('bubbleMap').src = data.mapUrl;
+                            
+                            // Copy photo carousel from inline venue details to bubble
+                            const sourceCarousel = venueDetails.querySelector('.song26-venue-photos');
+                            const bubbleCarousel = sharedBubble.querySelector('.song26-venue-photos');
+                            if (sourceCarousel && bubbleCarousel) {
+                                bubbleCarousel.innerHTML = sourceCarousel.innerHTML;
+                                // Reset carousel position
+                                bubbleCarousel.style.transform = 'translateX(0)';
+                            }
                             
                             // Show bubble
                             sharedBubble.classList.add('active');
