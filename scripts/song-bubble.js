@@ -1,5 +1,5 @@
 // song-bubble.js
-// Floating SONG 2026 nav bubble for all main pages
+// Floating Special Olympics National Games 2026 nav bubble for all main pages
 // Usage: Call createSongBubble() after DOMContentLoaded
 
 (function() {
@@ -7,7 +7,7 @@
     var bubbleConfig = {
         link: 'SONG 26.php',
         icon: "assets/images/SONG26_Logo.png", // Use relative path from main pages
-        tooltip: 'SONG 2026 page',
+        tooltip: 'Special Olympics National Games 2026 page',
         bubbleColor: '#fff',
         iconColor: 'none', // natural colors
         hoverBubbleColor: '#FF0000',
@@ -47,7 +47,7 @@
         var bubble = document.createElement('a');
         bubble.className = 'song26-nav-bubble';
         bubble.href = config.link;
-        bubble.setAttribute('aria-label', 'Go to SONG 26');
+        bubble.setAttribute('aria-label', 'Go to Special Olympics National Games 2026');
         bubble.style.position = 'fixed';
         bubble.style.top = '50%';
         bubble.style.left = config.left + 'px';
@@ -70,7 +70,7 @@
         // Icon
         var icon = document.createElement('img');
         icon.src = config.icon;
-        icon.alt = 'SONG 26';
+        icon.alt = 'Special Olympics National Games 2026';
         icon.className = 'song26-bubble-icon';
         icon.style.width = config.iconSize + 'px';
         icon.style.height = config.iconSize + 'px';

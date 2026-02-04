@@ -19,9 +19,9 @@
 <body>
     
     <!-- Floating SONG 26 Nav Bubble -->
-    <a href="src/SONG 26.php?standalone=1" target="_blank" class="song26-nav-bubble" aria-label="Go to SONG 26">
-        <img src="assets/images/SONG26_Logo.png" alt="SONG 26" class="song26-bubble-icon">
-        <span class="song26-bubble-tooltip">SONG 2026 page</span>
+    <a href="src/SONG 26.php?standalone=1" target="_blank" class="song26-nav-bubble" aria-label="Go to Special Olympics National Games 2026">
+        <img src="assets/images/SONG26_Logo.png" alt="Special Olympics National Games 2026" class="song26-bubble-icon">
+        <span class="song26-bubble-tooltip">Special Olympics National Games 2026 page</span>
     </a>
     <div class="video-background" style="position:relative;width:100vw;height:100vh;overflow:hidden;margin:0;padding:0;">
         <video autoplay loop muted playsinline

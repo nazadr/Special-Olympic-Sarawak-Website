@@ -10,7 +10,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Olympics Malaysia — 6th National Games | SONG 26</title>
+    <title>Special Olympics Malaysia — 6th National Games | Special Olympics National Games 2026</title>
     <link rel="shortcut icon" href="../assets/images/master_logo_front.png">
     <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -2175,7 +2175,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
     <!-- Hero Section -->
     <section class="song26-hero" id="home">
         <div class="song26-hero-content">
-            <img src="../assets/images/SONG26_Logo.png" alt="SONG 26 Logo" class="song26-hero-logo">
+            <img src="../assets/images/SONG26_Logo.png" alt="Special Olympics National Games 2026 Logo" class="song26-hero-logo">
                     <!-- Countdown Clock -->
                     <div class="song26-countdown" id="song26-countdown">
                         <div class="song26-countdown-part">
@@ -2289,7 +2289,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         <section class="song26-full-section white-bg" id="about">
             <div class="song26-container">
                 <div class="song26-section-title">
-                    <h2>SONG 2026</h2>
+                    <h2>Special Olympics National Games 2026</h2>
                     <p>A celebration of athletic achievement, inclusion, and community for athletes with intellectual disabilities across Sarawak.</p>
                 </div>
 
@@ -3238,7 +3238,7 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         <section class="song26-sponsors-section" id="sponsors">
             <div class="song26-container">
                 <h2 class="song26-sponsors-title">Our Sponsors</h2>
-                <p class="song26-sponsors-subtitle">We extend our gratitude to our valued sponsors who make SONG 2026 possible</p>
+                <p class="song26-sponsors-subtitle">We extend our gratitude to our valued sponsors who make Special Olympics National Games 2026 possible</p>
                 
                 <!-- Platinum Sponsors -->
                 <div class="song26-sponsor-tier">
