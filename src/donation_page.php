@@ -218,16 +218,20 @@
         <h2>Donate via QR Code</h2>
         <!-- Both QR codes is just a sample, not an actual SO Sarawak QR -->
         <div class="donation-options">
-            <div class="donation-card-qr">
-                <img src="../assets/images/donate-qr-1.png" alt="SO Sarawak DuitNow QR">
-            </div>
-            <div class="donation-card-qr">
-                <!-- <img src="../assets/images/donate-qr-2.png" alt="SO Sarawak Touch 'n Go QR"> -->
-                <h3>You can fund transfer donation to our account as follow:</h3>
-                <div class="account-info">
-                    <p><strong>Bank</strong> RHB Bank Berhad</p>
-                    <p><strong>Account Number</strong> 1234-5678-901234</p>
-                    <p style="margin-bottom: 20px;"><strong>Account Name</strong> Special Olympics Sarawak</p>
+            <div class="donation-card-qr-horizontal">
+                <div class="qr-section">
+                    <div class="qr-code-wrapper">
+                        <img src="../assets/images/malaysia-national-qr.png" alt="SO Sarawak DuitNow QR">
+                        <p class="qr-recipient">Special Olympics Sarawak</p>
+                    </div>
+                </div>
+                <div class="bank-info-section">
+                    <h3>You can fund transfer donation to our account as follow:</h3>
+                    <div class="account-info">
+                        <p><span class="label">Bank</span>RHB Bank Berhad</p>
+                        <p><span class="label">Account Number</span>1234-5678-901234</p>
+                        <p><span class="label">Account Name</span>Special Olympics Sarawak</p>
+                    </div>
                 </div>
             </div>
         </div>

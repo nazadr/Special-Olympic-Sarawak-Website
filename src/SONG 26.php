@@ -2787,114 +2787,106 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                 <tr class="rank-1-row">
                                     <td class="rank-cell">1</td>
                                     <td class="state-cell"><strong>Sarawak</strong></td>
-                                    <td class="text-center medal-count gold-count">15</td>
-                                    <td class="text-center medal-count silver-count">12</td>
-                                    <td class="text-center medal-count bronze-count">10</td>
-                                    <td class="text-center total-count"><strong>37</strong></td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count"><strong>0</strong></td>
                                 </tr>
                                 <tr class="rank-2-row">
                                     <td class="rank-cell">2</td>
                                     <td class="state-cell"><strong>Selangor</strong></td>
-                                    <td class="text-center medal-count gold-count">14</td>
-                                    <td class="text-center medal-count silver-count">11</td>
-                                    <td class="text-center medal-count bronze-count">9</td>
-                                    <td class="text-center total-count"><strong>34</strong></td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count"><strong>0</strong></td>
                                 </tr>
                                 <tr class="rank-3-row">
                                     <td class="rank-cell">3</td>
-                                    <td class="state-cell"><strong>Johor</strong></td>
-                                    <td class="text-center medal-count gold-count">12</td>
-                                    <td class="text-center medal-count silver-count">10</td>
-                                    <td class="text-center medal-count bronze-count">11</td>
-                                    <td class="text-center total-count"><strong>33</strong></td>
+                                    <td class="state-cell"><strong>Penang</strong></td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count"><strong>0</strong></td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">4</td>
-                                    <td class="state-cell">Penang</td>
-                                    <td class="text-center medal-count gold-count">11</td>
-                                    <td class="text-center medal-count silver-count">9</td>
-                                    <td class="text-center medal-count bronze-count">8</td>
-                                    <td class="text-center total-count">28</td>
+                                    <td class="state-cell">Sabah</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">5</td>
-                                    <td class="state-cell">Sabah</td>
-                                    <td class="text-center medal-count gold-count">9</td>
-                                    <td class="text-center medal-count silver-count">10</td>
-                                    <td class="text-center medal-count bronze-count">7</td>
-                                    <td class="text-center total-count">26</td>
+                                    <td class="state-cell">Perak</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">6</td>
-                                    <td class="state-cell">Perak</td>
-                                    <td class="text-center medal-count gold-count">8</td>
-                                    <td class="text-center medal-count silver-count">7</td>
-                                    <td class="text-center medal-count bronze-count">9</td>
-                                    <td class="text-center total-count">24</td>
+                                    <td class="state-cell">Kedah</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">7</td>
-                                    <td class="state-cell">Kedah</td>
-                                    <td class="text-center medal-count gold-count">6</td>
-                                    <td class="text-center medal-count silver-count">8</td>
-                                    <td class="text-center medal-count bronze-count">6</td>
-                                    <td class="text-center total-count">20</td>
+                                    <td class="state-cell">Kelantan</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">8</td>
-                                    <td class="state-cell">Kelantan</td>
-                                    <td class="text-center medal-count gold-count">5</td>
-                                    <td class="text-center medal-count silver-count">6</td>
-                                    <td class="text-center medal-count bronze-count">7</td>
-                                    <td class="text-center total-count">18</td>
+                                    <td class="state-cell">Terengganu</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">9</td>
-                                    <td class="state-cell">Terengganu</td>
-                                    <td class="text-center medal-count gold-count">4</td>
-                                    <td class="text-center medal-count silver-count">5</td>
-                                    <td class="text-center medal-count bronze-count">6</td>
-                                    <td class="text-center total-count">15</td>
+                                    <td class="state-cell">Pahang</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">10</td>
-                                    <td class="state-cell">Pahang</td>
-                                    <td class="text-center medal-count gold-count">3</td>
-                                    <td class="text-center medal-count silver-count">4</td>
-                                    <td class="text-center medal-count bronze-count">5</td>
-                                    <td class="text-center total-count">12</td>
+                                    <td class="state-cell">Melaka</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">11</td>
-                                    <td class="state-cell">Melaka</td>
-                                    <td class="text-center medal-count gold-count">2</td>
-                                    <td class="text-center medal-count silver-count">3</td>
-                                    <td class="text-center medal-count bronze-count">4</td>
-                                    <td class="text-center total-count">9</td>
+                                    <td class="state-cell">Negeri Sembilan</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">12</td>
-                                    <td class="state-cell">Negeri Sembilan</td>
-                                    <td class="text-center medal-count gold-count">2</td>
-                                    <td class="text-center medal-count silver-count">2</td>
-                                    <td class="text-center medal-count bronze-count">3</td>
-                                    <td class="text-center total-count">7</td>
+                                    <td class="state-cell">Perlis</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                                 <tr>
                                     <td class="rank-cell">13</td>
-                                    <td class="state-cell">Perlis</td>
-                                    <td class="text-center medal-count gold-count">1</td>
-                                    <td class="text-center medal-count silver-count">2</td>
-                                    <td class="text-center medal-count bronze-count">2</td>
-                                    <td class="text-center total-count">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="rank-cell">14</td>
                                     <td class="state-cell">Kuala Lumpur</td>
-                                    <td class="text-center medal-count gold-count">1</td>
-                                    <td class="text-center medal-count silver-count">1</td>
-                                    <td class="text-center medal-count bronze-count">1</td>
-                                    <td class="text-center total-count">3</td>
+                                    <td class="text-center medal-count gold-count">0</td>
+                                    <td class="text-center medal-count silver-count">0</td>
+                                    <td class="text-center medal-count bronze-count">0</td>
+                                    <td class="text-center total-count">0</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2929,24 +2921,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Sarawak</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Selangor</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Johor</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Penang</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Penang</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Sabah</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -2960,24 +2952,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Selangor</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Sarawak</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Sabah</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Johor</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Penang</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sabah</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Penang</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -2991,24 +2983,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Penang</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Selangor</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Sarawak</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Johor</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Penang</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Sabah</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -3022,24 +3014,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Johor</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Sarawak</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Selangor</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Penang</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Penang</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Sabah</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -3053,24 +3045,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Sabah</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Sarawak</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Penang</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Selangor</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Johor</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Sabah</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Penang</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Selangor</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -3084,24 +3076,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Selangor</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Johor</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Sarawak</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Penang</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Penang</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Sabah</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -3115,24 +3107,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Sarawak</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Sabah</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Johor</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Selangor</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Penang</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Sabah</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Penang</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -3146,24 +3138,24 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     <tr>
                                         <th>Rank</th>
                                         <th>State</th>
+                                        <th class="text-center">Total Points</th>
                                         <th class="text-center">Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>1</td><td>Penang</td><td class="text-center rank-1">1st</td></tr>
-                                    <tr><td>2</td><td>Selangor</td><td class="text-center rank-2">2nd</td></tr>
-                                    <tr><td>3</td><td>Sarawak</td><td class="text-center rank-3">3rd</td></tr>
-                                    <tr><td>4</td><td>Johor</td><td class="text-center">4th</td></tr>
-                                    <tr><td>5</td><td>Sabah</td><td class="text-center">5th</td></tr>
-                                    <tr><td>6</td><td>Perak</td><td class="text-center">6th</td></tr>
-                                    <tr><td>7</td><td>Kedah</td><td class="text-center">7th</td></tr>
-                                    <tr><td>8</td><td>Kelantan</td><td class="text-center">8th</td></tr>
-                                    <tr><td>9</td><td>Terengganu</td><td class="text-center">9th</td></tr>
-                                    <tr><td>10</td><td>Pahang</td><td class="text-center">10th</td></tr>
-                                    <tr><td>11</td><td>Melaka</td><td class="text-center">11th</td></tr>
-                                    <tr><td>12</td><td>Negeri Sembilan</td><td class="text-center">12th</td></tr>
-                                    <tr><td>13</td><td>Perlis</td><td class="text-center">13th</td></tr>
-                                    <tr><td>14</td><td>Kuala Lumpur</td><td class="text-center">14th</td></tr>
+                                    <tr><td>1</td><td>Penang</td><td class="text-center">0</td><td class="text-center rank-1">1st</td></tr>
+                                    <tr><td>2</td><td>Selangor</td><td class="text-center">0</td><td class="text-center rank-2">2nd</td></tr>
+                                    <tr><td>3</td><td>Sarawak</td><td class="text-center">0</td><td class="text-center rank-3">3rd</td></tr>
+                                    <tr><td>4</td><td>Sabah</td><td class="text-center">0</td><td class="text-center">4th</td></tr>
+                                    <tr><td>5</td><td>Perak</td><td class="text-center">0</td><td class="text-center">5th</td></tr>
+                                    <tr><td>6</td><td>Kedah</td><td class="text-center">0</td><td class="text-center">6th</td></tr>
+                                    <tr><td>7</td><td>Kelantan</td><td class="text-center">0</td><td class="text-center">7th</td></tr>
+                                    <tr><td>8</td><td>Terengganu</td><td class="text-center">0</td><td class="text-center">8th</td></tr>
+                                    <tr><td>9</td><td>Pahang</td><td class="text-center">0</td><td class="text-center">9th</td></tr>
+                                    <tr><td>10</td><td>Melaka</td><td class="text-center">0</td><td class="text-center">10th</td></tr>
+                                    <tr><td>11</td><td>Negeri Sembilan</td><td class="text-center">0</td><td class="text-center">11th</td></tr>
+                                    <tr><td>12</td><td>Perlis</td><td class="text-center">0</td><td class="text-center">12th</td></tr>
+                                    <tr><td>13</td><td>Kuala Lumpur</td><td class="text-center">0</td><td class="text-center">13th</td></tr>
                                 </tbody>
                             </table>
                         </div>

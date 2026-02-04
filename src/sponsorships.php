@@ -177,6 +177,19 @@
             min-height: 214px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .chapter-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #cc0000;
+            border-radius: 2px;
         }
 
         .chapter-logo:hover {
@@ -200,6 +213,7 @@
             min-height: 100px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            border-top: 2px solid #f0f0f0;
         }
 
         .sponsor-item-col:hover {

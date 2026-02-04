@@ -1611,6 +1611,129 @@ body, html {
   margin: 0;
 }
 
+/* Horizontal QR Card Layout */
+.donation-card-qr-horizontal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.donation-card-qr-horizontal:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.qr-section {
+  flex: 0 0 350px;
+  background: linear-gradient(135deg, #e63946 0%, #c41926 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.qr-code-wrapper {
+  text-align: center;
+  width: 100%;
+}
+
+.qr-code-wrapper img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.qr-recipient {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.bank-info-section {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bank-info-section h3 {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.account-info p {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.account-info .label {
+  font-weight: 600;
+  color: #333;
+  min-width: 160px;
+  display: inline-block;
+  position: relative;
+}
+
+.account-info .label::after {
+  content: ':';
+  position: absolute;
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .donation-card-qr-horizontal {
+    flex-direction: column;
+  }
+  
+  .qr-section {
+    flex: 0 0 auto;
+    padding: 30px;
+  }
+  
+  .qr-code-wrapper img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .bank-info-section {
+    padding: 30px 20px;
+  }
+  
+  .bank-info-section h3 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .account-info .label {
+    min-width: 140px;
+  }
+}
+
 .donation-card {
   background: white;
   border-radius: 8px;

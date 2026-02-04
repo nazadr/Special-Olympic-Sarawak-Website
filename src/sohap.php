@@ -224,27 +224,27 @@ try {
             display: flex;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0) 60%), url('../assets/images/sohap-more.JPG') center/cover no-repeat;
             height: 40vh;
-            max-height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: left;
-            align-items: left;
+            justify-content: center;
+            align-items: flex-start;
             text-align: left;
             color: white;
             position: relative;
             margin-bottom: 80px;
+            padding-left: 80px;
         }
 
         .sohap-more-section h1 {
             font-size: 2.8rem;
-            margin: auto auto 10px 80px;
+            margin: 0 0 10px 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .sohap-more-section p {
             font-size: 1.1rem;
             max-width: 400px;
-            margin: 10px auto 20px 80px;
+            margin: 10px 0 0 0;
         }
 
         .sohap-ms-button {
@@ -426,15 +426,11 @@ try {
             }
             ?>
         </div>
-        <div class="sohap-more-button">
-            <a href="../src/latest-news.php">EXPAND MORE ARTICLES</a>
-        </div>
     </section>
 
     <section class="sohap-more-section">
         <h1>Healthy Athletes Program</h1>
         <p>Join with the health care providers and students statewide who have volunteered with the Healthy Athletes Program.</p>
-        <a href="../src/join_us.html" class="sohap-ms-button">LEARN MORE</a>
     </section>
 
     <!-- Bottom Navigation -->
