@@ -47,19 +47,19 @@ if ($debug_mode) {
     <style>
                 .favourite-star {
                     margin-left: 8px;
-                    color: #fbbf24;
+                    color: #FFD400;
                     cursor: pointer;
                     transition: color 0.2s;
                 }
                 .favourite-star.favourited i {
-                    color: #f59e42;
+                    color: #E66A1F;
                     font-weight: bold;
                 }
                 .favourite-star i {
                     pointer-events: none;
                 }
                 .nav-item .favourite-star:hover i {
-                    color: #f59e42;
+                    color: #E66A1F;
                 }
         * {
             margin: 0;
@@ -70,7 +70,7 @@ if ($debug_mode) {
         /* Force Add News Button Styling */
         .add-news-btn {
             font-family: 'Inter', sans-serif !important;
-            background-color: #3b82f6 !important;
+            background-color: #0095DA !important;
             color: white !important;
             padding: 10px 20px !important;
             border: none !important;
@@ -85,7 +85,7 @@ if ($debug_mode) {
         }
         
         .add-news-btn:hover {
-            background-color: #2563eb !important;
+            background-color: #006285 !important;
         }
         
         .add-news-btn i {
@@ -95,7 +95,7 @@ if ($debug_mode) {
         /* Force Add Photo Button Styling */
         .add-photo-btn {
             font-family: 'Inter', sans-serif !important;
-            background-color: #3b82f6 !important;
+            background-color: #0095DA !important;
             color: white !important;
             padding: 10px 20px !important;
             border: none !important;
@@ -110,7 +110,7 @@ if ($debug_mode) {
         }
         
         .add-photo-btn:hover {
-            background-color: #2563eb !important;
+            background-color: #006285 !important;
         }
         
         .add-photo-btn i {
@@ -120,7 +120,7 @@ if ($debug_mode) {
         /* Force Add Video Button Styling */
         .add-video-btn {
             font-family: 'Inter', sans-serif !important;
-            background-color: #3b82f6 !important;
+            background-color: #0095DA !important;
             color: white !important;
             padding: 10px 20px !important;
             border: none !important;
@@ -135,7 +135,7 @@ if ($debug_mode) {
         }
         
         .add-video-btn:hover {
-            background-color: #2563eb !important;
+            background-color: #006285 !important;
         }
         
         .add-video-btn i {
@@ -145,7 +145,7 @@ if ($debug_mode) {
         /* Force Add Sport Button Styling */
         .add-sport-btn {
             font-family: 'Inter', sans-serif !important;
-            background-color: #3b82f6 !important;
+            background-color: #0095DA !important;
             color: white !important;
             padding: 10px 20px !important;
             border: none !important;
@@ -160,7 +160,7 @@ if ($debug_mode) {
         }
         
         .add-sport-btn:hover {
-            background-color: #2563eb !important;
+            background-color: #006285 !important;
         }
         
         .add-sport-btn i {
@@ -170,7 +170,7 @@ if ($debug_mode) {
         /* Force Add State Games Button Styling */
         .add-state-games-btn {
             font-family: 'Inter', sans-serif !important;
-            background-color: #3b82f6 !important;
+            background-color: #0095DA !important;
             color: white !important;
             padding: 10px 20px !important;
             border: none !important;
@@ -185,7 +185,7 @@ if ($debug_mode) {
         }
         
         .add-state-games-btn:hover {
-            background-color: #2563eb !important;
+            background-color: #006285 !important;
         }
         
         .add-state-games-btn i {
@@ -195,7 +195,7 @@ if ($debug_mode) {
         /* Force Add YAP Button Styling */
         .add-yap-btn {
             font-family: 'Inter', sans-serif !important;
-            background-color: #3b82f6 !important;
+            background-color: #0095DA !important;
             color: white !important;
             padding: 10px 20px !important;
             border: none !important;
@@ -210,7 +210,7 @@ if ($debug_mode) {
         }
         
         .add-yap-btn:hover {
-            background-color: #2563eb !important;
+            background-color: #006285 !important;
         }
         
         .add-yap-btn i {
@@ -236,7 +236,7 @@ if ($debug_mode) {
         }
 
         .alp-settings-card .card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
             padding: 20px 24px;
             border-bottom: none;
@@ -268,20 +268,20 @@ if ($debug_mode) {
         .alp-form-group label {
             display: block;
             font-weight: 600;
-            color: #374151;
+            color: #636359;
             margin-bottom: 8px;
             font-size: 0.95rem;
         }
 
         .alp-form-group label i {
-            color: #667eea;
+            color: #6F2C91;
             margin-right: 6px;
         }
 
         .label-hint {
             display: block;
             font-weight: 400;
-            color: #6b7280;
+            color: #94958D;
             font-size: 0.85rem;
             margin-top: 4px;
         }
@@ -290,7 +290,7 @@ if ($debug_mode) {
         .alp-form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #BCBEC0;
             border-radius: 8px;
             font-size: 0.95rem;
             font-family: inherit;
@@ -300,7 +300,7 @@ if ($debug_mode) {
         .alp-form-group input[type="text"]:focus,
         .alp-form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #6F2C91;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
@@ -312,7 +312,7 @@ if ($debug_mode) {
 
         .form-hint {
             display: block;
-            color: #6b7280;
+            color: #94958D;
             font-size: 0.85rem;
             margin-top: 6px;
         }
@@ -371,16 +371,16 @@ if ($debug_mode) {
 
         /* Bullet Points Section */
         .bullet-points-section {
-            background: #f9fafb;
+            background: #ECEADB;
             padding: 20px;
             border-radius: 8px;
             margin: 24px 0;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #6F2C91;
         }
 
         .bullet-points-section h4 {
             margin: 0 0 8px 0;
-            color: #374151;
+            color: #636359;
             font-size: 1.1rem;
             display: flex;
             align-items: center;
@@ -388,7 +388,7 @@ if ($debug_mode) {
         }
 
         .section-note {
-            color: #6b7280;
+            color: #94958D;
             font-size: 0.9rem;
             margin: 0 0 20px 0;
         }
@@ -420,7 +420,7 @@ if ($debug_mode) {
         }
 
         .btn-save-alp {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);
             color: white;
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
@@ -432,12 +432,12 @@ if ($debug_mode) {
 
         .btn-preview-alp {
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #6F2C91;
+            border: 2px solid #6F2C91;
         }
 
         .btn-preview-alp:hover {
-            background: #667eea;
+            background: #6F2C91;
             color: white;
             transform: translateY(-2px);
         }
@@ -446,24 +446,24 @@ if ($debug_mode) {
         .last-updated-info {
             text-align: center;
             padding: 16px;
-            background: #f9fafb;
+            background: #ECEADB;
             border-radius: 8px;
-            color: #6b7280;
+            color: #94958D;
             font-size: 0.9rem;
         }
 
         .last-updated-info i {
             margin-right: 8px;
-            color: #667eea;
+            color: #6F2C91;
         }
 
         .last-updated-info strong {
-            color: #374151;
+            color: #636359;
         }
 
         /* File Upload Styling */
         .file-upload-btn {
-            background: #667eea;
+            background: #6F2C91;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -482,7 +482,7 @@ if ($debug_mode) {
 
         .file-status {
             margin-left: 12px;
-            color: #6b7280;
+            color: #94958D;
             font-size: 0.9rem;
         }
 
@@ -571,21 +571,21 @@ if ($debug_mode) {
             justify-content: space-between !important;
             align-items: center !important;
             padding: 24px 32px !important;
-            border-bottom: 1px solid #e2e8f0 !important;
-            background: #f8fafc !important;
+            border-bottom: 1px solid #BCBEC0 !important;
+            background: #FFFFFF !important;
         }
         
         .modal-title {
             font-size: 20px !important;
             font-weight: 600 !important;
-            color: #1e293b !important;
+            color: #000000 !important;
             margin: 0 !important;
         }
         
         .modal-close {
             cursor: pointer !important;
             font-size: 24px !important;
-            color: #64748b !important;
+            color: #94958D !important;
             font-weight: bold !important;
             padding: 4px !important;
             border-radius: 4px !important;
@@ -624,14 +624,14 @@ if ($debug_mode) {
             gap: 12px !important;
             padding-top: 24px !important;
             margin-top: 24px !important;
-            border-top: 1px solid #e2e8f0 !important;
+            border-top: 1px solid #BCBEC0 !important;
         }
 
         /* Standardized Button Styles */
         .btn-cancel,
         .btn-secondary {
             padding: 10px 24px !important;
-            background: #6c757d !important;
+            background: #636359 !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;
@@ -644,7 +644,7 @@ if ($debug_mode) {
 
         .btn-cancel:hover,
         .btn-secondary:hover {
-            background: #5a6268 !important;
+            background: #636359 !important;
             transform: translateY(-1px) !important;
             box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3) !important;
         }
@@ -652,7 +652,7 @@ if ($debug_mode) {
         .btn-submit,
         .btn-primary {
             padding: 10px 24px !important;
-            background: #3b82f6 !important;
+            background: #0095DA !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;
@@ -665,7 +665,7 @@ if ($debug_mode) {
 
         .btn-submit:hover,
         .btn-primary:hover {
-            background: #2563eb !important;
+            background: #006285 !important;
             transform: translateY(-1px) !important;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
         }
@@ -677,17 +677,17 @@ if ($debug_mode) {
 
         /* Edit mode specific button */
         .btn-submit.edit-mode {
-            background: #10b981 !important;
+            background: #88AC2E !important;
         }
 
         .btn-submit.edit-mode:hover {
-            background: #059669 !important;
+            background: #28752B !important;
         }
 
         /* State Games specific button fix */
         #submitStateGamesBtn {
             padding: 10px 24px !important;
-            background: #3b82f6 !important;
+            background: #0095DA !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;
@@ -699,23 +699,23 @@ if ($debug_mode) {
         }
 
         #submitStateGamesBtn:hover {
-            background: #2563eb !important;
+            background: #006285 !important;
             transform: translateY(-1px) !important;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
         }
 
         /* When in edit mode */
         #submitStateGamesBtn.edit-mode {
-            background: #10b981 !important;
+            background: #88AC2E !important;
         }
 
         #submitStateGamesBtn.edit-mode:hover {
-            background: #059669 !important;
+            background: #28752B !important;
         }
 
         #cancelEditStateGamesBtn {
             padding: 10px 24px !important;
-            background: #6c757d !important;
+            background: #636359 !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;
@@ -727,21 +727,21 @@ if ($debug_mode) {
         }
 
         #cancelEditStateGamesBtn:hover {
-            background: #5a6268 !important;
+            background: #636359 !important;
             transform: translateY(-1px) !important;
             box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3) !important;
         }
         
         /* Rich Text Editor Styling */
         .rich-editor-container {
-            border: 1px solid #d1d5db;
+            border: 1px solid #94958D;
             border-radius: 6px;
             background: white;
         }
         
         .editor-toolbar {
-            background: #f8fafc;
-            border-bottom: 1px solid #e5e7eb;
+            background: #FFFFFF;
+            border-bottom: 1px solid #BCBEC0;
             padding: 8px 12px;
             display: flex;
             gap: 4px;
@@ -750,7 +750,7 @@ if ($debug_mode) {
         
         .editor-btn {
             background: white;
-            border: 1px solid #d1d5db;
+            border: 1px solid #94958D;
             border-radius: 4px;
             padding: 6px 10px;
             cursor: pointer;
@@ -764,19 +764,19 @@ if ($debug_mode) {
         }
         
         .editor-btn:hover {
-            background: #f3f4f6;
-            border-color: #9ca3af;
+            background: #ECEADB;
+            border-color: #BCBEC0;
         }
         
         .editor-btn.active {
-            background: #3b82f6;
+            background: #0095DA;
             color: white;
-            border-color: #2563eb;
+            border-color: #006285;
         }
         
         .editor-separator {
             width: 1px;
-            background: #e5e7eb;
+            background: #BCBEC0;
             margin: 0 4px;
         }
         
@@ -817,14 +817,14 @@ if ($debug_mode) {
         
         .yap-preview-card h3 {
             margin-bottom: 15px;
-            color: #1e293b;
+            color: #000000;
             font-size: 18px;
             font-weight: 600;
         }
         
         .loading {
             text-align: center;
-            color: #64748b;
+            color: #94958D;
             font-style: italic;
         }
         
@@ -836,7 +836,7 @@ if ($debug_mode) {
         .dashboard-section-title {
             font-size: 18px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -844,7 +844,7 @@ if ($debug_mode) {
         }
         
         .dashboard-section-title i {
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .stats-grid {
@@ -871,7 +871,7 @@ if ($debug_mode) {
         }
         
         .stat-card.highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
         }
         
@@ -900,7 +900,7 @@ if ($debug_mode) {
         .stat-value {
             font-size: 32px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
             margin: 0 0 4px 0;
             line-height: 1;
         }
@@ -908,14 +908,14 @@ if ($debug_mode) {
         .stat-label {
             font-size: 14px;
             font-weight: 500;
-            color: #64748b;
+            color: #94958D;
             margin: 0 0 8px 0;
         }
         
         .stat-subtitle,
         .stat-breakdown {
             font-size: 12px;
-            color: #94a3b8;
+            color: #BCBEC0;
         }
         
         .stat-breakdown {
@@ -938,7 +938,7 @@ if ($debug_mode) {
         
         .dashboard-card-header {
             padding: 20px 24px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #BCBEC0;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -947,7 +947,7 @@ if ($debug_mode) {
         .dashboard-card-header h3 {
             font-size: 16px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin: 0;
             display: flex;
             align-items: center;
@@ -955,19 +955,19 @@ if ($debug_mode) {
         }
         
         .dashboard-card-header i {
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .view-all-link {
             font-size: 14px;
-            color: #3b82f6;
+            color: #0095DA;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
         
         .view-all-link:hover {
-            color: #2563eb;
+            color: #006285;
         }
         
         .dashboard-card-body {
@@ -984,7 +984,7 @@ if ($debug_mode) {
         .mini-stat {
             text-align: center;
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
         }
         
@@ -992,14 +992,14 @@ if ($debug_mode) {
             display: block;
             font-size: 28px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 4px;
         }
         
         .mini-stat-label {
             display: block;
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
         }
         
@@ -1010,8 +1010,8 @@ if ($debug_mode) {
         
         .chapter-item {
             padding: 12px 16px;
-            border-left: 3px solid #3b82f6;
-            background: #f8fafc;
+            border-left: 3px solid #0095DA;
+            background: #FFFFFF;
             margin-bottom: 8px;
             border-radius: 6px;
         }
@@ -1025,24 +1025,24 @@ if ($debug_mode) {
         
         .chapter-name {
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             font-size: 14px;
         }
         
         .chapter-total {
             font-weight: 700;
-            color: #3b82f6;
+            color: #0095DA;
             font-size: 16px;
         }
         
         .chapter-details {
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
         }
         
         .next-event {
             padding: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             border-radius: 8px;
             color: white;
         }
@@ -1084,7 +1084,7 @@ if ($debug_mode) {
             align-items: center;
             gap: 16px;
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
         }
         
@@ -1096,32 +1096,32 @@ if ($debug_mode) {
             display: block;
             font-size: 24px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
         }
         
         .media-stat-label {
             display: block;
             font-size: 13px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
         }
         
         .media-stat-item small {
             display: block;
             font-size: 11px;
-            color: #94a3b8;
+            color: #BCBEC0;
             margin-top: 2px;
         }
         
         .recent-uploads {
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
         }
         
         .recent-label {
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
             margin-bottom: 10px;
             font-weight: 500;
         }
@@ -1139,13 +1139,13 @@ if ($debug_mode) {
             background: white;
             border-radius: 20px;
             font-size: 13px;
-            color: #1e293b;
+            color: #000000;
             font-weight: 500;
         }
         
         .recent-badge i {
             font-size: 12px;
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .content-stats-grid {
@@ -1156,14 +1156,14 @@ if ($debug_mode) {
         
         .content-stat {
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
             text-align: center;
         }
         
         .content-stat i {
             font-size: 28px;
-            color: #3b82f6;
+            color: #0095DA;
             margin-bottom: 8px;
         }
         
@@ -1171,14 +1171,14 @@ if ($debug_mode) {
             display: block;
             font-size: 24px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 4px;
         }
         
         .content-stat-label {
             display: block;
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
         }
         
@@ -1191,7 +1191,7 @@ if ($debug_mode) {
         
         .activity-item {
             padding: 16px 20px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #BCBEC0;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -1203,7 +1203,7 @@ if ($debug_mode) {
         }
         
         .activity-item:hover {
-            background: #f8fafc;
+            background: #FFFFFF;
         }
         
         .activity-icon {
@@ -1219,11 +1219,11 @@ if ($debug_mode) {
         }
         
         .activity-icon.news {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
         }
         
         .activity-icon.event {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #EC008C 0%, #C40063 100%);
         }
         
         .activity-content {
@@ -1233,18 +1233,18 @@ if ($debug_mode) {
         .activity-title {
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 4px;
         }
         
         .activity-type {
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
         }
         
         .activity-date {
             font-size: 12px;
-            color: #94a3b8;
+            color: #BCBEC0;
             white-space: nowrap;
         }
         
@@ -1256,7 +1256,7 @@ if ($debug_mode) {
         .analytics-section-title {
             font-size: 18px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -1264,7 +1264,7 @@ if ($debug_mode) {
         }
         
         .analytics-section-title i {
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .analytics-kpi-grid {
@@ -1310,14 +1310,14 @@ if ($debug_mode) {
             display: block;
             font-size: 28px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 4px;
         }
         
         .analytics-kpi-label {
             display: block;
             font-size: 13px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
         }
         
@@ -1337,13 +1337,13 @@ if ($debug_mode) {
         
         .analytics-card-header {
             padding: 20px 24px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #BCBEC0;
         }
         
         .analytics-card-header h3 {
             font-size: 16px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin: 0;
             display: flex;
             align-items: center;
@@ -1351,7 +1351,7 @@ if ($debug_mode) {
         }
         
         .analytics-card-header i {
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .analytics-card-body {
@@ -1368,7 +1368,7 @@ if ($debug_mode) {
         .gender-category h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 12px;
         }
         
@@ -1387,7 +1387,7 @@ if ($debug_mode) {
         
         .gender-bar-label {
             font-size: 13px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -1396,7 +1396,7 @@ if ($debug_mode) {
         
         .gender-bar-track {
             height: 24px;
-            background: #f1f5f9;
+            background: #ECEADB;
             border-radius: 12px;
             overflow: hidden;
         }
@@ -1408,18 +1408,18 @@ if ($debug_mode) {
         }
         
         .gender-bar.male {
-            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(90deg, #0095DA 0%, #006285 100%);
         }
         
         .gender-bar.female {
-            background: linear-gradient(90deg, #ec4899 0%, #db2777 100%);
+            background: linear-gradient(90deg, #EC008C 0%, #C40063 100%);
         }
         
         .gender-bar-value {
             text-align: right;
             font-size: 13px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
         }
         
         /* Chapter Comparison */
@@ -1431,9 +1431,9 @@ if ($debug_mode) {
         
         .chapter-comparison-item {
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid #0095DA;
         }
         
         .chapter-comparison-header {
@@ -1446,18 +1446,18 @@ if ($debug_mode) {
         .chapter-comparison-name {
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
         }
         
         .chapter-comparison-total {
             font-size: 18px;
             font-weight: 700;
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .chapter-comparison-bar {
             height: 8px;
-            background: #e2e8f0;
+            background: #BCBEC0;
             border-radius: 4px;
             overflow: hidden;
             margin-bottom: 8px;
@@ -1465,14 +1465,14 @@ if ($debug_mode) {
         
         .chapter-comparison-fill {
             height: 100%;
-            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(90deg, #0095DA 0%, #9227BF 100%);
             border-radius: 4px;
             transition: width 1s ease;
         }
         
         .chapter-comparison-details {
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
         }
         
         /* Event Type Chart */
@@ -1507,13 +1507,13 @@ if ($debug_mode) {
         .event-type-name {
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             text-transform: capitalize;
         }
         
         .event-type-bar {
             height: 8px;
-            background: #f1f5f9;
+            background: #ECEADB;
             border-radius: 4px;
             overflow: hidden;
             margin-top: 6px;
@@ -1521,7 +1521,7 @@ if ($debug_mode) {
         
         .event-type-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #6F2C91 0%, #3D1063 100%);
             border-radius: 4px;
             transition: width 1s ease;
         }
@@ -1529,7 +1529,7 @@ if ($debug_mode) {
         .event-type-count {
             font-size: 18px;
             font-weight: 700;
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         /* Media Growth */
@@ -1541,7 +1541,7 @@ if ($debug_mode) {
         
         .media-growth-item {
             padding: 20px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
         }
         
@@ -1552,7 +1552,7 @@ if ($debug_mode) {
             margin-bottom: 12px;
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
         }
         
         .media-growth-header i {
@@ -1562,19 +1562,19 @@ if ($debug_mode) {
         .media-growth-value {
             font-size: 32px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 8px;
         }
         
         .media-growth-detail {
             font-size: 13px;
-            color: #64748b;
+            color: #94958D;
             margin-bottom: 12px;
         }
         
         .media-growth-bar {
             height: 8px;
-            background: #e2e8f0;
+            background: #BCBEC0;
             border-radius: 4px;
             overflow: hidden;
         }
@@ -1586,11 +1586,11 @@ if ($debug_mode) {
         }
         
         .media-growth-progress.photos {
-            background: linear-gradient(90deg, #8b5cf6 0%, #a78bfa 100%);
+            background: linear-gradient(90deg, #9227BF 0%, #9227BF 100%);
         }
         
         .media-growth-progress.videos {
-            background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+            background: linear-gradient(90deg, #FF0000 0%, #FF0000 100%);
         }
         
         /* Leaderboard */
@@ -1605,13 +1605,13 @@ if ($debug_mode) {
             align-items: center;
             gap: 16px;
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
         
         .leaderboard-item:hover {
-            background: #f1f5f9;
+            background: #ECEADB;
             transform: translateX(4px);
         }
         
@@ -1629,19 +1629,19 @@ if ($debug_mode) {
         }
         
         .leaderboard-rank.gold {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            background: linear-gradient(135deg, #FFD400 0%, #E5A812 100%);
         }
         
         .leaderboard-rank.silver {
-            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            background: linear-gradient(135deg, #BCBEC0 0%, #94958D 100%);
         }
         
         .leaderboard-rank.bronze {
-            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+            background: linear-gradient(135deg, #F7941E 0%, #E66A1F 100%);
         }
         
         .leaderboard-rank.other {
-            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            background: linear-gradient(135deg, #BCBEC0 0%, #94958D 100%);
         }
         
         .leaderboard-content {
@@ -1651,19 +1651,19 @@ if ($debug_mode) {
         .leaderboard-name {
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 4px;
         }
         
         .leaderboard-details {
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
         }
         
         .leaderboard-score {
             font-size: 24px;
             font-weight: 700;
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         /* Content Activity */
@@ -1679,32 +1679,32 @@ if ($debug_mode) {
             align-items: center;
             gap: 12px;
             padding: 16px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
         }
         
         .content-activity-item i {
             font-size: 28px;
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .content-activity-value {
             display: block;
             font-size: 24px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
         }
         
         .content-activity-label {
             display: block;
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
         }
         
         .content-recent-activity {
             padding: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             border-radius: 8px;
             color: white;
         }
@@ -1734,18 +1734,18 @@ if ($debug_mode) {
         }
         
         .insight-card.positive {
-            background: #ecfdf5;
-            border-left-color: #10b981;
+            background: #ECEADB;
+            border-left-color: #88AC2E;
         }
         
         .insight-card.warning {
-            background: #fef3c7;
-            border-left-color: #f59e0b;
+            background: #ECEADB;
+            border-left-color: #E5A812;
         }
         
         .insight-card.info {
-            background: #dbeafe;
-            border-left-color: #3b82f6;
+            background: #ECEADB;
+            border-left-color: #0095DA;
         }
         
         .insight-icon {
@@ -1754,27 +1754,27 @@ if ($debug_mode) {
         }
         
         .insight-card.positive .insight-icon {
-            color: #10b981;
+            color: #88AC2E;
         }
         
         .insight-card.warning .insight-icon {
-            color: #f59e0b;
+            color: #E5A812;
         }
         
         .insight-card.info .insight-icon {
-            color: #3b82f6;
+            color: #0095DA;
         }
         
         .insight-title {
             font-size: 14px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin-bottom: 8px;
         }
         
         .insight-description {
             font-size: 13px;
-            color: #64748b;
+            color: #94958D;
             margin: 0;
         }
 
@@ -1804,7 +1804,7 @@ if ($debug_mode) {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
         }
@@ -1831,42 +1831,42 @@ if ($debug_mode) {
             margin: 0;
             font-size: 24px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
         }
 
         .section-subtitle {
             margin: 0;
             font-size: 14px;
-            color: #64748b;
+            color: #94958D;
         }
 
         /* Icon color variations for different sections */
         .section-icon.dashboard {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
         }
 
         .section-icon.analytics {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #EC008C 0%, #C40063 100%);
         }
 
         .section-icon.events {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            background: linear-gradient(135deg, #EC008C 0%, #FFD400 100%);
         }
 
         .section-icon.sports {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            background: linear-gradient(135deg, #B2D235 0%, #39BB9D 100%);
         }
 
         .section-icon.participants {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #EC008C 0%, #C40063 100%);
         }
 
         .section-icon.media {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            background: linear-gradient(135deg, #EC008C 0%, #FFD400 100%);
         }
 
         .section-icon.articles {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
         }
 
         .section-icon.affiliates {
@@ -1883,7 +1883,7 @@ if ($debug_mode) {
         
         /* Add Organization Button */
         .add-other-so-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -1933,9 +1933,9 @@ if ($debug_mode) {
 
         .filter-btn {
             padding: 8px 16px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #BCBEC0;
             background: white;
-            color: #64748b;
+            color: #94958D;
             border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
@@ -1947,12 +1947,12 @@ if ($debug_mode) {
         }
 
         .filter-btn:hover {
-            border-color: #667eea;
-            color: #667eea;
+            border-color: #6F2C91;
+            color: #6F2C91;
         }
 
         .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
             border-color: transparent;
         }
@@ -1961,14 +1961,14 @@ if ($debug_mode) {
             display: flex;
             align-items: center;
             background: white;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #BCBEC0;
             border-radius: 8px;
             padding: 8px 16px;
             min-width: 300px;
         }
 
         .search-bar i {
-            color: #94a3b8;
+            color: #BCBEC0;
             margin-right: 8px;
         }
 
@@ -2002,16 +2002,16 @@ if ($debug_mode) {
         .category-title {
             font-size: 20px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             display: flex;
             align-items: center;
             gap: 10px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
+            border-bottom: 2px solid #BCBEC0;
         }
 
         .category-title i {
-            color: #667eea;
+            color: #6F2C91;
         }
 
         /* Organizations Grid */
@@ -2028,7 +2028,7 @@ if ($debug_mode) {
         /* Organization Card */
         .other-so-card {
             background: white;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #BCBEC0;
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s ease;
@@ -2039,7 +2039,7 @@ if ($debug_mode) {
         }
 
         .other-so-card:hover {
-            border-color: #667eea;
+            border-color: #6F2C91;
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
             transform: translateY(-2px);
         }
@@ -2048,7 +2048,7 @@ if ($debug_mode) {
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #cbd5e1;
+            color: #BCBEC0;
             cursor: grab;
             padding: 4px;
             margin: -8px -8px 0 -8px;
@@ -2067,7 +2067,7 @@ if ($debug_mode) {
             justify-content: center;
             align-items: center;
             height: 120px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 8px;
             padding: 15px;
         }
@@ -2087,7 +2087,7 @@ if ($debug_mode) {
         .card-title {
             font-size: 16px;
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             margin: 0;
         }
 
@@ -2106,13 +2106,13 @@ if ($debug_mode) {
         }
 
         .category-international {
-            background: #dbeafe;
+            background: #ECEADB;
             color: #1e40af;
         }
 
         .category-malaysia {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #ECEADB;
+            color: #820000;
         }
 
         .category-state {
@@ -2127,7 +2127,7 @@ if ($debug_mode) {
 
         .status-inactive {
             background: #fef2f2;
-            color: #991b1b;
+            color: #820000;
         }
 
         .card-link {
@@ -2135,7 +2135,7 @@ if ($debug_mode) {
             align-items: center;
             gap: 6px;
             font-size: 13px;
-            color: #64748b;
+            color: #94958D;
         }
 
         .card-link i {
@@ -2144,12 +2144,12 @@ if ($debug_mode) {
 
         .card-link-empty {
             font-size: 13px;
-            color: #cbd5e1;
+            color: #BCBEC0;
             font-style: italic;
         }
 
         .website-link {
-            color: #667eea;
+            color: #6F2C91;
             text-decoration: none;
         }
 
@@ -2161,7 +2161,7 @@ if ($debug_mode) {
             display: flex;
             gap: 8px;
             padding-top: 10px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #BCBEC0;
         }
 
         .action-btn {
@@ -2175,32 +2175,32 @@ if ($debug_mode) {
         }
 
         .btn-edit {
-            background: #dbeafe;
+            background: #ECEADB;
             color: #1e40af;
         }
 
         .btn-edit:hover {
-            background: #3b82f6;
+            background: #0095DA;
             color: white;
         }
 
         .btn-toggle {
-            background: #fef3c7;
+            background: #ECEADB;
             color: #92400e;
         }
 
         .btn-toggle:hover {
-            background: #f59e0b;
+            background: #E5A812;
             color: white;
         }
 
         .btn-delete {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #ECEADB;
+            color: #820000;
         }
 
         .btn-delete:hover {
-            background: #ef4444;
+            background: #FF0000;
             color: white;
         }
 
@@ -2256,7 +2256,7 @@ if ($debug_mode) {
             display: block;
             margin-top: 4px;
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
         }
 
         .checkbox-wrapper {
@@ -2296,7 +2296,7 @@ if ($debug_mode) {
 
         #uploadExcelModal .modal-body {
             scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 #f1f5f9;
+            scrollbar-color: #BCBEC0 #ECEADB;
         }
 
         #uploadExcelModal .modal-body::-webkit-scrollbar {
@@ -2304,11 +2304,11 @@ if ($debug_mode) {
         }
 
         #uploadExcelModal .modal-body::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #ECEADB;
         }
 
         #uploadExcelModal .modal-body::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
+            background: #BCBEC0;
             border-radius: 3px;
         }
 
@@ -2333,11 +2333,11 @@ if ($debug_mode) {
             max-height: 150px;
             object-fit: contain;
             border-radius: 8px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #BCBEC0;
         }
 
         .image-preview-item small {
-            color: #64748b;
+            color: #94958D;
             font-size: 12px;
         }
 
@@ -2365,9 +2365,9 @@ if ($debug_mode) {
             padding: 10px 12px;
             font-size: 14px;
             line-height: 1.5;
-            color: #1e293b;
+            color: #000000;
             background-color: #ffffff;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #BCBEC0;
             border-radius: 6px;
             transition: all 0.2s ease;
             box-sizing: border-box;
@@ -2383,7 +2383,7 @@ if ($debug_mode) {
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: #94a3b8;
+            color: #BCBEC0;
         }
 
         .form-group textarea {
@@ -2404,14 +2404,14 @@ if ($debug_mode) {
         .loading-spinner {
             text-align: center;
             padding: 60px;
-            color: #64748b;
+            color: #94958D;
             font-size: 16px;
         }
 
         .empty-state {
             text-align: center;
             padding: 80px 20px;
-            color: #94a3b8;
+            color: #BCBEC0;
         }
 
         .empty-state i {
@@ -2453,7 +2453,7 @@ if ($debug_mode) {
             cursor: grab;
             opacity: 0;
             transition: opacity 0.2s ease;
-            z-index: 10;
+            z-index: 5;
             pointer-events: auto;
         }
 
@@ -2482,8 +2482,8 @@ if ($debug_mode) {
         .gallery-collection .edit-btn,
         .gallery-collection .delete-btn {
             pointer-events: auto !important;
-            position: relative !important;
-            z-index: 100 !important;
+            position: absolute !important;
+            z-index: 150 !important;
             cursor: pointer !important;
         }
 
@@ -2508,7 +2508,7 @@ if ($debug_mode) {
         }
 
         .collection-header-drag-handle i {
-            color: #64748b;
+            color: #94958D;
             font-size: 16px;
         }
 
@@ -2523,6 +2523,8 @@ if ($debug_mode) {
         .sortable-items.dragging {
             user-select: none;
             -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         /* Ensure buttons are always clickable even during drag */
@@ -2532,9 +2534,7 @@ if ($debug_mode) {
         .sortable-items.dragging .delete-btn {
             pointer-events: auto !important;
             cursor: pointer !important;
-        }
-            -moz-user-select: none;
-            -ms-user-select: none;
+            z-index: 150 !important;
         }
 
         /* Responsive Design */
@@ -2590,13 +2590,13 @@ if ($debug_mode) {
             padding: 12px 16px;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border-radius: 8px;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid #0095DA;
         }
 
         .upload-info-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #0095DA 0%, #006285 100%);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -2611,7 +2611,7 @@ if ($debug_mode) {
 
         .upload-info-label {
             font-size: 11px;
-            color: #64748b;
+            color: #94958D;
             font-weight: 500;
             margin: 0 0 4px 0;
             text-transform: uppercase;
@@ -2620,7 +2620,7 @@ if ($debug_mode) {
 
         .upload-info-text {
             font-size: 13px;
-            color: #1e293b;
+            color: #000000;
             font-weight: 600;
             margin: 0;
         }
@@ -2639,7 +2639,7 @@ if ($debug_mode) {
         }
 
         .participants-table thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
         }
 
@@ -2653,17 +2653,17 @@ if ($debug_mode) {
         }
 
         .participants-table tbody tr {
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #BCBEC0;
             transition: background 0.2s;
         }
 
         .participants-table tbody tr:hover {
-            background: #f8fafc;
+            background: #FFFFFF;
         }
 
         .participants-table td {
             padding: 14px 12px;
-            color: #1e293b;
+            color: #000000;
         }
 
         .participant-status {
@@ -2678,23 +2678,23 @@ if ($debug_mode) {
         }
 
         .participant-status.approved {
-            background: #d1fae5;
-            color: #065f46;
+            background: #ECEADB;
+            color: #28752B;
         }
 
         .participant-status.pending {
-            background: #fef3c7;
+            background: #ECEADB;
             color: #92400e;
         }
 
         .participant-status.rejected {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #ECEADB;
+            color: #820000;
         }
 
         .participant-status.archived {
-            background: #f1f5f9;
-            color: #475569;
+            background: #ECEADB;
+            color: #636359;
         }
 
         .participant-actions {
@@ -2716,38 +2716,38 @@ if ($debug_mode) {
         }
 
         .participant-action-btn.view {
-            background: #dbeafe;
+            background: #ECEADB;
             color: #1e40af;
         }
 
         .participant-action-btn.view:hover {
-            background: #3b82f6;
+            background: #0095DA;
             color: white;
         }
 
         .participant-action-btn.approve {
-            background: #d1fae5;
-            color: #065f46;
+            background: #ECEADB;
+            color: #28752B;
         }
 
         .participant-action-btn.approve:hover {
-            background: #10b981;
+            background: #88AC2E;
             color: white;
         }
 
         .participant-action-btn.reject {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #ECEADB;
+            color: #820000;
         }
 
         .participant-action-btn.reject:hover {
-            background: #ef4444;
+            background: #FF0000;
             color: white;
         }
 
         .participant-action-btn.delete {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #ECEADB;
+            color: #820000;
         }
 
         .participant-action-btn.delete:hover {
@@ -2769,9 +2769,9 @@ if ($debug_mode) {
 
         .pagination-btn {
             padding: 8px 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #BCBEC0;
             background: white;
-            color: #64748b;
+            color: #94958D;
             border-radius: 6px;
             cursor: pointer;
             font-size: 13px;
@@ -2780,9 +2780,9 @@ if ($debug_mode) {
         }
 
         .pagination-btn:hover:not(:disabled) {
-            background: #f8fafc;
-            border-color: #3b82f6;
-            color: #3b82f6;
+            background: #FFFFFF;
+            border-color: #0095DA;
+            color: #0095DA;
         }
 
         .pagination-btn:disabled {
@@ -2791,14 +2791,14 @@ if ($debug_mode) {
         }
 
         .pagination-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
             border-color: transparent;
         }
 
         .pagination-info {
             padding: 8px 16px;
-            color: #64748b;
+            color: #94958D;
             font-size: 13px;
         }
 
@@ -2809,7 +2809,7 @@ if ($debug_mode) {
         }
 
         .file-upload-container button:hover {
-            border-color: #3b82f6 !important;
+            border-color: #0095DA !important;
             background: #f0f9ff !important;
         }
 
@@ -2876,9 +2876,9 @@ if ($debug_mode) {
         .view-toggle-btn {
             padding: 8px 16px;
             background: white;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #BCBEC0;
             border-radius: 6px;
-            color: #64748b;
+            color: #94958D;
             cursor: pointer;
             transition: all 0.2s;
             font-size: 14px;
@@ -2888,12 +2888,12 @@ if ($debug_mode) {
         }
 
         .view-toggle-btn:hover {
-            background: #f8fafc;
-            border-color: #94a3b8;
+            background: #FFFFFF;
+            border-color: #BCBEC0;
         }
 
         .view-toggle-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             color: white;
             border-color: transparent;
         }
@@ -2935,7 +2935,7 @@ if ($debug_mode) {
         .docs-file-icon {
             width: 100%;
             height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -2950,7 +2950,7 @@ if ($debug_mode) {
 
         .docs-file-name {
             font-weight: 600;
-            color: #1e293b;
+            color: #000000;
             font-size: 14px;
             margin-bottom: 8px;
             white-space: nowrap;
@@ -2964,31 +2964,31 @@ if ($debug_mode) {
             justify-content: space-between;
             margin-bottom: 12px;
             font-size: 12px;
-            color: #64748b;
+            color: #94958D;
         }
 
         .docs-stats-box {
             padding: 12px;
-            background: #f8fafc;
+            background: #FFFFFF;
             border-radius: 6px;
             margin-bottom: 12px;
         }
 
         .docs-stats-label {
             font-size: 11px;
-            color: #64748b;
+            color: #94958D;
             margin-bottom: 4px;
         }
 
         .docs-stats-value {
             font-size: 18px;
             font-weight: 700;
-            color: #1e293b;
+            color: #000000;
         }
 
         .docs-stats-breakdown {
             font-size: 11px;
-            color: #64748b;
+            color: #94958D;
             margin-top: 4px;
         }
 
@@ -3008,18 +3008,18 @@ if ($debug_mode) {
         }
 
         .docs-download-btn {
-            background: #3b82f6;
+            background: #0095DA;
             color: white;
         }
 
         .docs-download-btn:hover {
-            background: #2563eb;
+            background: #006285;
         }
 
         .docs-delete-btn {
             background: white;
             border: 1px solid #fecaca;
-            color: #ef4444;
+            color: #FF0000;
         }
 
         .docs-delete-btn:hover {
@@ -3030,6 +3030,92 @@ if ($debug_mode) {
             .docs-grid-container {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Sport Visibility Toggle Styles */
+        .sport-visibility-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            padding: 8px 0;
+            border-top: 1px solid #BCBEC0;
+        }
+
+        .visibility-toggle {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .visibility-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .visibility-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #BCBEC0;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+
+        .visibility-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .visibility-checkbox:checked + .visibility-slider {
+            background-color: #88AC2E;
+        }
+
+        .visibility-checkbox:checked + .visibility-slider:before {
+            transform: translateX(20px);
+        }
+
+        .visibility-slider:hover {
+            opacity: 0.9;
+        }
+
+        .visibility-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #636359;
+        }
+
+        .visibility-message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .visibility-message.success {
+            background-color: #ECEADB;
+            color: #28752B;
+            border-left: 4px solid #88AC2E;
+        }
+
+        .visibility-message.error {
+            background-color: #ECEADB;
+            color: #820000;
+            border-left: 4px solid #FF0000;
         }
     </style>
 </head>
@@ -3236,7 +3322,7 @@ if ($debug_mode) {
                     </h3>
                     <div class="stats-grid">
                         <div class="stat-card highlight">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="stat-content">
@@ -3247,7 +3333,7 @@ if ($debug_mode) {
                         </div>
 
                         <div class="stat-card">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #EC008C 0%, #C40063 100%);">
                                 <i class="fas fa-running"></i>
                             </div>
                             <div class="stat-content">
@@ -3273,7 +3359,7 @@ if ($debug_mode) {
                         </div>
 
                         <div class="stat-card">
-                            <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #EC008C 0%, #FFD400 100%);">
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="stat-content">
@@ -3300,11 +3386,11 @@ if ($debug_mode) {
                                     <span class="mini-stat-label">Total Chapters</span>
                                 </div>
                                 <div class="mini-stat">
-                                    <span class="mini-stat-value" id="activeChapters" style="color: #10b981;">-</span>
+                                    <span class="mini-stat-value" id="activeChapters" style="color: #88AC2E;">-</span>
                                     <span class="mini-stat-label">Active</span>
                                 </div>
                                 <div class="mini-stat">
-                                    <span class="mini-stat-value" id="upcomingChapters" style="color: #f59e0b;">-</span>
+                                    <span class="mini-stat-value" id="upcomingChapters" style="color: #E5A812;">-</span>
                                     <span class="mini-stat-label">Upcoming</span>
                                 </div>
                             </div>
@@ -3326,11 +3412,11 @@ if ($debug_mode) {
                                     <span class="mini-stat-label">Total Events</span>
                                 </div>
                                 <div class="mini-stat">
-                                    <span class="mini-stat-value" id="upcomingEvents" style="color: #3b82f6;">-</span>
+                                    <span class="mini-stat-value" id="upcomingEvents" style="color: #0095DA;">-</span>
                                     <span class="mini-stat-label">Upcoming</span>
                                 </div>
                                 <div class="mini-stat">
-                                    <span class="mini-stat-value" id="pastEvents" style="color: #6b7280;">-</span>
+                                    <span class="mini-stat-value" id="pastEvents" style="color: #94958D;">-</span>
                                     <span class="mini-stat-label">Past</span>
                                 </div>
                             </div>
@@ -3350,7 +3436,7 @@ if ($debug_mode) {
                         <div class="dashboard-card-body">
                             <div class="media-stats">
                                 <div class="media-stat-item">
-                                    <i class="fas fa-images" style="color: #8b5cf6;"></i>
+                                    <i class="fas fa-images" style="color: #9227BF;"></i>
                                     <div>
                                         <span class="media-stat-value" id="totalPhotos">-</span>
                                         <span class="media-stat-label">Photos</span>
@@ -3358,7 +3444,7 @@ if ($debug_mode) {
                                     </div>
                                 </div>
                                 <div class="media-stat-item">
-                                    <i class="fas fa-video" style="color: #ef4444;"></i>
+                                    <i class="fas fa-video" style="color: #FF0000;"></i>
                                     <div>
                                         <span class="media-stat-value" id="totalVideos">-</span>
                                         <span class="media-stat-label">Videos</span>
@@ -3443,7 +3529,7 @@ if ($debug_mode) {
                     </h3>
                     <div class="analytics-kpi-grid">
                         <div class="analytics-kpi-card">
-                            <div class="analytics-kpi-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="analytics-kpi-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                                 <i class="fas fa-trophy"></i>
                             </div>
                             <div class="analytics-kpi-content">
@@ -3453,7 +3539,7 @@ if ($debug_mode) {
                         </div>
                         
                         <div class="analytics-kpi-card">
-                            <div class="analytics-kpi-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <div class="analytics-kpi-icon" style="background: linear-gradient(135deg, #EC008C 0%, #C40063 100%);">
                                 <i class="fas fa-balance-scale"></i>
                             </div>
                             <div class="analytics-kpi-content">
@@ -3473,7 +3559,7 @@ if ($debug_mode) {
                         </div>
                         
                         <div class="analytics-kpi-card">
-                            <div class="analytics-kpi-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <div class="analytics-kpi-icon" style="background: linear-gradient(135deg, #EC008C 0%, #FFD400 100%);">
                                 <i class="fas fa-images"></i>
                             </div>
                             <div class="analytics-kpi-content">
@@ -3497,7 +3583,7 @@ if ($debug_mode) {
                                     <div class="gender-bars">
                                         <div class="gender-bar-container">
                                             <div class="gender-bar-label">
-                                                <i class="fas fa-mars" style="color: #3b82f6;"></i> Male
+                                                <i class="fas fa-mars" style="color: #0095DA;"></i> Male
                                             </div>
                                             <div class="gender-bar-track">
                                                 <div class="gender-bar male" id="athletesMaleBar" style="width: 0%"></div>
@@ -3506,7 +3592,7 @@ if ($debug_mode) {
                                         </div>
                                         <div class="gender-bar-container">
                                             <div class="gender-bar-label">
-                                                <i class="fas fa-venus" style="color: #ec4899;"></i> Female
+                                                <i class="fas fa-venus" style="color: #EC008C;"></i> Female
                                             </div>
                                             <div class="gender-bar-track">
                                                 <div class="gender-bar female" id="athletesFemaleBar" style="width: 0%"></div>
@@ -3521,7 +3607,7 @@ if ($debug_mode) {
                                     <div class="gender-bars">
                                         <div class="gender-bar-container">
                                             <div class="gender-bar-label">
-                                                <i class="fas fa-mars" style="color: #3b82f6;"></i> Male
+                                                <i class="fas fa-mars" style="color: #0095DA;"></i> Male
                                             </div>
                                             <div class="gender-bar-track">
                                                 <div class="gender-bar male" id="coachesMaleBar" style="width: 0%"></div>
@@ -3530,7 +3616,7 @@ if ($debug_mode) {
                                         </div>
                                         <div class="gender-bar-container">
                                             <div class="gender-bar-label">
-                                                <i class="fas fa-venus" style="color: #ec4899;"></i> Female
+                                                <i class="fas fa-venus" style="color: #EC008C;"></i> Female
                                             </div>
                                             <div class="gender-bar-track">
                                                 <div class="gender-bar female" id="coachesFemaleBar" style="width: 0%"></div>
@@ -3545,7 +3631,7 @@ if ($debug_mode) {
                                     <div class="gender-bars">
                                         <div class="gender-bar-container">
                                             <div class="gender-bar-label">
-                                                <i class="fas fa-mars" style="color: #3b82f6;"></i> Male
+                                                <i class="fas fa-mars" style="color: #0095DA;"></i> Male
                                             </div>
                                             <div class="gender-bar-track">
                                                 <div class="gender-bar male" id="volunteersMaleBar" style="width: 0%"></div>
@@ -3554,7 +3640,7 @@ if ($debug_mode) {
                                         </div>
                                         <div class="gender-bar-container">
                                             <div class="gender-bar-label">
-                                                <i class="fas fa-venus" style="color: #ec4899;"></i> Female
+                                                <i class="fas fa-venus" style="color: #EC008C;"></i> Female
                                             </div>
                                             <div class="gender-bar-track">
                                                 <div class="gender-bar female" id="volunteersFemaleBar" style="width: 0%"></div>
@@ -3600,7 +3686,7 @@ if ($debug_mode) {
                             <div class="media-growth-stats">
                                 <div class="media-growth-item">
                                     <div class="media-growth-header">
-                                        <i class="fas fa-images" style="color: #8b5cf6;"></i>
+                                        <i class="fas fa-images" style="color: #9227BF;"></i>
                                         <span>Photo Collections</span>
                                     </div>
                                     <div class="media-growth-value" id="photoCollectionsCount">-</div>
@@ -3614,7 +3700,7 @@ if ($debug_mode) {
                                 
                                 <div class="media-growth-item">
                                     <div class="media-growth-header">
-                                        <i class="fas fa-video" style="color: #ef4444;"></i>
+                                        <i class="fas fa-video" style="color: #FF0000;"></i>
                                         <span>Video Collections</span>
                                     </div>
                                     <div class="media-growth-value" id="videoCollectionsCount">-</div>
@@ -3702,7 +3788,7 @@ if ($debug_mode) {
                 <!-- Events Statistics Overview -->
                 <div class="events-stats-grid">
                     <div class="events-stat-card">
-                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #0095DA 0%, #006285 100%);">
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <div class="events-stat-content">
@@ -3711,7 +3797,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="events-stat-card">
-                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #9227BF 0%, #7c3aed 100%);">
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="events-stat-content">
@@ -3720,7 +3806,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="events-stat-card">
-                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);">
                             <i class="fas fa-dumbbell"></i>
                         </div>
                         <div class="events-stat-content">
@@ -3729,7 +3815,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="events-stat-card">
-                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="events-stat-icon" style="background: linear-gradient(135deg, #E5A812 0%, #d97706 100%);">
                             <i class="fas fa-calendar-check"></i>
                         </div>
                         <div class="events-stat-content">
@@ -3861,7 +3947,7 @@ if ($debug_mode) {
                         </div>
                                 <button type="submit" class="event-submit-btn" id="submitEventBtn">Add Event</button>
                                 <button type="button" class="event-submit-btn" id="cancelEditBtn"
-                                    style="display:none; background-color: #6c757d;">Cancel Edit</button>
+                                    style="display:none; background-color: #636359;">Cancel Edit</button>
                             </form>
                         </div>
                     </div>
@@ -3957,7 +4043,7 @@ if ($debug_mode) {
                         </div>
                         <button type="submit" class="sport-submit-btn" id="submitSportBtn">Add Sport</button>
                         <button type="button" class="sport-submit-btn" id="cancelEditSportBtn"
-                            style="display:none; background-color: #6c757d;">Cancel Edit</button>
+                            style="display:none; background-color: #636359;">Cancel Edit</button>
                             </form>
                         </div>
                     </div>
@@ -4121,7 +4207,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div style="display: flex; gap: 12px;">
-                        <button class="add-news-btn" onclick="openAddParticipantModal('athletes')" style="background: #10b981;">
+                        <button class="add-news-btn" onclick="openAddParticipantModal('athletes')" style="background: #88AC2E;">
                             <i class="fas fa-user-plus"></i> Add New Athlete
                         </button>
                         <button class="add-news-btn" onclick="openUploadModal('athletes')">
@@ -4133,7 +4219,7 @@ if ($debug_mode) {
                 <!-- Athletes Statistics Overview -->
                 <div class="stats-grid" style="margin-bottom: 30px;">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="stat-content">
@@ -4144,7 +4230,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <div class="stat-content">
@@ -4155,7 +4241,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #E5A812 0%, #d97706 100%);">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="stat-content">
@@ -4166,7 +4252,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #0095DA 0%, #006285 100%);">
                             <i class="fas fa-calendar-week"></i>
                         </div>
                         <div class="stat-content">
@@ -4234,8 +4320,8 @@ if ($debug_mode) {
                         <tbody id="athletesTableBody">
                             <tr>
                                 <td colspan="10" style="text-align: center; padding: 40px;">
-                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i>
-                                    <p style="margin-top: 10px; color: #64748b;">Loading athletes data...</p>
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #6F2C91;"></i>
+                                    <p style="margin-top: 10px; color: #94958D;">Loading athletes data...</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -4259,7 +4345,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div style="display: flex; gap: 12px;">
-                        <button class="add-news-btn" onclick="openAddParticipantModal('coaches')" style="background: #10b981;">
+                        <button class="add-news-btn" onclick="openAddParticipantModal('coaches')" style="background: #88AC2E;">
                             <i class="fas fa-user-plus"></i> Add New Coach
                         </button>
                         <button class="add-news-btn" onclick="openUploadModal('coaches')">
@@ -4271,7 +4357,7 @@ if ($debug_mode) {
                 <!-- Coaches Statistics Overview -->
                 <div class="stats-grid" style="margin-bottom: 30px;">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="stat-content">
@@ -4282,7 +4368,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <div class="stat-content">
@@ -4293,7 +4379,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #E5A812 0%, #d97706 100%);">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="stat-content">
@@ -4304,7 +4390,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #9227BF 0%, #7c3aed 100%);">
                             <i class="fas fa-award"></i>
                         </div>
                         <div class="stat-content">
@@ -4372,8 +4458,8 @@ if ($debug_mode) {
                         <tbody id="coachesTableBody">
                             <tr>
                                 <td colspan="10" style="text-align: center; padding: 40px;">
-                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i>
-                                    <p style="margin-top: 10px; color: #64748b;">Loading coaches data...</p>
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #6F2C91;"></i>
+                                    <p style="margin-top: 10px; color: #94958D;">Loading coaches data...</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -4397,7 +4483,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div style="display: flex; gap: 12px;">
-                        <button class="add-news-btn" onclick="openAddParticipantModal('volunteers')" style="background: #10b981;">
+                        <button class="add-news-btn" onclick="openAddParticipantModal('volunteers')" style="background: #88AC2E;">
                             <i class="fas fa-user-plus"></i> Add New Volunteer
                         </button>
                         <button class="add-news-btn" onclick="openUploadModal('volunteers')">
@@ -4409,7 +4495,7 @@ if ($debug_mode) {
                 <!-- Volunteers Statistics Overview -->
                 <div class="stats-grid" style="margin-bottom: 30px;">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                             <i class="fas fa-hands-helping"></i>
                         </div>
                         <div class="stat-content">
@@ -4420,7 +4506,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <div class="stat-content">
@@ -4431,7 +4517,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #E5A812 0%, #d97706 100%);">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="stat-content">
@@ -4442,7 +4528,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #0095DA 0%, #006285 100%);">
                             <i class="fas fa-calendar-week"></i>
                         </div>
                         <div class="stat-content">
@@ -4510,8 +4596,8 @@ if ($debug_mode) {
                         <tbody id="volunteersTableBody">
                             <tr>
                                 <td colspan="10" style="text-align: center; padding: 40px;">
-                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #667eea;"></i>
-                                    <p style="margin-top: 10px; color: #64748b;">Loading volunteers data...</p>
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #6F2C91;"></i>
+                                    <p style="margin-top: 10px; color: #94958D;">Loading volunteers data...</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -4542,7 +4628,7 @@ if ($debug_mode) {
                 <!-- News Statistics Overview -->
                 <div class="news-stats-grid">
                     <div class="news-stat-card">
-                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #FF0000 0%, #dc2626 100%);">
                             <i class="fas fa-newspaper"></i>
                         </div>
                         <div class="news-stat-content">
@@ -4551,7 +4637,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="news-stat-card">
-                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #0095DA 0%, #006285 100%);">
                             <i class="fas fa-calendar-day"></i>
                         </div>
                         <div class="news-stat-content">
@@ -4560,7 +4646,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="news-stat-card">
-                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="news-stat-content">
@@ -4569,7 +4655,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="news-stat-card">
-                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="news-stat-icon" style="background: linear-gradient(135deg, #E5A812 0%, #d97706 100%);">
                             <i class="fas fa-fire"></i>
                         </div>
                         <div class="news-stat-content">
@@ -5223,7 +5309,7 @@ if ($debug_mode) {
                 <!-- Document Stats Overview -->
                 <div class="stats-grid" style="margin-bottom: 30px;">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                             <i class="fas fa-file-excel"></i>
                         </div>
                         <div class="stat-content">
@@ -5234,7 +5320,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #88AC2E 0%, #28752B 100%);">
                             <i class="fas fa-running"></i>
                         </div>
                         <div class="stat-content">
@@ -5245,7 +5331,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #0095DA 0%, #006285 100%);">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
                         <div class="stat-content">
@@ -5256,7 +5342,7 @@ if ($debug_mode) {
                     </div>
 
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #E5A812 0%, #d97706 100%);">
                             <i class="fas fa-hands-helping"></i>
                         </div>
                         <div class="stat-content">
@@ -5276,14 +5362,14 @@ if ($debug_mode) {
                         </div>
 
                         <div style="display: flex; gap: 12px; align-items: center;">
-                            <select id="docsTypeFilter" style="padding: 10px 16px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; cursor: pointer;">
+                            <select id="docsTypeFilter" style="padding: 10px 16px; border: 1px solid #BCBEC0; border-radius: 6px; font-size: 14px; cursor: pointer;">
                                 <option value="all">All Types</option>
                                 <option value="athlete">Athletes</option>
                                 <option value="coach">Coaches</option>
                                 <option value="volunteer">Volunteers</option>
                             </select>
 
-                            <select id="docsSortBy" style="padding: 10px 16px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; cursor: pointer;">
+                            <select id="docsSortBy" style="padding: 10px 16px; border: 1px solid #BCBEC0; border-radius: 6px; font-size: 14px; cursor: pointer;">
                                 <option value="date-desc">Newest First</option>
                                 <option value="date-asc">Oldest First</option>
                                 <option value="name-asc">Name (A-Z)</option>
@@ -5310,7 +5396,7 @@ if ($debug_mode) {
                 <!-- Documents List View (Default) -->
                 <div id="docsListView" class="docs-list-container" style="background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); overflow: hidden;">
                     <table class="docs-table" style="width: 100%; border-collapse: collapse;">
-                        <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <thead style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%); color: white;">
                             <tr>
                                 <th style="padding: 16px 12px; text-align: left; font-weight: 600; font-size: 13px;">
                                     <i class="fas fa-file-excel"></i> File Name
@@ -5326,8 +5412,8 @@ if ($debug_mode) {
                         <tbody id="docsTableBody">
                             <tr>
                                 <td colspan="7" style="text-align: center; padding: 60px 20px;">
-                                    <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: #667eea; margin-bottom: 16px;"></i>
-                                    <p style="color: #64748b; font-size: 16px;">Loading documents...</p>
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: #6F2C91; margin-bottom: 16px;"></i>
+                                    <p style="color: #94958D; font-size: 16px;">Loading documents...</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -5410,7 +5496,7 @@ if ($debug_mode) {
                     <div class="gallery-admin-container">
                         <div class="gallery-admin-title">
                             <h3>Published Photos</h3>
-                            <small style="color: #6b7280; margin-left: 10px;">?? Drag gallery headers to reorder collections, drag photos to reorder within collections</small>
+                            <small style="color: #94958D; margin-left: 10px;">?? Drag gallery headers to reorder collections, drag photos to reorder within collections</small>
                         </div>
                         <!-- Fetch the published collections from the database -->
                         <!-- Below is just a hard-coded structure sample, not connected to the database -->
@@ -5505,7 +5591,7 @@ if ($debug_mode) {
                     <div class="gallery-admin-container">
                         <div class="gallery-admin-title">
                             <h3>Published Videos</h3>
-                            <small style="color: #6b7280; margin-left: 10px;">?? Drag gallery headers to reorder collections, drag videos to reorder within collections</small>
+                            <small style="color: #94958D; margin-left: 10px;">?? Drag gallery headers to reorder collections, drag videos to reorder within collections</small>
                         </div>
                         <div id="publishedGalleryVideo">
                             <!-- Published videos will be loaded here via AJAX -->
@@ -5604,7 +5690,7 @@ if ($debug_mode) {
                         
                         <div class="published-title">
                             <h3>Regional Chapters</h3>
-                            <p style="color: #64748b; font-size: 14px; margin-top: 4px;">Click Edit to update chapter information</p>
+                            <p style="color: #94958D; font-size: 14px; margin-top: 4px;">Click Edit to update chapter information</p>
                         </div>
                         
                         <div id="existingChapters" class="chapters-grid">
@@ -5685,7 +5771,7 @@ if ($debug_mode) {
                         </div>
                         <div id="currentSponsorship" class="sponsorship-grid">
                             <!-- Sponsors will be loaded here via AJAX grouped by chapter -->
-                            <p style="text-align: center; color: #64748b;">Loading sponsors...</p>
+                            <p style="text-align: center; color: #94958D;">Loading sponsors...</p>
                         </div>
                     </div>
                 </div>
@@ -5778,7 +5864,7 @@ if ($debug_mode) {
                 <!-- Statistics Overview -->
                 <div class="other-so-stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6F2C91 0%, #3D1063 100%);">
                             <i class="fas fa-globe"></i>
                         </div>
                         <div class="stat-content">
@@ -5787,7 +5873,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #EC008C 0%, #C40063 100%);">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <div class="stat-content">
@@ -5805,7 +5891,7 @@ if ($debug_mode) {
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #EC008C 0%, #FFD400 100%);">
                             <i class="fas fa-times-circle"></i>
                         </div>
                         <div class="stat-content">
@@ -5909,26 +5995,26 @@ if ($debug_mode) {
 
                 <div class="profile-container">
                     <!-- Profile Navigation Tabs -->
-                    <div class="profile-tabs" style="display: flex; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0;">
-                        <button class="profile-tab active" data-tab="information" style="padding: 12px 24px; border: none; background: #3b82f6; color: white; cursor: pointer; border-radius: 8px 8px 0 0; margin-right: 5px; position: relative; z-index: 10; pointer-events: auto;" onclick="
+                    <div class="profile-tabs" style="display: flex; margin-bottom: 20px; border-bottom: 1px solid #BCBEC0;">
+                        <button class="profile-tab active" data-tab="information" style="padding: 12px 24px; border: none; background: #0095DA; color: white; cursor: pointer; border-radius: 8px 8px 0 0; margin-right: 5px; position: relative; z-index: 10; pointer-events: auto;" onclick="
                             console.log('Information tab clicked');
                             document.getElementById('security-tab').style.display = 'none';
                             document.getElementById('information-tab').style.display = 'block';
-                            document.querySelector('[data-tab=security]').style.backgroundColor = '#f1f5f9';
-                            document.querySelector('[data-tab=security]').style.color = '#475569';
-                            this.style.backgroundColor = '#3b82f6';
+                            document.querySelector('[data-tab=security]').style.backgroundColor = '#ECEADB';
+                            document.querySelector('[data-tab=security]').style.color = '#636359';
+                            this.style.backgroundColor = '#0095DA';
                             this.style.color = 'white';
                         ">
                             <i class="fas fa-user"></i>
                             Information
                         </button>
-                        <button class="profile-tab" data-tab="security" style="padding: 12px 24px; border: none; background: #f1f5f9; color: #475569; cursor: pointer; border-radius: 8px 8px 0 0; position: relative; z-index: 10; pointer-events: auto;" onclick="
+                        <button class="profile-tab" data-tab="security" style="padding: 12px 24px; border: none; background: #ECEADB; color: #636359; cursor: pointer; border-radius: 8px 8px 0 0; position: relative; z-index: 10; pointer-events: auto;" onclick="
                             console.log('Security tab clicked');
                             document.getElementById('information-tab').style.display = 'none';
                             document.getElementById('security-tab').style.display = 'block';
-                            document.querySelector('[data-tab=information]').style.backgroundColor = '#f1f5f9';
-                            document.querySelector('[data-tab=information]').style.color = '#475569';
-                            this.style.backgroundColor = '#3b82f6';
+                            document.querySelector('[data-tab=information]').style.backgroundColor = '#ECEADB';
+                            document.querySelector('[data-tab=information]').style.color = '#636359';
+                            this.style.backgroundColor = '#0095DA';
                             this.style.color = 'white';
                         ">
                             <i class="fas fa-lock"></i>
@@ -6042,12 +6128,12 @@ if ($debug_mode) {
                 <button class="modal-close" onclick="closeUploadModal()">&times;</button>
             </div>
             <div class="modal-body" style="padding: 32px; overflow-y: auto; flex-grow: 1;">
-                <div class="upload-instructions" style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 16px; margin-bottom: 24px; border-radius: 8px;">
-                    <h4 style="margin: 0 0 8px 0; color: #1e293b; font-size: 14px; font-weight: 600;">
-                        <i class="fas fa-info-circle" style="color: #3b82f6; margin-right: 8px;"></i>
+                <div class="upload-instructions" style="background: #f0f9ff; border-left: 4px solid #0095DA; padding: 16px; margin-bottom: 24px; border-radius: 8px;">
+                    <h4 style="margin: 0 0 8px 0; color: #000000; font-size: 14px; font-weight: 600;">
+                        <i class="fas fa-info-circle" style="color: #0095DA; margin-right: 8px;"></i>
                         Excel File Format Instructions
                     </h4>
-                    <ul style="margin: 0; padding-left: 20px; color: #64748b; font-size: 13px; line-height: 1.8;">
+                    <ul style="margin: 0; padding-left: 20px; color: #94958D; font-size: 13px; line-height: 1.8;">
                         <li>Export your Microsoft Forms responses as Excel (.xlsx) or CSV file</li>
                         <li>First row should contain column headers</li>
                         <li>Required columns: Full Name, Email, Phone</li>
@@ -6060,8 +6146,8 @@ if ($debug_mode) {
                     <input type="hidden" id="participantType" name="participantType">
                     
                     <div class="form-group">
-                        <label for="excelFile" style="display: block; margin-bottom: 8px; font-weight: 500; color: #1e293b;">
-                            Select Excel File <span style="color: #ef4444;">*</span>
+                        <label for="excelFile" style="display: block; margin-bottom: 8px; font-weight: 500; color: #000000;">
+                            Select Excel File <span style="color: #FF0000;">*</span>
                         </label>
                         <div class="file-upload-container" style="position: relative;">
                             <input 
@@ -6075,26 +6161,26 @@ if ($debug_mode) {
                             <button 
                                 type="button" 
                                 onclick="document.getElementById('excelFile').click()"
-                                style="width: 100%; padding: 16px; border: 2px dashed #cbd5e1; background: #f8fafc; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <i class="fas fa-cloud-upload-alt" style="font-size: 32px; color: #3b82f6; display: block; margin-bottom: 8px;"></i>
-                                <span style="display: block; color: #1e293b; font-weight: 500; margin-bottom: 4px;">
+                                style="width: 100%; padding: 16px; border: 2px dashed #BCBEC0; background: #FFFFFF; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
+                                <i class="fas fa-cloud-upload-alt" style="font-size: 32px; color: #0095DA; display: block; margin-bottom: 8px;"></i>
+                                <span style="display: block; color: #000000; font-weight: 500; margin-bottom: 4px;">
                                     Click to select Excel file
                                 </span>
-                                <span style="display: block; color: #64748b; font-size: 13px;">
+                                <span style="display: block; color: #94958D; font-size: 13px;">
                                     or drag and drop here
                                 </span>
                             </button>
                         </div>
-                        <div id="selectedFileName" style="margin-top: 12px; padding: 12px; background: #f1f5f9; border-radius: 6px; display: none;">
-                            <i class="fas fa-file-excel" style="color: #10b981; margin-right: 8px;"></i>
-                            <span id="fileNameText" style="color: #1e293b; font-weight: 500;"></span>
-                            <button type="button" onclick="removeExcelFile()" style="float: right; background: none; border: none; color: #ef4444; cursor: pointer;">
+                        <div id="selectedFileName" style="margin-top: 12px; padding: 12px; background: #ECEADB; border-radius: 6px; display: none;">
+                            <i class="fas fa-file-excel" style="color: #88AC2E; margin-right: 8px;"></i>
+                            <span id="fileNameText" style="color: #000000; font-weight: 500;"></span>
+                            <button type="button" onclick="removeExcelFile()" style="float: right; background: none; border: none; color: #FF0000; cursor: pointer;">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="upload-column-mapping" style="margin-top: 24px; padding: 16px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px;">
+                    <div class="upload-column-mapping" style="margin-top: 24px; padding: 16px; background: #ECEADB; border-left: 4px solid #E5A812; border-radius: 8px;">
                         <h4 style="margin: 0 0 8px 0; color: #92400e; font-size: 13px; font-weight: 600;">
                             <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>
                             Expected Column Order (based on participant type)
@@ -6102,7 +6188,7 @@ if ($debug_mode) {
                         <div id="columnMappingGuide" style="font-size: 12px; color: #78350f; line-height: 1.6;"></div>
                     </div>
 
-                    <div class="modal-footer" style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; padding: 16px 0; border-top: 1px solid #e2e8f0; flex-shrink: 0;">
+                    <div class="modal-footer" style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; padding: 16px 0; border-top: 1px solid #BCBEC0; flex-shrink: 0;">
                         <button type="button" class="btn-cancel" onclick="closeUploadModal()" style="padding: 10px 24px;">
                             Cancel
                         </button>
@@ -6113,15 +6199,15 @@ if ($debug_mode) {
                 </form>
 
                 <div id="uploadProgress" style="display: none; margin-top: 20px;">
-                    <div style="background: #f1f5f9; border-radius: 8px; padding: 16px;">
+                    <div style="background: #ECEADB; border-radius: 8px; padding: 16px;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                            <i class="fas fa-spinner fa-spin" style="color: #3b82f6; font-size: 20px;"></i>
-                            <span style="color: #1e293b; font-weight: 500;">Processing Excel file...</span>
+                            <i class="fas fa-spinner fa-spin" style="color: #0095DA; font-size: 20px;"></i>
+                            <span style="color: #000000; font-weight: 500;">Processing Excel file...</span>
                         </div>
-                        <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
-                            <div id="uploadProgressBar" style="height: 100%; background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%); width: 0%; transition: width 0.3s;"></div>
+                        <div style="height: 8px; background: #BCBEC0; border-radius: 4px; overflow: hidden;">
+                            <div id="uploadProgressBar" style="height: 100%; background: linear-gradient(90deg, #0095DA 0%, #9227BF 100%); width: 0%; transition: width 0.3s;"></div>
                         </div>
-                        <p id="uploadStatus" style="margin: 8px 0 0 0; color: #64748b; font-size: 13px;"></p>
+                        <p id="uploadStatus" style="margin: 8px 0 0 0; color: #94958D; font-size: 13px;"></p>
                     </div>
                 </div>
 
@@ -6145,7 +6231,7 @@ if ($debug_mode) {
                     <!-- Basic Information -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
                         <div class="form-group">
-                            <label for="participantFullName">Full Name <span style="color: #ef4444;">*</span></label>
+                            <label for="participantFullName">Full Name <span style="color: #FF0000;">*</span></label>
                             <input type="text" id="participantFullName" name="full_name" required placeholder="John Doe">
                         </div>
                         <div class="form-group">
@@ -6240,8 +6326,8 @@ if ($debug_mode) {
                     </div>
 
                     <!-- Emergency Contact -->
-                    <div style="border-top: 2px solid #e2e8f0; padding-top: 20px; margin-top: 20px;">
-                        <h4 style="margin: 0 0 16px 0; color: #1e293b; font-size: 16px;">
+                    <div style="border-top: 2px solid #BCBEC0; padding-top: 20px; margin-top: 20px;">
+                        <h4 style="margin: 0 0 16px 0; color: #000000; font-size: 16px;">
                             <i class="fas fa-phone"></i> Emergency Contact
                         </h4>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
@@ -6256,11 +6342,11 @@ if ($debug_mode) {
                         </div>
                     </div>
 
-                    <div class="modal-footer" style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; padding: 16px 0; border-top: 1px solid #e2e8f0; flex-shrink: 0;">
+                    <div class="modal-footer" style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; padding: 16px 0; border-top: 1px solid #BCBEC0; flex-shrink: 0;">
                         <button type="button" class="btn-cancel" onclick="closeAddParticipantModal()">
                             Cancel
                         </button>
-                        <button type="submit" class="btn-submit" style="background: #10b981;">
+                        <button type="submit" class="btn-submit" style="background: #88AC2E;">
                             <i class="fas fa-user-plus"></i> Add Participant
                         </button>
                     </div>
@@ -6429,21 +6515,21 @@ if ($debug_mode) {
             <div class="modal-header">
                 <div style="flex: 1;">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-                        <i class="fas fa-edit" style="color: #3b82f6; font-size: 18px;"></i>
+                        <i class="fas fa-edit" style="color: #0095DA; font-size: 18px;"></i>
                         <h3 id="editCollectionNameDisplay" onclick="enableCollectionNameEdit()" 
                             style="margin: 0; font-size: 20px; font-weight: 600; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: all 0.2s;"
-                            onmouseover="this.style.background='#f1f5f9'"
+                            onmouseover="this.style.background='#ECEADB'"
                             onmouseout="this.style.background=''"
                             title="Click to edit collection name">
                             Collection Name
                         </h3>
-                        <i class="fas fa-pencil-alt" style="color: #94a3b8; font-size: 12px;"></i>
+                        <i class="fas fa-pencil-alt" style="color: #BCBEC0; font-size: 12px;"></i>
                     </div>
                     <input type="text" id="editCollectionNameInput" 
-                           style="display: none; font-size: 20px; font-weight: 600; padding: 4px 8px; border: 2px solid #3b82f6; border-radius: 4px; font-family: 'Inter', sans-serif; width: 100%; max-width: 500px;"
+                           style="display: none; font-size: 20px; font-weight: 600; padding: 4px 8px; border: 2px solid #0095DA; border-radius: 4px; font-family: 'Inter', sans-serif; width: 100%; max-width: 500px;"
                            onblur="saveCollectionNameEdit()"
                            onkeydown="if(event.key==='Enter'){saveCollectionNameEdit();event.preventDefault();} if(event.key==='Escape'){cancelCollectionNameEdit()}">
-                    <div style="font-size: 12px; color: #64748b; margin-top: 2px;">
+                    <div style="font-size: 12px; color: #94958D; margin-top: 2px;">
                         <i class="fas fa-info-circle" style="font-size: 10px;"></i> Click the title to edit collection name
                     </div>
                 </div>
@@ -6459,18 +6545,18 @@ if ($debug_mode) {
                 <!-- Existing Videos Carousel - Edit Video Titles -->
                 <div class="galphoto-form-group">
                     <label>
-                        <i class="fas fa-film" style="margin-right: 6px; color: #3b82f6;"></i>
+                        <i class="fas fa-film" style="margin-right: 6px; color: #0095DA;"></i>
                         Existing Videos in Collection
                     </label>
-                    <div id="existingVideosCarousel" style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 12px; display: none;">
+                    <div id="existingVideosCarousel" style="background: #FFFFFF; border: 2px solid #BCBEC0; border-radius: 12px; padding: 20px; margin-bottom: 12px; display: none;">
                         <div style="position: relative;">
                             <!-- Carousel Navigation -->
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                                <button type="button" onclick="previousExistingVideo()" style="background: #e2e8f0; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s;">
+                                <button type="button" onclick="previousExistingVideo()" style="background: #BCBEC0; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s;">
                                     <i class="fas fa-chevron-left"></i> Previous
                                 </button>
-                                <span id="existingVideoCounter" style="font-weight: 600; color: #475569;">No videos</span>
-                                <button type="button" onclick="nextExistingVideo()" style="background: #e2e8f0; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s;">
+                                <span id="existingVideoCounter" style="font-weight: 600; color: #636359;">No videos</span>
+                                <button type="button" onclick="nextExistingVideo()" style="background: #BCBEC0; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s;">
                                     Next <i class="fas fa-chevron-right"></i>
                                 </button>
                             </div>
@@ -6482,23 +6568,23 @@ if ($debug_mode) {
                             
                             <!-- Video Title Editor -->
                             <div style="margin-top: 16px;">
-                                <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px; font-size: 14px;">
-                                    <i class="fas fa-heading" style="margin-right: 6px; color: #3b82f6;"></i>Video Title
+                                <label style="display: block; font-weight: 600; color: #636359; margin-bottom: 8px; font-size: 14px;">
+                                    <i class="fas fa-heading" style="margin-right: 6px; color: #0095DA;"></i>Video Title
                                 </label>
-                                <input type="text" id="currentVideoTitle" placeholder="Enter video title..." style="width: 100%; padding: 10px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; margin-bottom: 8px;" onchange="updateCurrentVideoTitle()">
+                                <input type="text" id="currentVideoTitle" placeholder="Enter video title..." style="width: 100%; padding: 10px 12px; border: 2px solid #BCBEC0; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; margin-bottom: 8px;" onchange="updateCurrentVideoTitle()">
                                 
-                                <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px; font-size: 14px;">
-                                    <i class="fas fa-align-left" style="margin-right: 6px; color: #3b82f6;"></i>Video Description
+                                <label style="display: block; font-weight: 600; color: #636359; margin-bottom: 8px; font-size: 14px;">
+                                    <i class="fas fa-align-left" style="margin-right: 6px; color: #0095DA;"></i>Video Description
                                 </label>
-                                <textarea id="currentVideoDesc" placeholder="Enter video description..." rows="3" style="width: 100%; padding: 10px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif;" onchange="updateCurrentVideoDesc()"></textarea>
+                                <textarea id="currentVideoDesc" placeholder="Enter video description..." rows="3" style="width: 100%; padding: 10px 12px; border: 2px solid #BCBEC0; border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif;" onchange="updateCurrentVideoDesc()"></textarea>
                             </div>
                             
                             <!-- Video Actions -->
                             <div style="display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end;">
-                                <button type="button" onclick="saveCurrentVideoEdit()" style="background: #10b981; color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
+                                <button type="button" onclick="saveCurrentVideoEdit()" style="background: #88AC2E; color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
                                     <i class="fas fa-save"></i> Save Video Info
                                 </button>
-                                <button type="button" onclick="deleteCurrentVideo()" style="background: #ef4444; color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
+                                <button type="button" onclick="deleteCurrentVideo()" style="background: #FF0000; color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;">
                                     <i class="fas fa-trash"></i> Delete Video
                                 </button>
                             </div>
@@ -6508,8 +6594,8 @@ if ($debug_mode) {
                         <div id="existingVideoThumbnails" style="display: flex; gap: 12px; margin-top: 20px; overflow-x: auto; padding: 12px 0;"></div>
                     </div>
                     
-                    <div style="font-size: 12px; color: #64748b; display: flex; align-items: center; gap: 6px;">
-                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                    <div style="font-size: 12px; color: #94958D; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-info-circle" style="color: #0095DA;"></i>
                         Click on a video to edit its title and description. Changes are saved individually.
                     </div>
                 </div>
@@ -6517,24 +6603,24 @@ if ($debug_mode) {
                 <!-- Videos Upload Section - Multiple Upload -->
                 <div class="galphoto-form-group">
                     <label for="editCollectionVideos">
-                        <i class="fas fa-video" style="margin-right: 6px; color: #3b82f6;"></i>
+                        <i class="fas fa-video" style="margin-right: 6px; color: #0095DA;"></i>
                         Upload New Videos to Collection
                     </label>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                        <label for="editCollectionVideos" class="custom-browse-btn" style="cursor: pointer; background: #3b82f6; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+                        <label for="editCollectionVideos" class="custom-browse-btn" style="cursor: pointer; background: #0095DA; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
                             <i class="fas fa-upload"></i> Browse Videos
                         </label>
                         <input type="file" id="editCollectionVideos" name="videos[]" accept="video/*" multiple style="display: none;">
-                        <button type="button" id="deleteEditCollectionVideos" class="custom-delete-btn" style="display: none; background: #ef4444; color: white; padding: 10px 16px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
+                        <button type="button" id="deleteEditCollectionVideos" class="custom-delete-btn" style="display: none; background: #FF0000; color: white; padding: 10px 16px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
                             <i class="fas fa-trash"></i> Clear All
                         </button>
-                        <span style="font-size: 14px; color: #64748b;" id="editCollectionVideoStatus">No files selected</span>
+                        <span style="font-size: 14px; color: #94958D;" id="editCollectionVideoStatus">No files selected</span>
                     </div>
-                    <div id="editCollectionVideoPreview" style="margin-top: 12px; display: none; padding: 12px; background: #f8fafc; border-radius: 8px; border: 2px dashed #e2e8f0;">
+                    <div id="editCollectionVideoPreview" style="margin-top: 12px; display: none; padding: 12px; background: #FFFFFF; border-radius: 8px; border: 2px dashed #BCBEC0;">
                         <div id="editCollectionVideoList" style="display: flex; flex-direction: column; gap: 8px;"></div>
                     </div>
-                    <div style="font-size: 12px; color: #64748b; margin-top: 8px; display: flex; align-items: center; gap: 6px;">
-                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                    <div style="font-size: 12px; color: #94958D; margin-top: 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-info-circle" style="color: #0095DA;"></i>
                         Select multiple video files (MP4, WebM, MOV). Max 50MB per file.
                     </div>
                 </div>
@@ -6542,41 +6628,41 @@ if ($debug_mode) {
                 <!-- Video Thumbnail Management -->
                 <div class="galphoto-form-group" id="videoThumbnailSection" style="display: none;">
                     <label>
-                        <i class="fas fa-image" style="margin-right: 6px; color: #3b82f6;"></i>
+                        <i class="fas fa-image" style="margin-right: 6px; color: #0095DA;"></i>
                         Video Thumbnail/Cover Image
                     </label>
-                    <div style="background: #f8fafc; border: 2px dashed #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 12px;">
+                    <div style="background: #FFFFFF; border: 2px dashed #BCBEC0; border-radius: 12px; padding: 20px; margin-bottom: 12px;">
                         <!-- Current Video Info -->
-                        <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #3b82f6;">
-                            <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">
-                                <i class="fas fa-video" style="color: #3b82f6; margin-right: 6px;"></i>
+                        <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #0095DA;">
+                            <div style="font-weight: 600; color: #000000; margin-bottom: 4px;">
+                                <i class="fas fa-video" style="color: #0095DA; margin-right: 6px;"></i>
                                 <span id="thumbnailVideoTitle">Select a video from carousel above</span>
                             </div>
-                            <div style="font-size: 12px; color: #64748b;" id="thumbnailVideoInfo">
+                            <div style="font-size: 12px; color: #94958D;" id="thumbnailVideoInfo">
                                 No video selected
                             </div>
                         </div>
                         
                         <!-- Current Thumbnail Preview -->
                         <div id="currentThumbnailPreview" style="display: none; text-align: center; margin-bottom: 16px; background: #000; border-radius: 8px; padding: 16px;">
-                            <div style="font-size: 12px; color: #94a3b8; margin-bottom: 8px;">Current Thumbnail:</div>
+                            <div style="font-size: 12px; color: #BCBEC0; margin-bottom: 8px;">Current Thumbnail:</div>
                             <img id="currentThumbnailImage" src="" alt="Current Thumbnail" style="max-width: 100%; max-height: 200px; object-fit: contain; border-radius: 4px;">
                         </div>
                         
                         <!-- Upload New Thumbnail -->
                         <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <label for="videoThumbnailUpload" class="custom-browse-btn" style="cursor: pointer; background: #3b82f6; color: white; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease;">
+                            <label for="videoThumbnailUpload" class="custom-browse-btn" style="cursor: pointer; background: #0095DA; color: white; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease;">
                                 <i class="fas fa-upload"></i> Upload New Thumbnail
                             </label>
                             <input type="file" id="videoThumbnailUpload" accept="image/*" style="display: none;" onchange="handleThumbnailUpload(this)">
                             
-                            <div id="thumbnailUploadStatus" style="font-size: 13px; color: #64748b; text-align: center;">
+                            <div id="thumbnailUploadStatus" style="font-size: 13px; color: #94958D; text-align: center;">
                                 No file selected
                             </div>
                             
                             <!-- New Thumbnail Preview -->
-                            <div id="newThumbnailPreview" style="display: none; text-align: center; background: white; border-radius: 8px; padding: 16px; border: 2px solid #10b981;">
-                                <div style="font-size: 12px; color: #10b981; font-weight: 600; margin-bottom: 8px;">
+                            <div id="newThumbnailPreview" style="display: none; text-align: center; background: white; border-radius: 8px; padding: 16px; border: 2px solid #88AC2E;">
+                                <div style="font-size: 12px; color: #88AC2E; font-weight: 600; margin-bottom: 8px;">
                                     <i class="fas fa-check-circle"></i> New Thumbnail Preview:
                                 </div>
                                 <img id="newThumbnailImage" src="" alt="New Thumbnail" style="max-width: 100%; max-height: 200px; object-fit: contain; border-radius: 4px;">
@@ -6584,20 +6670,20 @@ if ($debug_mode) {
                             
                             <!-- Action Buttons -->
                             <div style="display: flex; gap: 8px; justify-content: center;">
-                                <button type="button" onclick="saveThumbnail()" id="saveThumbnailBtn" style="display: none; background: #10b981; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                                <button type="button" onclick="saveThumbnail()" id="saveThumbnailBtn" style="display: none; background: #88AC2E; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
                                     <i class="fas fa-save"></i> Save Thumbnail
                                 </button>
-                                <button type="button" onclick="cancelThumbnailUpload()" id="cancelThumbnailBtn" style="display: none; background: #6c757d; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                                <button type="button" onclick="cancelThumbnailUpload()" id="cancelThumbnailBtn" style="display: none; background: #636359; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
                                     <i class="fas fa-times"></i> Cancel
                                 </button>
-                                <button type="button" onclick="removeThumbnail()" id="removeThumbnailBtn" style="display: none; background: #ef4444; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
+                                <button type="button" onclick="removeThumbnail()" id="removeThumbnailBtn" style="display: none; background: #FF0000; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: all 0.2s; font-weight: 500;">
                                     <i class="fas fa-trash"></i> Remove Thumbnail
                                 </button>
                             </div>
                         </div>
                         
-                        <div style="font-size: 12px; color: #64748b; margin-top: 16px; display: flex; align-items: center; gap: 6px; background: white; padding: 10px; border-radius: 6px;">
-                            <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                        <div style="font-size: 12px; color: #94958D; margin-top: 16px; display: flex; align-items: center; gap: 6px; background: white; padding: 10px; border-radius: 6px;">
+                            <i class="fas fa-info-circle" style="color: #0095DA;"></i>
                             Select a video from the carousel above to manage its thumbnail. Recommended size: 1280x720px (16:9 ratio)
                         </div>
                     </div>
@@ -6606,22 +6692,22 @@ if ($debug_mode) {
                 <!-- Collection Description -->
                 <div class="galphoto-form-group">
                     <label for="editCollectionDesc">
-                        <i class="fas fa-align-left" style="margin-right: 6px; color: #3b82f6;"></i>
+                        <i class="fas fa-align-left" style="margin-right: 6px; color: #0095DA;"></i>
                         Collection Description
                     </label>
                     <textarea style="font-family: 'Inter', sans-serif;" id="editCollectionDesc" name="description" placeholder="Brief description of this video collection" rows="3"></textarea>
-                    <div style="font-size: 12px; color: #64748b; margin-top: 6px;">
-                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                    <div style="font-size: 12px; color: #94958D; margin-top: 6px;">
+                        <i class="fas fa-info-circle" style="color: #0095DA;"></i>
                         This description will help users understand what videos are in this collection.
                     </div>
                 </div>
                 
                 <!-- Action Buttons -->
-                <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #e2e8f0;">
-                    <button type="button" onclick="closeEditCollectionModal()" style="padding: 12px 24px; background: #6c757d; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #BCBEC0;">
+                    <button type="button" onclick="closeEditCollectionModal()" style="padding: 12px 24px; background: #636359; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
                         <i class="fas fa-times" style="margin-right: 6px;"></i> Cancel
                     </button>
-                    <button type="button" onclick="saveEditCollectionInfo()" id="saveEditCollectionBtn" style="padding: 12px 24px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                    <button type="button" onclick="saveEditCollectionInfo()" id="saveEditCollectionBtn" style="padding: 12px 24px; background: #88AC2E; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
                         <i class="fas fa-save" style="margin-right: 6px;"></i> Save Changes
                     </button>
                 </div>
@@ -6634,7 +6720,7 @@ if ($debug_mode) {
         <div class="video-modal-backdrop" onclick="closeEditVideoModal()"></div>
         <div class="video-modal-content" style="max-width: 600px;">
             <div class="modal-header">
-                <h3 class="modal-title"><i class="fas fa-edit" style="margin-right: 10px; color: #3b82f6;"></i>Edit Video</h3>
+                <h3 class="modal-title"><i class="fas fa-edit" style="margin-right: 10px; color: #0095DA;"></i>Edit Video</h3>
                 <button type="button" class="modal-close" onclick="closeEditVideoModal()">
                     <i class="fas fa-times"></i>
                 </button>
@@ -6645,7 +6731,7 @@ if ($debug_mode) {
                 <!-- Video Title -->
                 <div class="galphoto-form-group">
                     <label for="editVideoTitle">
-                        <i class="fas fa-heading" style="margin-right: 6px; color: #3b82f6;"></i>
+                        <i class="fas fa-heading" style="margin-right: 6px; color: #0095DA;"></i>
                         Video Title <span style="color: #FF0000; font-weight: normal;">*required</span>
                     </label>
                     <input style="font-family: 'Inter', sans-serif;" type="text" id="editVideoTitle" name="title" placeholder="e.g., Opening Ceremony Highlights" required>
@@ -6654,22 +6740,22 @@ if ($debug_mode) {
                 <!-- Video Description -->
                 <div class="galphoto-form-group">
                     <label for="editVideoDesc">
-                        <i class="fas fa-align-left" style="margin-right: 6px; color: #3b82f6;"></i>
+                        <i class="fas fa-align-left" style="margin-right: 6px; color: #0095DA;"></i>
                         Video Description
                     </label>
                     <textarea style="font-family: 'Inter', sans-serif;" id="editVideoDesc" name="description" placeholder="Brief description of this video" rows="4"></textarea>
-                    <div style="font-size: 12px; color: #64748b; margin-top: 6px;">
-                        <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
+                    <div style="font-size: 12px; color: #94958D; margin-top: 6px;">
+                        <i class="fas fa-info-circle" style="color: #0095DA;"></i>
                         Provide details about what this video shows.
                     </div>
                 </div>
                 
                 <!-- Action Buttons -->
-                <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #e2e8f0;">
-                    <button type="button" onclick="closeEditVideoModal()" style="padding: 12px 24px; background: #6c757d; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 20px; margin-top: 20px; border-top: 1px solid #BCBEC0;">
+                    <button type="button" onclick="closeEditVideoModal()" style="padding: 12px 24px; background: #636359; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
                         <i class="fas fa-times" style="margin-right: 6px;"></i> Cancel
                     </button>
-                    <button type="button" onclick="saveEditedVideo()" id="saveEditedVideoBtn" style="padding: 12px 24px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
+                    <button type="button" onclick="saveEditedVideo()" id="saveEditedVideoBtn" style="padding: 12px 24px; background: #88AC2E; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: 'Inter', sans-serif;">
                         <i class="fas fa-save" style="margin-right: 6px;"></i> Save Changes
                     </button>
                 </div>
@@ -7368,7 +7454,7 @@ if ($debug_mode) {
                 if (newName) {
                     display.textContent = newName;
                     hidden.value = newName;
-                    display.style.background = '#10b98120';
+                    display.style.background = '#88AC2E20';
                     setTimeout(() => {
                         display.style.background = '';
                     }, 1000);
@@ -7538,11 +7624,11 @@ if ($debug_mode) {
             
             // Mark if this video has unsaved changes
             if (existingVideosDirty[currentVideo.id]) {
-                if (titleInput) titleInput.style.borderColor = '#f59e0b';
-                if (descInput) descInput.style.borderColor = '#f59e0b';
+                if (titleInput) titleInput.style.borderColor = '#E5A812';
+                if (descInput) descInput.style.borderColor = '#E5A812';
             } else {
-                if (titleInput) titleInput.style.borderColor = '#e2e8f0';
-                if (descInput) descInput.style.borderColor = '#e2e8f0';
+                if (titleInput) titleInput.style.borderColor = '#BCBEC0';
+                if (descInput) descInput.style.borderColor = '#BCBEC0';
             }
             
             // Update thumbnails
@@ -7559,7 +7645,7 @@ if ($debug_mode) {
                         border-radius: 8px;
                         overflow: hidden;
                         cursor: pointer;
-                        border: ${index === currentExistingVideoIndex ? '3px solid #3b82f6' : '2px solid #e2e8f0'};
+                        border: ${index === currentExistingVideoIndex ? '3px solid #0095DA' : '2px solid #BCBEC0'};
                         transition: all 0.2s;
                     `;
                     
@@ -7576,7 +7662,7 @@ if ($debug_mode) {
                             <div style="position: absolute; bottom: 4px; left: 4px; right: 4px; background: rgba(0,0,0,0.7); color: white; font-size: 10px; padding: 2px 4px; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                 ${video.title || 'Untitled'}
                             </div>
-                            ${existingVideosDirty[video.id] ? '<div style="position: absolute; top: 4px; right: 4px; background: #f59e0b; color: white; border-radius: 50%; width: 12px; height: 12px;"></div>' : ''}
+                            ${existingVideosDirty[video.id] ? '<div style="position: absolute; top: 4px; right: 4px; background: #E5A812; color: white; border-radius: 50%; width: 12px; height: 12px;"></div>' : ''}
                         `;
                     } else {
                         thumbDiv.innerHTML = `
@@ -7584,7 +7670,7 @@ if ($debug_mode) {
                             <div style="position: absolute; bottom: 4px; left: 4px; right: 4px; background: rgba(0,0,0,0.7); color: white; font-size: 10px; padding: 2px 4px; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                 ${video.title || 'Untitled'}
                             </div>
-                            ${existingVideosDirty[video.id] ? '<div style="position: absolute; top: 4px; right: 4px; background: #f59e0b; color: white; border-radius: 50%; width: 12px; height: 12px;"></div>' : ''}
+                            ${existingVideosDirty[video.id] ? '<div style="position: absolute; top: 4px; right: 4px; background: #E5A812; color: white; border-radius: 50%; width: 12px; height: 12px;"></div>' : ''}
                         `;
                     }
                     
@@ -7620,7 +7706,7 @@ if ($debug_mode) {
             const newTitle = document.getElementById('currentVideoTitle').value;
             if (currentVideo && newTitle !== currentVideo.title) {
                 existingVideosDirty[currentVideo.id] = true;
-                document.getElementById('currentVideoTitle').style.borderColor = '#f59e0b';
+                document.getElementById('currentVideoTitle').style.borderColor = '#E5A812';
             }
         }
         
@@ -7629,7 +7715,7 @@ if ($debug_mode) {
             const newDesc = document.getElementById('currentVideoDesc').value;
             if (currentVideo && newDesc !== currentVideo.description) {
                 existingVideosDirty[currentVideo.id] = true;
-                document.getElementById('currentVideoDesc').style.borderColor = '#f59e0b';
+                document.getElementById('currentVideoDesc').style.borderColor = '#E5A812';
             }
         }
         
@@ -7662,12 +7748,12 @@ if ($debug_mode) {
                         delete existingVideosDirty[currentVideo.id];
                         
                         // Update display
-                        document.getElementById('currentVideoTitle').style.borderColor = '#10b981';
-                        document.getElementById('currentVideoDesc').style.borderColor = '#10b981';
+                        document.getElementById('currentVideoTitle').style.borderColor = '#88AC2E';
+                        document.getElementById('currentVideoDesc').style.borderColor = '#88AC2E';
                         
                         setTimeout(() => {
-                            document.getElementById('currentVideoTitle').style.borderColor = '#e2e8f0';
-                            document.getElementById('currentVideoDesc').style.borderColor = '#e2e8f0';
+                            document.getElementById('currentVideoTitle').style.borderColor = '#BCBEC0';
+                            document.getElementById('currentVideoDesc').style.borderColor = '#BCBEC0';
                         }, 1500);
                         
                         displayExistingVideosCarousel();
@@ -7789,7 +7875,7 @@ if ($debug_mode) {
                 
                 // Update status
                 statusDiv.textContent = `Selected: ${selectedThumbnailFile.name} (${(selectedThumbnailFile.size / 1024).toFixed(2)} KB)`;
-                statusDiv.style.color = '#10b981';
+                statusDiv.style.color = '#88AC2E';
                 
                 // Show preview
                 const reader = new FileReader();
@@ -7836,12 +7922,12 @@ if ($debug_mode) {
                     currentVideo.cover_path = data.cover_path;
                     
                     // Flash green
-                    saveBtn.style.background = '#10b981';
+                    saveBtn.style.background = '#88AC2E';
                     saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
                     
                     setTimeout(() => {
                         saveBtn.innerHTML = originalText;
-                        saveBtn.style.background = '#10b981';
+                        saveBtn.style.background = '#88AC2E';
                         saveBtn.disabled = false;
                         updateThumbnailSection();
                         
@@ -7866,7 +7952,7 @@ if ($debug_mode) {
             selectedThumbnailFile = null;
             document.getElementById('videoThumbnailUpload').value = '';
             document.getElementById('thumbnailUploadStatus').textContent = 'No file selected';
-            document.getElementById('thumbnailUploadStatus').style.color = '#64748b';
+            document.getElementById('thumbnailUploadStatus').style.color = '#94958D';
             document.getElementById('newThumbnailPreview').style.display = 'none';
             document.getElementById('saveThumbnailBtn').style.display = 'none';
             document.getElementById('cancelThumbnailBtn').style.display = 'none';
@@ -7900,12 +7986,12 @@ if ($debug_mode) {
                     currentVideo.cover_path = '';
                     
                     // Flash green
-                    removeBtn.style.background = '#10b981';
+                    removeBtn.style.background = '#88AC2E';
                     removeBtn.innerHTML = '<i class="fas fa-check"></i> Removed!';
                     
                     setTimeout(() => {
                         removeBtn.innerHTML = originalText;
-                        removeBtn.style.background = '#ef4444';
+                        removeBtn.style.background = '#FF0000';
                         removeBtn.disabled = false;
                         updateThumbnailSection();
                         
@@ -8124,14 +8210,14 @@ if ($debug_mode) {
                         files.forEach((file, index) => {
                             const fileSize = (file.size / (1024 * 1024)).toFixed(1);
                             const listItem = document.createElement('div');
-                            listItem.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: white; border-radius: 6px; border: 1px solid #e2e8f0;';
+                            listItem.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: white; border-radius: 6px; border: 1px solid #BCBEC0;';
                             listItem.innerHTML = `
-                                <i class="fas fa-video" style="color: #3b82f6; font-size: 20px;"></i>
+                                <i class="fas fa-video" style="color: #0095DA; font-size: 20px;"></i>
                                 <div style="flex: 1; min-width: 0;">
-                                    <div style="font-weight: 500; color: #1e293b; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${file.name}</div>
-                                    <div style="font-size: 12px; color: #64748b;">${fileSize} MB</div>
+                                    <div style="font-weight: 500; color: #000000; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${file.name}</div>
+                                    <div style="font-size: 12px; color: #94958D;">${fileSize} MB</div>
                                 </div>
-                                <span style="background: #dbeafe; color: #1d4ed8; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#${index + 1}</span>
+                                <span style="background: #ECEADB; color: #1d4ed8; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#${index + 1}</span>
                             `;
                             videoList.appendChild(listItem);
                         });
@@ -9020,7 +9106,7 @@ if ($debug_mode) {
                 } else {
                     container.innerHTML = `
                         <div class="activity-item">
-                            <div class="activity-content" style="text-align: center; width: 100%; color: #94a3b8;">
+                            <div class="activity-content" style="text-align: center; width: 100%; color: #BCBEC0;">
                                 No recent activities
                             </div>
                         </div>
@@ -9054,7 +9140,7 @@ if ($debug_mode) {
             statCards.forEach(card => {
                 if (card.textContent === '-') {
                     card.textContent = 'Error';
-                    card.style.color = '#ef4444';
+                    card.style.color = '#FF0000';
                 }
             });
         }
@@ -9195,10 +9281,10 @@ if ($debug_mode) {
                 const totalEvents = Object.values(eventTypes).reduce((a, b) => a + b, 0);
                 const container = document.getElementById('eventTypeChart');
                 const colors = {
-                    special: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
-                    training: 'linear-gradient(90deg, #f093fb 0%, #f5576c 100%)',
+                    special: 'linear-gradient(90deg, #6F2C91 0%, #3D1063 100%)',
+                    training: 'linear-gradient(90deg, #EC008C 0%, #C40063 100%)',
                     meeting: 'linear-gradient(90deg, #4facfe 0%, #00f2fe 100%)',
-                    competition: 'linear-gradient(90deg, #fa709a 0%, #fee140 100%)'
+                    competition: 'linear-gradient(90deg, #EC008C 0%, #FFD400 100%)'
                 };
                 
                 container.innerHTML = Object.entries(eventTypes).map(([type, count]) => {
@@ -10467,8 +10553,8 @@ if ($debug_mode) {
                     // Update tab styles
                     tabs.forEach(t => {
                         t.classList.remove('active');
-                        t.style.backgroundColor = '#f1f5f9';
-                        t.style.color = '#475569';
+                        t.style.backgroundColor = '#ECEADB';
+                        t.style.color = '#636359';
                     });
                     
                     // Update tab content visibility
@@ -10479,7 +10565,7 @@ if ($debug_mode) {
                     
                     // Activate selected tab
                     this.classList.add('active');
-                    this.style.backgroundColor = '#3b82f6';
+                    this.style.backgroundColor = '#0095DA';
                     this.style.color = 'white';
                     
                     // Show selected content
@@ -10743,13 +10829,13 @@ if ($debug_mode) {
             }
             
             if (infoBtn) {
-                infoBtn.style.backgroundColor = '#f1f5f9';
-                infoBtn.style.color = '#475569';
+                infoBtn.style.backgroundColor = '#ECEADB';
+                infoBtn.style.color = '#636359';
                 infoBtn.classList.remove('active');
             }
             
             if (securityBtn) {
-                securityBtn.style.backgroundColor = '#3b82f6';
+                securityBtn.style.backgroundColor = '#0095DA';
                 securityBtn.style.color = 'white';
                 securityBtn.classList.add('active');
             }
@@ -10777,13 +10863,13 @@ if ($debug_mode) {
             }
             
             if (securityBtn) {
-                securityBtn.style.backgroundColor = '#f1f5f9';
-                securityBtn.style.color = '#475569';
+                securityBtn.style.backgroundColor = '#ECEADB';
+                securityBtn.style.color = '#636359';
                 securityBtn.classList.remove('active');
             }
             
             if (infoBtn) {
-                infoBtn.style.backgroundColor = '#3b82f6';
+                infoBtn.style.backgroundColor = '#0095DA';
                 infoBtn.style.color = 'white';
                 infoBtn.classList.add('active');
             }
@@ -10881,3 +10967,10 @@ if ($debug_mode) {
     <script src="../scripts/admin-components/participants-documents.js?v=<?php echo time() . rand(1000, 9999); ?>"></script>
 </body>
 </html>
+
+
+
+
+
+
+

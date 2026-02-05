@@ -95,7 +95,7 @@ try {
         break;
 
     case 'fetch':
-        $sql = "SELECT id, title, description, image_path, display_order, created_at FROM sports ORDER BY display_order ASC, id ASC";
+        $sql = "SELECT id, title, description, image_path, display_order, is_visible, created_at FROM sports ORDER BY display_order ASC, id ASC";
         $result = $conn->query($sql);
 
         $sports = [];

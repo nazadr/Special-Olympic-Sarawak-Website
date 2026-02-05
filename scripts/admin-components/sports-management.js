@@ -1,4 +1,7 @@
 // Sports Management JavaScript for Admin Panel
+// Global allSports array for visibility toggle access
+window.allSports = [];
+
 document.addEventListener('DOMContentLoaded', function() {
     const existingSportsContainer = document.getElementById('existingSports');
     const sportForm = document.getElementById('sportForm');
@@ -54,9 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     allSports = data.sports || [];
+                    window.allSports = allSports; // Update global reference
                     renderSports(allSports);
                 } else {
                     allSports = [];
+                    window.allSports = []; // Update global reference
                     showEmptyState();
                 }
             })
@@ -117,6 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="sport-order-badge">#${sport.display_order}</span>
                     </div>
                     <p class="sport-card-description">${sport.description}</p>
+                    <div class="sport-visibility-control">
+                        <label class="visibility-toggle">
+                            <input type="checkbox" class="visibility-checkbox" data-id="${sport.id}" ${sport.is_visible == 1 ? 'checked' : ''}>
+                            <span class="visibility-slider"></span>
+                        </label>
+                        <span class="visibility-label">${sport.is_visible == 1 ? 'Visible' : 'Hidden'}</span>
+                    </div>
                     <div class="sport-card-actions">
                         <button class="sport-action-btn edit" data-id="${sport.id}">
                             <i class="fas fa-edit"></i> Edit
@@ -141,6 +153,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="sport-order-badge">#${sport.display_order}</span>
                     </div>
                     <p class="sport-item-description">${sport.description}</p>
+                    <div class="sport-visibility-control">
+                        <label class="visibility-toggle">
+                            <input type="checkbox" class="visibility-checkbox" data-id="${sport.id}" ${sport.is_visible == 1 ? 'checked' : ''}>
+                            <span class="visibility-slider"></span>
+                        </label>
+                        <span class="visibility-label">${sport.is_visible == 1 ? 'Visible' : 'Hidden'}</span>
+                    </div>
                     <div class="sport-item-actions">
                         <button class="sport-action-btn edit" data-id="${sport.id}">
                             <i class="fas fa-edit"></i> Edit
@@ -203,6 +222,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function attachButtonListeners() {
+        // Visibility toggle checkboxes
+        document.querySelectorAll('.visibility-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const sportId = this.getAttribute('data-id');
+                const isVisible = this.checked ? 1 : 0;
+                toggleSportVisibility(sportId, isVisible, this);
+            });
+        });
+
         // Edit buttons
         document.querySelectorAll('.sport-action-btn.edit').forEach(button => {
             button.addEventListener('click', function() {
@@ -450,6 +478,80 @@ function closeSportModal() {
     const modal = document.getElementById('sportModal');
     modal.classList.remove('show');
     modal.style.display = 'none';
+}
+
+// Toggle sport visibility function
+function toggleSportVisibility(sportId, isVisible, checkbox) {
+    const visibilityLabel = checkbox.closest('.sport-visibility-control').querySelector('.visibility-label');
+    const originalState = checkbox.checked;
+    const originalText = visibilityLabel.textContent;
+    
+    // Update UI immediately for better UX
+    visibilityLabel.textContent = isVisible ? 'Visible' : 'Hidden';
+    
+    console.log('Toggling visibility:', { sportId, isVisible });
+    
+    fetch('handler/toggle_sport_visibility.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            sport_id: sportId,
+            is_visible: isVisible
+        })
+    })
+    .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+    })
+    .then(data => {
+        console.log('Response data:', data);
+        if (data.success) {
+            // Update the sport in allSports array
+            const sportIndex = window.allSports?.findIndex(s => s.id == sportId);
+            if (sportIndex !== -1 && window.allSports) {
+                window.allSports[sportIndex].is_visible = isVisible;
+            }
+            
+            // Show success message
+            showVisibilityMessage(data.message, 'success');
+        } else {
+            // Revert checkbox and label on error
+            checkbox.checked = !originalState;
+            visibilityLabel.textContent = originalText;
+            showVisibilityMessage(data.message || 'Failed to update visibility', 'error');
+            console.error('Toggle failed:', data.message);
+        }
+    })
+    .catch(error => {
+        // Revert checkbox and label on error
+        checkbox.checked = !originalState;
+        visibilityLabel.textContent = originalText;
+        showVisibilityMessage('Network error: ' + error.message, 'error');
+        console.error('Network error:', error);
+    });
+}
+
+function showVisibilityMessage(message, type) {
+    // Create or update message element
+    let messageEl = document.querySelector('.visibility-message');
+    if (!messageEl) {
+        messageEl = document.createElement('div');
+        messageEl.className = 'visibility-message';
+        const container = document.querySelector('.sport-management-container');
+        if (container) {
+            container.insertBefore(messageEl, container.firstChild);
+        }
+    }
+    
+    messageEl.textContent = message;
+    messageEl.className = `visibility-message ${type}`;
+    messageEl.style.display = 'block';
+    
+    setTimeout(() => {
+        messageEl.style.display = 'none';
+    }, 3000);
 }
 
 // Close modal when clicking outside

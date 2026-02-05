@@ -9,8 +9,8 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Fetch sports from database, ordered by display_order
-    $stmt = $pdo->prepare("SELECT * FROM sports ORDER BY display_order ASC, id ASC");
+    // Fetch only visible sports from database, ordered by display_order
+    $stmt = $pdo->prepare("SELECT * FROM sports WHERE is_visible = 1 ORDER BY display_order ASC, id ASC");
     $stmt->execute();
     $sports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     

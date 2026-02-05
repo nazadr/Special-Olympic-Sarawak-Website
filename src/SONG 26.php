@@ -303,17 +303,22 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
 
         /* Color-code each tier inside the hero sponsors card */
         .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(2) .song26-hero-sponsor-tier-label {
+            /* Mid Blue */
+            color: #0063A5;
+        }
+        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(3) .song26-hero-sponsor-tier-label {
             /* Platinum - light metallic */
             color: #666161c4;
         }
-        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(3) .song26-hero-sponsor-tier-label {
+        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(4) .song26-hero-sponsor-tier-label {
             /* Gold */
             color: #D4AF37;
         }
-        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(4) .song26-hero-sponsor-tier-label {
+        .song26-hero-sponsors > .song26-hero-sponsor-tier:nth-child(5) .song26-hero-sponsor-tier-label {
             /* Silver */
             color: #B0B0B0;
         }
+        
 
         .song26-hero-sponsor-logos {
             display: flex;
@@ -1725,9 +1730,19 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
             box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
         }
 
-        /* Desktop: Hide inline venue details */
+        /* Desktop: Show inline venue details */
         .song26-venue-details {
-            display: none;
+            display: block;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .song26-venue-details.active {
+            max-height: 2000px;
+            margin-top: 20px;
+            opacity: 1;
         }
 
         /* Desktop: Shared Bubble Card */
@@ -2205,6 +2220,15 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
         <!-- Sponsor Showcase - Desktop Only -->
         <div class="song26-hero-sponsors">
             <div class="song26-hero-sponsors-title">Proudly Supported By</div>
+
+            <div class="song26-hero-sponsor-tier">
+                <div class="song26-hero-sponsor-tier-label">Pinnacle Sponsor</div>
+                <div class="song26-hero-sponsor-logos">
+                    <div class="song26-hero-sponsor-item">
+                        <div class="song26-hero-sponsor-placeholder">Bintulu Port Holdings Berhad</div>
+                    </div>
+                </div>
+            </div>
             
             <div class="song26-hero-sponsor-tier">
                 <div class="song26-hero-sponsor-tier-label">Platinum</div>
@@ -2557,19 +2581,19 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     </div>
                                     <div class="song26-venue-title">
                                         <h3>Bocce</h3>
-                                        <p>Stadium Muhibah</p>
+                                        <p>Stadium Muhibbah</p>
                                     </div>
                                 </div>
                                 <div class="song26-venue-info">
-                                    <p><i class="fas fa-map-marker-alt"></i> Stadium Muhibah, 97000 Bintulu, Sarawak</p>
-                                    <p><i class="fas fa-info-circle"></i> Multi-purpose stadium with bocce facilities</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Stadium Muhibbah, 97000 Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Indoor stadium with bocce facilities</p>
                                 </div>
                                 <div class="song26-venue-grid">
                                     <div class="song26-venue-section">
                                         <h4><i class="fas fa-map"></i> Location Map</h4>
                                         <iframe 
                                             class="song26-venue-map"
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0456789456784!2d113.03778767496546!3d3.1798936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d570abcdefabc%3A0x3c4d5e6f7a8b9c0d!2sStadium%20Muhibah!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5483282507394!2d113.05480387567599!3d3.2125615527581304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc17a7c7ffeb9%3A0xf7ce3c468f0e60d!2sStadium%20Muhibbah(Indoor)!5e0!3m2!1sen!2smy!4v1770259440977!5m2!1sen!2smy"
                                             allowfullscreen="" 
                                             loading="lazy">
                                         </iframe>
@@ -2662,14 +2686,14 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                 </div>
                                 <div class="song26-venue-info">
                                     <p><i class="fas fa-map-marker-alt"></i> Kelab Kidurong, Kidurong, 97000 Bintulu, Sarawak</p>
-                                    <p><i class="fas fa-info-circle"></i> Sports club with futsal and football facilities</p>
+                                    <p><i class="fas fa-info-circle"></i> Sports club with football facilities</p>
                                 </div>
                                 <div class="song26-venue-grid">
                                     <div class="song26-venue-section">
                                         <h4><i class="fas fa-map"></i> Location Map</h4>
                                         <iframe 
                                             class="song26-venue-map"
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.2345678901234!2d113.06903457496546!3d3.1512936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d5623456789ab%3A0x5e6f7a8b9c0d1e2f!2sKelab%20Sukan%20Kidurong!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.608711179252!2d113.0593665889733!3d3.222585781328405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc12e7c119201%3A0x4d236df68bfa9d58!2sKelab%20Kidurong%20Bintulu!5e0!3m2!1sen!2smy!4v1770257444776!5m2!1sen!2smy"
                                             allowfullscreen="" 
                                             loading="lazy">
                                         </iframe>
@@ -2707,19 +2731,19 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                                     </div>
                                     <div class="song26-venue-title">
                                         <h3>Table Tennis</h3>
-                                        <p>Dinner World Restaurant (Ground Floor)</p>
+                                        <p>Dewan Serbaguna Taman Sri Pelabuhan</p>
                                     </div>
                                 </div>
                                 <div class="song26-venue-info">
-                                    <p><i class="fas fa-map-marker-alt"></i> Dinner World Restaurant, Ground Floor, Bintulu, Sarawak</p>
-                                    <p><i class="fas fa-info-circle"></i> Indoor venue with table tennis facilities</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Dewan Serbaguna Taman Sri Pelabuhan, Bintulu, Sarawak</p>
+                                    <p><i class="fas fa-info-circle"></i> Multi-purpose hall with table tennis facilities</p>
                                 </div>
                                 <div class="song26-venue-grid">
                                     <div class="song26-venue-section">
                                         <h4><i class="fas fa-map"></i> Location Map</h4>
                                         <iframe 
                                             class="song26-venue-map"
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0876543210984!2d113.04347897496546!3d3.1734936968650577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321d571abcd12345%3A0x6f7a8b9c0d1e2f3a!2sDinner%20World%20Restaurant!5e0!3m2!1sen!2smy!4v1738605100000!5m2!1sen!2smy"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d512.5618164484!2d113.11124355965345!3d3.157500998586102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2smy!4v1770257408780!5m2!1sen!2smy"
                                             allowfullscreen="" 
                                             loading="lazy">
                                         </iframe>
@@ -3428,11 +3452,11 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 },
                 bocce: {
                     name: 'Bocce',
-                    venue: 'Kelab Kidurong Bintulu',
+                    venue: 'Stadium Muhibbah',
                     icon: 'fa-circle',
-                    address: 'Kelab Kidurong, Kidurong, 97000 Bintulu, Sarawak',
-                    description: 'Sports club with bocce facilities',
-                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5110367035927!2d113.05786167567597!3d3.222103452698371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc12e7c119201%3A0x4d236df68bfa9d58!2sKelab%20Kidurong%20Bintulu!5e0!3m2!1sen!2smy!4v1770103213555!5m2!1sen!2smy'
+                    address: 'Stadium Muhibbah, 97000 Bintulu, Sarawak',
+                    description: 'Indoor stadium with bocce facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5483282507394!2d113.05480387567599!3d3.2125615527581304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc17a7c7ffeb9%3A0xf7ce3c468f0e60d!2sStadium%20Muhibbah(Indoor)!5e0!3m2!1sen!2smy!4v1770259440977!5m2!1sen!2smy'
                 },
                 bowling: {
                     name: 'Ten-Pin Bowling',
@@ -3444,19 +3468,19 @@ $isStandalone = isset($_GET['standalone']) && $_GET['standalone'] == '1';
                 },
                 football: {
                     name: 'Unified Football 5-A-Side',
-                    venue: 'Stadium Muhibbah',
+                    venue: 'Kelab Kidurong Bintulu',
                     icon: 'fa-futbol',
-                    address: 'Stadium Muhibbah, 97000 Bintulu, Sarawak',
-                    description: 'Indoor stadium with futsal and football facilities',
-                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5483282507394!2d113.05480387567599!3d3.2125615527581304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc17a7c7ffeb9%3A0xf7ce3c468f0e60d!2sStadium%20Muhibah(Indoor)!5e0!3m2!1sen!2smy!4v1770103238486!5m2!1sen!2smy'
+                    address: 'Kelab Kidurong, Kidurong, 97000 Bintulu, Sarawak',
+                    description: 'Sports club with football facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.608711179252!2d113.0593665889733!3d3.222585781328405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc12e7c119201%3A0x4d236df68bfa9d58!2sKelab%20Kidurong%20Bintulu!5e0!3m2!1sen!2smy!4v1770257444776!5m2!1sen!2smy'
                 },
                 tabletennis: {
                     name: 'Table Tennis',
-                    venue: 'Dinner World Restaurant (Ground Floor)',
+                    venue: 'Dewan Serbaguna Taman Sri Pelabuhan',
                     icon: 'fa-table-tennis',
-                    address: 'Dinner World Restaurant, Ground Floor, Bintulu, Sarawak',
-                    description: 'Indoor venue with table tennis facilities',
-                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5841482317765!2d113.05852547567581!3d3.2033694528155046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc172aa8304ab%3A0xf6614b9214f516d9!2sDinner%20World%20Restaurant%20By%20Highlands%20Seafood!5e0!3m2!1sen!2smy!4v1770103301292!5m2!1sen!2smy'
+                    address: 'Dewan Serbaguna Taman Sri Pelabuhan, Bintulu, Sarawak',
+                    description: 'Multipurpose hall with table tennis facilities',
+                    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d512.5618164484!2d113.11124355965345!3d3.157500998586102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2smy!4v1770257408780!5m2!1sen!2smy'
                 }
             };
             
