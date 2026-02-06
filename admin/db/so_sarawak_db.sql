@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2026 at 02:57 AM
+-- Generation Time: Feb 06, 2026 at 01:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -345,8 +345,6 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `image_path`, `headline`, `news_date`, `description`, `created_at`) VALUES
-(6, '../assets/images/news_uploads/88931f16a199bd5a5fb88839668568e2.jpg', 'Bintulu Marathon 2025', '2025-08-03', 'Bintulu Marathon 2025', '2025-08-26 02:35:45'),
-(7, '../assets/images/news_uploads/505cbb515bcaa601fe6878531516ab21.jpg', 'Bintulu Port', '2025-10-30', 'Bintulu Marathon', '2025-10-30 06:33:55'),
 (13, '../assets/images/news_uploads/809a869a2f7a4b861013478ee32a5d9c.jpg', 'Additional News', '2025-12-12', 'Addition of SO National Games News', '2025-12-12 00:59:12'),
 (14, '../assets/images/news_uploads/b78a617363b08ab42b67eaaa1db88af7.jpg', 'Healthy Program', '2026-01-07', 'Program was conducted aimed to improve the health awareness of the participants', '2026-01-08 01:28:57');
 
@@ -505,6 +503,7 @@ CREATE TABLE `sports` (
   `description` text NOT NULL,
   `image_path` varchar(255) DEFAULT NULL,
   `display_order` int(11) DEFAULT 0,
+  `is_visible` tinyint(1) DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -513,20 +512,20 @@ CREATE TABLE `sports` (
 -- Dumping data for table `sports`
 --
 
-INSERT INTO `sports` (`id`, `title`, `description`, `image_path`, `display_order`, `created_at`, `updated_at`) VALUES
-(1, 'Athletics', 'Track and field events including sprints, relays, jumps and throws', 'https://akm-img-a-in.tosshub.com/sites/media2/indiatoday/images/stories/2015July/special-olympic-5_072515021147.jpg', 2, '2025-12-01 01:12:54', '2026-01-14 07:42:29'),
-(2, 'Aquatics', 'Individual and team aquatic sport with various strokes and distances', '../assets/images/Aquatics_sport.jpg', 1, '2025-12-01 01:12:54', '2026-01-14 07:42:29'),
-(3, 'Badminton', 'Fast-paced racquet sport played individually or in doubles', 'https://www.businesstoday.com.my/wp-content/uploads/2025/05/badminton.png', 4, '2025-12-01 01:12:54', '2025-12-19 08:29:10'),
-(4, 'Basketball', 'Team sport with dribbling, passing and shooting skills', 'https://dotorg.brightspotcdn.com/dims4/default/ee9e8a5/2147483647/strip/true/crop/800x450+0+42/resize/800x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F79%2F2c%2Fdff376344b05bacc6cc4a6108434%2Fandrew-marquise.JPG', 3, '2025-12-01 01:12:54', '2025-12-19 08:29:10'),
-(5, 'Bocce', 'Traditional precision ball sport with strategy and skill', 'https://www.weekly-echo.com/wp-content/uploads/2023/06/special-olympics-bocce-nurul-1.jpg', 7, '2025-12-01 01:12:54', '2026-01-14 03:19:07'),
-(6, 'Bowling', 'Popular sport combining fun and skill with lane strategy', '../assets/images/sports/692cef5e17cac_SO_bowling.jpg', 5, '2025-12-01 01:12:54', '2025-12-15 07:20:21'),
-(7, 'Floorball', 'Fast indoor team sport similar to floor hockey', 'https://www.specialolympicsmalaysia.org/images/FIH%20Hockey/FIH-SOM%20FIH%20ID-Hockey2.png', 6, '2025-12-01 01:12:54', '2026-01-14 03:19:07'),
-(8, 'Football', 'The world\'s most popular sport', 'https://jpwpl.gov.my/sanasini/wp-content/uploads/2017/11/olympiad-smklajau-768x448.jpg', 8, '2025-12-01 01:12:54', '2025-12-01 06:12:00'),
-(9, 'Judo', 'Martial art focusing on throws and grappling techniques', '../assets/images/sports/692cefaeed625_SO_judo.jpg', 12, '2025-12-01 01:12:54', '2025-12-18 07:21:38'),
-(10, 'Netball', 'Fast-paced team sport similar to basketball', 'https://www.thestatesman.com/wp-content/uploads/2018/08/net-ball.jpg', 9, '2025-12-01 01:12:54', '2025-12-01 06:12:02'),
-(11, 'Swimming', 'Individual and team aquatic sport with various strokes and distances', 'https://dotorg.brightspotcdn.com/ac/e1/a4297c14411e803691dafbd93b26/1300x680-aquatics.jpg', 10, '2025-12-01 01:12:54', '2025-12-16 02:11:01'),
-(12, 'Tennis', 'Racquet sport played individually or in doubles on a court', '../assets/images/sports/692cefb9f18b2_SO_tennis.jpg', 13, '2025-12-01 01:12:54', '2026-01-14 03:19:55'),
-(13, 'Table Tennis', 'Fast-paced indoor racquet sport played on a table', 'https://dotorg.brightspotcdn.com/dims4/default/612aa0c/2147483647/strip/true/crop/2160x1440+0+0/resize/800x533!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F0a%2F60%2F7dad13d84fb9bcb4fa8eac7baaae%2Fsbr0078.jpg', 11, '2025-12-01 01:12:54', '2025-12-18 07:21:38');
+INSERT INTO `sports` (`id`, `title`, `description`, `image_path`, `display_order`, `is_visible`, `created_at`, `updated_at`) VALUES
+(1, 'Athletics', 'Track and field events including sprints, relays, jumps and throws', 'https://akm-img-a-in.tosshub.com/sites/media2/indiatoday/images/stories/2015July/special-olympic-5_072515021147.jpg', 1, 1, '2025-12-01 01:12:54', '2026-02-05 01:02:23'),
+(2, 'Aquatics', 'Individual and team aquatic sport with various strokes and distances', '../assets/images/Aquatics_sport.jpg', 2, 1, '2025-12-01 01:12:54', '2026-02-05 01:19:03'),
+(3, 'Badminton', 'Fast-paced racquet sport played individually or in doubles', 'https://www.businesstoday.com.my/wp-content/uploads/2025/05/badminton.png', 4, 1, '2025-12-01 01:12:54', '2025-12-19 08:29:10'),
+(4, 'Basketball', 'Team sport with dribbling, passing and shooting skills', 'https://dotorg.brightspotcdn.com/dims4/default/ee9e8a5/2147483647/strip/true/crop/800x450+0+42/resize/800x450!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F79%2F2c%2Fdff376344b05bacc6cc4a6108434%2Fandrew-marquise.JPG', 3, 1, '2025-12-01 01:12:54', '2026-02-05 01:27:11'),
+(5, 'Bocce', 'Traditional precision ball sport with strategy and skill', 'https://www.weekly-echo.com/wp-content/uploads/2023/06/special-olympics-bocce-nurul-1.jpg', 7, 1, '2025-12-01 01:12:54', '2026-01-14 03:19:07'),
+(6, 'Bowling', 'Popular sport combining fun and skill with lane strategy', '../assets/images/sports/692cef5e17cac_SO_bowling.jpg', 5, 1, '2025-12-01 01:12:54', '2026-02-05 01:27:19'),
+(7, 'Floorball', 'Fast indoor team sport similar to floor hockey', 'https://www.specialolympicsmalaysia.org/images/FIH%20Hockey/FIH-SOM%20FIH%20ID-Hockey2.png', 6, 0, '2025-12-01 01:12:54', '2026-02-05 01:27:21'),
+(8, 'Football', 'The world\'s most popular sport', 'https://jpwpl.gov.my/sanasini/wp-content/uploads/2017/11/olympiad-smklajau-768x448.jpg', 8, 1, '2025-12-01 01:12:54', '2025-12-01 06:12:00'),
+(9, 'Judo', 'Martial art focusing on throws and grappling techniques', '../assets/images/sports/692cefaeed625_SO_judo.jpg', 12, 0, '2025-12-01 01:12:54', '2026-02-05 01:27:39'),
+(10, 'Netball', 'Fast-paced team sport similar to basketball', 'https://www.thestatesman.com/wp-content/uploads/2018/08/net-ball.jpg', 9, 0, '2025-12-01 01:12:54', '2026-02-05 01:27:31'),
+(11, 'Swimming', 'Individual and team aquatic sport with various strokes and distances', 'https://dotorg.brightspotcdn.com/ac/e1/a4297c14411e803691dafbd93b26/1300x680-aquatics.jpg', 10, 0, '2025-12-01 01:12:54', '2026-02-05 01:27:35'),
+(12, 'Tennis', 'Racquet sport played individually or in doubles on a court', '../assets/images/sports/692cefb9f18b2_SO_tennis.jpg', 13, 0, '2025-12-01 01:12:54', '2026-02-05 01:27:41'),
+(13, 'Table Tennis', 'Fast-paced indoor racquet sport played on a table', 'https://dotorg.brightspotcdn.com/dims4/default/612aa0c/2147483647/strip/true/crop/2160x1440+0+0/resize/800x533!/quality/90/?url=http%3A%2F%2Fsoi-brightspot.s3.amazonaws.com%2Fdotorg%2F0a%2F60%2F7dad13d84fb9bcb4fa8eac7baaae%2Fsbr0078.jpg', 11, 1, '2025-12-01 01:12:54', '2025-12-18 07:21:38');
 
 -- --------------------------------------------------------
 
@@ -615,7 +614,7 @@ CREATE TABLE `volunteers` (
 --
 
 INSERT INTO `volunteers` (`id`, `excel_row_id`, `full_name`, `email`, `phone`, `date_of_birth`, `gender`, `chapter`, `volunteer_role`, `skills`, `availability`, `previous_volunteer_experience`, `emergency_contact_name`, `emergency_contact_phone`, `registration_date`, `status`, `notes`, `excel_filename`, `created_at`, `updated_at`) VALUES
-(8, 2, 'Jessica Wong', 'jessica.w@example.com', '112223344', '1995-03-20', 'Female', 'Kuching', 'Event Coordinator, Photographer', 'Photography, Event Planning', 'Weekends', '2 years at Red Cross', 'Richard Wong', '123334455', '2025-01-06 08:00:00', 'pending', NULL, 'volunteers_20260123_032829.xlsx', '2026-01-23 02:28:30', '2026-01-23 02:28:30'),
+(8, 2, 'Jessica Wong', 'jessica.w@example.com', '112223344', '1995-03-20', 'Female', 'Kuching', 'Event Coordinator, Photographer', 'Photography, Event Planning', 'Weekends', '2 years at Red Cross', 'Richard Wong', '123334455', '2025-01-06 08:00:00', 'approved', NULL, 'volunteers_20260123_032829.xlsx', '2026-01-23 02:28:30', '2026-02-05 01:57:38'),
 (9, 3, 'Daniel Lee', 'daniel.lee@example.com', '134445566', '1992-07-15', 'Male', 'Miri', 'Transportation, Setup Crew', 'Driving, Manual Labor', 'Flexible', 'First time volunteering', 'Susan Lee', '145556677', '2025-01-06 08:30:00', 'approved', NULL, 'volunteers_20260123_032829.xlsx', '2026-01-23 02:28:30', '2026-01-23 03:22:46'),
 (10, 4, 'Fatimah Zahra', 'fatimah.z@example.com', '156667788', '1998-11-02', 'Female', 'Sibu', 'Medical Support, First Aid', 'Nursing, First Aid Certified', 'Mon-Fri Mornings', '3 years at Hospital Volunteer', 'Ahmad Zahra', '167778899', '2025-01-06 09:00:00', 'pending', NULL, 'volunteers_20260123_032829.xlsx', '2026-01-23 02:28:30', '2026-01-23 02:28:30'),
 (11, 5, 'Kevin Tan', 'kevin.tan@example.com', '178889900', '1990-05-28', 'Male', 'Bintulu', 'IT Support, Registration Desk', 'IT, Computer Skills', 'Weekends', 'Volunteer at Tech Event', 'Mary Tan', '189990011', '2025-01-06 09:30:00', 'pending', NULL, 'volunteers_20260123_032829.xlsx', '2026-01-23 02:28:30', '2026-01-23 02:28:30'),
